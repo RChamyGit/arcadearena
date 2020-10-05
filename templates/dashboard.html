@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Istok+Web|Roboto+Condensed:700' rel='stylesheet'
+          type='text/css'>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+            integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+    <style>
+button:active {
+outline: none;
+border: none;
+}
+
+button:focus {outline:0;}
+
+*:focus {outline:none !important}
+
+:active {
+   outline:none !important;
+}
+
+
+.custom-select:focus {
+  outline:none;
+    border:none;
+    box-shadow:none;
+}
+
+
+
+
+
+
+
+    body{
+      background:#6C15BD;
+     display:flex; flex-direction:column; justify-content:center;
+  height:100vh;
+    height:100vh;}
+
+
+    .middleBox{
+
+      width:640px;
+    }
+    .page_title{
+    width:250px;
+     display:flex; flex-direction:column; justify-content:center;
+  height:100%;
+
+    }
+
+    .page_title h1{
+    font-family: 'Holtwood One SC', serif;
+    color:#B394D0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,.8);
+    opacity:.2;
+    }
+
+
+
+    .page_title p{
+     font-family: "Abel", sans-serif;
+     text-transform: uppercase;
+     letter-spacing:10px;
+     color:rgba(255,49,109,0.5);
+     font-weight:700;
+     opacity:.6;
+
+     }
+        .bg_dashboard{
+        position:absolute;
+        overflow:hidden;
+        filter:blur(2px);
+        width:100%;
+        height:100%;
+        z-index:-9999;}
+
+        .bg_dashboard img{
+        width:100%;
+        min-width:1440px;
+        }
+
+        .mainMenu{
+  margin:0;
+  padding:0;
+  width:100%;
+
+        }
+        .menuList{
+        list-style-type: none;
+
+         margin:0;
+  padding:0;
+        }
+
+        .menuItem{
+        margin:0 auto;
+
+         display:flex; flex-direction:column; justify-content:center;
+          background:rgba(179,148,208,0.08);
+          border-radius:5px;
+          margin:6px;
+
+    box-shadow: 2px 2px 8px rgba(0,0,0,.11);
+        cursor:pointer;
+        height:60px;
+       width:250px;
+color:rgba(255,255,255,0.3);
+font-family: "Abel", sans-serif;
+        }
+        .menuItem a{
+
+       }
+         .menuItem a:hover{
+         text-decoration:none;
+        }
+
+        .menuItem:hover{
+        color:rgba(255,255,255,.7);
+          background:rgba(0,0,0,0.22);
+         }
+.modal-title i{
+padding-right:19px;
+margin-top:-10px;
+}
+
+.modal-title {
+padding-top:20px;
+padding-left:60px;
+margin-left:20px;
+color: rgba(255,255,255,0.66);
+}
+
+#bg_partida{
+
+}
+
+
+
+
+
+.ads-on{
+position:absolute;
+padding:0;
+right:0;
+width:auto;
+height:100%;
+padding:30px;
+background:none;}
+
+
+
+.boxCollapse{
+overflow:scroll;
+ background:transparent;
+ font-family: "Abel", sans-serif;
+ font-size:14px;
+  color:rgba(255,255,255,0.3);
+text-transform: uppercase;
+
+}
+
+
+.boxCollapse li{
+margin:9px;
+padding-right:20px;
+
+
+}
+
+.boxColl {
+color:#8F52C8;
+}
+
+.boxColl:hover {
+color:#8F52C8;
+text-decoration:none;
+}
+
+ul {
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+
+}
+
+
+#table1{
+border-top: 2px solid #BD1501;
+height:200px;
+max-height:300px;}
+
+#table1 p{
+color:#BD1501;
+}
+#table2{
+border-top: 2px solid #ff8000;
+height:200px;
+max-height:300px;}
+
+#table2 p{
+color:#ff8000;
+}
+
+#table3{
+border-top: 2px solid #01BD43;
+height:200px;
+max-height:300px;}
+
+#table3 p{
+color:#01BD43;
+}
+.cardTitle{
+
+color:#23073D;
+padding:15px;
+font-size:9px;
+letter-spacing:5px;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: none;
+
+}
+.table-dark {
+    color: #fff;
+    background-color: rgba(0,0,0,.5);
+    opacity:.7;
+    font-size:14px;
+
+}
+
+#bg_partida{
+height:400px;
+}
+
+.containerPartida{
+height:230px;
+ display:flex; flex-direction:column; justify-content:center;
+ font-family: "Abel", sans-serif;
+color:rgba(255,255,255,0.5);
+
+ }
+#datePartidabutton{
+width:100%;
+}
+
+.wrapButton{
+  margin: 0 auto;}
+
+.alert{
+padding:6px;
+font-size:9px;
+    cursor:pointer;
+}
+.bgRed{
+background:#BD1EAB;
+color:#fff;
+}
+.colorRed{
+color:#BD1501;
+
+}
+
+.bgOrange{
+background:#BDA028;}
+
+.bgGreen{
+background:#4E0F8A;
+color:#fff;
+}
+.year{
+
+padding:0
+}
+
+.transparent{
+color:rgba(255,255,255,.4);
+padding:10px;
+font-family: "Abel", sans-serif;
+
+background:none;
+border:0;}
+
+.transparent i{
+padding-left:30px;
+color:rgba(255,255,255,.4);
+font-size:22px;
+margin-bottom:20px;
+}
+
+.transparent:hover{
+color:rgba(255,255,255,.3);
+text-decoration:none;}
+
+.collapse .show{
+height:450px;
+
+}
+
+.modal-content{
+      background:#6C15BD;
+
+}
+.modal-body{
+padding: 1rem;
+ }
+
+.modal-header{
+font-family: "Abel", sans-serif;
+color:rgba(255,255,255,0.5);
+border:none;
+text-align: center;
+
+}
+
+.modal-header h5{
+font-size:30px;
+text-align: center;
+margin:0 auto;
+}
+
+.modal-header button{
+color:rgba(255,255,255,0.5);
+font-size:30px;
+
+}
+
+.modal-header button:hover{
+color:rgba(255,255,255,0.5);
+transition:  ease-in-out 0.5s
+}
+
+.custom-select{
+background:rgba(255,255,255,0.12);
+color:rgba(255,255,255,0.6);
+font-family: "Abel", sans-serif;
+border:0;
+
+}
+
+.nav-tabs{
+ background:#6C15BD;
+ color:rgba(255,255,255,0.8);
+font-family: "Abel", sans-serif;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+     background:#6C15BD;
+    border: none;
+     color:rgba(255,255,255,0.8);
+
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border:0;
+     color:rgba(255,255,255,0.8);
+}
+
+
+.nav a{
+ color:rgba(255,255,255,0.5);
+margin:0 auto;
+font-size:12px;
+
+}
+
+.modalItem{
+color:rgba(255,255,255,0.8);
+}
+
+.modalItem button{
+font-family: "Abel", sans-serif;
+color:rgba(255,255,255,0.8);
+background:none;
+border:2px solid rgba(255,255,255,0.8);
+}
+
+.modalItem button:hover{
+background:#AA0DD4;
+border:2px solid #AA0DD4;
+}
+
+.equipeBox{
+background: rgba(255,255,255,0.2);
+padding:10px;
+width:100%;
+margin-bottom:15px;
+justify-content:center;
+margin-top:10px;
+}
+
+.input-group{
+margin-top:15px;
+}
+.buttonArcade{
+ background:#6C15BD;
+ border:0;
+ font-size:12px;
+ color:rgba(255,255,255,0.8);
+}
+
+
+
+btn-primary.focus, .btn-primary:focus {
+    color: #fff;
+    background:#AA0DD4;
+border:none;
+    box-shadow: 0 0 0 0.2rem rgba(38,143,255,.5);
+}
+
+.seguir{
+margin-top:25px;
+ background:#6C15BD;
+ border:0;
+ font-size:15px;
+ color:rgba(255,255,255,0.8);
+ cursor:pointer;
+
+ padding:20px;
+}
+.seguirBox{
+ margin-top:20px;
+}
+.seguir:hover{
+ color:rgba(255,255,255,0.8);
+ text-decoration:none;
+}
+
+
+
+.collapse .show {
+    height: auto;
+}
+
+
+.groupSel{
+font-size:12px;
+color:rgba(255,255,255,.2);
+margin-bottom: 3px;
+padding-right:10px;
+}
+
+.subBox{
+margin-bottom: 3px;
+}
+
+.absTe h2{
+
+color:rgba(0,0,0,.5);
+}
+
+
+hr{
+height:2px;
+border-width:0;
+color:rgba(255,255,255,.2);
+background-color:rgba(255,255,255,.2);
+}
+
+.lightBox{
+background-color:rgba(255,255,255,.15);
+color:rgba(255,255,255,.4);
+padding:5px;
+border-radius:4px;
+}
+
+.lightBox:hover{
+text-decoration:none;
+color:rgba(255,255,255,.2);
+}
+
+.lightBox i{
+font-size:15px;
+
+}
+
+.formTime label{
+width:120px;
+font-family: "Abel", sans-serif;
+border:0;
+font-size:19px;
+color:rgba(255,255,255,.4);
+}
+
+.formTime input{
+background:rgba(255,255,255,0.12);
+color:rgba(255,255,255,0.6);
+font-family: "Abel", sans-serif;
+border:0;
+text-transform: uppercase;
+}
+
+.form-control:focus {
+    color: rgba(255,255,255,0.6);
+    background:rgba(255,255,255,0.2);
+   outline:none;
+    border:none;
+    box-shadow:none;
+    text-transform: uppercase;
+}
+
+
+
+.create{
+width:100%;
+padding:15px;
+border: none;
+background:rgba(255,255,255,0.12);
+color:rgba(255,255,255,0.4);
+border-radius:10px;
+}
+
+
+.create:hover{
+color:rgba(255,255,255,0.7);
+background:rgba(0,0,0,0.23);
+}
+
+
+
+
+
+
+
+
+    </style>
+    <title>ARCADE ARENA</title>
+</head>
+
+<body>
+
+
+<div class="container middleBox">
+    <div class="row">
+        <div style="  border-right: 2px solid rgba(255,255,255,0.15);" class="col-6">
+            <div class="container-fluid mainMenu">
+                <ul class="menuList">
+                    <li class="menuItem text-center" onclick="myMenu(this.id)" id="iniciarPartida">
+                        <a>INICIAR PARTIDA</a></li>
+                    <li class="menuItem text-center" onclick="myMenu(this.id)" id="registrarTime">
+                        <a>REGISTRAR TIME</a></li>
+                    <li class="menuItem text-center" onclick="myMenu(this.id)" id="montarCampeonato">
+                        <a>MONTAR CAMPEONATO</a></li>
+                    <!--                    <li class="menuItem text-center" onclick="myMenu(this.id)">-->
+                    <!--                        <a>ESTATISTICAS CAMPEONATOS ATIVOS</a></li>-->
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="container-fluid page_title text-center">
+                <p class="year"><i class="fa fa-star"></i> 2020 <i class="fa fa-star"></i></p>
+
+                <h1>ARCADE ARENA</h1>
+                <p>dashboard</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid ads-on">
+    <p class="subBox text-right">
+        <a class="transparent text-center" data-toggle="collapse" href="#collapsetable1" role="button"
+           aria-expanded="false"
+           aria-controls="collapseExample">
+            PARTIDAS STREAMING<i class="fas fa-broadcast-tower"></i>
+        </a>
+    </p>
+    <div class="collapse" id="collapsetable1">
+        <div class="boxCollapse text-right">
+            <ul class="">
+                <hr>
+                {% for grupo in partidaOnline %}
+                <li id="{{grupo.id}}" class="insertIds">
+                    <p class="subBox flex">
+                        <a class="transparent text-center" data-toggle="collapse" href="#collapseGroup{{grupo.id}}"
+                           role="button" aria-expanded="false" aria-controls="collapseGroup{{grupo.id}}">
+                            {{grupo.campeonato}} || {{grupo.grupo}}
+                        </a>
+                        <a class="lightBox" id="dataInsert{{grupo.id}}"
+                           href="/streaming/{{grupo.campeonato}}/{{grupo.grupo}}/" data-toggle="tooltip"
+                           data-placement="right" title="Acessar Controle">
+                            <i class="fas fa-podcast"></i>
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseGroup{{grupo.id}}">
+                        <div class="boxCollapse text-right">
+                            {% for select in grupo.select %}
+                            <ul class="">
+                                <li class="groupSel" id="{{select.3}}">{{select.4}}</li>
+                            </ul>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </li>
+
+                {% endfor%}
+                <hr>
+            </ul>
+        </div>
+    </div>
+    <p class="subBox text-right">
+        <a class="transparent text-center" data-toggle="collapse" href="#collapsetable2" role="button"
+           aria-expanded="false"
+           aria-controls="collapseExample">
+            SQUADS CADASTRADAS<i class="fas fa-skull-crossbones"></i>
+        </a>
+    </p>
+    <div class="collapse" id="collapsetable2">
+        <div class="boxCollapse text-right">
+            <ul class="">
+                {% for squad in squadName %}
+                <li>
+                    <a class="boxColl">{{squad}}</a>
+                </li>
+                {% endfor%}
+
+            </ul>
+        </div>
+    </div>
+    <p class="subBox text-right">
+        <a class="transparent text-center" data-toggle="collapse" href="#collapsetable3" role="button"
+           aria-expanded="false"
+           aria-controls="collapseExample">
+            CAMPEONATOS <i class="fas fa-trophy"></i>
+        </a>
+    </p>
+    <div class="collapse" id="collapsetable3">
+        <div class="boxCollapse showTables text-right">
+            <ul class="">
+                {% for torneios in campeonatos_online %}
+                <li>
+                    <div class="row">
+                        <div class="col">
+                            {% if torneios.6 == 'setup' %}
+                            <span class="alert bgOrange" id="{{torneios.0}}"
+                                  onclick="myEntry(this.id)">MONTAR BRACKET</span>
+                            {% else %}
+                            <span class="alert bgGreen"><a
+                                    href="/bracket/torneios/{{torneios.0}}">ACESSAR TORNEIO</a></span>
+
+                            {%endif%}
+                        </div>
+                        <div class="col">
+                            <a class="boxColl">
+                                {{torneios.1}}
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor%}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- #### MODALS ####
+    ####partidas #### -->
+<button type="button" id="clickPartida" style="display:none;" class="btn btn-primary" data-toggle="modal"
+        data-target="#iniciarPartidaModal">
+    Launch demo modal
+</button>
+<button type="button" id="clickTime" style="display:none;" class="btn btn-primary" data-toggle="modal"
+        data-target="#registrarTimeModal">
+    Launch demo modal
+</button>
+<button type="button" id="clickCategoria" style="display:none;" class="btn btn-primary" data-toggle="modal"
+        data-target="#modalCategoria">
+    Launch demo modal
+</button>
+<!-- Modal PARTIDAS -->
+<div class="modal fade" id="iniciarPartidaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" id="bg_partida">
+            <div class="modal-header text-center">
+                <h5 class="modal-title " id="exampleModalLabel">
+                    <i class="fas fa-broadcast-tower"></i> STREAMING PARTIDA</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="{{ url_for('iniciarPartida') }}">
+                <div class="modal-body" id="partidaBody">
+
+                    <nav>
+                        <div class="nav nav-tabs text-center" id="nav-tab" role="tablist">
+                            <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                               aria-controls="nav-home" aria-selected="true">NR. EQUIPES</a>
+                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                               aria-controls="nav-profile" aria-selected="false">SQUADS</a>
+                            <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                               aria-controls="nav-contact" aria-selected="false">CATEGORIA</a>
+                            <a class="nav-link" id="nav-start-tab" data-toggle="tab" href="#nav-start" role="tab"
+                               aria-controls="nav-start" aria-selected="false">COMERÇAR</a>
+
+                        </div>
+                    </nav>
+                    <div class="containerPartida">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                 aria-labelledby="nav-home-tab">
+                                <div class="modalItem text-center">
+                                    <p>QUANTAS EQUIPES PARTICIPARAM DA STREAM?</p>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block">1 EQUIPE</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block">2 EQUIPES</button>
+                                </div>
+                                <div class="seguirBox float-right">
+                                    <a class="seguir" id="home" onclick="clickNext(this.id)">NEXT <i
+                                            class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                 aria-labelledby="nav-profile-tab">
+                                <div class="equipeBox">
+                                    <div class="selectEquipeA" id="selectEquipeA">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+
+                                                <label class="input-group-text buttonArcade" for="nomeSquadA">SELECIONAR
+                                                    SQUAD: </label>
+                                            </div>
+                                            <select class="custom-select" name="nomeSquadA" id="nomeSquadA">
+                                                <option selected>Escolha a Squad...</option>
+                                                {% for squad in squadName %}
+                                                <option value="{{squad}}"> {{squad}}</option>
+                                                {% endfor%}
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="equipeBox">
+                                    <div class="selectEquipeA" id="selectEquipeB">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text buttonArcade" for="nomeSquadB">SELECIONAR
+                                                    SQUAD: </label>
+                                            </div>
+                                            <select class="custom-select" name="nomeSquadB" id="nomeSquadB">
+                                                <option selected>Escolha a Squad...</option>
+                                                {% for squad in squadName %}
+                                                <option value="{{squad}}"> {{squad}}</option>
+                                                {% endfor%}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                 aria-labelledby="nav-contact-tab">
+                                <p>ESCOLHA O CAMPEONATO DA PARTIDA?</p>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text buttonArcade"
+                                               for="categoriaPartida">CATEGORIA: </label>
+                                    </div>
+                                    <select class="custom-select" name="categoriaPartida" id="categoriaPartida">
+                                        <option selected>Escolha a modalidade do jogo...</option>
+                                        {% for categoria in campeonatos_online %}
+                                        {% if categoria.6 == 'ativo'%}
+
+                                        <option value="{{categoria.0}}"> {{categoria.1}} || {{categoria.5}}</option>
+                                        {% endif%}
+                                        {% endfor%}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-start" role="tabpanel" aria-labelledby="nav-start-tab">
+                                <button type="submit" class="btn btn-primary">INICIAR PLACAR PARTIDA</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="registrarTimeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">REGISTRAR NOVA SQUAD</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+<!--            <form method="post" action="{{ url_for('registerSquad') }}">-->
+                <div class="modal-body">
+
+                    <div class="form-group formTime">
+                        <label for="squadName">NOME EQUIPE</label>
+                        <input type="text" class="form-control" id="squadName" name="squadName"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group formTime">
+                        <label for="player1">Player 1</label>
+                        <input type="text" class="form-control" id="player1" name="player1" placeholder="TAGNAME">
+
+
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="player1Plataform">
+                            <label class="btn btn-secondary active">
+                                <input type="radio" name="PlayStation" checked> PlayStation
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="XBox"> XBox
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="Activision"> Activision
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="BattleNet"> BattleNet
+                            </label>
+                        </div>
+                        <input type="text" class="form-control" id="IdActivisonplayer1" name="player1"
+                               placeholder="IdActivison">
+
+                        <button class="btn btn-primary" onclick="submitActivision('player1')">ENVIAR</button>
+
+
+                    </div>
+                    <div class="form-group formTime">
+                        <label for="player2">Player 2</label>
+                        <input type="text" class="form-control" id="player2" name="player2" placeholder="TAGNAME">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="player2Plataform">
+                            <label class="btn btn-secondary active">
+                                <input type="radio" name="PlayStation" checked> PlayStation
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="XBox"> XBox
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="Activision"> Activision
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="BattleNet"> BattleNet
+                            </label>
+                        </div>
+                        <input type="text" class="form-control" id="IdActivisonplayer2" name="player2"
+                               placeholder="IdActivison">
+                        <button class="btn btn-primary" onclick="submitActivision('player2')">ENVIAR</button>
+                    </div>
+                    <div class="form-group formTime">
+                        <label for="player3">Player 3</label>
+                        <input type="text" class="form-control" id="player3" name="player3" placeholder="TAGNAME">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="player3Plataform">
+                            <label class="btn btn-secondary active">
+                                    <input type="radio" name="PlayStation" checked> PlayStation
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="XBox" > XBox
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="Activision"> Activision
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="BattleNet"> BattleNet
+                                </label>
+                        </div>
+                        <input type="text" class="form-control" id="IdActivisonplayer3" name="player3"
+                               placeholder="IdActivison">
+                    </div>
+                     <button class="btn btn-primary" onclick="submitActivision('player3')">ENVIAR</button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+<!--            </form>-->
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="categoriaTitle">NOVO CAMPEONATO!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="{{ url_for('registerCampeonato') }}">
+                <div class="modal-body">
+
+                    <div class="input-group mb-3 formTime">
+                        <label class="input-group-text buttonArcade" for="nomeCategoria">NOME:</label>
+                        <input type="text" class="form-control" id="nomeCategoria" name="nomeCategoria"
+                               autocomplete="off">
+                    </div>
+                    <div class="input-group mb-3 formTime">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text buttonArcade" for="modalidade">MODALIDADE: </label>
+                        </div>
+                        <select class="custom-select " name="modalidade" id="modalidade">
+                            <option selected>Escolha a modalidade do jogo...</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3 formTime">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text buttonArcade" for="modalidade">BRACKET: </label>
+                        </div>
+                        <select class="custom-select" name="bracket" id="bracket">
+                            <option selected>Escolha o Backet...</option>
+                            <option value="1">OITAVAS-DE-FINAL</option>
+                            <option value="8">8 Grupos</option>
+                            <option value="16">16 Grupos</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3 formTime">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text buttonArcade" for="modalidade">REGRAS: </label>
+                        </div>
+                        <select class="custom-select " name="regras" id="regras">
+                            <option selected>Escolha</option>
+
+                        </select>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn create ">CRIAR CAMPEONATO</button>
+
+
+                    <!--                    <div class="input-group mb-3">-->
+                    <!--                        <div class="input-group-prepend">-->
+                    <!--                            <label class="input-group-text" for="nomeSquadA">SELECIONAR SQUAD: </label>-->
+                    <!--                        </div>-->
+                    <!--                        <select class="custom-select" name="nomeSquadA">-->
+                    <!--                            <option selected>Escolha a Squad...</option>-->
+                    <!--                            {% for squad in squadName %}-->
+                    <!--                            <option value="{{squad}}"> {{squad}}</option>-->
+                    <!--                            {% endfor%}-->
+                    <!--                        </select>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group formTimeList">-->
+                    <!--                        <label for="player3">Player 3</label>-->
+                    <!--                        <input type="text" class="form-control" id="player3" name="player3">-->
+                    <!--                    </div>-->
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+<script>
+
+ var socket = io.connect('http://' + document.domain + ':' + location.port) ;
+
+
+
+
+function myMenu(this_id) {
+  var id = document.getElementById(this_id).id;
+  if (id == 'iniciarPartida'){
+  document.getElementById('clickPartida').click();
+  }
+  if(id == 'registrarTime'){
+  document.getElementById('clickTime').click();
+  }
+
+  if(id == 'montarCampeonato'){
+  document.getElementById('clickCategoria').click();
+  }
+
+}
+
+
+function myEntry(this_id) {
+  document.getElementById(this_id+"view").click();
+}
+
+
+
+function clickNext(this_id) {
+
+if (this_id == 'home'){
+document.getElementById('nav-profile-tab').click();
+}
+
+
+
+}
+
+
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+
+$(document).ready(function () {
+ var container = document.querySelectorAll(".insertIds");
+ container.forEach(function(e) {
+    var listIds = []
+     var ids = e.querySelectorAll('#collapseGroup'+e.id);
+     ids.forEach(function(c) {
+         var grow = c.querySelectorAll('.groupSel')
+             grow.forEach(function(a){
+             listIds.push(a.id);
+             })
+      })
+
+
+      var insertData = document.getElementById('dataInsert'+e.id);
+      insertData.href = insertData.href+listIds.join('p');
+     console.log(insertData.href);
+  })
+
+})
+
+
+
+
+$( document ).ready(function() {
+
+socket.emit('dashboard items')
+
+
+});
+
+
+  socket.on('dashboard response', function(data){
+   modalidades = data[0];
+   regras = data[1];
+    modalidades.forEach(function(e) {
+   var option = document.createElement("option");
+   option.setAttribute('value', e[1]);
+   var textnode = document.createTextNode(e[1]);
+   option.appendChild(textnode);
+   document.getElementById('modalidade').appendChild(option);
+    });
+
+
+    regras.forEach(function(e) {
+   var option = document.createElement("option");
+   option.setAttribute('value', e[0]);
+   var textnode = document.createTextNode(e[7]);
+   option.appendChild(textnode);
+   document.getElementById('regras').appendChild(option);
+    });
+
+
+
+   })
+
+
+
+
+
+
+
+
+
+
+
+function submitActivision(player){
+data = [player]
+var x = document.getElementById(player+'Plataform');
+var IdActvision = document.getElementById('IdActivison'+player).value;
+var tagName = document.getElementById(player).value;
+data.push(tagName)
+data.push(IdActvision)
+
+var grow = x.querySelectorAll('.active input');
+             grow.forEach(function(a){
+             data.push(a.name)
+             })
+
+socket.emit('check Activison', data);
+
+}
+
+
+
+
+
+
+
+
+</script>
+</html>
+
+

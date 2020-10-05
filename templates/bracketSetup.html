@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
+    <style>
+
+    body{
+      background:#6C15BD;
+     display:flex;
+      flex-direction:column;
+      justify-content:center;
+    height:100vh;
+    font-family: "Abel", sans-serif;}
+
+.flex{
+display:flex;
+    justify-content:center;
+    align-content:middle;
+}
+
+
+#labelInput{
+background:none;
+color:rgba(255,255,255,.5);
+font-size:12px;
+border:0;
+margin:0 auto;
+}
+
+.selEquipe{
+margin-top:30px;
+}
+
+ul {
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+
+}
+li{
+background:rgba(255,255,255,0.05);
+color:rgba(255,255,255,0.7);
+width:100%;
+height:auto;
+padding:4px;
+opacity:0.15;
+min-width:130px;
+margin:5px;
+ flex: 1 0 25%;
+
+}
+
+
+
+.noOpacity:hover{
+background:#AA0DD4;
+
+
+}
+
+.cursor{
+cursor:pointer;
+}
+
+.noOpacity{
+opacity:0.7;}
+
+
+
+
+
+
+
+#equipesNumber{
+color:rgba(255,255,255,.6);
+margin-top:5px;
+background:rgba(0,0,0,.4);
+border:0;
+font-size:14px;
+}
+
+
+
+
+
+
+.box{
+width: 90%;
+max-width:1000px;
+height:auto;
+overflow:hidden;
+position:relative;
+display:block;
+background:rgba(0,0,0,.4);
+padding:15px;
+min-width:550px;
+}
+
+
+.top{
+width:100%;
+min-width:250px;
+ display:flex;
+    flex-direction:column;
+    justify-content:center;
+padding:30px;
+border-right:2px solid rgba(255,255,255,.12);
+height:100%;
+min-height:500px;
+}
+
+.titleTop{
+text-transform: uppercase;
+}
+
+.titleTop i{
+color:rgba(255,255,255,.5);
+opacity:0.8;
+font-size:39px;
+}
+
+.titleTop p{
+color:rgba(255,255,255,.5);
+opacity:0.8;
+font-size:14px;
+}
+
+.titleTop h1{
+color:rgba(255,255,255,.7);
+}
+
+
+.titleTop h6{
+color:#AA0DD4;
+opacity:0.8;
+font-size:23px;
+}
+
+
+
+
+#squadUl{
+flex-wrap: wrap;
+  display: flex;
+
+    }
+
+
+
+
+
+.detailsBacket{
+background:rgba(0,0,0,.3);
+padding:40px;
+height:100%;
+}
+
+
+
+
+.squadItem{
+font-size:15px;
+}
+
+
+button:active {
+    outline: 0;
+    border: 0;
+}
+
+
+select:active {
+    outline: 0;
+    border: 0;
+}
+button:focus {outline:0;}
+input:focus {outline:0;}
+
+select:focus {
+    outline: none;
+}
+
+.active{
+background:#AA0DD4;
+color:rgba(255,255,255,0.8)
+opacity:.8;
+}
+
+
+
+
+.subButton{
+position:absolute;
+width:60%;
+padding:10px;
+margin:10px auto;
+background:#AA0DD4;
+border:0;
+height:50px;
+opacity:0.5;
+font-size:12px;
+bottom:0;
+margin-left:30px;
+border-radius:20px;
+}
+
+.subButton2{
+margin-top:15px;
+width:100%;
+ display:flex;
+      flex-direction:column;
+      justify-content:center;
+background:rgba(255,255,255,0.12);
+border:0;
+height:60px;
+opacity:0.5;
+font-size:25px;
+COLOR:RGBA(255,255,255,.6)
+}
+
+.subButtonBox h6{
+padding:5px;
+margin-top:-5px;
+color:rgba(0,0,0,0.9);
+font-weight:500;
+font-size:20px;
+}
+
+
+.submitOK{
+background: #BD0802;
+color:#fff;
+opacity:1;}
+
+
+.counterBox{
+width:100%;
+height:30px;
+background: #01BD43;
+
+}
+
+
+
+
+
+.custom-select:focus {
+  outline:none;
+    border:none;
+    box-shadow:none;
+}
+
+
+
+
+.modal-content{
+background:#F0C202;
+
+}
+
+.centerT{
+display:flex;
+      flex-direction:column;
+      justify-content:center;}
+
+.modal-body{
+padding:60px;
+}
+
+.loadBox{
+padding:25px;
+font-size:20px;
+}
+
+.loadBox h6{
+margin-top:10px;
+}
+
+
+    </style>
+    <title>ARCADE ARENA</title>
+</head>
+
+<body>
+
+<!--<div class="container-fluid page_title text-center">-->
+<!--    <h1>ARCADE ARENA</h1>-->
+<!--    <p>dashboard</p>-->
+<!--</div>-->
+<div class="container-fluid box text-center">
+    <div class="row">
+        <div class="col-4">
+            <div class="container-fluid top">
+                {% for i in infoCampeonato%}
+                <div class="container-fluid  titleTop ">
+                    <i class="fas fa-trophy"></i>
+                    <p>NOVO CAMPEONATO</p>
+                    <h1>{{i.1}}</h1>
+                    <h6 class="alertCampeonatoType">MODALIDADE:{{i.5}}</h6>
+                </div>
+                {% endfor%}
+
+                <div class="container-fluid selEquipe text-center">
+                    <div class="input-group-prepend text-center">
+                        <label class="input-group-text" id="labelInput" for="equipesNumber">Nr. Equipes: </label>
+                    </div>
+                    <select class="custom-select" style="" name="equipesNumber" id="equipesNumber"
+                            onchange="myTotal(this.id)">
+                        <option selected value="0">NUMERO DE EQUIPES...</option>
+                        <option value="16">16 EQUIPES PARA SELECIONAR</option>
+                        <option value="24">24 EQUIPES PARA SELECIONAR</option>
+                        <option value="32">32 EQUIPES PARA SELECIONAR</option>
+                        <option value="48">48 EQUIPES PARA SELECIONAR</option>
+                    </select>
+                </div>
+
+                <div class="subButton">
+                    <div class="flex text-center subButtonBox">
+                        <h6 id="countSquads">0</h6>
+                        <h6>/</h6>
+                        <h6 id="totalSquads">0</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="container-fluid detailsBacket">
+                <!--                <div class="container-fluid envioForm">-->
+                <!--                    <form method="post" action="{{ url_for('bracketSetup',idCampeonato=id) }}">-->
+                <!--                        <div class="container-fluid" id="inputSquads">-->
+                <ul id="squadUl">
+                    <!--                                <div class="weird">-->
+                    <!--                                    {% for squad in squadList %}-->
+                    <!--                                    <div class="container-fluid squareSquad">-->
+                    <!--                                        <li class="squadItem noActive" id="{{squad.0}}">-->
+                    <!--                                            <div class="container-fluid text-center">-->
+                    <!--                                                <input style="display:none" class="form-check-input" type="checkbox"-->
+                    <!--                                                       name="checkbox"-->
+                    <!--                                                       id="{{squad.0}}Checkbox"-->
+                    <!--                                                       value="{{squad.0}}">-->
+                    <!--                                                &lt;!&ndash;                                                <p>{{squad.1}}</p>&ndash;&gt;-->
+                    <!--                                            </div>-->
+                    <!--                                        </li>-->
+                    <!--                                    </div>-->
+                    <!--                                    {% endfor%}-->
+                    <!--                                </div>-->
+
+                </ul>
+                <!--                        </div>-->
+                <!--                <div class="inputArea" id="inputArea"></div>-->
+                <!--                    </form>-->
+
+                <!--                </div>-->
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="subButton2" id="submitOld">AGUARDANDO O NUMERO DE EQUIPES RESTANTES...</div>
+        </div>
+        <div class="col-2">
+
+        </div>
+    </div>
+</div>
+
+
+<button style="display:none" type="button" class="btn btn-primary" data-toggle="modal" id="mymodal" data-target="#waitModal">
+    Launch demo modal
+</button>
+<div class="modal fade" id="waitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" id="modalContent">
+            <div class="modal-body centerT">
+
+
+                <img id="image" style="opacity:0.89;" src="../static/assets/bracket.svg" height="200">
+                <div style="display:none" id="mark" class="checkmark-circle">
+  <div class="background"></div>
+  <div class="checkmark draw"></div>
+</div>
+                <div class="container-fluid text-center loadBox ">
+                    <h6>SALVANDO BRACKET...AGUARDE!</h6>
+                    <div class="spinner-grow text-danger" style="width: 3rem; height: 3rem;" role="status">
+                    </div>
+                </div>
+
+
+            </div>
+            <!--      <div class="modal-footer">-->
+            <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+            <!--        <button type="button" class="btn btn-primary">Save changes</button>-->
+            <!--      </div>-->
+        </div>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+        integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+</body>
+
+
+<script>
+
+
+ var socket = io.connect('http://' + document.domain + ':' + location.port) ;
+var submitOld = document.getElementById('submitOld')
+
+
+
+listaSquad = [{{idCampeonato}},{{fasedeGrupos}},{{regras}},'{{nomeCampeonato}}']
+var contador = 0;
+
+
+
+    function mySelect(this_id) {
+    doJob(this_id);
+        var totalSelect = document.getElementById('equipesNumber').value;
+        if(contador < totalSelect){
+            resetListNoActive();
+         submitOld.classList.remove('active');
+         submitOld.innerHTML = 'AGUARDANDO O NUMERO DE EQUIPES RESTANTES...'
+         submitOld.style.background = 'rgba(255,255,255,0.4)';
+         submitOld.style.color = '#212529';
+        submitOld.style.cursor = 'default';
+        submitOld.setAttribute("onclick", "");
+
+        }
+        if(contador == totalSelect){
+        var click = document.getElementById(this_id+'Checkbox').checked;
+
+
+        submitOld.innerHTML = 'Ok';
+        submitOld.style.background = '#3BBD0B';
+        submitOld.style.color = 'rgba(255,255,255,0.8)';
+        submitOld.style.cursor = 'pointer';
+        submitOld.setAttribute("onclick", "submitSquad()");;
+
+        var disableMenu = document.querySelectorAll('.noActive');
+        disableMenu.forEach(function(e) {
+            e.classList.remove('cursor');
+            e.classList.remove('noOpacity');
+            e.setAttribute("onclick", "");
+             });
+        }
+        if(contador > totalSelect){
+        }
+document.getElementById('countSquads').innerHTML = contador;
+ }
+
+var submitNew = document.getElementById('submitNew')
+function submitValidade(){
+submitOld.style.display = 'none';
+submitNew.style.display = 'block';
+var disableMenu = document.querySelectorAll('.noActive');
+disableMenu.forEach(function(e) {
+    e.classList.remove('cursor');
+        e.classList.remove('noOpacity');
+        e.setAttribute("onclick", "");
+    });
+}
+
+
+
+
+function doJob(this_id){
+    var select = document.getElementById(this_id+'Checkbox').checked;
+    var name=document.getElementById(this_id+'Checkbox').value
+    if(select == false){
+    document.getElementById(this_id+'Checkbox').checked = true;
+    document.getElementById(this_id).classList.remove('noActive');
+    document.getElementById(this_id).classList.add('active');
+    addSquad(this_id,name);
+    }
+    if(select == true){
+    document.getElementById(this_id+'Checkbox').checked = false;
+    document.getElementById(this_id).classList.remove('active');
+    document.getElementById(this_id).classList.add('noActive');
+    removeSquad(this_id,name);
+    }
+
+}
+
+
+function addSquad(this_id,name) {
+
+listaSquad.push({idsquad:this_id, squad:name});
+contador++
+
+}
+
+function removeSquad(this_id,name) {
+
+listaSquad.pop({idsquad:this_id, squad:name});
+contador--;
+}
+
+
+
+
+function myTotal(this_id) {
+    var squadnumber = document.getElementById(this_id).value;
+    if (contador > 0 ){
+         if (contador < squadnumber){
+         resetListNoActive();
+         }
+         document.getElementById("totalSquads").innerHTML = squadnumber;
+    }
+    if (contador == 0 ){
+     if(squadnumber > 0 ){
+            intList(squadnumber);
+     }
+    }
+}
+
+function intList(squadnumber){
+var box =  document.querySelectorAll(".squadItem");
+            document.getElementById("totalSquads").innerHTML = squadnumber;
+            box.forEach(function(e) {
+            e.classList.add('cursor');
+            e.classList.add('noOpacity');
+            e.setAttribute("onclick", "mySelect(this.id)");
+               })
+}
+
+function resetListNoActive(){
+var box =  document.querySelectorAll(".noActive");
+                box.forEach(function(e) {
+                e.classList.add('cursor');
+                e.classList.add('noOpacity');
+                e.setAttribute("onclick", "mySelect(this.id)");
+                   })
+         }
+
+
+
+
+
+
+
+
+
+$( document ).ready(function() {
+socket.emit('bracket setup')
+});
+
+
+
+var insertSquad = document.getElementById('squadUl');
+socket.on('bracket setup response', function(data){
+data.forEach(function(e) {
+e.forEach(function(c) {
+
+squad = c[1]
+idsquad = c[0]
+
+
+var li = document.createElement("li");
+   li.setAttribute('class', 'squadItem noActive');
+   li.setAttribute('id', idsquad);
+   var textnode = document.createTextNode(squad);
+   li.appendChild(textnode);
+   var input = document.createElement("input");
+   input.setAttribute('type', 'hidden');
+   input.setAttribute('id', idsquad+'Checkbox');
+   input.setAttribute('value', squad);
+   li.appendChild(input);
+   insertSquad.appendChild(li);
+})
+})
+})
+
+
+
+
+function submitSquad(){
+document.getElementById('mymodal').click();
+console.log('submit');
+
+socket.emit('submit bracket', listaSquad);
+}
+
+
+
+socket.on('bracket ok', function(data){
+document.getElementById('modalContent').display.background = '#1AAD76';
+
+})
+
+
+</script>
+</html>
+
+

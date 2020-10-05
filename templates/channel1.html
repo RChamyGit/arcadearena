@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Anton&display=swap" rel="stylesheet">
+ <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+
+<!--<script type="text/javascript">-->
+<!--      function do_ajax() {-->
+<!--        var req = new XMLHttpRequest()-->
+<!--        req.onreadystatechange = function()-->
+<!--        {-->
+<!--            if (req.readyState == 4)-->
+<!--            {-->
+<!--                if (req.status != 200)-->
+<!--                {-->
+<!--                    //error handling code here-->
+<!--                }-->
+<!--                else-->
+<!--                {-->
+<!--                    var response = JSON.parse(req.responseText)-->
+<!--                    console.log(response);-->
+
+
+
+<!--                    var result = response.map(function(e) {-->
+<!--                            document.getElementById(e.id).innerHTML = e.score-->
+
+<!--                        })-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+
+<!--        req.open('GET', '/streaming/scoreData');-->
+<!--        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")-->
+<!--        req.send(null);-->
+<!--      }-->
+
+
+
+<!--      fillPlacar()-->
+<!--      do_ajax();-->
+
+<!--      setInterval(function(){-->
+<!--      do_ajax();-->
+<!--      },200000)-->
+
+
+
+<!--       function fillPlacar() {-->
+<!--        var req = new XMLHttpRequest()-->
+<!--        req.onreadystatechange = function()-->
+<!--        {-->
+<!--            if (req.readyState == 4)-->
+<!--            {-->
+<!--                if (req.status != 200)-->
+<!--                {-->
+<!--                    //error handling code here-->
+<!--                }-->
+<!--                else-->
+<!--                {-->
+<!--                    var response = JSON.parse(req.responseText)-->
+<!--                    console.log(response);-->
+<!--                    var insert = document.getElementById('result');-->
+
+<!--                    var result = response.map(function(e) {-->
+<!--                        var li = document.createElement("LI");-->
+<!--                        var row = document.createElement("div");-->
+<!--                        row.setAttribute('class', 'row')-->
+
+<!--                        var col =  document.createElement("div");-->
+<!--                        col.setAttribute('class', 'col-8');-->
+
+
+<!--                        var sqname =  document.createElement("h4");-->
+<!--                        sqname.setAttribute('id', e.squad);-->
+
+<!--                        col.setAttribute('class', 'squadName');-->
+<!--                        var textnode = document.createTextNode(e.squadName);-->
+
+<!--                        sqname.appendChild(textnode);-->
+<!--                        col.appendChild(sqname);-->
+
+
+<!--                        var col2 =  document.createElement("div");-->
+<!--                        col2.setAttribute('class', 'col-4');-->
+
+
+<!--                        var box = document.createElement("div");-->
+<!--                        box.setAttribute('class', 'container-fluid scoreBox text-center');-->
+
+<!--                         var scoreinput = document.createElement("h4");-->
+<!--                         scoreinput.setAttribute('id', e.id);-->
+<!--                         var textnode2 = document.createTextNode(e.score);-->
+
+<!--                         scoreinput.appendChild(textnode2);-->
+<!--                         box.appendChild(scoreinput);-->
+<!--                         col2.appendChild(box);-->
+
+
+
+<!--                         row.appendChild(col);-->
+<!--                         row.appendChild(col2);-->
+
+<!--                         li.appendChild(row);-->
+
+<!--                        insert.appendChild(li);-->
+
+<!--                        })-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+
+<!--        req.open('GET', '/streaming/scoreData');-->
+<!--        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")-->
+<!--        req.send(null);-->
+<!--      }-->
+
+
+
+<!--    </script>-->
+
+
+    <style>
+ body {
+ width:1920px;
+ height:1080px;
+ background-color: transparent;
+  display:flex;
+     flex-direction:column;
+     justify-content:center;
+       font-family: "Abel", sans-serif;
+       border:2px solid black;
+ }
+
+ .boxRank{
+ width:35%;
+ hright:auto;
+ min-height:150px;
+background: rgba(0,0,0,0.7);
+ margin-top:600px;
+box-shadow: 2px 2px 8px rgba(0,0,0,.6);
+border-radius: 15px 5px;
+ }
+.tag{
+background:#6C15BD;
+box-shadow: 2px 2px 8px rgba(0,0,0,.6);
+padding:5px;
+color:rgba(255,255,255,0.8);
+width:250px;
+margin-top:-30px;
+border-radius: 15px 5px;
+}
+
+.tagGroup{
+margin-top:5px;}
+
+ul {
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+
+
+}
+li{
+background: rgba(0,0,0,0.4);
+width:100%;
+height:auto;
+padding:8px;
+min-width:130px;
+margin:5px;
+border-radius: 15px 5px;
+box-shadow: 2px 2px 15px rgba(255,255,0,.12);
+}
+
+
+.squadName{
+color:rgba(255,255,255,.8);
+
+width:400px;
+
+}
+
+.squadName h4{
+margin-top:5px;
+margin-left:25px;
+}
+
+.scoreBox{
+background:#6C15BD;
+height:100%;
+display:flex;
+color:rgba(255,255,255,.8);
+     flex-direction:column;
+     justify-content:center;
+     border-radius: 15px 5px;
+width:130px;
+}
+
+
+
+
+
+    </style>
+    <title>ARCADE ARENA</title>
+</head>
+
+<body>
+
+
+<div class="container-fluid boxRank">
+    <div class="container-fluid tag text-center">
+        <h3 class="tagGroup">GRUPO 1</h3>
+    </div>
+    <div class="container-fluid">
+        <ul id="result">
+            {% for time in bracket %}
+            <li>
+                <div class="row">
+                    <div class="col-8">
+                        <h4 class="squadName">{{time.5}}</h4>
+                    </div>
+                    <div class="col-4">
+                        <div style="display:none;" class="container-fluid scoreBox text-center">
+                            <h4 id="score_partida{{time.3}}">{{time.7}}</h4>
+                        </div>
+                        <div class="container-fluid scoreBox text-center">
+                            <h4 id="score_total{{time.3}}">{{time.7}}</h4>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor%}
+
+        </ul>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+<script type="text/javascript" charset="utf-8">
+
+    var socket = io.connect('http://' + document.domain + ':' + location.port) ;
+
+   socket.on('score_stream', function(data){
+   console.log(data);
+    document.getElementById('score_partida'+data[0]).innerHTML = data[1];
+    document.getElementById('score_total'+data[0]).innerHTML = data[2];
+   })
+
+</script>
+</html>
+
+

@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <title>Hello, world!</title>
+</head>
+<style>
+    body{
+      background:#6C15BD;
+     display:flex;
+     flex-direction:column;
+     justify-content:center;
+       font-family: "Abel", sans-serif;
+   min-height:100vh;}
+
+    .page_title{
+    position:absolute;
+    width:100%;
+    color:rgba(255,255,255,.33);
+
+    }
+    .page_title p{
+     margin-top:-17px;
+     letter-spacing:5px;
+     color:rgba(255,49,109,0.25);
+     font-weight:700}
+
+
+
+
+.perfilBox{
+background:rgba(0,0,0,.44);
+color:rgba(255,255,255,.8);
+padding:30px;
+width:500px;
+min-width:450px;
+margin:20px;
+     justify-content:center;
+          border-radius:7px;
+          box-shadow: 2px 2px 8px rgba(0,0,0,.6);
+}
+
+
+.boxPlay{
+padding:10px;
+margin-bottom:8px;
+width:100%;
+     text-transform: uppercase;
+     background:rgba(108,21,189,0.7);
+          border-radius:7px;
+           box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+
+}
+
+.vivo{
+border-left:9px solid #3BBD0B;
+}
+
+.morto{
+border-left:9px solid #C20C1D;
+opacity:0.5;
+}
+
+.playerName{
+color: rgba(255,255,255,0.4);
+margin-top:6px;
+}
+
+ul{
+  list-style-type: none;
+         margin:0;
+  padding:0;
+  }
+
+
+.input-kills{
+width:45px;
+background:none;
+border:0;
+color:rgba(255,255,255,.8);
+}
+
+button:active {
+    outline: 0;
+    border: 0;
+}
+
+
+select:active {
+    outline: 0;
+    border: 0;
+}
+button:focus {outline:0;}
+input:focus {outline:0;}
+
+input[type="text"], input[type="password"], textarea, select,button {
+    outline: none;
+}
+
+.colorBox{
+background:rgba(0,0,0,.55);
+padding-top:2px;
+ border-radius:7px;
+ box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+}
+
+.flex{display:flex;}
+
+.imgXp{
+width:60px;
+overflow:hidden;
+height:30px;
+}
+
+.imgXp img{
+margin-top:-30px;
+margin-left:-33px;
+opacity:.5;
+}
+
+.kill{
+margin-left:-30px;
+font-size:12px;
+margin-top:5px;
+color:rgba(255,255,255,.5)}
+
+
+.rankingText{
+font-size:12px;
+margin:0;
+padding:0;
+color: rgba(255,255,255,0.4);
+margin-bottom:9px;
+
+}
+
+.score{
+font-size:9px;
+color:rgba(255,255,255,.5)
+}
+
+.scoreNumero{
+font-size:12px;
+color:rgba(255,255,255,.7)
+}
+
+hr{
+height:2px;
+border-width:0;
+color:rgba(108,21,189,0.7);
+background: rgba(108,21,189,0.7);
+}
+
+.rankContainer{
+height:auto;
+}
+
+.partidaBox{
+height:70px;
+margin-top:10px;
+margin-bottom:10px;
+width:100%;
+background: rgba(108,21,189,0.4);
+display:flex;
+     flex-direction:column;
+     justify-content:center;
+     border-radius:7px;
+     box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+}
+
+.partidaBox span{
+color: rgba(255,255,255,0.4);
+font-size:12px;
+}
+
+
+.fillCol{
+padding:0;
+margin:0;
+}
+
+.inputBox input{
+width:50px;
+background:none;
+border:0;
+}
+
+.inputBox{
+height:30px;
+
+}
+
+.input-inputBox{
+    font-size:24px;
+    color:rgba(255,255,255,.7);
+    margin-top:-5px;
+}
+.atualizarBox{
+margin-left:10px;
+width:100%;
+height:100%;
+display:flex;
+     flex-direction:column;
+     justify-content:center;
+}
+
+.atualizar{
+width:100%;
+height:100%;
+color: rgba(255,255,255,0.4);
+border:3px solid rgba(108,21,189,0.7);
+transition: 1s;
+background:none;
+pointer-events: none;
+border-radius:8px;
+
+}
+
+.encerrar{
+width:100%;
+height:100%;
+color: rgba(255,255,255,0.4);
+transition: 1s;
+padding:10px;
+}
+
+
+.encerrar i{
+margin-left:20px;
+}
+.encerrar:hover{
+color:#C90CB4;
+
+}
+
+
+
+.changeStatus{
+width:10px;
+height:55px;
+position:absolute;
+margin-top:-10px;
+margin-left:-20px;
+background:none;
+border:0;
+}
+
+.headerTitle{
+width:100%;
+padding:8px;
+border:2px solid rgba(108,21,189,0.7);
+border-radius:7px;
+margin-bottom:18px;
+}
+
+.scoreBox{
+width:100%;
+padding:2px;
+border:2px solid rgba(108,21,189,0.7);
+border-radius:7px;
+margin-bottom:6px;
+}
+
+.scoreBox h6{
+color: rgba(255,255,255,0.4);
+margin-top:15px;
+margin-left:3x;
+}
+
+.scoreBox p{
+background: rgba(0,0,0,.4);
+color:rgba(255,255,255,0.6);
+padding:4px;
+margin:0;
+margin:2px;
+font-size:20px;
+}
+
+.headerTitle h6{
+color: rgba(255,255,255,0.4);
+margin-top:20px;
+margin-left:3x;
+}
+
+.headerTitle h2{
+color:rgba(255,255,255,0.6);
+margin-top:8px;
+}
+
+.disabled{
+opacity:0.5;
+pointer-events: none;
+
+}
+
+.enable{
+transform: scale(1.2);
+}
+
+
+.Spinner{
+color:rgba(108,21,189,0.7);
+width: 3rem; height: 3rem;
+display:none;
+}
+
+ul{
+margin-bottom:15px;
+}
+
+
+.channelBox{
+position:fixed;
+top:30px;
+margin-left:-5px;
+z-index:999999999;
+}
+
+
+
+
+.transmissao{
+padding:9px;
+opacity:.6;}
+
+.vd {
+margin-left:17px;
+}
+
+.check{
+background:red;}
+
+
+.toggle-group {
+background: #dc3545;
+opacity:0.7;
+
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#toggle-two{
+margin-left:-10px;}
+
+
+.spintext{
+position:absolute;
+margin-top:14px;
+color:rgba(255,255,255,0.4);
+font-weight:500;
+display:none;
+text-shadow: 1px 1px 4px #6C15BD;
+}
+
+
+</style>
+<body>
+<div class="channelBox text-left">
+    <input type="checkbox" id="toggle-two" name="{{campeonato}}" value="on" onchange="submitVideo( this.id , {{listaSquad}} , this.name, this.value )">
+
+</div>
+
+
+<div class="container-fluid page_title text-center">
+    <h1>ARCADE ARENA</h1>
+    <p>dashboard</p>
+</div>
+
+
+<div class="container-fluid pd40">
+    <!--    <input type="hidden" id="campeonato" name="statusPlayer" value="{{campeonato}}">-->
+    <!--    <input type="hidden" id="grupo" name="statusPlayer" value="{{grupo}}">-->
+    <input type="hidden" id="url" name="statusPlayer" value="{{url}}">
+    <div class="row justify-content-md-center">
+        {% for equipe in players %}
+
+        <div class="col-md-auto ">
+            <div class="card perfilBox" id="{{equipe.0.idSquad}}hidecontainer">
+
+                <div class="container-fluid headerTitle">
+                    <div class="row">
+                        <div class="col-2 text-right">
+                            <h6>SQUAD</h6>
+                        </div>
+                        <div class="col text-left">
+                            <h2>{{equipe.0.squad}}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <ul>
+                    {% for player in equipe %}
+                    <li>
+                        <div class="container-fluid boxPlay vivo" id="{{player.idplayer}}status">
+                            <input type="hidden" id="{{player.idplayer}}statusInput" name="statusPlayer"
+                                   value="{{player.status}}">
+                            <div class="row justify-content-md-center">
+                                <div class="col-6">
+                                    <div class="flex">
+                                        <div class="changeBox">
+                                            <button style="" id="{{player.idplayer}}" type="button" class="changeStatus"
+                                                    onclick="changeStatus(this.id); return false"></button>
+                                        </div>
+                                        <div class="">
+                                            <h6 class="playerName">{{player.player}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 colorBox " data-toggle="tooltip" data-placement="top"
+                                     title="Atualize as Kills">
+                                    <input type="text" class="input-kills text-center"
+                                           id="{{player.jogo}}/{{player.idrank}}" value="{{player.kills}}"
+                                           onchange="submitKills(this.value,{{player.idrank}},{{equipe.0.rank_partida}},{{equipe.0.idSquad}},{{equipe.0.idcampeonato}}, this.id)">
+
+<!--                                    <input type="hidden" class="selectInput" name="{{player.idplayer}}kills"-->
+<!--                                           id="{{player.idplayer}}killsSelect" value="{{player.kills}}">-->
+                                </div>
+                                <div class="col-2 ">
+                                    <div class="imgXp flex">
+                                        <div>
+                                            <img src="/static/assets/kill.svg" height="90">
+                                        </div>
+                                        <div class="kill">
+                                            <p>kills</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="container-fluid scoreBox">
+                    <div class="row">
+                        <div class="col-8 text-right">
+                            <h6>SCORE PARTIDA:</h6>
+                        </div>
+                        <div class="col-4 text-right">
+                            <p id="score_partida{{equipe.0.idSquad}}" class="text-center">{{equipe.0.score_equipe}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid scoreBox">
+                    <div class="row">
+                        <div class="col-8 text-right">
+                            <h6>SCORE TOTAL:</h6>
+                        </div>
+                        <div class="col-4 text-right">
+                            <p id="score_total{{equipe.0.idSquad}}" class="text-center">{{equipe.0.score_total}}</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="container rankContainer text-center">
+                    <div class="row">
+                        <div class="col-8 fillCol">
+                            <p class="rankingText">POSIÇÃO DA EQUIPE NA PARTIDA</p>
+                            <div class="row">
+                                {% if equipe.0.status == 'GRUPOS' %}
+                                <div class="col-4">
+                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J1' %}enable{%else%} disabled{%endif%}">
+                                        <span>JOGO 1</span>
+                                        {% if equipe.0.jogo == 'R1J1' %}
+                                        <div class="inputBox ">
+
+                                            <input type="text"
+                                                   id="{% if equipe.0.jogo == 'R1J1' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
+                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J1' %}enable{%else%} disabled{%endif%}"
+                                                   name="{{equipe.0.jogo}}"
+                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
+                                                   value="{{equipe.0.rank_partida}}">
+                                        </div>
+                                        {%endif%}
+                                    </div>
+                                </div>
+                                <div class="col-4 ">
+                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J2' %}enable{%else%} disabled{%endif%}">
+                                        <span>JOGO 2</span>
+                                        {% if equipe.0.jogo == 'R1J2' %}
+                                        <div class="inputBox ">
+                                            <input type="text" name="partida2"
+                                                   id="{% if equipe.0.jogo == 'R1J2' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
+                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J2' %}enable{%else%} disabled{%endif%}"
+                                                    name="{{equipe.0.jogo}}"
+                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
+                                                   value="{{equipe.0.rank_partida}}">
+                                        </div>
+                                        {%endif%}
+                                    </div>
+                                </div>
+                                <div class="col-4 ">
+                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J3' %}enable{%else%} disabled{%endif%}">
+                                        <span>JOGO 3</span>
+                                        {% if equipe.0.jogo == 'R1J3' %}
+                                        <div class="inputBox ">
+                                            <input type="text" name="partida3"
+                                                   id="{% if equipe.0.jogo == 'R1J3' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
+                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J3' %}enable{%else%} disabled{%endif%}"
+                                                   name="{{equipe.0.jogo}}"
+                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
+                                                   value="{{equipe.0.rank_partida}}">
+                                        </div>
+                                        {%endif%}
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="container-fluid text-center" id="{{equipe.0.jogo}}NextSelect">
+                                <button id="{{equipe.0.jogo}}" class="btn encerrar"
+                                        onclick="nextStage( this.id,{{equipe.0.idSquad}} , {{equipe.0.idrank}})">PROXIMA PARTIDA <i
+                                        class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-4 fillCol">
+                            <div class="container-fluid atualizarBox">
+
+                                <button  id="{{equipe.0.idSquad}}hide"
+                                        class=" atualizar">
+                                    <div>PAINEL DE CONTROLE</div>
+                                </button>
+
+                                <div class="d-flex justify-content-center">
+                                    <div id="{{equipe.0.idSquad}}hideSpinner" class="spinner-grow Spinner" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <p id="{{equipe.0.idSquad}}hideSpinnerText" class="spintext">SALVANDO...</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+
+</body>
+<script>
+
+
+   var socket = io.connect('http://' + document.domain + ':' + location.port) ;
+
+
+
+function submitVideo(this_id,Lista_idSquads, campeonato, this_value){
+data = {
+'Lista_idSquads': Lista_idSquads,
+'campeonato': campeonato,
+'stream': this_value
+}
+
+
+if(this_value == 'on'){
+document.getElementById(this_id).value = 'off'
+}
+
+if(this_value == 'off'){
+document.getElementById(this_id).value = 'on'
+}
+
+$.ajax({
+  url: '/streaming/setChannel', // point to server-side URL
+					dataType: 'json', // what to expect back from server
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: JSON.stringify(data),
+					type: 'post',
+                      success: function( data ) {
+
+                      }
+});
+
+
+}
+
+
+
+function SpinningStart(idsquad){
+document.getElementById(idsquad+'hide').style.display = 'none';
+document.getElementById(idsquad+'hideSpinner').style.display = 'block';
+document.getElementById(idsquad+'hideSpinnerText').style.display = 'block';
+
+}
+
+function SpinningStop(idsquad){
+document.getElementById(idsquad+'hide').style.display = 'block';
+document.getElementById(idsquad+'hideSpinner').style.display = 'none';
+document.getElementById(idsquad+'hideSpinnerText').style.display = 'none';
+}
+
+
+
+function submitKills(this_value, idrank, colocacao, idsquad,idcampeonato,jogo_ativo){
+SpinningStart(idsquad);
+
+data = {
+'idsquad': idsquad,
+'kills': this_value,
+'idrank': idrank,
+'colocacao_partida': colocacao,
+'idcampeonato': idcampeonato,
+'jogo_ativo':jogo_ativo
+}
+
+$.ajax({
+  url: '/streaming/setKills', // point to server-side URL
+					dataType: 'json', // what to expect back from server
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: JSON.stringify(data),
+					type: 'post',
+                      success: function( data ) {
+
+                    reloadScore(data)
+
+                      }
+});
+
+
+};
+
+
+
+
+function reloadScore(data){
+
+SpinningStop(data[0]);
+document.getElementById('score_partida'+data[0]).innerHTML = data[1];
+document.getElementById('score_total'+data[0]).innerHTML = data[2];
+}
+
+
+
+
+function submitRank(this_value, idsquad, idrank, idcampeonato,jogo){
+
+data = {
+'idsquad': idsquad,
+'rank_partida': this_value,
+'idrank': idrank,
+'idcampeonato': idcampeonato,
+'jogo':jogo
+}
+
+
+$.ajax({
+  url: '/streaming/setRank', // point to server-side URL
+					dataType: 'json', // what to expect back from server
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: JSON.stringify(data),
+					type: 'post',
+                      success: function( data ) {
+                              reloadScore(data)
+                      }
+});
+
+
+};
+
+
+
+function nextStage(this_id ,idsquad, idrank){
+
+
+data = {
+'idsquad': idsquad,
+'jogo': this_id,
+'idrank': idrank
+}
+
+console.log(data);
+$.ajax({
+  url: '/streaming/setGame', // point to server-side URL
+					dataType: 'json', // what to expect back from server
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: JSON.stringify(data),
+					type: 'post',
+                      success: function( data ) {
+                          setTimeout(function(){// wait for 5 secs(2)
+           location.reload(); // then reload the page.(3)
+      }, 1);
+                      }
+});
+
+
+};
+
+
+
+
+
+
+
+
+    function changeStatus(this_id){
+         var element =  document.getElementById(this_id+"status");
+         var inputChange = document.getElementById(this_id+"statusInput").value;
+            if(inputChange == 'False'){
+    element.classList.remove("morto");
+    element.classList.add("vivo");
+    document.getElementById(this_id+"statusInput").value = 'True';
+    }
+     if(inputChange == 'True'){
+      element.classList.remove("vivo");
+     element.classList.add("morto");
+     document.getElementById(this_id+"statusInput").value = 'False';
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function() {
+    $('#toggle-two').bootstrapToggle({
+      on: '<i class="fas fa-video vd"></i>',
+      off: '<i class="fas fa-video-slash"></i>',
+      size: 'large'
+    });
+  })
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
