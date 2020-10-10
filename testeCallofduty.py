@@ -3,46 +3,49 @@ import asyncio
 import callofduty
 from callofduty import Mode, Platform, Title
 
-#
-# def SearchActivisionPlayer(IdActvision):
-#     return IdActvision
-#
-# async def say_after(delay, what):
-#     await asyncio.sleep(delay)
-#     return what
-#
-def say(IdActvision):
-    SearchActivisionPlayer(IdActvision)
 
-class SearchActivisionPlayer():
-    def __init__(self, IdActvision):
-        # client = await callofduty.Login("arcadearenaofc@gmail.com", "ArcadeArena2020")
-        async def main(IdActvision):
-            print(IdActvision)
-            client = await callofduty.Login("arcadearenaofc@gmail.com", "ArcadeArena2020")
-            results = await client.SearchPlayers(Platform.Activision, IdActvision, limit=3)
-            searchPlayer = results[0]
-            profile = await searchPlayer.profile(Title.ModernWarfare, Mode.Warzone)
-            level = profile["level"]
-            wins = profile['lifetime']['mode']['br']['properties']["wins"]
-            kd = profile['lifetime']['mode']['br']['properties']["kdRatio"]
-            kills = profile['lifetime']['mode']['br']['properties']["kills"]
-            topFive = profile['lifetime']['mode']['br']['properties']["topFive"]
-            deaths = profile['lifetime']['mode']['br']['properties']["deaths"]
+async def main(user, plataforma):
 
-            # #
-            print(f"\n{searchPlayer.username} ({searchPlayer.platform.name})")
-            print(f"Level: {level}, K/D Ratio: {round(kd, 2)}, Wins: {wins} , Kills:{kills}, TopFive:{topFive}, Deaths:{deaths}")
-            # return  ({'username':f'{searchPlayer.username}'},
-            #          {'plataform': f'{searchPlayer.platform.name}',
-            #           'level': f'{level}',
-            #           'K/D Ratio':f'{round(kd, 2)}',
-            #           'Wins': f'{wins}',
-            #           'Kills': f'{kills}',
-            #           'TopFive': f'{topFive}',
-            #           'Deaths': f'{deaths}'
-            #           }
-            #          )
-        asyncio.get_event_loop().run_until_complete(main(IdActvision))
+    client = await callofduty.Login("arcadearenaofc@gmail.com", "ArcadeArena2020")
+    print(user)
 
+    if plataforma == "BattleNet":
+         results = await client.SearchPlayers(Platform.BattleNet, user, limit=3)
+    if plataforma == "PlayStation":
+         results = await client.SearchPlayers(Platform.PlayStation, user, limit=3)
+    if plataforma == "Xbox":
+        results = await client.SearchPlayers(Platform.Xbox, user, limit=3)
+    if plataforma == "Activision":
+        results = await client.SearchPlayers(Platform.Activision, user, limit=3)
 
+    try:
+        searchPlayer = results[0]
+        profile = await searchPlayer.profile(Title.ModernWarfare, Mode.Warzone)
+        level = profile["level"]
+        wins = profile['lifetime']['mode']['br']['properties']["wins"]
+        kd = profile['lifetime']['mode']['br']['properties']["kdRatio"]
+        kills = profile['lifetime']['mode']['br']['properties']["kills"]
+        topFive = profile['lifetime']['mode']['br']['properties']["topFive"]
+        deaths = profile['lifetime']['mode']['br']['properties']["deaths"]
+
+    #print(f"\n{searchPlayer.username} ({searchPlayer.platform.name})")
+    #print(f"Level: {level}, K/D Ratio: {round(kd, 3)}, Wins: {wins} , Kills:{kills}, TopFive:{topFive}, Deaths:{deaths}")
+
+        myDict = {'username': f'{searchPlayer.username}',
+                  'plataform': f'{searchPlayer.platform.name}',
+                  'level': f'{int(level)}',
+                  'K/D Ratio': f'{round(kd, 2)}',
+                  'Wins': f'{int(wins)}',
+                  'Kills': f'{int(kills)}',
+                  'TopFive': f'{int(topFive)}',
+                  'Deaths': f'{int(deaths)}'}
+
+        return myDict
+    except Exception as e:
+        #print(f' ERROR:       {str(e)}')
+        return str('False')
+def getuser(user, plataforma):
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    data = asyncio.get_event_loop().run_until_complete(main(user, plataforma))
+    return data

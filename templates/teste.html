@@ -4,788 +4,863 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-    <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <title>Hello, world!</title>
-</head>
-<style>
-    body{
-      background:#6C15BD;
-     display:flex;
-     flex-direction:column;
-     justify-content:center;
-       font-family: "Abel", sans-serif;
-   min-height:100vh;}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+            integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
 
-    .page_title{
-    position:absolute;
-    width:100%;
-    color:rgba(255,255,255,.33);
+    <style>
+body {
 
-    }
-    .page_title p{
-     margin-top:-17px;
-     letter-spacing:5px;
-     color:rgba(255,49,109,0.25);
-     font-weight:700}
+  background:#4E0F8A;
+  min-height: 100%;
+  margin: 0;
+  font-family: "Abel", sans-serif;
+
+}
+.hero {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  color: #fcfcfc;
+}
+.hero h1 {
+  font-family: "Abel", sans-serif;
+  font-weight: normal;
+  font-size: 4.0em;
+  margin: 0 0 20px;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+    opacity:0.8;
+}
+.hero p {
+  font-family: "Abel", sans-serif;
+  text-transform: uppercase;
+  color: #F002D5;
+  letter-spacing: 6px;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  font-size: 1.2em;
+
+}
+.hero-wrap {
+  padding: 3.5em 10px;
+}
+.hero p.intro {
+ font-family: "Abel", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2em;
+  margin-bottom: -20px;
+  opacity:0.6;
 
 
+}
+.hero p.year {
+  color: #fff;
+  letter-spacing: 10px;
+  font-size: 19px;
+  margin: -35px 0 25px;
+  position:absolute;
+  left:0;
+  right:0;
+}
+.hero p.year i {
+  font-size: 14px;
+  vertical-align: middle;
+}
+#bracket {
+  overflow: hidden;
+  background-color: #e1e1e1;
+  background-color: rgba(225, 225, 225, 0.9);
+  padding-top: 20px;
+  font-size: 12px;
+  margin:0;
+  padding-bottom:80px;
+}
+#groupStage{
+ overflow: hidden;
+  background-color: #e1e1e1;
+  background-color: rgba(225, 225, 225, 0.9);
+  padding-top: 20px;
+  font-size: 12px;
+  padding: 40px 0;
+  border-bottom: 1px solid #b6b6b6;
+    padding-bottom: 60px;
+}
+.container {
+  margin: 0 auto;
+  display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
 
-
-.perfilBox{
-background:rgba(0,0,0,.44);
-color:rgba(255,255,255,.8);
-padding:30px;
-width:500px;
-min-width:450px;
-margin:20px;
-     justify-content:center;
-          border-radius:7px;
-          box-shadow: 2px 2px 8px rgba(0,0,0,.6);
+  width:100%;
 }
 
+.containerB {
+  margin: 0 auto;
+  display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width:100%;
+  padding:70px;
+   height:700px;
 
-.boxPlay{
-padding:10px;
-margin-bottom:8px;
+}
+.split {
+  display: block;
+  float: left;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+
+}
+.champion {
+  text-align: center;
+  padding: 290px 0\9;
+  width:39%;
+  min-width:150px;
+
+}
+.champion i {
+  color: #a0a6a8;
+  font-size: 45px;
+  padding: 10px 0;
+}
+.round {
+  display: block;
+  float: left;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 95%;
+  width: 30.8333%\9;
+}
+
+.round-one{
+
+}
+
+.topStagecontainer{
 width:100%;
-     text-transform: uppercase;
-     background:rgba(108,21,189,0.7);
-          border-radius:7px;
-           box-shadow: 2px 2px 8px rgba(0,0,0,.4);
-
+}
+.round-one .matchup{
+width:400px;
+margin:0 auto;
 }
 
-.vivo{
-border-left:9px solid #3BBD0B;
+.round-border{
+height: 100%;
+margin:0px 30px 0 20px;
+border-right:2px solid #2c7399;
+border-radius:50px;
 }
 
-.morto{
-border-left:9px solid #C20C1D;
-opacity:0.5;
+.round-border2{
+height: 100%;
+margin:0px 20px 0 30px;
+border-right:2px solid #2c7399;
+border-radius:50px;
 }
 
-.playerName{
-color: rgba(255,255,255,0.4);
-margin-top:6px;
+.split-two {
+}
+.split-one .round {
+  margin: 0 2.5% 0 0;
+
+}
+.split-two .round {
+  margin: 0 0 0 2.5%;
+}
+.matchup {
+  margin: 0;
+  min-width:150px;
+  padding: 10px 0;
+  height: auto;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.matchup a{
+cursor:pointer;
+}
+.scoreA {
+  font-size: 11px;
+  text-transform: uppercase;
+  float: right;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  position: absolute;
+  right: 17px;
+  background:#6C15BD;
+  width:30px;
+}
+.team {
+  padding: 0 5px;
+  margin: 3px 0;
+  height: 25px;
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  color:rgba(0,0,0,1);
+  width:100%;
+}
+.round-two .matchup {
+  margin: 0;
+  height: 100%;
+  padding: 50px 0;
+
+}
+.round-three .matchup {
+  margin: 0;
+ height: 100%;
+  padding: 130px 0;
 }
 
-ul{
-  list-style-type: none;
-         margin:0;
-  padding:0;
+.round-four .matchup {
+  margin: 0;
+ height: 100%;
+  padding: 290px 0;
+
+}
+.round-details {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 13px;
+    color: #6C15BD;
+  text-transform: uppercase;
+  text-align: center;
+  height: 40px;
+}
+
+.final .round-details{
+color: rgba(255,255,255,.8);
+font-size: 18px;
+}
+
+
+
+.champion li,
+.round li {
+  background-color: #fff;
+  box-shadow: none;
+  opacity: 0.45;
+  width:100%:
+
+}
+.current li {
+  opacity: 1;
+}
+.current li.team {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+}
+.vote-options {
+  display: block;
+  height: 52px;
+}
+.share .container {
+  margin: 0 auto;
+  text-align: center;
+}
+.share-icon {
+  font-size: 24px;
+  color: #fff;
+  padding: 25px;
+}
+.share-wrap {
+  max-width: 1100px;
+  text-align: center;
+  margin: 60px auto;
+}
+.final {
+background:#4E0F8A;
+  margin: 100px 0;
+  padding:20px;
+  min-width:180px;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 
+  50% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
 
-.input-kills{
-width:45px;
-background:none;
-border:0;
-color:rgba(255,255,255,.8);
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
-button:active {
-    outline: 0;
-    border: 0;
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
-
-select:active {
-    outline: 0;
-    border: 0;
+.share-icon {
+  color: #fff;
+  opacity: 0.35;
 }
-button:focus {outline:0;}
-input:focus {outline:0;}
-
-input[type="text"], input[type="password"], textarea, select,button {
-    outline: none;
+.share-icon:hover {
+  opacity: 1;
+  -webkit-animation: pulse 0.5s;
+  animation: pulse 0.5s;
 }
-
-.colorBox{
-background:rgba(0,0,0,.55);
-padding-top:2px;
- border-radius:7px;
- box-shadow: 2px 2px 8px rgba(0,0,0,.4);
-}
-
-.flex{display:flex;}
-
-.imgXp{
-width:60px;
-overflow:hidden;
-height:30px;
-}
-
-.imgXp img{
-margin-top:-30px;
-margin-left:-33px;
-opacity:.5;
-}
-
-.kill{
-margin-left:-30px;
-font-size:12px;
-margin-top:5px;
-color:rgba(255,255,255,.5)}
-
-
-.rankingText{
-font-size:12px;
-margin:0;
-padding:0;
-color: rgba(255,255,255,0.4);
-margin-bottom:9px;
+.date {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-family: "Istok Web", sans-serif;
+   color: #BD02A7;
 
 }
 
-.score{
-font-size:9px;
-color:rgba(255,255,255,.5)
+@media screen and (min-width: 981px) and (max-width: 1099px) {
+  .container, .containerB {
+    margin: 0 1%;
+  }
+  .champion {
+    width: 14%;
+  }
+  .split {
+    width: 50%;
+  }
+  .split-one .vote-box {
+    margin-left: 138px;
+  }
+  .hero p.intro {
+    font-size: 28px;
+  }
+  .hero p.year {
+    margin: 5px 0 10px;
+  }
 }
 
-.scoreNumero{
-font-size:12px;
-color:rgba(255,255,255,.7)
+@media screen and (max-width: 980px) {
+  .container,.containerB {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+  }
+  .split,
+  .champion {
+    width: 90%;
+    margin: 35px 5%;
+  }
+  .champion {
+
+  }
+  .split {
+    border-bottom: 1px solid #b6b6b6;
+    padding-bottom: 20px;
+  }
+  .hero p.intro {
+    font-size: 24px;
+  }
+  .hero h1 {
+    font-size: 3em;
+    margin: 15px 0;
+  }
+  .hero p {
+    font-size: 1em;
+  }
 }
 
-hr{
-height:2px;
-border-width:0;
-color:rgba(108,21,189,0.7);
-background: rgba(108,21,189,0.7);
+@media screen and (max-width: 400px) {
+  .split {
+    width: 95%;
+    margin: 25px 2.5%;
+  }
+  .round {
+    width: 21%;
+  }
+  .current {
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    flex-grow: 1;
+  }
+  .hero h1 {
+    font-size: 2.15em;
+    letter-spacing: 0;
+    margin: 0;
+  }
+  .hero p.intro {
+    font-size: 1.15em;
+    margin-bottom: -10px;
+  }
+  .round-details {
+    font-size: 90%;
+  }
+  .hero-wrap {
+    padding: 2.5em;
+  }
+  .hero p.year {
+    margin: 5px 0 10px;
+    font-size: 18px;
+  }
 }
 
-.rankContainer{
-height:auto;
-}
-
-.partidaBox{
-height:70px;
-margin-top:10px;
-margin-bottom:10px;
-width:100%;
-background: rgba(108,21,189,0.4);
-display:flex;
-     flex-direction:column;
-     justify-content:center;
-     border-radius:7px;
-     box-shadow: 2px 2px 8px rgba(0,0,0,.4);
-}
-
-.partidaBox span{
-color: rgba(255,255,255,0.4);
-font-size:12px;
-}
+.topStage{
+height: 30px;}
 
 
-.fillCol{
-padding:0;
-margin:0;
-}
-
-.inputBox input{
-width:50px;
-background:none;
-border:0;
-}
-
-.inputBox{
-height:30px;
-
-}
-
-.input-inputBox{
-    font-size:24px;
-    color:rgba(255,255,255,.7);
-    margin-top:-5px;
-}
-.atualizarBox{
-margin-left:10px;
-width:100%;
-height:100%;
-display:flex;
-     flex-direction:column;
-     justify-content:center;
-}
-
-.atualizar{
-width:100%;
-height:100%;
-color: rgba(255,255,255,0.4);
-border:3px solid rgba(108,21,189,0.7);
-transition: 1s;
-background:none;
-pointer-events: none;
-border-radius:8px;
-
-}
-
-.encerrar{
-width:100%;
-height:100%;
-color: rgba(255,255,255,0.4);
-transition: 1s;
-padding:10px;
-}
+.bracketBox{
+background:orange;}
 
 
-.encerrar i{
-margin-left:20px;
-}
-.encerrar:hover{
-color:#C90CB4;
-
-}
-
-
-
-.changeStatus{
-width:10px;
-height:55px;
-position:absolute;
-margin-top:-10px;
-margin-left:-20px;
-background:none;
-border:0;
-}
-
-.headerTitle{
-width:100%;
-padding:8px;
-border:2px solid rgba(108,21,189,0.7);
-border-radius:7px;
-margin-bottom:18px;
-}
-
-.scoreBox{
-width:100%;
-padding:2px;
-border:2px solid rgba(108,21,189,0.7);
-border-radius:7px;
-margin-bottom:6px;
-}
-
-.scoreBox h6{
-color: rgba(255,255,255,0.4);
-margin-top:15px;
-margin-left:3x;
-}
-
-.scoreBox p{
-background: rgba(0,0,0,.4);
-color:rgba(255,255,255,0.6);
-padding:4px;
-margin:0;
-margin:2px;
-font-size:20px;
-}
-
-.headerTitle h6{
-color: rgba(255,255,255,0.4);
+.boxHeader{
+border:5px solid rgba(255,255,255,0.6);
+height:130px;
+width:650px;
+margin:0 auto;
+border-radius:30px;
+padding-top:70px;
 margin-top:20px;
-margin-left:3x;
-}
-
-.headerTitle h2{
-color:rgba(255,255,255,0.6);
-margin-top:8px;
-}
-
-.disabled{
-opacity:0.5;
-pointer-events: none;
 
 }
 
-.enable{
-transform: scale(1.2);
-}
 
-
-.Spinner{
-color:rgba(108,21,189,0.7);
-width: 3rem; height: 3rem;
-display:none;
-}
-
-ul{
-margin-bottom:15px;
-}
-
-
-.channelBox{
-position:fixed;
-top:30px;
-margin-left:-5px;
-z-index:999999999;
-}
-
-
-
-
-.transmissao{
-padding:9px;
-opacity:.6;}
-
-.vd {
-margin-left:17px;
-}
-
-.check{
-background:red;}
-
-
-.toggle-group {
-background: #dc3545;
-opacity:0.7;
-
-
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
-
-}
-
-.btn-primary:hover {
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
-}
-
-#toggle-two{
-margin-left:-10px;}
-
-
-.spintext{
+.heroBox{
+max-width:550px;
+background:blue;
+margin:0 auto;
+background:#4E0F8A;
 position:absolute;
-margin-top:14px;
-color:rgba(255,255,255,0.4);
-font-weight:500;
-display:none;
-text-shadow: 1px 1px 4px #6C15BD;
+left:0;
+right:0;
+margin-top:-45px;
+}
+
+.navbar{
+background:#4E0F8A;
+
+}
+
+.navbar a{
+color:rgba(255,255,255,.7);
+margin-left:15px;
 }
 
 
-</style>
+
+
+
+
+
+
+
+    </style>
+    <title>ARCADE ARENA</title>
+</head>
+
 <body>
-<div class="channelBox text-left">
-    <input type="checkbox" id="toggle-two" name="{{campeonato}}" value="on" onchange="submitVideo( this.id , {{listaSquad}} , this.name, this.value )">
-
-</div>
-
-
-<div class="container-fluid page_title text-center">
-    <h1>ARCADE ARENA</h1>
-    <p>dashboard</p>
-</div>
-
-
-<div class="container-fluid pd40">
-    <!--    <input type="hidden" id="campeonato" name="statusPlayer" value="{{campeonato}}">-->
-    <!--    <input type="hidden" id="grupo" name="statusPlayer" value="{{grupo}}">-->
-    <input type="hidden" id="url" name="statusPlayer" value="{{url}}">
-    <div class="row justify-content-md-center">
-        {% for equipe in players %}
-
-        <div class="col-md-auto ">
-            <div class="card perfilBox" id="{{equipe.0.idSquad}}hidecontainer">
-
-                <div class="container-fluid headerTitle">
-                    <div class="row">
-                        <div class="col-2 text-right">
-                            <h6>SQUAD</h6>
-                        </div>
-                        <div class="col text-left">
-                            <h2>{{equipe.0.squad}}</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <ul>
-                    {% for player in equipe %}
-                    <li>
-                        <div class="container-fluid boxPlay vivo" id="{{player.idplayer}}status">
-                            <input type="hidden" id="{{player.idplayer}}statusInput" name="statusPlayer"
-                                   value="{{player.status}}">
-                            <div class="row justify-content-md-center">
-                                <div class="col-6">
-                                    <div class="flex">
-                                        <div class="changeBox">
-                                            <button style="" id="{{player.idplayer}}" type="button" class="changeStatus"
-                                                    onclick="changeStatus(this.id); return false"></button>
-                                        </div>
-                                        <div class="">
-                                            <h6 class="playerName">{{player.player}}</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-2 colorBox " data-toggle="tooltip" data-placement="top"
-                                     title="Atualize as Kills">
-                                    <input type="text" class="input-kills text-center"
-                                           id="{{player.jogo}}/{{player.idrank}}" value="{{player.kills}}"
-                                           onchange="submitKills(this.value,{{player.idrank}},{{equipe.0.rank_partida}},{{equipe.0.idSquad}},{{equipe.0.idcampeonato}}, this.id)">
-
-<!--                                    <input type="hidden" class="selectInput" name="{{player.idplayer}}kills"-->
-<!--                                           id="{{player.idplayer}}killsSelect" value="{{player.kills}}">-->
-                                </div>
-                                <div class="col-2 ">
-                                    <div class="imgXp flex">
-                                        <div>
-                                            <img src="/static/assets/kill.svg" height="90">
-                                        </div>
-                                        <div class="kill">
-                                            <p>kills</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <div class="container-fluid scoreBox">
-                    <div class="row">
-                        <div class="col-8 text-right">
-                            <h6>SCORE PARTIDA:</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <p id="score_partida{{equipe.0.idSquad}}" class="text-center">{{equipe.0.score_equipe}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid scoreBox">
-                    <div class="row">
-                        <div class="col-8 text-right">
-                            <h6>SCORE TOTAL:</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <p id="score_total{{equipe.0.idSquad}}" class="text-center">{{equipe.0.score_total}}</p>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="container rankContainer text-center">
-                    <div class="row">
-                        <div class="col-8 fillCol">
-                            <p class="rankingText">POSIÇÃO DA EQUIPE NA PARTIDA</p>
-                            <div class="row">
-                                {% if equipe.0.status == 'GRUPOS' %}
-                                <div class="col-4">
-                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J1' %}enable{%else%} disabled{%endif%}">
-                                        <span>JOGO 1</span>
-                                        {% if equipe.0.jogo == 'R1J1' %}
-                                        <div class="inputBox ">
-
-                                            <input type="text"
-                                                   id="{% if equipe.0.jogo == 'R1J1' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
-                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J1' %}enable{%else%} disabled{%endif%}"
-                                                   name="{{equipe.0.jogo}}"
-                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
-                                                   value="{{equipe.0.rank_partida}}">
-                                        </div>
-                                        {%endif%}
-                                    </div>
-                                </div>
-                                <div class="col-4 ">
-                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J2' %}enable{%else%} disabled{%endif%}">
-                                        <span>JOGO 2</span>
-                                        {% if equipe.0.jogo == 'R1J2' %}
-                                        <div class="inputBox ">
-                                            <input type="text" name="partida2"
-                                                   id="{% if equipe.0.jogo == 'R1J2' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
-                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J2' %}enable{%else%} disabled{%endif%}"
-                                                    name="{{equipe.0.jogo}}"
-                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
-                                                   value="{{equipe.0.rank_partida}}">
-                                        </div>
-                                        {%endif%}
-                                    </div>
-                                </div>
-                                <div class="col-4 ">
-                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J3' %}enable{%else%} disabled{%endif%}">
-                                        <span>JOGO 3</span>
-                                        {% if equipe.0.jogo == 'R1J3' %}
-                                        <div class="inputBox ">
-                                            <input type="text" name="partida3"
-                                                   id="{% if equipe.0.jogo == 'R1J3' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
-                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J3' %}enable{%else%} disabled{%endif%}"
-                                                   name="{{equipe.0.jogo}}"
-                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
-                                                   value="{{equipe.0.rank_partida}}">
-                                        </div>
-                                        {%endif%}
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="container-fluid text-center" id="{{equipe.0.jogo}}NextSelect">
-                                <button id="{{equipe.0.jogo}}" class="btn encerrar"
-                                        onclick="nextStage( this.id,{{equipe.0.idSquad}} , {{equipe.0.idrank}})">PROXIMA PARTIDA <i
-                                        class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-4 fillCol">
-                            <div class="container-fluid atualizarBox">
-
-                                <button  id="{{equipe.0.idSquad}}hide"
-                                        class=" atualizar">
-                                    <div>PAINEL DE CONTROLE</div>
-                                </button>
-
-                                <div class="d-flex justify-content-center">
-                                    <div id="{{equipe.0.idSquad}}hideSpinner" class="spinner-grow Spinner" role="status">
-                                        <span class="sr-only">Loading...</span>
-                                    </div>
-                                    <p id="{{equipe.0.idSquad}}hideSpinnerText" class="spintext">SALVANDO...</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
+<nav class="navbar">
+    <a class="navbar-brand" href="/dashboard">
+        <!--    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">-->
+        ARCADE ARENA
+    </a>
+</nav>
+<header class="hero">
+    <div class="hero-wrap">
+        <div class="heroBox">
+            <p class="intro" id="intro">ARCADE ARENA</p>
+            <h1 id="headline">{{infoCampeonato.0.1}}</h1>
         </div>
-        {% endfor %}
+
+        <div class="boxHeader">
+
+            <p class="year"><i class="fa fa-star"></i> {{infoCampeonato.0.2}} <i class="fa fa-star"></i></p>
+            <p>{{infoCampeonato.0.5}} CALL OF DUTY || WARZONE</p>
+        </div>
+{{bracket}}
     </div>
-</div>
+</header>
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+{% if round == 'R1' %}
+<section id="groupStage">
+    <div class="round-details topStage text-center">
+        Fase de Grupos<br/>
+        <span class="date">March 16</span></div>
+    <div class="container topStagecontainer text-center">
+        <div class="round round-one current">
+            <ul class="matchup">
 
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+                {% for grupo in bracket1 %}
+                <div class="round-details topStage text-center">{{grupo.0.2}}</div>
+                {% for c in grupo %}
+                <li class="team team-top">{{c.5}}<span class="scoreA">{{c.7}}</span></li>
+                {% endfor %}
+                {% endfor %}
+
+            </ul>
+            <!--            <ul class="matchup">-->
+            <!--                <div class="round-details topStage text-center">Grupo B</div>-->
+            <!--                <li class="team team-top">North Carolina<span class="scoreA">68</span></li>-->
+            <!--                <li class="team team-bottom">Florida State<span class="scoreA">54</span></li>-->
+            <!--                <li class="team team-top">NC State<span class="scoreA">74</span></li>-->
+            <!--                <li class="team team-bottom">Maryland<span class="scoreA">92</span></li>-->
+            <!--            </ul>-->
+            <!--            <ul class="matchup">-->
+            <!--                <div class="round-details topStage text-center">Grupo C</div>-->
+            <!--                <li class="team team-top">Georgia Tech<span class="scoreA">78</span></li>-->
+            <!--                <li class="team team-bottom">Georgia<span class="scoreA">80</span></li>-->
+            <!--                <li class="team team-top">Auburn<span class="scoreA">64</span></li>-->
+            <!--                <li class="team team-bottom">Florida<span class="scoreA">63</span></li>-->
+            <!--            </ul>-->
+            <!--            <ul class="matchup">-->
+            <!--                <div class="round-details topStage text-center">Grupo D</div>-->
+            <!--                <li class="team team-top">Kentucky<span class="scoreA">70</span></li>-->
+            <!--                <li class="team team-bottom">Alabama<span class="scoreA">59</span></li>-->
+            <!--                <li class="team team-top">Vanderbilt<span class="scoreA">64</span></li>-->
+            <!--                <li class="team team-bottom">Gonzaga<span class="scoreA">68</span></li>-->
+            <!--            </ul>-->
+        </div>
+        <div class="round round-one current">
+            <ul class="matchup">
+                {% for grupo in bracket2 %}
+                <div class="round-details topStage text-center">{{grupo.0.2}}</div>
+                {% for g in grupo %}
+                <li class="team team-top">{{g.5}}<span class="scoreA">{{g.7}}</span></li>
+                {% endfor %}
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if round != 'R1' %}
+<section id="bracket">
+    <div class="container-fluid containerB">
+        <div class="split split-one">
+            <!--            <div class="round-border"></div>&lt;!&ndash; END ROUND ONE &ndash;&gt;-->
+            <div class="round round-two">
+                <div class="round-details">OITAVAS-FINAL<br/><span class="date">March 18</span></div>
+                <ul class="matchup">
+                    <div class="row">
+                        <div class="col-2">
+                            <a onclick="submitRank({{bracket.3}},{{bracket.3}},'R2J1')">
+                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"
+                                     height="40">
+                            </a>
+                        </div>
+
+                        <div class="col-10">
 
 
+                            <li class="team team-top">&nbsp;<span class="score">{{bracket.5}}</span></li>
+
+
+                            <li class="team team-bottom">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                        </div>
+                    </div>
+
+                </ul>
+                <ul class="matchup">
+                    <div class="row">
+                        <div class="col-2">
+                            <a onclick="submitRank({{bracket}},{{bracket}},'R2J1')">
+                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"
+                                     height="40">
+                            </a>
+                        </div>
+
+                        <div class="col-10">
+                            <li class="team team-top">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                            <li class="team team-bottom">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                        </div>
+                    </div>
+                </ul>
+                <ul class="matchup">
+                    <div class="row">
+                        <div class="col-2">
+                            <a onclick="submitRank({{bracket.3}},{{bracket.3}},'R2J1')">
+                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"
+                                     height="40">
+                            </a>
+                        </div>
+
+                        <div class="col-10">
+                            <li class="team team-top">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                            <li class="team team-bottom">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                        </div>
+                    </div>
+                </ul>
+                <ul class="matchup">
+                    <div class="row">
+                        <div class="col-2">
+                            <a onclick="submitRank({{bracket}},{{bracket}},'R2J1')">
+                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"
+                                     height="40">
+                            </a>
+                        </div>
+
+                        <div class="col-10">
+                            <li class="team team-top">&nbsp;<span class="score">{{bracket}}</span></li>
+                            <li class="team team-bottom">&nbsp;<span class="score">{{bracket}}</span></li>
+                        </div>
+                    </div>
+                </ul>
+            </div>    <!-- END ROUND TWO -->
+            <div class="round round-three">
+                <div class="round-details">QUARTAS-FINAL<br/><span class="date">March 22</span></div>
+                <ul class="matchup">
+                    <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                    <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                </ul>
+                <ul class="matchup">
+                    <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                    <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                </ul>
+            </div>    <!-- END ROUND THREE -->
+            <div class="round round-four">
+                <div class="round-details">SEMI-FINAL<br/><span class="date">March 22</span></div>
+
+
+                <ul class="matchup">
+                    <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                    <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                </ul>
+
+
+            </div>    <!-- END ROUND THREE -->
+        </div>
+
+        <div class="champion">
+            <!--            <div class="semis-l">-->
+            <!--                <div class="round-details">west semifinals <br/><span class="date">March 26-28</span></div>-->
+            <!--                <ul class="matchup championship">-->
+            <!--                    <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>-->
+            <!--                    <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+            <div class="final">
+                <img style="opacity:0.8; margin-bottom:5px;" src="/static/assets/trofeu.svg"
+                                     height="80">
+                <div class="round-details">FINAL <br/><span class="date">March 30 - Apr. 1</span></div>
+                <ul class="matchup championship">
+                    <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                    <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
+
+                </ul>
+            </div>
+            <!--            <div class="semis-r">-->
+            <!--                <div class="round-details">east semifinals <br/><span class="date">March 26-28</span></div>-->
+            <!--                <ul class="matchup championship">-->
+            <!--                    <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>-->
+            <!--                    <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+        </div>
+
+
+        <div class="split split-two">
+            <div class="round round-four">
+                <div class="round-details">SEMI-FINAL<br/><span class="date">March 22</span></div>
+                <ul class="matchup">
+                    <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                    <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>
+                </ul>
+
+            </div>    <!-- END ROUND Four -->
+            <div class="round round-three">
+                <div class="round-details">QUARTAS-FINAL<br/><span class="date">March 22</span></div>
+                <ul class="matchup">
+                    <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                    <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                </ul>
+                <ul class="matchup">
+                    <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+                    <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+                </ul>
+            </div>    <!-- END ROUND THREE -->
+            <div class="round round-two">
+                <div class="round-details">OITAVAS-FINAL<br/><span class="date">March 18</span></div>
+                <ul class="matchup">
+                    <div class="row">
+                        <div class="col-10">
+                            <li class="team team-top">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                            <li class="team team-bottom">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                        </div>
+                        <div class="col-2">
+                            <a onclick="submitRank({{bracket.3}},{{bracket.3}},'R2J1')">
+                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"
+                                     height="40">
+                            </a>
+                        </div>
+                    </div>
+                </ul>
+                <ul class="matchup">
+                    <div class="row">
+                        <div class="col-10">
+                            <li class="team team-top">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                            <li class="team team-bottom">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                        </div>
+                        <div class="col-2">
+                            <a onclick="submitRank({{bracket.3}},{{bracket.3}},'R2J1')">
+                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"
+                                     height="40">
+                            </a>
+                        </div>
+                    </div>
+
+                </ul>
+                <ul class="matchup">
+                    <div class="row">
+                        <div class="col-10">
+                            <li class="team team-top">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                            <li class="team team-bottom">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                        </div>
+                        <div class="col-2">
+                            <a onclick="submitRank({{bracket.3}},{{bracket.3}},'R2J1')">
+                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"
+                                     height="40">
+                            </a>
+                        </div>
+                    </div>
+
+                </ul>
+                <ul class="matchup">
+                    <div class="row">
+                        <div class="col-10">
+                            <li class="team team-top">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                            <li class="team team-bottom">&nbsp;<span class="score">{{bracket.5}}</span></li>
+                        </div>
+                        <div class="col-2">
+                            <a onclick="submitRank({{bracket.3}},{{bracket.3}},'R2J1')">
+                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"
+                                     height="40">
+                            </a>
+                        </div>
+                    </div>
+                </ul>
+            </div>    <!-- END ROUND TWO -->
+
+
+            <!--            <div class="round round-one current">-->
+            <!--                <div class="round-details">Fase de Grupos<br/><span class="date">March 16</span></div>-->
+            <!--                <ul class="matchup">-->
+            <!--                    <li class="team team-top">Duke<span class="score">76</span></li>-->
+            <!--                    <li class="team team-top">Virginia<span class="score">82</span></li>-->
+            <!--                    <li class="team team-top">Wake Forest<span class="score">64</span></li>-->
+            <!--                    <li class="team team-bottom">Clemson<span class="score">56</span></li>-->
+            <!--                </ul>-->
+            <!--                <ul class="matchup">-->
+            <!--                    <li class="team team-top">North Carolina<span class="score">68</span></li>-->
+            <!--                    <li class="team team-bottom">Florida State<span class="score">54</span></li>-->
+            <!--                    <li class="team team-top">NC State<span class="score">74</span></li>-->
+            <!--                    <li class="team team-bottom">Maryland<span class="score">92</span></li>-->
+            <!--                </ul>-->
+            <!--                <ul class="matchup">-->
+            <!--                    <li class="team team-top">Georgia Tech<span class="score">78</span></li>-->
+            <!--                    <li class="team team-bottom">Georgia<span class="score">80</span></li>-->
+            <!--                    <li class="team team-top">Auburn<span class="score">64</span></li>-->
+            <!--                    <li class="team team-bottom">Florida<span class="score">63</span></li>-->
+            <!--                </ul>-->
+            <!--                <ul class="matchup">-->
+            <!--                    <li class="team team-top">Kentucky<span class="score">70</span></li>-->
+            <!--                    <li class="team team-bottom">Alabama<span class="score">59</span></li>-->
+            <!--                    <li class="team team-top">Vanderbilt<span class="score">64</span></li>-->
+            <!--                    <li class="team team-bottom">Gonzaga<span class="score">68</span></li>-->
+            <!--                </ul>-->
+
+            <!--            </div>-->
+            <!-- END ROUND ONE -->
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="share">
+    <div class="share-wrap">
+        <a class="share-icon" href="https://twitter.com/_joebeason"><i class="fa fa-twitter"></i></a>
+        <a class="share-icon" href="#"><i class="fa fa-facebook"></i></a>
+        <a class="share-icon" href="#"><i class="fa fa-envelope"></i></a>
+    </div>
+</section>
 </body>
+
 <script>
 
-
-   var socket = io.connect('http://' + document.domain + ':' + location.port) ;
-
+ var socket = io.connect('http://' + document.domain + ':' + location.port) ;
 
 
-function submitVideo(this_id,Lista_idSquads, campeonato, this_value){
-data = {
-'Lista_idSquads': Lista_idSquads,
-'campeonato': campeonato,
-'stream': this_value
+function submitRank(squad1,squad2,jogo_ativo){
+var data = {
+
+nomeCampeonato:'{{infoCampeonato.0.1}}',
+grupo:'{{bracket.2}}',
+squad1:squad1,
+squad2:squad2,
+fasegrupos:'{{bracket.4}}',
+idCampeonato:'{{bracket.1}}',
+jogo_ativo:jogo_ativo
 }
 
-
-if(this_value == 'on'){
-document.getElementById(this_id).value = 'off'
-}
-
-if(this_value == 'off'){
-document.getElementById(this_id).value = 'on'
-}
-
-$.ajax({
-  url: '/streaming/setChannel', // point to server-side URL
-					dataType: 'json', // what to expect back from server
-					cache: false,
-					contentType: false,
-					processData: false,
-					data: JSON.stringify(data),
-					type: 'post',
-                      success: function( data ) {
-
-                      }
-});
-
-
-}
-
-
-
-function SpinningStart(idsquad){
-document.getElementById(idsquad+'hide').style.display = 'none';
-document.getElementById(idsquad+'hideSpinner').style.display = 'block';
-document.getElementById(idsquad+'hideSpinnerText').style.display = 'block';
-
-}
-
-function SpinningStop(idsquad){
-document.getElementById(idsquad+'hide').style.display = 'block';
-document.getElementById(idsquad+'hideSpinner').style.display = 'none';
-document.getElementById(idsquad+'hideSpinnerText').style.display = 'none';
-}
-
-
-
-function submitKills(this_value, idrank, colocacao, idsquad,idcampeonato,jogo_ativo){
-SpinningStart(idsquad);
-
-data = {
-'idsquad': idsquad,
-'kills': this_value,
-'idrank': idrank,
-'colocacao_partida': colocacao,
-'idcampeonato': idcampeonato,
-'jogo_ativo':jogo_ativo
-}
-
-$.ajax({
-  url: '/streaming/setKills', // point to server-side URL
-					dataType: 'json', // what to expect back from server
-					cache: false,
-					contentType: false,
-					processData: false,
-					data: JSON.stringify(data),
-					type: 'post',
-                      success: function( data ) {
-
-                    reloadScore(data)
-
-                      }
-});
-
-
-};
-
-
-
-
-function reloadScore(data){
-
-SpinningStop(data[0]);
-document.getElementById('score_partida'+data[0]).innerHTML = data[1];
-document.getElementById('score_total'+data[0]).innerHTML = data[2];
-}
-
-
-
-
-function submitRank(this_value, idsquad, idrank, idcampeonato,jogo){
-
-data = {
-'idsquad': idsquad,
-'rank_partida': this_value,
-'idrank': idrank,
-'idcampeonato': idcampeonato,
-'jogo':jogo
-}
-
-
-$.ajax({
-  url: '/streaming/setRank', // point to server-side URL
-					dataType: 'json', // what to expect back from server
-					cache: false,
-					contentType: false,
-					processData: false,
-					data: JSON.stringify(data),
-					type: 'post',
-                      success: function( data ) {
-                              reloadScore(data)
-                      }
-});
-
-
-};
-
-
-
-function nextStage(this_id ,idsquad, idrank){
-
-
-data = {
-'idsquad': idsquad,
-'jogo': this_id,
-'idrank': idrank
-}
 
 console.log(data);
-$.ajax({
-  url: '/streaming/setGame', // point to server-side URL
-					dataType: 'json', // what to expect back from server
-					cache: false,
-					contentType: false,
-					processData: false,
-					data: JSON.stringify(data),
-					type: 'post',
-                      success: function( data ) {
-                          setTimeout(function(){// wait for 5 secs(2)
-           location.reload(); // then reload the page.(3)
-      }, 1);
-                      }
-});
-
-
-};
-
-
-
-
-
-
-
-
-    function changeStatus(this_id){
-         var element =  document.getElementById(this_id+"status");
-         var inputChange = document.getElementById(this_id+"statusInput").value;
-            if(inputChange == 'False'){
-    element.classList.remove("morto");
-    element.classList.add("vivo");
-    document.getElementById(this_id+"statusInput").value = 'True';
-    }
-     if(inputChange == 'True'){
-      element.classList.remove("vivo");
-     element.classList.add("morto");
-     document.getElementById(this_id+"statusInput").value = 'False';
-     }
+socket.emit('submit rank', data);
 }
 
+socket.on('bracket rank response', function(data){
+console.log(data['nomeCampeonato']);
+url = '/streaming/'+data['nomeCampeonato'] +'/'+ data['grupo'] +'/'+ data['squad1'] +'p'+ data['squad2']+'/'+data['fasegrupos']+'/'+data['idCampeonato'];
+
+ setTimeout(function () {
+       window.location.href = url; //will redirect to your blog page (an ex: blog.html)
+    }, 2000); //will call the function after 2 secs.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(function() {
-    $('#toggle-two').bootstrapToggle({
-      on: '<i class="fas fa-video vd"></i>',
-      off: '<i class="fas fa-video-slash"></i>',
-      size: 'large'
-    });
-  })
-
-
+})
 
 
 
@@ -797,3 +872,6 @@ $(function() {
 
 </script>
 </html>
+
+
+  var url = '/streaming/{{infoCampeonato.0.1}}/'+taggrupo+'/'+ bracket + '/'+ '{{infoCampeonato.0.0}}/'+grupo;

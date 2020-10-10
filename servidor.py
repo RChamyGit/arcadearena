@@ -3,7 +3,7 @@ from flask import request, render_template, url_for, redirect, flash, send_file,
 from flask_mail import Mail, Message
 from datetime import datetime
 from passlib.hash import sha256_crypt
-from dbconnect import connection, check_user_Login, check_user_ID, SelectSql, UpdateQuerySql, InsertSql, SelectSqlAll,SelectSqlMulti
+from dbconnect import connection, check_user_Login, check_user_ID, SelectSql, UpdateQuerySql, InsertSql, SelectSqlAll,SelectSqlMulti,SelectSqlMulti3,UpdateQuerySqlMulti
 from functools import wraps
 from werkzeug.utils import secure_filename
 import os
@@ -14,7 +14,7 @@ import random
 
 from flask_socketio import *
 
-from testeCallofduty import SearchActivisionPlayer, say
+from testeCallofduty import getuser
 
 # mes = str(datetime.now().strftime("%B"))
 # dia = str(datetime.now().strftime("%d-%B"))
@@ -60,6 +60,8 @@ UPLOAD_FOLDER = './static/uploads/'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['WTF_CSRF_ENABLED'] = True
 app.config['SECRET_KEY'] = 'my_love_dont_try'
+
+socketio = SocketIO(app, logger=True)
 
 
 ############ METODOS APLICADOS ####################
@@ -313,45 +315,104 @@ def convert(list):
     return tuple(list)
 
 
-@app.route('/bracketList/<idCampeonato>', methods=['GET', 'POST'])
-def bracketList(idCampeonato):
-    # print(idCampeonato)
-    # return render_template('bracketList.html', infoCampeonato=idCampeonato)
-    if request.method == 'GET':
-        bracketCheck = SelectSql('bracket', 'idcampeonatos_ativos', idCampeonato)
-        print(bracketCheck)
-        if bracketCheck == False:
-            return redirect(url_for('bracketSetup', idCampeonato=idCampeonato))
-        if bracketCheck != False:
-            print('ja existe bracket montado')
-            listGroup = []
-            grups = []
-            for item in bracketCheck:
-                print(item)
-                grupoNr = item[2].strip('grupo ')
-                grupo = f'grupo {grupoNr}'
-                if grupo not in listGroup:
-                    listGroup.append(grupo)
-                else:
-                    pass
-            for field in listGroup:
-                c, conn = connection()
-                query = "SELECT * FROM bracket WHERE idcampeonatos_ativos = %s AND grupo = %s"
-                values = (idCampeonato, field)
-                c.execute(query, values)
-                teste = c.fetchall()
-                grups.append(teste)
 
-        return render_template('bracketList.html', infoCampeonato=idCampeonato, bracket1=grups[0:4],
-                               bracket2=grups[4:9], dia=dataDia)
+
+
+@app.route('/campeonatoSetup/<nomeCampeonato>/<idCampeonato>', methods=['GET', 'POST'])
+def bracketList(nomeCampeonato,idCampeonato):
+    if request.method == 'GET':
+        data = []
+        # bracketCheck = SelectSql('bracket', 'idcampeonatos_ativos', idCampeonato)
+        partidas_online = SelectSql('partidas_online', 'idcampeonatos_ativos', idCampeonato)
+        if partidas_online == False:
+            return redirect(url_for('bracketSetup', idCampeonato=idCampeonato))
+        if partidas_online != False:
+            print('ja existe bracket montado')
+
+            # bracketList = []
+            # listGroup = []
+            # grups = []
+            # # rounds =  ['R1','R2','R3','R4','FINAL','SUBFINAL']
+
+            for item in partidas_online:
+            #     totalPosition = item[28].split('_')
+            #     # print(totalPosition)
+            #     round = totalPosition[0]
+                bracket = item[9]
+            #
+            #
+            #     data.append(item)
+
+        # socketio.emit('braket mount', data)
+            #     grupoNr = item[2].strip('grupo ')
+            #     grupo = f'grupo {grupoNr}'
+            #     totalPosition = item[12].split('_')
+            #     # print(totalPosition)
+            #     round = totalPosition[0]
+            #     bracket = item[4]
+            #
+            #
+            #
+            #     if bracket == 1:
+            #         if round != 'R1':
+            #             print(round)
+            #             bracketList.append(item)
+            #
+            #     if bracket != 1:
+            #         if grupo not in listGroup:
+            #             listGroup.append(grupo)
+            #     for field in listGroup:
+            #         subGrupo = []
+            #         if field == grupo:
+            #             subGrupo.append(item)
+            #         bracketList.append(subGrupo)
+            #
+            # print(listGroup)
+        # print(data)
+            return render_template('bracketList.html',
+                                   infoCampeonato=SelectSql('campeonatos_ativos', 'idcampeonatos_ativos',idCampeonato),
+                                   partidas = partidas_online,
+                                   bracket = bracket)
+                               # round = round
+
+                                           # bracket=bracketList,)
+
+                        # print(round)
+                        # print(posicao)
+                        # print('')
+
+            #
+            #         # grups.append([{f'{grupo}':f'{item}'}])
+            #
+            #     else:
+            #         pass
+            # # print(grups)
+            #
+            # for field in listGroup:
+            #     c, conn = connection()
+            #     query = "SELECT * FROM bracket WHERE idcampeonatos_ativos = %s AND grupo = %s"
+            #     values = (idCampeonato, field)
+            #     c.execute(query, values)
+            #     teste = c.fetchall()
+            #     grups.append(teste)
+
+
+
+        # return render_template('bracketList.html',
+        #
+        #                        infoCampeonato=SelectSql('campeonatos_ativos', 'idcampeonatos_ativos',idCampeonato),
+        #                        bracket1=grups[0:4],
+        #                        bracket2=grups[4:9],
+        #                        check=check,
+        #                        dia=dataDia)
 
 
 @app.route('/bracketSetup/<idCampeonato>', methods=['GET', 'POST'])
 def bracketSetup(idCampeonato):
-    # bracketCheck = SelectSql('bracket', 'idcampeonatos_ativos', idCampeonato)
+    bracketCheck = SelectSql('bracket', 'idcampeonatos_ativos', idCampeonato)
     # print(f'bracketCheck: {bracketCheck}')
     if request.method == "GET":
-        # if bracketCheck == False:
+        if bracketCheck == False:
             campeonato = SelectSql('campeonatos_ativos', 'idcampeonatos_ativos', idCampeonato)
             if campeonato != False:
                 print('não existe brecket montado')
@@ -359,16 +420,16 @@ def bracketSetup(idCampeonato):
                     fasedeGrupos = item[7]
                     regras = item[8]
                     nomeCampeonato = item[1]
-                print(nomeCampeonato)
-                return render_template('bracketSetup.html',
+                # print(nomeCampeonato)
+                    return render_template('bracketSetup.html',
                                        infoCampeonato=campeonato,
                                        idCampeonato=idCampeonato,
                                        fasedeGrupos=fasedeGrupos,
                                         nomeCampeonato=nomeCampeonato,
                                        regras=regras)
-            else:
-                redirect(url_for('dashboard'))
-                                                  # squadList=squad
+        else:
+            return redirect(url_for('dashboard'))
+        #                                           # squadList=squad
                                    # )
         # if bracketCheck != False:
         #     print('ja existe bracket montado')
@@ -684,50 +745,174 @@ def fillDictRAnk(idpartida_online,idplayer,idcampeonato,idSquad,player,squad,sta
 
 
 
-@app.route('/streaming/<campeonato>/<grupo>/<idSquads>', methods=['GET', 'POST'])
-def streamingPartida(campeonato, grupo, idSquads):
+@app.route('/streaming/<campeonato>/<grupo>/<fasedeGrupos>/<idcampeonato>/', methods=['GET', 'POST'])
+def streamingPartida(campeonato, grupo,fasedeGrupos,idcampeonato):
 
     # url = f'/{campeonato}/{grupo}/{idSquads}'
     if request.method == "GET":
-        listaSquad = idSquads.split('p')
-        # print(listaSquad)
-        listaCompleta = []
-        for idSquad in listaSquad:
-            equipe = []
-
-            checkRank = SelectSql('rank', 'idSquad', idSquad)
-            # print(checkRank)
-            if checkRank == False:
-                nomeSquad = SelectSql('squads', 'idsquads', idSquad)[0][1]
-                # createRank(SelectSql('players', 'squad', nomeSquad), SelectSql('partidas_online', 'idsquad', idSquad),idSquad)
-
-            jogo_ativo = SelectSql('partidas_online', 'idsquad', idSquad)[0][26]
-            streamStatusChannel = SelectSql('partidas_online', 'idsquad', idSquad)[0][27]
-            selectRankingAtivo = SelectSqlMulti('rank', 'idSquad', idSquad, 'ativo', jogo_ativo)
-                # print(selectRankingAtivo)
-            for x in selectRankingAtivo:
-                        # print(x)
+        listaSquad = []
+        completa =[]
+        sub = []
+        select = SelectSqlMulti('partidas_online','idcampeonatos_ativos',idcampeonato,'grupo',grupo)
+        # print(select)
+        for i in select:
+            idteam = i[3]
+            listaSquad.append(idteam)
+            jogo_ativo = i[26]
+            check = SelectSqlMulti3('rank', 'idSquad', idteam, 'ativo', jogo_ativo,'idcampeonato',idcampeonato)
+            # check = SelectSqlMulti('rank', 'idSquad', idteam, 'idcampeonato', idcampeonato)
+            # print(check)
+            if check == False:
+                print('nao achou ranking')
+                make_ranking(idteam, fasedeGrupos, idcampeonato)
+                new = SelectSqlMulti3('rank', 'idSquad', idteam, 'ativo', jogo_ativo,'idcampeonato',idcampeonato)
+                equipe = []
+                for x in new:
+                    Channel = x[15]
+                    if Channel == None:
+                        Channel = 'off'
+                    # print(Channel)
                     myDict = ({
-                            'idrank': str(x[0]),
-                            'idpartida_online': x[1],
-                            'idplayer': x[2],
-                            'idcampeonato': x[8],
-                            'idSquad': x[9],
-                            'player': x[5],
-                            'kills': x[3],
-                            'squad': x[6],
-                            'score_equipe': x[7],
-                            'status': x[4],
-                            'rank_partida': x[10],
-                            'score_partida': x[11],
-                            'jogo': str(x[12]),
-                            'jogo_ativo': x[13],
-                            'score_total': x[14]
-                        })
+                        'idrank': str(x[0]),
+                        'idpartida_online': x[1],
+                        'idplayer': x[2],
+                        'idcampeonato': x[8],
+                        'idSquad': x[9],
+                        'player': x[5],
+                        'kills': x[3],
+                        'squad': x[6],
+                        'score_equipe': x[7],
+                        'status': x[4],
+                        'rank_partida': x[10],
+                        'score_partida': x[11],
+                        'jogo': str(x[12]),
+                        'jogo_ativo': x[13],
+                        'score_total': x[14]
+                    })
                     equipe.append(myDict)
-            listaCompleta.append(equipe)
+                completa.append(equipe)
 
-        return render_template('streaming.html', listaSquad=listaSquad, players=listaCompleta, campeonato=campeonato, grupo=grupo, channel1=streamStatusChannel)
+
+            if check != False:
+                print('ACHOU')
+                equipe = []
+                for x in check:
+                    Channel = x[15]
+                    if Channel == None:
+                        Channel = 'off'
+                    # print(Channel)
+                    myDict = ({
+                        'idrank': str(x[0]),
+                        'idpartida_online': x[1],
+                        'idplayer': x[2],
+                        'idcampeonato': x[8],
+                        'idSquad': x[9],
+                        'player': x[5],
+                        'kills': x[3],
+                        'squad': x[6],
+                        'score_equipe': x[7],
+                        'status': x[4],
+                        'rank_partida': x[10],
+                        'score_partida': x[11],
+                        'jogo': str(x[12]),
+                        'jogo_ativo': x[13],
+                        'score_total': x[14]
+                    })
+                    equipe.append(myDict)
+                completa.append(equipe)
+
+
+
+
+        return render_template('streaming.html',
+                                   listaSquad=listaSquad,
+                                   players=completa,
+                                   campeonato=campeonato,
+                                   idcampeonato=idcampeonato,
+                                   grupo=grupo,
+                                   channel1=Channel
+                                   )
+            #
+            #
+            #
+            # print(equipe)
+
+
+
+
+
+
+
+
+
+            # print(jogo_ativo)
+
+        # print(listaSquad)
+        # listaCompleta = []
+
+        # checkRank2 = SelectSql('rank', 'idSquad', listaSquad[1])
+        # checkRank = SelectSqlMulti('rank', 'idSquad', idSquad, 'idcampeonato', idcampeonato)
+        # print(checkRank1)
+        # if checkRank1 or checkRank2 == False:
+        #     print('ok')
+        #     # make_ranking(listaSquad,fasedeGrupos=fasedeGrupos,idcampeonato=idcampeonato)
+        # for idSquad in listaSquad:
+        #     checkRank = SelectSqlMulti('rank', 'idSquad', idSquad, 'idcampeonato', idcampeonato)
+        #     if checkRank == False:
+        #         print('nao tem ranking')
+        #         # checkRank = make_ranking(idSquad, fasedeGrupos, idcampeonato)
+        #     else:
+        #         pass
+        #     # print(idSquad)
+        #     #     print('tem ranking')
+        #     equipe = []
+        #
+        #     for i in checkRank:
+        #         if i[13] != 'no':
+        #                 # listaCompleta.append(i)
+        #             jogo_ativo = i[13]
+        #             # print(jogo_ativo)
+        #             # print(i)
+        #     selectRankingAtivo = SelectSqlMulti('rank', 'idSquad', idSquad, 'ativo', jogo_ativo)
+        #
+        #     # print(selectRankingAtivo)
+        #     if checkRank == False:
+        #         make_ranking()
+        #         nomeSquad = SelectSql('squads', 'idsquads', idSquad)[0][1]
+        #         print(nomeSquad)
+        #
+        #         # createRank(SelectSql('players', 'squad', nomeSquad), SelectSql('partidas_online', 'idsquad', idSquad),idSquad)
+        #
+            # jogo_ativo = SelectSql('partidas_online', 'idsquad', idSquad)[0][26]
+            # streamStatusChannel = SelectSql('partidas_online', 'idsquad', idSquad)[0][27]
+            # selectRankingAtivo = SelectSqlMulti('rank', 'idSquad', idSquad, 'ativo', jogo_ativo)
+        #         # print(selectRankingAtivo)
+        #     for x in selectRankingAtivo:
+        #         streamStatusChannel = x[15]
+        #         myDict = ({
+        #                         'idrank': str(x[0]),
+        #                         'idpartida_online': x[1],
+        #                         'idplayer': x[2],
+        #                         'idcampeonato': x[8],
+        #                         'idSquad': x[9],
+        #                         'player': x[5],
+        #                         'kills': x[3],
+        #                         'squad': x[6],
+        #                         'score_equipe': x[7],
+        #                         'status': x[4],
+        #                         'rank_partida': x[10],
+        #                         'score_partida': x[11],
+        #                         'jogo': str(x[12]),
+        #                         'jogo_ativo': x[13],
+        #                         'score_total': x[14]
+        #                     })
+        #         equipe.append(myDict)
+        #                 # print(equipe)
+        #     listaCompleta.append(equipe)
+        # # print(listaCompleta)
+        #
+        # # print(streamStatusChannel)
+
 
 def rules(colocacaoPartida,idcampeonato):
     fromRules = SelectSql('regras', 'idregras',
@@ -1009,69 +1194,229 @@ def getRank(value):
 #
 # if __name__ == "__main__":
 #     app.run(debug=True,port=5002)
-socketio = SocketIO(app, logger=True)
 
 
 
-@socketio.on('my event')
-def handle_my_custom_event(json):
-    print('received json: ' + str(json))
 
-
-@socketio.on('connect')
-def test_connect():
-    print('connect')
-    socketio.emit('my response', {'data': 'Connected'})
+# @socketio.on('my event')
+# def handle_my_custom_event(json):
+#     print('received json: ' + str(json))
+#
+#
+# @socketio.on('connect')
+# def test_connect():
+#     print('connect')
+#     socketio.emit('my response', {'data': 'Connected'})
 
 
 @socketio.on('check Activison')
 def Activision(data):
     nrPlayer = data[0]
-    tagName = data[1]
-    IdActvision = data[2]
-    plataform = data[3]
-
-    # dataPlayer = say(IdActvision)
+    tagName = str(data[1])
+    IdActvision = str(data[2])
+    plataform = str(data[3])
+    dataPlayer = getuser(IdActvision,plataform)
     # print(dataPlayer)
+    #
+    if tagName == '':
+        tagName = nrPlayer
+    if dataPlayer == str('False'):
+        databack = [{'mensagem':'Este Usuário não foi encontrado!'}]
+        socketio.emit('Activison negado', databack)
+    else:
+        dataPlayer.update({
+                'player': nrPlayer,
+                'tagName': tagName,
+            })
+        socketio.emit('Activison response', dataPlayer)
+@socketio.on('insert Squad')
+def InsertSquad(data):
+    InsertSql({'squadName': data[3],'nome':data[3]},'squads')
+    c = SelectSql('squads', 'squadName', data[3])
+    idsquad = c[0][0]
 
-
-
-
-    # socketio.emit('my response', {'data': 'Connected'})
-
-
+    for player in data[0:3]:
+        myDict = ({
+            'squad': data[3],
+            'idsquad': idsquad,
+            'player': player['tagName'],
+            'activisionID':player['username'],
+            'kills': player['Kills'],
+            'wins': player['Wins'],
+            'top5': player['TopFive'],
+            'deaths': player['Deaths'],
+            'KD': player['K/D Ratio'],
+            'level':player['level'],
+            'plataforma':player['plataform'],
+        })
+        InsertSql(myDict, 'players')
+    socketio.emit('players response')
 
 @socketio.on('refresh_channel')
 def refresh_channel(json):
     setChannelAPI(json)
+
 def setChannelAPI(data):
+    # print(data)
+    Lista_idSquads = data['Lista_idSquads']
     streamStatus = data['stream']
-    selectStream = SelectSql('partidas_online', 'stream', 'on')
+    idCampeonato = data['campeonato']
+    selectStream = SelectSqlMulti('partidas_online', 'stream', 'on','idcampeonatos_ativos',int(idCampeonato))
+
+
+    print(selectStream)
+
+
+
+    # def on():
+    #     print('on')
+    #     socketio.emit('reload_statusChannel1', {'status_channel1': 'on'})
+    #     for idsquad in Lista_idSquads:
+    #         selectPartida = SelectSqlMulti('partidas_online', 'idsquad', idsquad, 'idcampeonatos_ativos',
+    #                                        idCampeonato)
+    #         for i in selectPartida:
+    #             print(i)
+    #             # UpdateQuerySql({'stream': 'on'}, 'partidas_online', 'idpartidas_online', i[0])
+    #
+    #             # UpdateQuerySql({'stream': 'off'}, 'partidas_online', 'idsquad', oldid)
+    #             # UpdateQuerySql({'stream': 'off'}, 'bracket', 'squad', oldid)
+    #             #         UpdateQuerySql({'stream': 'off'}, 'rank', 'idSquad', oldid)
+
+
+    # def off():
+    #     print('off')
+    #     socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
+    #     for idsquad in Lista_idSquads:
+    #         selectPartida = SelectSqlMulti('partidas_online', 'idsquad', idsquad, 'idcampeonatos_ativos',
+    #                                        idCampeonato)
+    #         for i in selectPartida:
+    #             print(i)
+    #             # #     for idsquad in Lista_idSquads[:-1]:
+    #             # UpdateQuerySql({'stream': 'off'}, 'partidas_online', 'idpartidas_online', i[0])
+    #
     if selectStream == False:
+        print('nao existe Stream ON')
+        # print(streamStatus)
         if streamStatus == 'on':
-            socketio.emit('reload_statusChannel1', {'status_channel1': 'on'})
-            for idsquad in data['Lista_idSquads']:
-                UpdateQuerySql({'stream':'on'},'partidas_online','idsquad',idsquad)
-                UpdateQuerySql({'stream': 'on'}, 'bracket', 'squad', idsquad)
-        if streamStatus == 'off':
-            socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
-            for idsquad in data:
-                UpdateQuerySql({'stream':'off'},'partidas_online','idsquad',idsquad)
-                UpdateQuerySql({'stream': 'off'}, 'bracket', 'squad', idsquad)
+            print('on')
+            # socketio.emit('reload_statusChannel1', {'status_channel1': 'on'})
+            for team in Lista_idSquads:
+                # selecTEAM = SelectSqlMulti('partidas_online', 'idsquad', team, 'idcampeonatos_ativos', idCampeonato)
+                # for item in selecTEAM:
+                #     idPartida = item[0]
+                UpdateQuerySqlMulti({'stream': 'on'}, 'partidas_online', 'idsquad', team,'idcampeonatos_ativos',idCampeonato)
+                    # UpdateQuerySql({'stream': 'on'}, 'bracket', 'idpartidas_online', idPartida)
+                    # UpdateQuerySql({'stream': 'on'}, 'rank', 'idpartidas_online', idPartida)
+
+        else:
+            print('off')
+            for team in Lista_idSquads:
+                # socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
+                UpdateQuerySqlMulti({'stream': 'off'}, 'partidas_online', 'idsquad', team, 'idcampeonatos_ativos',
+                                    idCampeonato)
+                # selecTEAM = SelectSqlMulti('partidas_online', 'idsquad', team, 'idcampeonatos_ativos', idCampeonato)
+                # for item in selecTEAM:
+                #     idPartida = item[0]
+                #     UpdateQuerySql({'stream': 'off'},'partidas_online', 'idpartidas_online', idPartida)
+
+
+
+
     else:
-        for all in selectStream:
-            partidasToOff = all[0]
-            UpdateQuerySql({'stream': 'off'}, 'partidas_online', 'idpartidas_online', partidasToOff)
-        if streamStatus == 'on':
-            socketio.emit('reload_statusChannel1', {'status_channel1': 'on'})
-            for idsquad in data['Lista_idSquads']:
-                UpdateQuerySql({'stream':'on'},'partidas_online','idsquad',idsquad)
-                UpdateQuerySql({'stream': 'on'}, 'bracket', 'squad', idsquad)
+        print('ja exitem partidas online')
+        for old in selectStream:
+            if streamStatus == 'on':
+                UpdateQuerySqlMulti({'stream': 'off'}, 'partidas_online', 'idpartidas_online', old[0], 'idcampeonatos_ativos',
+                                        idCampeonato)
+                for team in Lista_idSquads:
+                        # socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
+                        UpdateQuerySqlMulti({'stream': 'on'}, 'partidas_online', 'idsquad', team,
+                                            'idcampeonatos_ativos',
+                                            idCampeonato)
+
+
+
         if streamStatus == 'off':
-            socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
-            for idsquad in data:
-                UpdateQuerySql({'stream':'off'},'partidas_online','idsquad',idsquad)
-                UpdateQuerySql({'stream': 'off'}, 'bracket', 'squad', idsquad)
+
+            # for team in Lista_idSquads:
+            # socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
+            for team in Lista_idSquads:
+                # socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
+                UpdateQuerySqlMulti({'stream': 'off'}, 'partidas_online', 'idsquad', team, 'idcampeonatos_ativos',
+                                    idCampeonato)
+                # selecTEAM = SelectSqlMulti('partida
+
+    socketio.emit('reload_statusChannel1', {'status_channel1': streamStatus})
+
+
+
+
+
+
+    #             off()
+    #             # print(selectStream)
+    #             UpdateQuerySql({'stream': 'off'}, 'partidas_online', 'idpartidas_online', old[0])
+    #             socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
+    #
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            # oldid = old[3]
+            #
+            # print(oldid)
+            # print(Lista_idSquads)
+            # if oldid in Lista_idSquads:
+            #     print('Esta na lista')
+            #
+            # #     if streamStatus == 'on':
+            # #         print(oldid[27])
+            # #
+            # #     if streamStatus == 'off':
+            # #         print(oldid[27])
+            #
+            # else:
+            #     print('nao esta na lista')
+        #         UpdateQuerySql({'stream':'off'},'partidas_online','idsquad',oldid)
+        #         UpdateQuerySql({'stream': 'off'}, 'bracket', 'squad', oldid)
+        #         UpdateQuerySql({'stream': 'off'}, 'rank', 'idSquad', oldid)
+
+
+
+        # if streamStatus == 'off':
+        #     print('off')
+        #     print('off')
+        #     socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
+        #     for idsquad in Lista_idSquads[:-1]:
+        #         UpdateQuerySql({'stream':'off'},'partidas_online','idsquad',idsquad)
+        #         UpdateQuerySql({'stream': 'off'}, 'bracket', 'squad', idsquad)
+        #         UpdateQuerySql({'stream': 'off'}, 'rank', 'squad', idsquad)
+    # else:
+    #     for all in selectStream:
+    #         partidasToOff = all[0]
+    #         UpdateQuerySql({'stream': 'off'}, 'partidas_online', 'idpartidas_online', partidasToOff)
+    #     if streamStatus == 'on':
+    #         socketio.emit('reload_statusChannel1', {'status_channel1': 'on'})
+    #         for idsquad in Lista_idSquads[:-1]:
+    #             UpdateQuerySql({'stream':'on'},'partidas_online','idsquad',idsquad)
+    #             UpdateQuerySql({'stream': 'on'}, 'bracket', 'squad', idsquad)
+    #             UpdateQuerySql({'stream': 'on'}, 'rank', 'squad', idsquad)
+    #     if streamStatus == 'off':
+    #         socketio.emit('reload_statusChannel1', {'status_channel1': 'off'})
+    #         for idsquad in Lista_idSquads[:-1]:
+    #             UpdateQuerySql({'stream':'off'},'partidas_online','idsquad',idsquad)
+    #             UpdateQuerySql({'stream': 'off'}, 'bracket', 'squad', idsquad)
+    #             UpdateQuerySql({'stream': 'off'}, 'rank', 'squad', idsquad)
 
 
 @socketio.on('refresh_kills')
@@ -1093,6 +1438,7 @@ def setKillsAPI(data):
 def refresh_kills(json):
     setRankAPI(json)
 def setRankAPI(data):
+    print(data)
 
     return_data= CountScoreEquipePartida(int(data['rank_partida']),data['idsquad'],data['idcampeonato'],data['idrank'],data['jogo'])
     data_json = [
@@ -1108,6 +1454,7 @@ def refresh_kills(json):
 def setGameAPI(data):
 
     stage = data['jogo']
+    print(stage)
     if stage == 'R1J1':
         next = 'R1J2'
     if stage == 'R1J2':
@@ -1128,10 +1475,118 @@ def setGameAPI(data):
 
 @socketio.on('dashboard items')
 def dash_items():
+    print('atualizar Dashboard...')
     data = []
     data.append(SelectSqlAll('modalidades'))
     data.append(SelectSqlAll('regras'))
+    data.append(SelectSqlAll('campeonatos_ativos'))
+    data.append(SelectSqlAll('squads'))
     socketio.emit('dashboard response', data)
+
+    # data.append(campeonatos)
+    #
+    # lista_partidas =[]
+    #
+    # for item_campeonato in campeonatos:
+    #     grupos = []
+    #     data_partidas = [item_campeonato[0]]
+    #     partidas = SelectSql('partidas_online','idcampeonatos_ativos',item_campeonato[0])
+    #     for itme in partidas:
+    #         grupo = itme[22]
+    #         if grupo not in grupos:
+    #             grupos.append(grupo)
+    #             data_partidas.append(grupo)
+    #     for x in grupos:
+    #         partidasGrupo = SelectSqlMulti('partidas_online','idcampeonatos_ativos',item_campeonato[0],'grupo',x)
+    #         data_partidas.append(partidasGrupo)
+    #
+    #     lista_partidas.append(data_partidas)
+    # data.append(lista_partidas)
+
+
+
+
+
+
+
+    # patidas_todas = SelectSqlAll('partidas_online')
+
+
+
+
+    #
+    # campeonatos = []
+    # listaFinal = []
+    #
+    # for item in patidas_todas:
+    #     idCampeonato = item[2]
+    #     if idCampeonato not in campeonatos:
+    #         campeonatos.append(idCampeonato)
+    # for x in campeonatos:
+    #     myDict = {'idCampeonato': x}
+    #     grupos = []
+    #     for item in patidas_todas:
+    #         if x == item[2]:
+    #             if item[22] not in grupos:
+    #                 grupos.append(item[22])
+    #
+    #     # print(grupos)
+    #     for check in grupos:
+    #         partidas_grupos = []
+    #         for c in patidas_todas:
+    #
+    #             if c[22] == check and c[2] == x:
+    #                 partidas_grupos.append({c})
+    #         myDict.update({
+    #         check:partidas_grupos,
+    #         })
+    #
+    #     listaFinal.append(myDict)
+    # print(listaFinal)
+    # # data.append(listaFinal)
+
+
+    # print(listaFinal)
+
+        # print(x)
+        # for jar in
+        # grupos_campeonatos = {'idCampeonato': idCampeonato}
+
+
+            # for t in grupos_campeonatos:
+            #     if t == item[22]:
+            #         partidas_grupos.append(
+            #             item
+            #         )
+            #
+
+
+            # print(grupos_campeonatos)
+
+
+
+    #         if x == idCampeonato:
+    #             if grupo not in partidas_grupos:
+    #                 partidas_grupos.append({
+    #                     item
+    #                 })
+    # print(partidas_grupos)
+
+
+
+
+            #     myDict = ({
+            #         'idCampeonato':idCampeonato,
+            #         'grupo':grupo,
+            #         'partidas_online': item
+            #
+            #     })
+            # print(myDict)
+
+        # if grupo not in grupos:
+        #     grupos.append(grupo)
+    # partidas_grupos = SelectSql('partidas_online')
+    # socketio.emit('dashboard response', listaFinal)
 
 @socketio.on('bracket setup')
 def dash_items():
@@ -1143,6 +1598,7 @@ def dash_items():
 
 @socketio.on('submit bracket')
 def bracket_mount(data):
+
     # print(data)
     idcampeonato = data[0]
     fasedeGrupos= data[1]
@@ -1151,44 +1607,126 @@ def bracket_mount(data):
     listaSquad= data[4:]
     # limiter = len(listaSquad)
     random.shuffle(listaSquad)
+    if fasedeGrupos == 1:
+        fase = 'R2'
+    if fasedeGrupos != 1:
+        fase = 'R1'
+
+
     teste = list(chunker_list(listaSquad, int(fasedeGrupos)))
+    listData = [{
+            'listaSquad': listaSquad,
+            'fasedeGrupos':fasedeGrupos,
+            'idcampeonato':idcampeonato
+        }]
+
+    socketio.emit('salved', listData)
+    grupoList = []
     for c in range(len(list(teste))):
         grupo = f'grupo {c + 1}'
+        grupoList.append(grupo)
         for myDict in teste[c]:
             myDict.update({
-                    'braket': int(fasedeGrupos),
-                    'grupo': grupo,
-                    'idcampeonatos_ativos': idcampeonato,
-                    'nomeCampeonato': nomeCampeonato,
-                    'score':0,
-                    'regras':regras,
-                    'status': fasedeGrupos
-                })
+                            'braket': int(fasedeGrupos),
+                            'grupo': grupo,
+                            'idcampeonatos_ativos': idcampeonato,
+                            'nomeCampeonato': nomeCampeonato,
+                            'score':0,
+                            'regras':regras,
+                            'status': fasedeGrupos,
+                        })
             InsertSql(myDict, 'bracket')
-        make_partidas(idcampeonato, regras,fasedeGrupos, nomeCampeonato)
-        make_ranking(listaSquad,fasedeGrupos,idcampeonato)
-    socketio.emit('bracket ok', data)
+    for g in grupoList:
+        mySelect =  SelectSqlMulti('bracket','idcampeonatos_ativos',idcampeonato,'grupo',g)
+        posicaoInicial = 0
+        for m in mySelect:
+            posicaoInicial = int(posicaoInicial) + 1
+            UpdateQuerySql({'posicao':f'{fase}_{g}_{posicaoInicial}'},'bracket','idbracket',m[0])
+
+    make_partidas(idcampeonato, regras,fasedeGrupos, nomeCampeonato)
 
 
 
+#
+#
+# @app.route('/submitrank',methods=['GET','POST'])
+# def rank_items(data):
+#     # print(data)
+#     grupo = data[0]
+#     jogo_ativo = data[1]
+#     idCampeonato = data[2]
+#     listaSquads = []
+#     faseGrupos = data[3]
+#
+#
+#
+#     squads =  SelectSqlMulti('partidas_online','idcampeonatos_ativos', idCampeonato, 'grupo', grupo)
+#     for team in squads:
+#         # print(team)
+#         nomeCampeonato = team[23]
+#         listaSquads.append(team[3])
+#
+#     # listaSquads = [str(data['squad1']),str(data['squad2'])]
+#     # faseGrupos = data['fasegrupos']
+#     # idCampeonato = data['idCampeonato']
+#     # jogo_ativo = data['jogo_ativo']
+#     #
+#     try:
+#         # print(listaSquads)
+#         check = SelectSqlMulti('rank','idSquad',listaSquads[0],'ativo',jogo_ativo)
+#         # print(check)
+#
+#         if check != False:
+#             print('Rank da Partida ja Existe')
+#
+#         if check == False:
+#             print('NAO EXITE')
+#             make_ranking(listaSquads, faseGrupos, idCampeonato)
+#     except:
+#         print('Algo deu errado')
+#     texto = ''
+#     for k in listaSquads:
+#         texto = texto + k + 'p'
+#     newData = {
+#         'nomeCampeonato':nomeCampeonato,
+#         'grupo': grupo,
+#         'idSquads': texto,
+#         'fasegrupos': faseGrupos,
+#         'idCampeonato':idCampeonato
+#     }
+#     return make_response(jsonify(newData), 200)
+#     # socketio.emit('bracket rank response', newData)
 
-def make_ranking(listaSquad,fasedeGrupos,idcampeonato):
-    for squad in listaSquad:
-        print(squad['squad'])
-        players = SelectSql('players', 'squad', squad['squad'])
-        if int(fasedeGrupos) != 1:
-            jogos = ['R1J1', 'R1J2', 'R1J3']
-            for jogo in jogos:
-                if jogo == 'R1J1':
-                    jogo_ativo = jogo
-                else:
-                    jogo_ativo = 'no'
-                for i in players:
-                    myDict = fillDictRAnk(
+
+def make_ranking(idsquad,fasedeGrupos,idcampeonato):
+    # print(listaSquad)
+    # for idsquad in listaSquad:
+    #     # print(squad)
+    #     # print(idsquad)
+    nome = SelectSql('squads','idsquads',idsquad)
+    # print(nome)
+    for i in nome:
+        tagName = i[1]
+        print(tagName)
+        #####################################################################INSERIR PELO ID SQUAD##### PRECISA REINICIAR OS PLAYER #####
+        players = SelectSql('players', 'squad', tagName)
+        print(players)
+
+
+        # print(players)
+    if int(fasedeGrupos) != 1:
+        jogos = ['R1J1', 'R1J2', 'R1J3']
+        for jogo in jogos:
+            if jogo == 'R1J1':
+                jogo_ativo = jogo
+            else:
+                jogo_ativo = 'no'
+            for i in players:
+                myDict = fillDictRAnk(
                         idpartida_online=i[0],
                         idplayer=i[0],
                         idcampeonato=idcampeonato,
-                        idSquad=squad['idsquad'],
+                        idSquad=idsquad,
                         player=i[2],
                         squad=i[1],
                         status=fasedeGrupos,
@@ -1196,30 +1734,33 @@ def make_ranking(listaSquad,fasedeGrupos,idcampeonato):
                         jogo_ativo=jogo_ativo
                     )
                     # print(myDict)
-                    InsertSql(myDict, 'rank')
-        if int(fasedeGrupos) == 1:
-            jogos = ['R2J1', 'R2J2']
-            for jogo in jogos:
-                if jogo == 'R2J1':
-                    jogo_ativo = jogo
-                else:
-                    jogo_ativo = 'no'
-                for i in players:
-                    myDict = fillDictRAnk(
+                InsertSql(myDict, 'rank')
+    if int(fasedeGrupos) == 1:
+        jogos = ['R2J1', 'R2J2']
+        for jogo in jogos:
+            if jogo == 'R2J1':
+                jogo_ativo = jogo
+            else:
+                jogo_ativo = 'no'
+            for i in players:
+                myDict = fillDictRAnk(
                         idpartida_online=i[0],
                         idplayer=i[0],
                         idcampeonato=idcampeonato,
-                        idSquad=squad['idsquad'],
+                        idSquad=idsquad,
                         player=i[2],
                         squad=i[1],
                         status=fasedeGrupos,
                         jogo=jogo,
                         jogo_ativo=jogo_ativo
                     )
-                    InsertSql(myDict, 'rank')
+                    # print(myDict)
+                InsertSql(myDict, 'rank')
 
 
 
+
+#
 # def createRank(players,partidas,idSquad):
 #     faseBracket = partidas[0][9]
 #     campeonato = partidas[0][2]
@@ -1271,6 +1812,23 @@ def make_ranking(listaSquad,fasedeGrupos,idcampeonato):
 
 
 
+# @socketio.on('get partidas')
+# def data_partidas(idCampeonato):
+#     # print(idCampeonato)
+#     partidas_online = SelectSql('partidas_online', 'idcampeonatos_ativos', int(idCampeonato))
+#     data = []
+#     for item in partidas_online:
+#         # totalPosition = item[28].split('_')
+#         # print(totalPosition)
+#         # round = totalPosition[0]
+#         # bracket = item[4]
+#
+#         data.append(item)
+#
+#
+#     socketio.emit('braket mount', data,broadcast=False)
+
+
 def make_partidas(idCampeonato, regras, braket,nomeCampeonato):
     openBracket = SelectSql('bracket', 'idcampeonatos_ativos', int(idCampeonato))
     for itens in openBracket:
@@ -1279,6 +1837,7 @@ def make_partidas(idCampeonato, regras, braket,nomeCampeonato):
         idSquad = itens[3]
         nameSquad = itens[5]
         status = itens[6]
+        posicao = itens[12]
         roundGroupsDict = ({
                     'idbracket': idbracket,
                     'idcampeonatos_ativos': idCampeonato,
@@ -1288,23 +1847,29 @@ def make_partidas(idCampeonato, regras, braket,nomeCampeonato):
                     'status': status,
                     'grupo': refGroup,
                     'regras': regras,
-                    'braket': braket
+                    'braket': braket,
+                    'posicao':posicao
                 })
             #
         # print(status)
         if int(status) == 1:
             roundGroupsDict.update({
                          'jogo_ativo':'R2J1',
+                         'R2J1':0,
+                         'R2J2': 0
                     })
              # UpdateQuerySql({'jogo_ativo':'R2J1'},'bracket','squad',idSquad)
 
         if int(status) != 1:
             roundGroupsDict.update({
                          'jogo_ativo':'R1J1',
+                            'R1J1': 0,
+                'R1J2': 0,
+                'R1J3': 0
                     })
             #         UpdateQuerySql({'jogo_ativo': 'R1J1'}, 'bracket', 'squad', idSquad)
             #
-        print(roundGroupsDict)
+        # print(roundGroupsDict)
         InsertSql(roundGroupsDict, 'partidas_online')
 
 if __name__ == '__main__':

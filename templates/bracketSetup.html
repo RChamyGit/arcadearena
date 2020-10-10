@@ -57,14 +57,15 @@ opacity:0.15;
 min-width:130px;
 margin:5px;
  flex: 1 0 25%;
+ border-radius:10px;
 
 }
 
 
 
 .noOpacity:hover{
-background:#AA0DD4;
-
+background:#FAC64B;
+color:rgba(0,0,0,.78);
 
 }
 
@@ -116,7 +117,9 @@ min-width:250px;
 padding:30px;
 border-right:2px solid rgba(255,255,255,.12);
 height:100%;
-min-height:500px;
+height:450px;
+
+
 }
 
 .titleTop{
@@ -191,17 +194,17 @@ select:focus {
 }
 
 .active{
-background:#AA0DD4;
-color:rgba(255,255,255,0.8)
-opacity:.8;
+background:#FAC64B;
+color:rgba(0,0,0,0.8);
+opacity:.7;
 }
 
 
 
 
 .subButton{
-position:absolute;
-width:60%;
+
+
 padding:10px;
 margin:10px auto;
 background:#AA0DD4;
@@ -223,17 +226,23 @@ width:100%;
 background:rgba(255,255,255,0.12);
 border:0;
 height:60px;
-opacity:0.5;
 font-size:25px;
-COLOR:RGBA(255,255,255,.6)
+COLOR:RGBA(255,255,255,.6);
 }
 
 .subButtonBox h6{
 padding:5px;
-margin-top:-5px;
-color:rgba(0,0,0,0.9);
+margin-top:-2px;
+color:rgba(255,255,255,0.9);
 font-weight:500;
 font-size:20px;
+}
+
+.subButtonBox i{
+font-size:20px;
+padding:4px;
+color:#FAC64B;
+
 }
 
 
@@ -287,6 +296,7 @@ margin-top:10px;
 }
 
 
+
     </style>
     <title>ARCADE ARENA</title>
 </head>
@@ -303,7 +313,7 @@ margin-top:10px;
             <div class="container-fluid top">
                 {% for i in infoCampeonato%}
                 <div class="container-fluid  titleTop ">
-                    <i class="fas fa-trophy"></i>
+                    <i style="color:#FAC64B;" class="fas fa-trophy"></i>
                     <p>NOVO CAMPEONATO</p>
                     <h1>{{i.1}}</h1>
                     <h6 class="alertCampeonatoType">MODALIDADE:{{i.5}}</h6>
@@ -324,14 +334,16 @@ margin-top:10px;
                     </select>
                 </div>
 
-                <div class="subButton">
+
+            </div>
+             <div class="subButton">
                     <div class="flex text-center subButtonBox">
                         <h6 id="countSquads">0</h6>
                         <h6>/</h6>
                         <h6 id="totalSquads">0</h6>
+                        <i class="fas fa-skull"></i>
                     </div>
                 </div>
-            </div>
         </div>
         <div class="col-8">
             <div class="container-fluid detailsBacket">
@@ -378,7 +390,8 @@ margin-top:10px;
 </div>
 
 
-<button style="display:none" type="button" class="btn btn-primary" data-toggle="modal" id="mymodal" data-target="#waitModal">
+<button style="display:none" type="button" class="btn btn-primary" data-toggle="modal" id="mymodal"
+        data-target="#waitModal"  data-backdrop="static" data-keyboard="false">
     Launch demo modal
 </button>
 <div class="modal fade" id="waitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -389,13 +402,10 @@ margin-top:10px;
 
 
                 <img id="image" style="opacity:0.89;" src="../static/assets/bracket.svg" height="200">
-                <div style="display:none" id="mark" class="checkmark-circle">
-  <div class="background"></div>
-  <div class="checkmark draw"></div>
-</div>
+
                 <div class="container-fluid text-center loadBox ">
-                    <h6>SALVANDO BRACKET...AGUARDE!</h6>
-                    <div class="spinner-grow text-danger" style="width: 3rem; height: 3rem;" role="status">
+                    <h6 id="spinText">SALVANDO BRACKET...AGUARDE!</h6>
+                    <div id="spin" class="spinner-grow text-danger" style="width: 3rem; height: 3rem;" role="status">
                     </div>
                 </div>
 
@@ -447,8 +457,8 @@ var contador = 0;
             resetListNoActive();
          submitOld.classList.remove('active');
          submitOld.innerHTML = 'AGUARDANDO O NUMERO DE EQUIPES RESTANTES...'
-         submitOld.style.background = 'rgba(255,255,255,0.4)';
-         submitOld.style.color = '#212529';
+         submitOld.style.background = 'rgba(255,255,255,0.12)';
+         submitOld.style.color = 'RGBA(255,255,255,.6)';
         submitOld.style.cursor = 'default';
         submitOld.setAttribute("onclick", "");
 
@@ -457,9 +467,9 @@ var contador = 0;
         var click = document.getElementById(this_id+'Checkbox').checked;
 
 
-        submitOld.innerHTML = 'Ok';
-        submitOld.style.background = '#3BBD0B';
-        submitOld.style.color = 'rgba(255,255,255,0.8)';
+        submitOld.innerHTML = 'ENVIAR E CRIAR O BRACKET';
+        submitOld.style.background = '#1AAD76';
+        submitOld.style.color = 'rgba(0,0,0,0.8)';
         submitOld.style.cursor = 'pointer';
         submitOld.setAttribute("onclick", "submitSquad()");;
 
@@ -602,15 +612,21 @@ var li = document.createElement("li");
 
 function submitSquad(){
 document.getElementById('mymodal').click();
-console.log('submit');
-
 socket.emit('submit bracket', listaSquad);
 }
 
 
 
-socket.on('bracket ok', function(data){
-document.getElementById('modalContent').display.background = '#1AAD76';
+socket.on('salved', function(data){
+console.log('bracket ok');
+document.getElementById('image').src = '../static/assets/check.svg';
+document.getElementById('spin').style.display = 'none';
+document.getElementById('spinText').innerHTML = 'TUDO OK!!! APROVEITE !!';
+ setTimeout(function () {
+       window.location.href = "/dashboard"; //will redirect to your blog page (an ex: blog.html)
+    }, 2000); //will call the function after 2 secs.
+
+
 
 })
 

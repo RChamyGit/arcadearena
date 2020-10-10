@@ -16,7 +16,7 @@
 </head>
 <style>
     body{
-      background:#6C15BD;
+    background:#4E0F8A;
      display:flex;
      flex-direction:column;
      justify-content:center;
@@ -322,8 +322,9 @@ margin-bottom:15px;
 .channelBox{
 position:fixed;
 top:30px;
-margin-left:-5px;
+margin-left:55px;
 z-index:999999999;
+
 }
 
 
@@ -374,11 +375,65 @@ display:none;
 text-shadow: 1px 1px 4px #6C15BD;
 }
 
+.on, .off{
+cursor:pointer;
+}
+
+.on{
+
+
+}
+
+
 
 </style>
 <body>
 <div class="channelBox text-left">
-    <input type="checkbox" id="toggle-two" name="{{campeonato}}" value="{% if channel1 == 'off'%}on{% else %}  off   {% endif %}" onchange="submitVideo( this.id , {{listaSquad}} , this.name, this.value )">
+
+    <!--    <input type="checkbox" id="toggle-two" name="{{campeonato}}" value="{% if channel1 == 'off'%}off{% else %}on{% endif %}" onchange="submitVideo( this.id , {{listaSquad}} , this.name, this.value )">-->
+    <a name="{{idcampeonato}}" id="{% if channel1 == 'off'%}off{% else %}on{% endif %}"
+       class="{% if channel1 == 'off'%}off{% else %}on{% endif %}"
+       onclick="submitVideo(this.id ,{{listaSquad}} , this.name )">
+
+        <svg height="60" fill="#000000" id="iconeLive" viewBox="0 0 64 64" width="60" xmlns="http://www.w3.org/2000/svg">
+            <path d="m57 16h-19a5.985 5.985 0 0 0 -2.3-4.712l4.05-4.629a1 1 0 0 0 -1.5-1.318l-4.35 4.972a5.92 5.92 0 0 0 -4.415.248l-9.839-8.324a1 1 0 1 0 -1.292 1.526l9.427 7.977a5.977 5.977 0 0 0 -1.781 4.26h-19a5.006 5.006 0 0 0 -5 5v23a1 1 0 0 0 2 0v-23a3 3 0 0 1 3-3h50a3 3 0 0 1 3 3v32a3 3 0 0 1 -3 3h-50a3 3 0 0 1 -3-3v-5a1 1 0 0 0 -2 0v5a5.006 5.006 0 0 0 5 5h47v2h-45a1 1 0 0 0 0 2h46a1 1 0 0 0 1-1v-3h1a5.006 5.006 0 0 0 5-5v-32a5.006 5.006 0 0 0 -5-5zm-29 0a4 4 0 0 1 8 0z"/>
+            <path d="m7 52a1 1 0 0 0 1 1h40a1 1 0 0 0 1-1v-5a1 1 0 0 0 -2 0v4h-38v-19a1 1 0 0 0 -2 0z"/>
+            <path d="m48 44a1 1 0 0 0 1-1v-21a1 1 0 0 0 -1-1h-40a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-5h38v20a1 1 0 0 0 1 1z"/>
+            <path d="m54 29a3 3 0 1 0 -3-3 3 3 0 0 0 3 3zm0-4a1 1 0 1 1 -1 1 1 1 0 0 1 1-1z"/>
+            <path d="m52 35h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
+            <path d="m52 39h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
+            <path d="m52 43h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
+            <path d="m51 51a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4a1 1 0 0 0 -1-1h-4a1 1 0 0 0 -1 1zm2-3h2v2h-2z"/>
+            <path d="m16 40v6a1 1 0 0 0 1 1h4a1 1 0 0 0 0-2h-3v-5a1 1 0 0 0 -2 0z"/>
+            <path d="m24 40v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -2 0z"/>
+            <path d="m30.051 46.316a1 1 0 0 0 1.9 0l2-6a1 1 0 1 0 -1.9-.632l-1.051 3.154-1.051-3.154a1 1 0 1 0 -1.9.632z"/>
+            <path d="m41 41a1 1 0 0 0 0-2h-4a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h4a1 1 0 0 0 0-2h-3v-1h2a1 1 0 0 0 0-2h-2v-1z"/>
+            <path d="m27.121 37.293a1 1 0 0 0 0-1.414 3.072 3.072 0 0 0 -4.244 0 1 1 0 0 0 1.415 1.414 1.023 1.023 0 0 1 1.414 0 1 1 0 0 0 1.414 0z"/>
+            <path d="m29.243 34.757a1 1 0 0 0 .707-1.707 7.009 7.009 0 0 0 -9.9 0 1 1 0 1 0 1.414 1.414 5.008 5.008 0 0 1 7.072 0 .993.993 0 0 0 .707.293z"/>
+            <path d="m18.636 31.636a9.01 9.01 0 0 1 12.728 0 1 1 0 0 0 1.414-1.414 11.012 11.012 0 0 0 -15.556 0 1 1 0 0 0 1.414 1.414z"/>
+        </svg>
+
+        <svg  style="{%if channel1 == 'off' %}display:none;{%endif%}" height="60" fill="#ffffff" id="iconeLiveTV" viewBox="0 0 64 64" width="60" xmlns="http://www.w3.org/2000/svg">
+            <path d="m57 16h-19a5.985 5.985 0 0 0 -2.3-4.712l4.05-4.629a1 1 0 0 0 -1.5-1.318l-4.35 4.972a5.92 5.92 0 0 0 -4.415.248l-9.839-8.324a1 1 0 1 0 -1.292 1.526l9.427 7.977a5.977 5.977 0 0 0 -1.781 4.26h-19a5.006 5.006 0 0 0 -5 5v23a1 1 0 0 0 2 0v-23a3 3 0 0 1 3-3h50a3 3 0 0 1 3 3v32a3 3 0 0 1 -3 3h-50a3 3 0 0 1 -3-3v-5a1 1 0 0 0 -2 0v5a5.006 5.006 0 0 0 5 5h47v2h-45a1 1 0 0 0 0 2h46a1 1 0 0 0 1-1v-3h1a5.006 5.006 0 0 0 5-5v-32a5.006 5.006 0 0 0 -5-5zm-29 0a4 4 0 0 1 8 0z"/>
+            <path d="m7 52a1 1 0 0 0 1 1h40a1 1 0 0 0 1-1v-5a1 1 0 0 0 -2 0v4h-38v-19a1 1 0 0 0 -2 0z"/>
+            <path d="m48 44a1 1 0 0 0 1-1v-21a1 1 0 0 0 -1-1h-40a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-5h38v20a1 1 0 0 0 1 1z"/>
+            <path d="m54 29a3 3 0 1 0 -3-3 3 3 0 0 0 3 3zm0-4a1 1 0 1 1 -1 1 1 1 0 0 1 1-1z"/>
+            <path d="m52 35h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
+            <path d="m52 39h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
+            <path d="m52 43h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
+            <path d="m51 51a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4a1 1 0 0 0 -1-1h-4a1 1 0 0 0 -1 1zm2-3h2v2h-2z"/>
+            <path d="m16 40v6a1 1 0 0 0 1 1h4a1 1 0 0 0 0-2h-3v-5a1 1 0 0 0 -2 0z"/>
+            <path d="m24 40v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -2 0z"/>
+            <path d="m30.051 46.316a1 1 0 0 0 1.9 0l2-6a1 1 0 1 0 -1.9-.632l-1.051 3.154-1.051-3.154a1 1 0 1 0 -1.9.632z"/>
+            <path d="m41 41a1 1 0 0 0 0-2h-4a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h4a1 1 0 0 0 0-2h-3v-1h2a1 1 0 0 0 0-2h-2v-1z"/>
+            <path d="m27.121 37.293a1 1 0 0 0 0-1.414 3.072 3.072 0 0 0 -4.244 0 1 1 0 0 0 1.415 1.414 1.023 1.023 0 0 1 1.414 0 1 1 0 0 0 1.414 0z"/>
+            <path d="m29.243 34.757a1 1 0 0 0 .707-1.707 7.009 7.009 0 0 0 -9.9 0 1 1 0 1 0 1.414 1.414 5.008 5.008 0 0 1 7.072 0 .993.993 0 0 0 .707.293z"/>
+            <path d="m18.636 31.636a9.01 9.01 0 0 1 12.728 0 1 1 0 0 0 1.414-1.414 11.012 11.012 0 0 0 -15.556 0 1 1 0 0 0 1.414 1.414z"/>
+        </svg>
+
+        <h6 id="textLive">{{channel1}}</h6>
+    </a>
+
 </div>
 
 
@@ -433,8 +488,8 @@ text-shadow: 1px 1px 4px #6C15BD;
                                            id="{{player.jogo}}/{{player.idrank}}" value="{{player.kills}}"
                                            onchange="submitKills(this.value,{{player.idrank}},{{equipe.0.rank_partida}},{{equipe.0.idSquad}},{{equipe.0.idcampeonato}}, this.id)">
 
-<!--                                    <input type="hidden" class="selectInput" name="{{player.idplayer}}kills"-->
-<!--                                           id="{{player.idplayer}}killsSelect" value="{{player.kills}}">-->
+                                    <!--                                    <input type="hidden" class="selectInput" name="{{player.idplayer}}kills"-->
+                                    <!--                                           id="{{player.idplayer}}killsSelect" value="{{player.kills}}">-->
                                 </div>
                                 <div class="col-2 ">
                                     <div class="imgXp flex">
@@ -477,7 +532,7 @@ text-shadow: 1px 1px 4px #6C15BD;
                         <div class="col-8 fillCol">
                             <p class="rankingText">POSIÇÃO DA EQUIPE NA PARTIDA</p>
                             <div class="row">
-                                {% if equipe.0.status == 'GRUPOS' %}
+                                {% if equipe.0.status != 1 %}
                                 <div class="col-4">
                                     <div class="partidaBox {% if equipe.0.jogo == 'R1J1' %}enable{%else%} disabled{%endif%}">
                                         <span>JOGO 1</span>
@@ -501,7 +556,7 @@ text-shadow: 1px 1px 4px #6C15BD;
                                             <input type="text"
                                                    id="{% if equipe.0.jogo == 'R1J2' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
                                                    class="input-inputBox text-center {% if equipe.0.jogo == 'R1J2' %}enable{%else%} disabled{%endif%}"
-                                                    name="{{equipe.0.jogo}}"
+                                                   name="{{equipe.0.jogo}}"
                                                    onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
                                                    value="{{equipe.0.rank_partida}}">
                                         </div>
@@ -527,20 +582,22 @@ text-shadow: 1px 1px 4px #6C15BD;
                             </div>
                             <div class="container-fluid text-center" id="{{equipe.0.jogo}}NextSelect">
                                 <button id="{{equipe.0.jogo}}" class="btn encerrar"
-                                        onclick="nextStage( this.id,{{equipe.0.idSquad}} , {{equipe.0.idrank}})">PROXIMA PARTIDA <i
-                                        class="fas fa-arrow-right"></i></button>
+                                        onclick="nextStage( this.id,{{equipe.0.idSquad}} , {{equipe.0.idrank}})">PROXIMA
+                                    PARTIDA <i
+                                            class="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
                         <div class="col-4 fillCol">
                             <div class="container-fluid atualizarBox">
 
-                                <button  id="{{equipe.0.idSquad}}hide"
+                                <button id="{{equipe.0.idSquad}}hide"
                                         class=" atualizar">
                                     <div>PAINEL DE CONTROLE</div>
                                 </button>
 
                                 <div class="d-flex justify-content-center">
-                                    <div id="{{equipe.0.idSquad}}hideSpinner" class="spinner-grow Spinner" role="status">
+                                    <div id="{{equipe.0.idSquad}}hideSpinner" class="spinner-grow Spinner"
+                                         role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                     <p id="{{equipe.0.idSquad}}hideSpinnerText" class="spintext">SALVANDO...</p>
@@ -574,13 +631,16 @@ text-shadow: 1px 1px 4px #6C15BD;
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+        integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
 
 
 </body>
 <script>
 
 var socket = io.connect('http://' + document.domain + ':' + location.port) ;
+
+
 function APIChannel(data){
 socket.emit('refresh_channel', data);
 }
@@ -606,9 +666,9 @@ SpinningStart(data.idsquad);
 
 
 
- socket.on('reload_statusChannel1', function(msg){
-   console.log(msg);
-   })
+
+
+
 
     socket.on('score_stream', function(data){
    reloadScore(data)
@@ -659,19 +719,43 @@ document.getElementById('score_total'+data[0]).innerHTML = data[2];
 
 
 
+ socket.on('reload_statusChannel1', function(msg){
 
 
-function submitVideo(this_id,Lista_idSquads, campeonato, this_value){
+var checkMsg = msg['status_channel1']
+
+if (checkMsg == 'on'){
+document.getElementById('iconeLive').style.display = 'none';
+document.getElementById('iconeLiveTV').style.display = 'block';
+
+}
+
+if (checkMsg == 'off'){
+document.getElementById('iconeLiveTV').style.display = 'none';
+document.getElementById('iconeLive').style.display = 'block';
+
+}
+  console.log(msg)
+
+
+
+
+   })
+
+
+function submitVideo(this_id,Lista_idSquads, campeonato){
+
     data = {
     'Lista_idSquads': Lista_idSquads,
     'campeonato': campeonato,
-    'stream': this_value
+    'stream': this_id
     }
-        if(this_value == 'on'){
-        document.getElementById(this_id).value = 'off'
+
+ if(this_id == 'on'){
+        document.getElementById(this_id).id = 'off'
         }
-        if(this_value == 'off'){
-        document.getElementById(this_id).value = 'on'
+        if(this_id == 'off'){
+        document.getElementById(this_id).id = 'on'
         }
     APIChannel(data);
 }
@@ -752,13 +836,8 @@ APIGame(data)
 
 
 
-$(function() {
-    $('#toggle-two').bootstrapToggle({
-      on: '<i class="fas fa-video vd"></i>',
-      off: '<i class="fas fa-video-slash"></i>',
-      size: 'large'
-    });
-  })
+
+
 
 
 

@@ -59,7 +59,18 @@ def SelectSqlMulti(table, coluna1,value1,coluna2,value2):
     except Exception as e:
         print(f' ERROR:       {str(e)}')
         return (str(e))
-
+def SelectSqlMulti3(table, coluna1,value1,coluna2,value2,coluna3,value3):
+    try:
+        c,conn = connection()
+        x = c.execute(f"""SELECT * FROM {table} WHERE {coluna1}= '{value1}' AND {coluna2} = '{value2}' AND {coluna3} = '{value3}' """)
+        if int(x) > 0:
+            myresult = c.fetchall()
+            return myresult
+        if int(x) == 0:
+            return False
+    except Exception as e:
+        print(f' ERROR:       {str(e)}')
+        return (str(e))
 def SelectSqlAll(table):
     try:
         c,conn = connection()
@@ -74,14 +85,35 @@ def SelectSqlAll(table):
         return (str(e))
 def UpdateQuerySql(mydict,table,item,modifica):
     print(' ATUALIZANDO DADOS .... ')
-    c, conn = connection()
-    for k in mydict:
-        coluna = (k)
-        value = (mydict[k])
-        sql = (f"""UPDATE `{table}` SET `{coluna}` = '{value}' WHERE (`{item}` = '{modifica}');""")
-        c.execute(sql)
-        conn.commit()
-    print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > DATA {mydict}{{status :: OK}} .... ')
+    try:
+        c, conn = connection()
+        for k in mydict:
+            coluna = (k)
+            value = (mydict[k])
+            sql = (f"""UPDATE `{table}` SET `{coluna}` = '{value}' WHERE (`{item}` = '{modifica}');""")
+            c.execute(sql)
+            conn.commit()
+            print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > DATA {mydict}{{status :: OK}} .... ')
+    except Exception as e:
+        print(f' ERROR:       {str(e)}')
+        return (str(e))
+
+def UpdateQuerySqlMulti(mydict,table,coluna1,value1,coluna2,value2):
+    print(' ATUALIZANDO DADOS .... ')
+    try:
+        c, conn = connection()
+        for k in mydict:
+            coluna = (k)
+            value = (mydict[k])
+            sql = (f"""UPDATE `{table}` SET `{coluna}` = '{value}' WHERE (`{coluna1}` = '{value1}' AND `{coluna2}` = '{value2}');""")
+            c.execute(sql)
+            conn.commit()
+            print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > DATA {mydict}{{status :: OK}} .... ')
+    except Exception as e:
+        print(f' ERROR:       {str(e)}')
+        return (str(e))
+
+
 
 
 def check_user_Login(login):

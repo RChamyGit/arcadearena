@@ -37,16 +37,12 @@ button:focus {outline:0;}
 }
 
 
-
-
-
-
-
     body{
-      background:#6C15BD;
+       background:#4E0F8A;
      display:flex; flex-direction:column; justify-content:center;
-  height:100vh;
-    height:100vh;}
+    height:100vh;
+    height:100vh;
+    font-family: "Abel", sans-serif;}
 
 
     .middleBox{
@@ -142,6 +138,9 @@ margin-left:20px;
 color: rgba(255,255,255,0.66);
 }
 
+
+
+
 #bg_partida{
 
 }
@@ -167,7 +166,7 @@ overflow:scroll;
  font-family: "Abel", sans-serif;
  font-size:14px;
   color:rgba(255,255,255,0.3);
-text-transform: uppercase;
+
 
 }
 
@@ -504,7 +503,7 @@ background:rgba(255,255,255,0.12);
 color:rgba(255,255,255,0.6);
 font-family: "Abel", sans-serif;
 border:0;
-text-transform: uppercase;
+
 }
 
 .form-control:focus {
@@ -513,7 +512,7 @@ text-transform: uppercase;
    outline:none;
     border:none;
     box-shadow:none;
-    text-transform: uppercase;
+
 }
 
 
@@ -534,10 +533,318 @@ background:rgba(0,0,0,0.23);
 }
 
 
+#registrarTimeModal {
+  padding: 20px !important; // override inline padding-right added from js
+}
+#timeDialog {
+  width: 90%;
+  min-width: 1100px;
+  height: 100%
+  margin: 0 auto;
+width:1100px;
+}
+#modalTime{
+padding-top:30px;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+ background:#4E0F8A;
+
+}
+#modalTimeBody {
+  overflow-y: auto;
+  padding:50px;
+}
+
+.boxNameSquad{
+width:65%;
+margin-left:300px;
+}
+
+.boxNameSquad img{
+margin-top:-50px;
+
+}
+
+.nn{
+background:rgba(0,0,0,.34);
+padding:30px 30px 30px 60px;
+margin-top:-30px;
+margin-left:30px;
+border-radius: 10px 40px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.11);
+}
+
+.nn label{
+color:rgba(255,255,255,.45);
+font-size:12px;
+}
+
+.nn input{
+color:rgba(255,255,255,.7);
+font-size:25px;
+}
+
+.players{
+
+
+border:3px solid rgba(255,255,255,.35);
+border-radius: 30px;
+margin-top:30px;
+margin-bottom:10px;
+padding: 40px 25px 10px 25px;
+background: #4E0F8A;
+
+}
+
+
+.players label{
+position:absolute;
+top:0;
+background:#4E0F8A;
+padding:15px;
+width:150px;
+
+}
+
+.icone{
+filter: invert(1);
+margin-left:8px;
+opacity:0.34;
+margin-top:-7px;
+}
+
+
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color:rgba(255,255,255,.5);
+  opacity: 1; /* Firefox */
+}
+.players .form-control{
+margin-bottom:5px;
+margin-top:5px;
+}
+
+.btn-group-toggle label{
+font-size:10px;
+width:100%;
+position:relative;
+}
+
+
+.btn-group{
+
+margin:5px auto;
+width:100%;
+}
 
 
 
 
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: rgba(0,0,0,.35);
+    border:none;
+      outline: none;
+  box-shadow: none;
+}
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+      border:none;
+      outline: none;
+  box-shadow: none;
+}
+
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
+     outline: none;
+  box-shadow: none;
+}
+
+.procurar{
+margin-top:15px;
+width:100%;
+color:rgba(0,0,0,.5);
+background:#5EB4D6;
+border:0;
+padding:8px;
+font-family: "Abel", sans-serif;
+cursor:pointer;
+border-radius:5px;
+}
+
+
+.procurar.focus, .procurar:focus {
+    color: #fff;
+    background: #AA0DD4;
+    border: none;
+    box-shadow: 0 0 0 0.2rem rgba(38,143,255,.5);
+}
+
+.procurar:hover{
+background:#5C9EED;
+}
+
+.cardPlayers{
+min-height:200px;
+background:none;
+
+
+
+}
+
+.tagNm{
+color:#AA0DD4;
+font-size:12px;
+width:50px;
+margin:0;
+padding:0;
+margin-top:-5px;
+}
+.tagUs{
+color:#C90CB4;
+font-size:11px;
+width:50px;
+margin:0;
+padding:0;
+}
+
+.nameCard{
+color:rgba(255,255,255,0.5);
+font-size:19px;
+margin-left:10px;
+margin-top:-10px;
+}
+
+.centerL{
+display:flex;
+     flex-direction:column;
+     justify-content:center;
+}
+
+.userCard{
+color:rgba(255,255,255,0.2);
+font-size:15px;
+margin-left:10px;
+margin-top:-10px;
+}
+
+
+.stats{
+height:40px;
+}
+
+.iconesStats{
+
+filter: invert(1);
+opacity:0.4;
+}
+
+
+.statsText{
+color:rgba(255,255,255,0.4);
+font-size:13px;
+}
+
+.numberStats{
+color:#B7BD15;
+font-size:22px;
+opacity:0.6;
+}
+
+.plataformaBox{
+padding:5px;
+background:rgba(255,255,255,0.23);
+color:#2C193D;
+border-radius:10px;
+}
+
+
+
+.registerSquad h5{
+color:rgba(255,255,255,0.35);
+padding:0px;
+font-size:55px;
+margin:0;
+margin-left:45px;
+}
+
+
+
+.registerSquad{
+position:absolute;
+border-right: 3px solid rgba(255,255,255,0.35);
+padding-right:10px;
+height:450px;
+}
+
+.alert-danger{
+font-size:17px;
+margin-top:15px;
+opacity:0.6;
+}
+
+
+.scroll-button {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-color: #5C9EED;
+  border-radius: 22.5px;
+  left: 50%;
+  margin-left: 80.5px;
+  z-index: 45;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+  line-height: 47px;
+  color: #fff;
+  opacity:0.8;
+  margin-top:10px;
+}
+.scroll-button:hover {
+  color: #fff;
+}
+.scroll-button::before, .scroll-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 45px;
+  height: 45px;
+  border: #5C9EED 12px solid;
+  opacity: 0.3;
+  animation: ripple 3.0s ease-out infinite;
+  border-radius: 50%;
+  z-index: -1;
+}
+.scroll-button:after {
+  animation-delay: -0.6s;
+}
+.scroll-button.scroll-button-floating {
+  position: fixed;
+  bottom: 100px;
+  transition: opacity .5s;
+  opacity: 0;
+}
+.scroll-button.scroll-button-floating.visible {
+  opacity: 1;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+.banner-bridge-center{
+width:100%;
+height:50px;
+}
 
 
     </style>
@@ -552,8 +859,8 @@ background:rgba(0,0,0,0.23);
         <div style="  border-right: 2px solid rgba(255,255,255,0.15);" class="col-6">
             <div class="container-fluid mainMenu">
                 <ul class="menuList">
-                    <li class="menuItem text-center" onclick="myMenu(this.id)" id="iniciarPartida">
-                        <a>INICIAR PARTIDA</a></li>
+<!--                    <li class="menuItem text-center" onclick="myMenu(this.id)" id="iniciarPartida">-->
+<!--                        <a>INICIAR PARTIDA</a></li>-->
                     <li class="menuItem text-center" onclick="myMenu(this.id)" id="registrarTime">
                         <a>REGISTRAR TIME</a></li>
                     <li class="menuItem text-center" onclick="myMenu(this.id)" id="montarCampeonato">
@@ -580,42 +887,45 @@ background:rgba(0,0,0,0.23);
         <a class="transparent text-center" data-toggle="collapse" href="#collapsetable1" role="button"
            aria-expanded="false"
            aria-controls="collapseExample">
-            PARTIDAS STREAMING<i class="fas fa-broadcast-tower"></i>
+             CAMPEONATOS <i class="fas fa-trophy"></i>
         </a>
     </p>
     <div class="collapse" id="collapsetable1">
-        <div class="boxCollapse text-right">
-            <ul class="">
-                <hr>
-                {% for grupo in partidaOnline %}
-                <li id="{{grupo.id}}" class="insertIds">
-                    <p class="subBox flex">
-                        <a class="transparent text-center" data-toggle="collapse" href="#collapseGroup{{grupo.id}}"
-                           role="button" aria-expanded="false" aria-controls="collapseGroup{{grupo.id}}">
-                            {{grupo.campeonato}} || {{grupo.grupo}}
-                        </a>
-                        <a class="lightBox" id="dataInsert{{grupo.id}}"
-                           href="/streaming/{{grupo.campeonato}}/{{grupo.grupo}}/" data-toggle="tooltip"
-                           data-placement="right" title="Acessar Controle">
-                            <i class="fas fa-podcast"></i>
-                        </a>
-                    </p>
-                    <div class="collapse" id="collapseGroup{{grupo.id}}">
-                        <div class="boxCollapse text-right">
-                            {% for select in grupo.select %}
-                            <ul class="">
-                                <li class="groupSel" id="{{select.3}}">{{select.4}}</li>
-                            </ul>
-                            {%endfor%}
-                        </div>
-                    </div>
-                </li>
+        <div class="boxCollapse text-right" >
+            <ul id="campeonatos">
 
-                {% endfor%}
-                <hr>
             </ul>
+
+                <!--                {% for grupo in partidaOnline %}-->
+                <!--                <li id="{{grupo.id}}" class="insertIds">-->
+                <!--                    <p class="subBox flex">-->
+                <!--                        <a class="transparent text-center" data-toggle="collapse" href="#collapseGroup{{grupo.id}}"-->
+                <!--                           role="button" aria-expanded="false" aria-controls="collapseGroup{{grupo.id}}">-->
+                <!--                            {{grupo.campeonato}} || {{grupo.grupo}}-->
+                <!--                        </a>-->
+                <!--                        <a class="lightBox" id="dataInsert{{grupo.id}}"-->
+                <!--                           href="/streaming/{{grupo.campeonato}}/{{grupo.grupo}}/" data-toggle="tooltip"-->
+                <!--                           data-placement="right" title="Acessar Controle">-->
+                <!--                            <i class="fas fa-podcast"></i>-->
+                <!--                        </a>-->
+                <!--                    </p>-->
+                <!--                    <div class="collapse" id="collapseGroup{{grupo.id}}">-->
+                <!--                        <div class="boxCollapse text-right">-->
+                <!--                            {% for select in grupo.select %}-->
+                <!--                            <ul class="">-->
+                <!--                                <li class="groupSel" id="{{select.3}}">{{select.4}}</li>-->
+                <!--                            </ul>-->
+                <!--                            {%endfor%}-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </li>-->
+
+                <!--                {% endfor%}-->
+
+
         </div>
     </div>
+
     <p class="subBox text-right">
         <a class="transparent text-center" data-toggle="collapse" href="#collapsetable2" role="button"
            aria-expanded="false"
@@ -625,57 +935,55 @@ background:rgba(0,0,0,0.23);
     </p>
     <div class="collapse" id="collapsetable2">
         <div class="boxCollapse text-right">
-            <ul class="">
-                {% for squad in squadName %}
-                <li>
-                    <a class="boxColl">{{squad}}</a>
-                </li>
-                {% endfor%}
-
+            <ul class="" id="squads">
             </ul>
         </div>
     </div>
-    <p class="subBox text-right">
-        <a class="transparent text-center" data-toggle="collapse" href="#collapsetable3" role="button"
-           aria-expanded="false"
-           aria-controls="collapseExample">
-            CAMPEONATOS <i class="fas fa-trophy"></i>
-        </a>
-    </p>
-    <div class="collapse" id="collapsetable3">
-        <div class="boxCollapse showTables text-right">
-            <ul class="">
-                {% for torneios in campeonatos_online %}
-                <li>
-                    <div class="row">
-                        <div class="col">
-                            {% if torneios.6 == 'setup' %}
-                            <span class="alert bgOrange" id="{{torneios.0}}"
-                                  onclick="myEntry(this.id)">MONTAR BRACKET</span>
-                            {% else %}
-                            <span class="alert bgGreen"><a
-                                    href="/bracket/torneios/{{torneios.0}}">ACESSAR TORNEIO</a></span>
+<!--    <p class="subBox text-right">-->
+<!--        <a class="transparent text-center" data-toggle="collapse" href="#collapsetable3" role="button"-->
+<!--           aria-expanded="false"-->
+<!--           aria-controls="collapseExample">-->
 
-                            {%endif%}
-                        </div>
-                        <div class="col">
-                            <a class="boxColl">
-                                {{torneios.1}}
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                {% endfor%}
-            </ul>
-        </div>
-    </div>
+<!--        </a>-->
+<!--    </p>-->
+<!--    <div class="collapse" id="collapsetable3">-->
+<!--        <div class="boxCollapse showTables text-right">-->
+<!--            <ul class="" id="campeonatos">-->
+<!--&lt;!&ndash;                {% for torneios in campeonatos_online %}&ndash;&gt;-->
+<!--&lt;!&ndash;                <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    HENRIQUE&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                            {% if torneios.6 == 'setup' %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            <span class="alert bgOrange" id="{{torneios.0}}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                  onclick="myEntry(this.id)">MONTAR BRACKET</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            {% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            <span class="alert bgGreen"><a&ndash;&gt;-->
+<!--&lt;!&ndash;                                    href="/bracket/torneios/{{torneios.0}}">ACESSAR TORNEIO</a></span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            {%endif%}&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a class="boxColl">&ndash;&gt;-->
+<!--&lt;!&ndash;                                {{torneios.1}}&ndash;&gt;-->
+<!--&lt;!&ndash;                            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    RAFAEL&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                {% endfor%}&ndash;&gt;-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 <!-- #### MODALS ####
     ####partidas #### -->
-<button type="button" id="clickPartida" style="display:none;" class="btn btn-primary" data-toggle="modal"
-        data-target="#iniciarPartidaModal">
-    Launch demo modal
-</button>
+<!--<button type="button" id="clickPartida" style="display:none;" class="btn btn-primary" data-toggle="modal"-->
+<!--        data-target="#iniciarPartidaModal">-->
+<!--    Launch demo modal-->
+<!--</button>-->
 <button type="button" id="clickTime" style="display:none;" class="btn btn-primary" data-toggle="modal"
         data-target="#registrarTimeModal">
     Launch demo modal
@@ -684,212 +992,483 @@ background:rgba(0,0,0,0.23);
         data-target="#modalCategoria">
     Launch demo modal
 </button>
-<!-- Modal PARTIDAS -->
-<div class="modal fade" id="iniciarPartidaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" id="bg_partida">
-            <div class="modal-header text-center">
-                <h5 class="modal-title " id="exampleModalLabel">
-                    <i class="fas fa-broadcast-tower"></i> STREAMING PARTIDA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" action="{{ url_for('iniciarPartida') }}">
-                <div class="modal-body" id="partidaBody">
+<!--&lt;!&ndash; Modal PARTIDAS &ndash;&gt;-->
+<!--<div class="modal fade" id="iniciarPartidaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content" id="bg_partida">-->
+<!--            <div class="modal-header text-center">-->
+<!--                <h5 class="modal-title " id="exampleModalLabel">-->
+<!--                    <i class="fas fa-broadcast-tower"></i> STREAMING PARTIDA</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <form method="post" action="{{ url_for('iniciarPartida') }}">-->
+<!--                <div class="modal-body" id="partidaBody">-->
 
-                    <nav>
-                        <div class="nav nav-tabs text-center" id="nav-tab" role="tablist">
-                            <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                               aria-controls="nav-home" aria-selected="true">NR. EQUIPES</a>
-                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                               aria-controls="nav-profile" aria-selected="false">SQUADS</a>
-                            <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-                               aria-controls="nav-contact" aria-selected="false">CATEGORIA</a>
-                            <a class="nav-link" id="nav-start-tab" data-toggle="tab" href="#nav-start" role="tab"
-                               aria-controls="nav-start" aria-selected="false">COMERÇAR</a>
+<!--                    <nav>-->
+<!--                        <div class="nav nav-tabs text-center" id="nav-tab" role="tablist">-->
+<!--                            <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"-->
+<!--                               aria-controls="nav-home" aria-selected="true">NR. EQUIPES</a>-->
+<!--                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"-->
+<!--                               aria-controls="nav-profile" aria-selected="false">SQUADS</a>-->
+<!--                            <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"-->
+<!--                               aria-controls="nav-contact" aria-selected="false">CATEGORIA</a>-->
+<!--                            <a class="nav-link" id="nav-start-tab" data-toggle="tab" href="#nav-start" role="tab"-->
+<!--                               aria-controls="nav-start" aria-selected="false">COMERÇAR</a>-->
 
-                        </div>
-                    </nav>
-                    <div class="containerPartida">
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                 aria-labelledby="nav-home-tab">
-                                <div class="modalItem text-center">
-                                    <p>QUANTAS EQUIPES PARTICIPARAM DA STREAM?</p>
-                                    <button type="button" class="btn btn-primary btn-lg btn-block">1 EQUIPE</button>
-                                    <button type="button" class="btn btn-primary btn-lg btn-block">2 EQUIPES</button>
-                                </div>
-                                <div class="seguirBox float-right">
-                                    <a class="seguir" id="home" onclick="clickNext(this.id)">NEXT <i
-                                            class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                 aria-labelledby="nav-profile-tab">
-                                <div class="equipeBox">
-                                    <div class="selectEquipeA" id="selectEquipeA">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
+<!--                        </div>-->
+<!--                    </nav>-->
+<!--                    <div class="containerPartida">-->
+<!--                        <div class="tab-content" id="nav-tabContent">-->
+<!--                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"-->
+<!--                                 aria-labelledby="nav-home-tab">-->
+<!--                                <div class="modalItem text-center">-->
+<!--                                    <p>QUANTAS EQUIPES PARTICIPARAM DA STREAM?</p>-->
+<!--                                    <button type="button" class="btn btn-primary btn-lg btn-block">1 EQUIPE</button>-->
+<!--                                    <button type="button" class="btn btn-primary btn-lg btn-block">2 EQUIPES</button>-->
+<!--                                </div>-->
+<!--                                <div class="seguirBox float-right">-->
+<!--                                    <a class="seguir" id="home" onclick="clickNext(this.id)">NEXT <i-->
+<!--                                            class="fas fa-arrow-right"></i>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"-->
+<!--                                 aria-labelledby="nav-profile-tab">-->
+<!--                                <div class="equipeBox">-->
+<!--                                    <div class="selectEquipeA" id="selectEquipeA">-->
+<!--                                        <div class="input-group mb-3">-->
+<!--                                            <div class="input-group-prepend">-->
 
-                                                <label class="input-group-text buttonArcade" for="nomeSquadA">SELECIONAR
-                                                    SQUAD: </label>
-                                            </div>
-                                            <select class="custom-select" name="nomeSquadA" id="nomeSquadA">
-                                                <option selected>Escolha a Squad...</option>
-                                                {% for squad in squadName %}
-                                                <option value="{{squad}}"> {{squad}}</option>
-                                                {% endfor%}
-                                            </select>
-                                        </div>
-                                    </div>
+<!--                                                <label class="input-group-text buttonArcade" for="nomeSquadA">SELECIONAR-->
+<!--                                                    SQUAD: </label>-->
+<!--                                            </div>-->
+<!--                                            <select class="custom-select" name="nomeSquadA" id="nomeSquadA">-->
+<!--                                                <option selected>Escolha a Squad...</option>-->
+<!--                                                {% for squad in squadName %}-->
+<!--                                                <option value="{{squad}}"> {{squad}}</option>-->
+<!--                                                {% endfor%}-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
 
 
-                                </div>
-                                <div class="equipeBox">
-                                    <div class="selectEquipeA" id="selectEquipeB">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text buttonArcade" for="nomeSquadB">SELECIONAR
-                                                    SQUAD: </label>
-                                            </div>
-                                            <select class="custom-select" name="nomeSquadB" id="nomeSquadB">
-                                                <option selected>Escolha a Squad...</option>
-                                                {% for squad in squadName %}
-                                                <option value="{{squad}}"> {{squad}}</option>
-                                                {% endfor%}
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                 aria-labelledby="nav-contact-tab">
-                                <p>ESCOLHA O CAMPEONATO DA PARTIDA?</p>
+<!--                                </div>-->
+<!--                                <div class="equipeBox">-->
+<!--                                    <div class="selectEquipeA" id="selectEquipeB">-->
+<!--                                        <div class="input-group mb-3">-->
+<!--                                            <div class="input-group-prepend">-->
+<!--                                                <label class="input-group-text buttonArcade" for="nomeSquadB">SELECIONAR-->
+<!--                                                    SQUAD: </label>-->
+<!--                                            </div>-->
+<!--                                            <select class="custom-select" name="nomeSquadB" id="nomeSquadB">-->
+<!--                                                <option selected>Escolha a Squad...</option>-->
+<!--                                                {% for squad in squadName %}-->
+<!--                                                <option value="{{squad}}"> {{squad}}</option>-->
+<!--                                                {% endfor%}-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"-->
+<!--                                 aria-labelledby="nav-contact-tab">-->
+<!--                                <p>ESCOLHA O CAMPEONATO DA PARTIDA?</p>-->
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text buttonArcade"
-                                               for="categoriaPartida">CATEGORIA: </label>
-                                    </div>
-                                    <select class="custom-select" name="categoriaPartida" id="categoriaPartida">
-                                        <option selected>Escolha a modalidade do jogo...</option>
-                                        {% for categoria in campeonatos_online %}
-                                        {% if categoria.6 == 'ativo'%}
+<!--                                <div class="input-group mb-3">-->
+<!--                                    <div class="input-group-prepend">-->
+<!--                                        <label class="input-group-text buttonArcade"-->
+<!--                                               for="categoriaPartida">CATEGORIA: </label>-->
+<!--                                    </div>-->
+<!--                                    <select class="custom-select" name="categoriaPartida" id="categoriaPartida">-->
+<!--                                        <option selected>Escolha a modalidade do jogo...</option>-->
+<!--                                        {% for categoria in campeonatos_online %}-->
+<!--                                        {% if categoria.6 == 'ativo'%}-->
 
-                                        <option value="{{categoria.0}}"> {{categoria.1}} || {{categoria.5}}</option>
-                                        {% endif%}
-                                        {% endfor%}
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-start" role="tabpanel" aria-labelledby="nav-start-tab">
-                                <button type="submit" class="btn btn-primary">INICIAR PLACAR PARTIDA</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                                        <option value="{{categoria.0}}"> {{categoria.1}} || {{categoria.5}}</option>-->
+<!--                                        {% endif%}-->
+<!--                                        {% endfor%}-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="tab-pane fade" id="nav-start" role="tabpanel" aria-labelledby="nav-start-tab">-->
+<!--                                <button type="submit" class="btn btn-primary">INICIAR PLACAR PARTIDA</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
-            </form>
-        </div>
-    </div>
-</div>
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <!-- Modal -->
 <div class="modal fade" id="registrarTimeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="">REGISTRAR NOVA SQUAD</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+    <div class="modal-dialog modal-dialog-centered" id="timeDialog">
+        <div class="modal-content" id="modalTime">
+            <div class="registerSquad text-right">
+                <h5 class="textregisterSquad">REGISTRAR</h5>
+                <h5 class="subregisterSquad">SQUAD</h5>
+                <div class="banner-bridge-center text-right">
+                    <a class="scroll-button button scroll-next" onclick="submitSquad()">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+
             </div>
-<!--            <form method="post" action="{{ url_for('registerSquad') }}">-->
-                <div class="modal-body">
 
-                    <div class="form-group formTime">
-                        <label for="squadName">NOME EQUIPE</label>
-                        <input type="text" class="form-control" id="squadName" name="squadName"
-                               aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group formTime">
-                        <label for="player1">Player 1</label>
-                        <input type="text" class="form-control" id="player1" name="player1" placeholder="TAGNAME">
+            <!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+            <!--                    <span aria-hidden="true">&times;</span>-->
+            <!--                </button>-->
 
 
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="player1Plataform">
-                            <label class="btn btn-secondary active">
-                                <input type="radio" name="PlayStation" checked> PlayStation
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="XBox"> XBox
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="Activision"> Activision
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="BattleNet"> BattleNet
-                            </label>
+            <!--            <form method="post" action="{{ url_for('registerSquad') }}">-->
+            <div class="modal-body" id="modalTimeBody">
+
+
+                <div class="form-group formTime">
+                    <div class="container-fluid boxNameSquad">
+                        <div class="row">
+                            <div class="col-3">
+                                <img id="image" style="opacity:0.4;" src="../static/assets/computer.svg"
+                                     height="180">
+
+                            </div>
+                            <div class="col-9">
+                                <div class="container-fluid nn">
+                                    <label for="squadName">NOME EQUIPE</label>
+                                    <input type="text" class="form-control" id="squadName" name="squadName"
+                                           aria-describedby="emailHelp" autocomplete="off">
+
+                                </div>
+
+                            </div>
                         </div>
-                        <input type="text" class="form-control" id="IdActivisonplayer1" name="player1"
-                               placeholder="IdActivison">
-
-                        <button class="btn btn-primary" onclick="submitActivision('player1')">ENVIAR</button>
-
-
                     </div>
-                    <div class="form-group formTime">
-                        <label for="player2">Player 2</label>
-                        <input type="text" class="form-control" id="player2" name="player2" placeholder="TAGNAME">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="player2Plataform">
-                            <label class="btn btn-secondary active">
-                                <input type="radio" name="PlayStation" checked> PlayStation
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="XBox"> XBox
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="Activision"> Activision
-                            </label>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="BattleNet"> BattleNet
-                            </label>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="container players">
+                            <div class="form-group formTime">
+                                <label for="player1">Player 1 <img class="icone"
+                                                                   src="../static/assets/game-controller.svg"
+                                                                   height="45"></label>
+                                <div id="player1containerOld">
+                                    <input type="text" class="form-control" id="player1" name="player1"
+                                           placeholder="TAGNAME" autocomplete="off" required>
+
+                                    <input type="text" class="form-control" autocomplete="off" id="IdActivisonplayer1"
+                                           name="player1"
+                                           placeholder="IdActivison">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="player1Plataform">
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="PlayStation" checked> PlayStation
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="XBox"> XBox
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="Activision"> Activision
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="BattleNet"> BattleNet
+                                        </label>
+                                    </div>
+
+                                    <div class="procurar text-center" onclick="submitActivision('player1')">
+                                        PROCURAR
+                                    </div>
+                                </div>
+                                <div style="display:none;" class="cardPlayers" id="cardplayer1">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-2 text-right ">
+                                                <div class="container-fluid boxTags text-right">
+                                                    <H6 class="tagNm text-right">TAGNAME</H6>
+                                                    <h6 class="tagUs text-right">USERNAME</h6>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-10 ">
+                                                <div class="container-fluid boxTags centerL">
+                                                    <h5 id="player1Tag" class="nameCard">RAFAEL KILLER</h5>
+                                                    <h6 id="player1User" class="userCard">DIRtYOliVER#23484328</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <div class="container-fluid centerL">
+                                                <span id="player1Level" class="numberStats">98</span>
+                                                <img class="iconesStats" src="../static/assets/level.svg" height="35">
+                                                <h6 class="statsText">LEVEL</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center ">
+                                            <div class="container-fluid centerL">
+                                                <span id="player1kd" class="numberStats">0.96</span>
+                                                <img class="iconesStats" src="../static/assets/percent.svg" height="35">
+                                                <h6 class="statsText">K/D</h6>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4 text-center">
+
+                                            <div class="container-fluid centerL">
+                                                <span id="player1Top" class="numberStats">216</span>
+                                                <img class="iconesStats" src="../static/assets/top.svg" height="35">
+                                                <h6 class="statsText">TOP 5</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player1Wins" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/win.svg" height="35">
+                                            <h6 class="statsText">WINS</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player1kills" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/skull.svg" height="35">
+                                            <h6 class="statsText">KILLS</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player1deaths" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/death.svg" height="35">
+                                            <h6 class="statsText">DEATHS</h6>
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" container-fluid plataformaBox text-center">
+                                        <h6 id="player1Plataforma">BattleNet</h6>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
                         </div>
-                        <input type="text" class="form-control" id="IdActivisonplayer2" name="player2"
-                               placeholder="IdActivison">
-                        <button class="btn btn-primary" onclick="submitActivision('player2')">ENVIAR</button>
+
                     </div>
-                    <div class="form-group formTime">
-                        <label for="player3">Player 3</label>
-                        <input type="text" class="form-control" id="player3" name="player3" placeholder="TAGNAME">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="player3Plataform">
-                            <label class="btn btn-secondary active">
-                                    <input type="radio" name="PlayStation" checked> PlayStation
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" name="XBox" > XBox
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" name="Activision"> Activision
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" name="BattleNet"> BattleNet
-                                </label>
+                    <div class="col-4">
+                        <div class="container players">
+                            <div class="form-group formTime">
+                                <label for="player2">Player 2 <img class="icone"
+                                                                   src="../static/assets/game-controller.svg"
+                                                                   height="45"></label>
+                                <div id="player2containerOld">
+                                    <input type="text" class="form-control" id="player2" autocomplete="off"
+                                           name="player2"
+                                           placeholder="TAGNAME" required>
+                                    <input type="text" class="form-control" autocomplete="off"
+                                           id="IdActivisonplayer2"
+                                           name="player2"
+                                           placeholder="IdActivison">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons"
+                                         id="player2Plataform">
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="PlayStation" checked> PlayStation
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="XBox"> XBox
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="Activision"> Activision
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="BattleNet"> BattleNet
+                                        </label>
+                                    </div>
+
+                                    <div class="procurar text-center" onclick="submitActivision('player2')">
+                                        PROCURAR
+                                    </div>
+                                </div>
+                                <div style="display:none;" class="cardPlayers" id="cardplayer2">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-2 text-right ">
+                                                <div class="container-fluid boxTags text-right">
+                                                    <H6 class="tagNm text-right">TAGNAME</H6>
+                                                    <h6 class="tagUs text-right">USERNAME</h6>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-10 ">
+                                                <div class="container-fluid boxTags centerL">
+                                                    <h5 id="player2Tag" class="nameCard">RAFAEL KILLER</h5>
+                                                    <h6 id="player2User" class="userCard">DIRtYOliVER#23484328</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player2Level" class="numberStats">98</span>
+                                            <img class="iconesStats" src="../static/assets/level.svg" height="35">
+                                            <h6 class="statsText">LEVEL</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player2kd" class="numberStats">0.96</span>
+                                            <img class="iconesStats" src="../static/assets/percent.svg" height="35">
+                                            <h6 class="statsText">K/D</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player2Top" class="numberStats">216</span>
+                                            <img class="iconesStats" src="../static/assets/top.svg" height="35">
+                                            <h6 class="statsText">TOP 5</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player2Wins" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/win.svg" height="35">
+                                            <h6 class="statsText">WINS</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player2kills" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/skull.svg" height="35">
+                                            <h6 class="statsText">KILLS</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player2deaths" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/death.svg" height="35">
+                                            <h6 class="statsText">DEATHS</h6>
+                                        </div>
+                                    </div>
+                                    <div class=" container-fluid plataformaBox text-center">
+                                        <h6 id="player2Plataforma">BattleNet</h6>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <input type="text" class="form-control" id="IdActivisonplayer3" name="player3"
-                               placeholder="IdActivison">
                     </div>
-                     <button class="btn btn-primary" onclick="submitActivision('player3')">ENVIAR</button>
+                    <div class="col-4">
+                        <div class="container players">
+                            <div class="form-group formTime">
+                                <label for="player3">Player 3 <img class="icone"
+                                                                   src="../static/assets/game-controller.svg"
+                                                                   height="45"></label>
+                                <div id="player3containerOld">
+                                    <input type="text" class="form-control" id="player3" autocomplete="off"
+                                           name="player3"
+                                           placeholder="TAGNAME" required>
+                                    <input type="text" class="form-control" autocomplete="off"
+                                           id="IdActivisonplayer3"
+                                           name="player3"
+                                           placeholder="IdActivison">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons"
+                                         id="player3Plataform">
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="PlayStation" checked> PlayStation
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="XBox"> XBox
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="Activision"> Activision
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="BattleNet"> BattleNet
+                                        </label>
+                                    </div>
+
+                                    <div class="procurar text-center" onclick="submitActivision('player3')">
+                                        PROCURAR
+                                    </div>
+                                </div>
+                                <div style="display:none;" class="cardPlayers" id="cardplayer3">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-2 text-right ">
+                                                <div class="container-fluid boxTags text-right">
+                                                    <H6 class="tagNm text-right">TAGNAME</H6>
+                                                    <h6 class="tagUs text-right">USERNAME</h6>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-10 ">
+                                                <div class="container-fluid boxTags centerL">
+                                                    <h5 id="player3Tag" class="nameCard">RAFAEL KILLER</h5>
+                                                    <h6 id="player3User" class="userCard">DIRtYOliVER#23484328</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player3Level" class="numberStats">98</span>
+                                            <img class="iconesStats" src="../static/assets/level.svg" height="35">
+                                            <h6 class="statsText">LEVEL</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player3kd" class="numberStats">0.96</span>
+                                            <img class="iconesStats" src="../static/assets/percent.svg" height="35">
+                                            <h6 class="statsText">K/D</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+
+                                            <span id="player3Top" class="numberStats">216</span>
+                                            <img class="iconesStats" src="../static/assets/top.svg" height="35">
+                                            <h6 class="statsText">TOP 5</h6>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player3Wins" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/win.svg" height="35">
+                                            <h6 class="statsText">WINS</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player3kills" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/skull.svg" height="35">
+                                            <h6 class="statsText">KILLS</h6>
+                                        </div>
+                                        <div class="col-4 text-center centerL">
+                                            <span id="player3deaths" class="numberStats"></span>
+                                            <img class="iconesStats" src="../static/assets/death.svg" height="35">
+                                            <h6 class="statsText">DEATHS</h6>
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" container-fluid plataformaBox text-center">
+                                        <h6 id="player3Plataforma">BattleNet</h6>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                <div style="display:none" id="mensagem" class="alert alert-danger text-center" role="alert">
+
                 </div>
-<!--            </form>-->
+
+
+            </div>
+
 
         </div>
+
+
     </div>
 </div>
 
@@ -1012,13 +1591,9 @@ function myEntry(this_id) {
 
 
 function clickNext(this_id) {
-
-if (this_id == 'home'){
-document.getElementById('nav-profile-tab').click();
-}
-
-
-
+    if (this_id == 'home'){
+    document.getElementById('nav-profile-tab').click();
+    }
 }
 
 
@@ -1052,36 +1627,75 @@ $(document).ready(function () {
 
 
 $( document ).ready(function() {
-
-socket.emit('dashboard items')
-
-
+    socket.emit('dashboard items');
 });
 
 
   socket.on('dashboard response', function(data){
+ console.log(data)
+
    modalidades = data[0];
    regras = data[1];
+   campeonatos = data[2];
+
+   squads = data[3];
+   var InsertListaSquads = document.getElementById('squads');
+   var InsertListaCampeonatos = document.getElementById('campeonatos');
+   console.log(InsertListaCampeonatos);
+
+
     modalidades.forEach(function(e) {
-   var option = document.createElement("option");
-   option.setAttribute('value', e[1]);
-   var textnode = document.createTextNode(e[1]);
-   option.appendChild(textnode);
-   document.getElementById('modalidade').appendChild(option);
+       var option = document.createElement("option");
+       option.setAttribute('value', e[1]);
+       var textnode = document.createTextNode(e[1]);
+       option.appendChild(textnode);
+       document.getElementById('modalidade').appendChild(option);
     });
 
 
     regras.forEach(function(e) {
-   var option = document.createElement("option");
-   option.setAttribute('value', e[0]);
-   var textnode = document.createTextNode(e[7]);
-   option.appendChild(textnode);
-   document.getElementById('regras').appendChild(option);
+       var option = document.createElement("option");
+       option.setAttribute('value', e[0]);
+       var textnode = document.createTextNode(e[7]);
+       option.appendChild(textnode);
+       document.getElementById('regras').appendChild(option);
     });
 
+    squads.forEach(function(e) {
+        var li = document.createElement("li");
+       li.setAttribute('class', 'insertIds');
+       var p = document.createElement("p");
+       p.setAttribute('class', 'subBox flex');
+       var a1 = document.createElement("a");
+       a1.setAttribute('class', 'transparent text-center');
+       a1.setAttribute('data-toggle', 'collapse');
+       a1.setAttribute('href', '#collapseGroup'+e[1]);
+       a1.setAttribute('role', 'button');
+       a1.setAttribute('aria-expanded', 'false');
+       a1.setAttribute('aria-controls', 'collapseGroup'+e[1]);
+       var textnode = document.createTextNode(e[1]);
+       a1.appendChild(textnode);
+       p.appendChild(a1);
+       li.appendChild(p);
+       InsertListaSquads.appendChild(li);
+    });
+    campeonatos.forEach(function(e) {
+            var li = document.createElement("li");
+       li.setAttribute('class', 'insertIds');
+       var p = document.createElement("p");
+       p.setAttribute('class', 'subBox flex');
+       var a1 = document.createElement("a");
+       a1.setAttribute('class', 'transparent text-center');
+       a1.setAttribute('href', '/campeonatoSetup/'+e[1]+'/'+e[0]);
+       var textnode = document.createTextNode(e[1]);
+       a1.appendChild(textnode);
+       p.appendChild(a1);
+       li.appendChild(p);
+       InsertListaCampeonatos.appendChild(li);
 
+    });
 
-   })
+})
 
 
 
@@ -1094,7 +1708,9 @@ socket.emit('dashboard items')
 
 
 function submitActivision(player){
+ console.log(player);
 data = [player]
+
 var x = document.getElementById(player+'Plataform');
 var IdActvision = document.getElementById('IdActivison'+player).value;
 var tagName = document.getElementById(player).value;
@@ -1114,7 +1730,105 @@ socket.emit('check Activison', data);
 
 
 
+listaPlayers = [];
+count = 0;
 
+
+function addPlayer(data){
+count++;
+listaPlayers.push(data);
+}
+
+
+ socket.on('Activison response', function(data){
+ var player = data['player'];
+
+ var username = data['username'];
+ var plataform = data['plataform'];
+  var level = data['level'];
+  var kd = data['K/D Ratio'];
+  var Wins = data['Wins'];
+  var Kills = data['Kills'];
+  var TopFive = data['TopFive'];
+  var Deaths = data['Deaths'];
+  var TagName = data['tagName']
+
+
+
+   addPlayer(data);
+
+
+
+
+
+var player3Tag = document.getElementById(player+'Tag').innerHTML = TagName;
+var player3User = document.getElementById(player+'User').innerHTML = username;
+var player3Level = document.getElementById(player+'Level').innerHTML = level;
+var player3kd = document.getElementById(player+'kd').innerHTML = kd;
+var player3Top = document.getElementById(player+'Top').innerHTML = TopFive;
+var player3Wins = document.getElementById(player+'Wins').innerHTML = Wins;
+var player3Plataforma = document.getElementById(player+'Plataforma').innerHTML = plataform;
+var player3kills = document.getElementById(player+'kills').innerHTML = Kills;
+var player3Death = document.getElementById(player+'deaths').innerHTML = Deaths;
+
+
+var containerOld = document.getElementById(player+'containerOld').style.display = 'none';
+var container = document.getElementById('card'+player).style.display = 'block';
+
+
+
+ })
+
+
+
+
+ socket.on('Activison negado', function(data){
+  document.getElementById('mensagem').innerHTML = 'Este Usuário não foi encontrado!'
+ document.getElementById('mensagem').style.display = 'block';
+ setTimeout(function () {
+    document.getElementById('mensagem').style.display = 'none';
+}, 5000); //will call the function after 2 secs.
+ })
+
+
+function submitSquad(){
+
+
+if (listaPlayers.length == 3){
+var squadName = document.getElementById('squadName').value;
+if (squadName == ''){
+document.getElementById('mensagem').innerHTML = 'Precisa Colocar o Nome da Equipe para Registrar!'
+ document.getElementById('mensagem').style.display = 'block';
+ setTimeout(function () {
+    document.getElementById('mensagem').style.display = 'none';
+}, 5000); //will call the function after 2 secs.
+
+
+
+}
+else{
+listaPlayers.push(squadName);
+socket.emit('insert Squad', listaPlayers);
+}
+
+
+}
+
+else{
+document.getElementById('mensagem').innerHTML = 'Precisa Inserir os 3 Jogadores para Continuar!'
+ document.getElementById('mensagem').style.display = 'block';
+ setTimeout(function () {
+    document.getElementById('mensagem').style.display = 'none';
+}, 5000); //will call the function after 2 secs.
+}
+}
+
+
+socket.on('players response', function(data){
+setTimeout(function(){
+   window.location.reload(1);
+}, 5000);
+})
 
 
 </script>
