@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
+
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <title>Hello, world!</title>
+</head>
+<style>
+    body{
+
+     display:flex;
+     flex-direction:column;
+
+       font-family: "Abel", sans-serif;
+background:transparent;
+overscroll-behavior-y: none;
+overflow-x: hidden;
+   }
+
+
+
+ul{
+  list-style-type: none;
+         margin:0;
+  padding:0;
+  }
+
+
+
+
+
+ul {
+    display: block;
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+
+.round-one .matchup{
+width:400px;
+background:#e8e8e8;
+padding:14px 18px 14px 18px;
+
+
+}
+
+.current li {
+  opacity: 1;
+}
+.current li.team {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+}
+.round-one .team{
+border-radius:5px;
+height:40px;
+padding:8px;
+
+}
+.team {
+  padding: 0 5px;
+  margin: 3px 0;
+  height: 25px;
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  color:rgba(255,255,255,1);
+  width:100%;
+}
+
+.team h6{
+
+  color:rgba(0,0,0,1);
+  font-size:12px;
+}
+
+.scoreA {
+  font-size: 12px;
+  text-transform: uppercase;
+  float: right;
+color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  right: 17px;
+  background:rgba(14,16,31,1);;
+  width:30px;
+  height:30px;
+  margin-top:-3px;
+  padding:3px;
+}
+.scoreAx {
+  font-size: 11px;
+  text-transform: uppercase;
+  float: right;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  right: 17px;
+  background:#64958f;
+  width:30px;
+}
+
+.score {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  width:30px;
+  margin-top:-10px;
+  position: absolute;
+  padding:7px;
+  margin-left:-10px;
+
+}
+
+#collapseExample{
+
+}
+
+
+.pd40{
+width:300px;
+background:rgba(14,16,31,.32);
+position:absolute;
+transform:scale(1.5);
+margin-left:50px;
+margin-top:30px;
+}
+
+
+
+</style>
+<body>
+
+
+
+<div class="container-fluid pd40">
+    <ul class="row justify-content-md-center" id="mylist">
+
+    </ul>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+        integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+
+</body>
+<script>
+
+var socket = io.connect('http://' + document.domain + ':' + location.port) ;
+
+
+
+
+var playerSelect = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  equipe = [];
+
+  // Constructor
+  function Item(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo) {
+      this.id = id;
+    this.idplayer = idplayer;
+    this.idsquad = idsquad;
+    this.name = name;
+    this.kills_1 = kills_1;
+    this.kills_2 = kills_2;
+    this.kills_3 = kills_3;
+    this.sKill = sKill;
+    this.sWins = sWins;
+    this.sTop5 = sTop5;
+    this.sDeaths = sDeaths;
+    this.sKD = sKD;
+    this.sLevel = sLevel;
+    this.jogo_ativo = jogo_ativo;
+  }
+
+
+  // Save Equipe
+  function saveEquipe() {
+    sessionStorage.setItem('playerSelect', JSON.stringify(equipe));
+  }
+
+
+
+
+
+
+    // Load Equipe
+  function loadEquipe() {
+    equipe = JSON.parse(sessionStorage.getItem('playerSelect'));
+  }
+  if (sessionStorage.getItem("playerSelect") != null) {
+    loadEquipe();
+  }
+
+
+
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var objEquipe = {};
+
+  // Add to cart
+  objEquipe.addItemToEquipe = function(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo) {
+      for(var item in equipe) {
+        if(equipe[item].id === id) {
+          return;
+        }
+      }
+      var item = new Item(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo);
+      equipe.push(item);
+      saveEquipe()
+    }
+
+    // Clear cart
+  objEquipe.clearEquipe = function() {
+    equipe = [];
+    saveEquipe()
+  }
+
+
+
+  // List cart
+  objEquipe.listEquipe = function(idsquad) {
+  var cartCopy = [];
+  for(id in idsquad) {
+     for(i in equipe) {
+            if (parseInt(equipe[i].idsquad) === parseInt(idsquad[id])) {
+              item = equipe[i];
+              itemCopy = {};
+                  for(p in item) {
+                    itemCopy[p] = item[p];
+                  }
+              cartCopy.push(itemCopy)
+            }
+    }
+}
+
+    return cartCopy;
+  }
+
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return objEquipe;
+})();
+
+
+
+
+
+
+
+
+var partidaBracket = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  partida = [];
+
+  // Constructor
+  function Item(id,idsquad, name,score_1,score_2,score_3, score_total,kills_1,kills_2,kills_3,rank_1,rank_2,rank_3,stream,jogo_ativo,grupo) {
+  this.id = id;
+    this.idsquad = idsquad;
+    this.name = name;
+    this.kills_1 = kills_1;
+    this.kills_2 = kills_2;
+    this.kills_3 = kills_3;
+
+    this.rank_1 = rank_1;
+    this.rank_2 = rank_2;
+    this.rank_3 = rank_3;
+
+    this.score_1 =score_1;
+    this.score_2 =score_2;
+    this.score_3 = score_3;
+
+    this.score_total = score_total;
+    this.jogo_ativo = jogo_ativo;
+    this.stream = stream;
+
+    this.grupo = grupo;
+
+  }
+
+
+  // Save cart
+  function saveCart() {
+    sessionStorage.setItem('partidaBracket', JSON.stringify(partida));
+  }
+
+    // Load cart
+  function loadCart() {
+    partida = JSON.parse(sessionStorage.getItem('partidaBracket'));
+  }
+  if (sessionStorage.getItem("partidaBracket") != null) {
+    loadCart();
+  }
+
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var obj = {};
+
+  // Add to cart
+  obj.addItemToCart = function(id,idsquad, name,score_1,score_2,score_3, score_total,kills_1,kills_2,kills_3,rank_1,rank_2,rank_3,stream,jogo_ativo,grupo) {
+      for(var item in partida) {
+        if(partida[item].id === id) {
+
+          return;
+        }
+      }
+      var item = new Item(id,idsquad, name,score_1,score_2,score_3, score_total,kills_1,kills_2,kills_3,rank_1,rank_2,rank_3,stream,jogo_ativo,grupo);
+      partida.push(item);
+
+      saveCart();
+    }
+
+    // Clear cart
+  obj.clearCart = function() {
+    partida = [];
+    saveCart();
+  }
+
+
+
+  // List cart
+  obj.listCart = function(idsquad) {
+
+    var cartCopy = [];
+for(id in idsquad) {
+ for(i in partida) {
+        if (parseInt(partida[i].idsquad) === parseInt(idsquad[id])) {
+          item = partida[i];
+          itemCopy = {};
+              for(p in item) {
+                itemCopy[p] = item[p];
+              }
+          cartCopy.push(itemCopy)
+        }
+    }
+}
+
+
+
+    return cartCopy;
+  }
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return obj;
+})();
+
+
+
+
+
+$(document).ready(function () {
+socket.on('partida', function(cartArray){
+var output = "";
+  var HTML = "";
+    for(var i in cartArray) {
+     var soma = parseInt(cartArray[i].score_1) + parseInt(cartArray[i].score_2) + parseInt(cartArray[i].score_3);
+    output += '<li class="team team-top text-center">'+ cartArray[i].name +
+    '<span class="scoreA">'+soma+'</span>'+
+    '<span class="scoreAx">'+cartArray[i].score_1+'</span>'+
+    '<span class="scoreAx">'+cartArray[i].score_2+'</span>'+
+    '<span class="scoreAx">'+cartArray[i].score_3+'</span>'+
+    '</li>';
+
+    }
+    document.getElementById('mylist').innerHTML = output;
+
+
+
+   })
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

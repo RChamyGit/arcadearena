@@ -143,26 +143,25 @@
  }
 
  .boxRank{
- width:35%;
- hright:auto;
+
+ height:auto;
  min-height:150px;
-background: rgba(0,0,0,0.7);
  margin-top:600px;
-box-shadow: 2px 2px 8px rgba(0,0,0,.6);
-border-radius: 15px 5px;
  }
 .tag{
-background:#6C15BD;
+background:rgba(14,16,31,1);
 box-shadow: 2px 2px 8px rgba(0,0,0,.6);
-padding:5px;
+padding:2px;
 color:rgba(255,255,255,0.8);
 width:250px;
-margin-top:-30px;
-border-radius: 15px 5px;
+margin-bottom:10px;
+
+
 }
 
 .tagGroup{
-margin-top:5px;}
+margin-top:5px;
+font-size:22px;}
 
 ul {
     list-style-type: none;
@@ -212,6 +211,101 @@ width:130px;
 
 
 
+.topStagecontainer{
+
+
+
+}
+.round-one .matchup{
+width:550px;
+margin:-10px auto;
+background:#e8e8e8;
+padding:14px 18px 14px 18px;
+ font-family: "Abel", sans-serif;
+}
+
+.current li {
+  opacity: 1;
+}
+.current li.team {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  font-size:20px;
+}
+.round-one .team{
+border-radius:5px;
+height:45px;
+padding:8px;
+
+}
+.team {
+  padding: 0 5px;
+  margin: 3px 0;
+  height: 25px;
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  color:rgba(0,0,0,1);
+  width:100%;
+}
+
+.team h6{
+
+  color:rgba(0,0,0,1);
+  font-size:12px;
+}
+
+.scoreA {
+  font-size: 22px;
+  text-transform: uppercase;
+  float: right;
+color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  right: 17px;
+  background:rgba(14,16,31,1);;
+  height:50px;
+  margin-top:-13px;
+  padding:10px;
+  display:flex;
+     flex-direction:column;
+     justify-content:center;
+}
+.scoreAx {
+  font-size: 18px;
+  text-transform: uppercase;
+  float: right;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  background:rgba(14,16,31,.31);
+  width:50px;
+  height:50px;
+  margin-top:-13px;
+   padding:10px;
+  display:flex;
+     flex-direction:column;
+     justify-content:center;
+
+}
+
+.score {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  width:30px;
+  margin-top:-10px;
+  position: absolute;
+  padding:7px;
+  margin-left:-10px;
+
+}
+
+
 
     </style>
     <title>ARCADE ARENA</title>
@@ -224,26 +318,27 @@ width:130px;
     <div class="container-fluid tag text-center">
         <h3 class="tagGroup">GRUPO 1</h3>
     </div>
-    <div class="container-fluid">
-        <ul id="result">
-            {% for time in bracket %}
-            <li>
-                <div class="row">
-                    <div class="col-8">
-                        <h4 class="squadName">{{time.5}}</h4>
-                    </div>
-                    <div class="col-4">
-                        <div style="display:none;" class="container-fluid scoreBox text-center">
-                            <h4 id="score_partida{{time.3}}">{{time.7}}</h4>
-                        </div>
-                        <div class="container-fluid scoreBox text-center">
-                            <h4 id="score_total{{time.3}}">{{time.7}}</h4>
-                        </div>
+    <div class="round round-one current" id="grupo">
+        <ul id="faseGrupos" class="matchup">
+<!--        <ul id="result">-->
+<!--            {% for time in bracket %}-->
+<!--            <li>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-8">-->
+<!--                        <h4 class="squadName">{{time.5}}</h4>-->
+<!--                    </div>-->
+<!--                    <div class="col-4">-->
+<!--                        <div style="display:none;" class="container-fluid scoreBox text-center">-->
+<!--                            <h4 id="score_partida{{time.3}}">{{time.7}}</h4>-->
+<!--                        </div>-->
+<!--                        <div class="container-fluid scoreBox text-center">-->
+<!--                            <h4 id="score_total{{time.3}}">{{time.7}}</h4>-->
+<!--                        </div>-->
 
-                    </div>
-                </div>
-            </li>
-            {% endfor%}
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            {% endfor%}-->
 
         </ul>
     </div>
@@ -272,6 +367,114 @@ width:130px;
     document.getElementById('score_partida'+data[0]).innerHTML = data[1];
     document.getElementById('score_total'+data[0]).innerHTML = data[2];
    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function () {
+var myGeocode = [{{ partidas|tojson }}];
+myGeocode.forEach(function(x) {
+x.forEach(function(e) {
+console.log(e);
+
+var round1_j1 = e[11];
+var round1_j2 = e[12];
+var round1_j3 = e[13];
+
+
+var bracket = e[9];
+
+var jogo_ativo = e[26];
+var posicao = e[28];
+var name = e[4];
+var grupo = e[22];
+
+    if (bracket != 1){
+    var choiseUL = document.getElementById('faseGrupos');
+    console.log(e[5]);
+    console.log(choiseUL);
+    var soma = parseInt(round1_j1) + parseInt(round1_j2) + parseInt(round1_j3);
+    var li = document.createElement("li");
+    li.setAttribute('class', 'team team-top');
+    li.setAttribute('data-percentage', soma);
+    var textnode = document.createTextNode(e[4]);
+    li.appendChild(textnode);
+
+
+             var span = document.createElement("span");
+             span.setAttribute('class', 'scoreA text-center');
+              span.setAttribute('id', e[3]+'total_input');
+             var textnode2 = document.createTextNode(soma);
+             span.appendChild(textnode2);
+             li.appendChild(span);
+
+               var span3 = document.createElement("span");
+             span3.setAttribute('class', 'scoreAx text-center');
+             span3.setAttribute('id', e[3]+'R1J3');
+             var textnode13 = document.createTextNode(parseInt(round1_j3));
+             span3.appendChild(textnode13);
+             li.appendChild(span3);
+             choiseUL.appendChild(li)
+
+                var span2 = document.createElement("span");
+             span2.setAttribute('class', 'scoreAx text-center');
+             span2.setAttribute('id', e[3]+'R1J2');
+             var textnode12 = document.createTextNode(parseInt(round1_j2));
+             span2.appendChild(textnode12);
+             li.appendChild(span2);
+
+            var span1 = document.createElement("span");
+             span1.setAttribute('class', 'scoreAx text-center');
+             span1.setAttribute('id', e[3]+'R1J1');
+             var textnode11 = document.createTextNode(parseInt(round1_j1));
+             span1.appendChild(textnode11);
+             li.appendChild(span1);
+
+
+
+
+        }
+    })
+    })
+})
+
+
+
+
+    socket.on('score_stream', function(data){
+   reloadScore(data)
+        SpinningStop(data[0]);
+
+        var partida = data[4];
+        console.log(partida);
+        partida.forEach(function(e) {
+        document.getElementById(data[0]+ 'R1J1').innerHTML = e[11];
+        document.getElementById(data[0]+ 'R1J2').innerHTML = e[12];
+        document.getElementById(data[0]+ 'R1J3').innerHTML = e[13];
+        var round1_j1 = e[11];
+        var round1_j2 = e[12];
+        var round1_j3 = e[13];
+        document.getElementById(data[0]+'total_input').innerHTML = parseInt(round1_j1) + parseInt(round1_j2) + parseInt(round1_j3);;
+
+})
+   })
+
+
+
 
 </script>
 </html>

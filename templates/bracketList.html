@@ -15,9 +15,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
 
     <style>
+
+    btn.focus, .btn:focus {
+    color: #fff;
+    border:none;
+    box-shadow: none;
+    outline:0;
+}
+
+
+
 body {
 
-  background:#4E0F8A;
+     background:rgba(14,16,31,1);
   min-height: 100%;
   margin: 0;
   font-family: "Abel", sans-serif;
@@ -42,7 +52,7 @@ body {
 .hero p {
   font-family: "Abel", sans-serif;
   text-transform: uppercase;
-  color: #F002D5;
+  color: #ee4540;
   letter-spacing: 6px;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
   font-size: 1.2em;
@@ -65,10 +75,13 @@ body {
   color: #fff;
   letter-spacing: 10px;
   font-size: 19px;
-  margin: -35px 0 25px;
+  margin: -85px 550px 25px;
   position:absolute;
   left:0;
   right:0;
+    background:rgba(14,16,31,1);
+    width:280px;
+
 }
 .hero p.year i {
   font-size: 14px;
@@ -86,7 +99,6 @@ body {
 #groupStage{
  overflow: hidden;
   background-color: #e1e1e1;
-
   padding-top: 20px;
   font-size: 12px;
   padding: 40px 0;
@@ -184,8 +196,6 @@ margin:0 auto;
 background:rgb(0,0,0,.05);
 padding:24px 18px 18px 18px;
 border-radius:15px;
-
-
 }
 
 .round-one img{
@@ -241,11 +251,11 @@ cursor:pointer;
   font-size: 12px;
   text-transform: uppercase;
   float: right;
-  color: #fff;
+color: #fff;
   font-weight: bold;
   font-family: "Roboto Condensed", sans-serif;
   right: 17px;
-  background:#6C15BD;
+  background:rgba(14,16,31,1);;
   width:30px;
   height:30px;
   margin-top:-3px;
@@ -303,11 +313,13 @@ padding:8px;
   font-size:12px;
 }
 .round-two .matchup {
-  margin: 0;
-  height: 100%;
-  padding: 50px 0;
-
+padding:0;
 }
+.matchBox{
+margin-top:20px;
+margin-bottom:40px;
+}
+
 .round-three .matchup {
   margin: 0;
  height: 100%;
@@ -323,7 +335,7 @@ padding:8px;
 .round-details {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 13px;
-    color: #6C15BD;
+    color: rgba(14,16,31,1);
   text-transform: uppercase;
   text-align: center;
   height: 40px;
@@ -332,7 +344,7 @@ padding:8px;
 .round-one .round-details {
  font-family: 'Secular One', sans-serif;
   font-size: 13px;
-    color: #6C15BD;
+    color: #c72c41;
   text-transform: uppercase;
   text-align: center;
   height: 40px;
@@ -446,7 +458,7 @@ background:#4E0F8A;
   font-size: 10px;
   letter-spacing: 2px;
   font-family: "Istok Web", sans-serif;
-   color: #BD02A7;
+   color: #c72c41;
 
 }
 
@@ -544,30 +556,24 @@ background:orange;}
 
 
 .boxHeader{
-border:5px solid rgba(255,255,255,0.6);
+border-top:5px solid rgba(255,255,255,0.6);
 height:130px;
 width:650px;
 margin:0 auto;
-border-radius:30px;
 padding-top:70px;
 margin-top:20px;
-
 }
 
 
+
+
 .heroBox{
-max-width:550px;
-background:blue;
 margin:0 auto;
-background:#4E0F8A;
-position:absolute;
-left:0;
-right:0;
 margin-top:-45px;
 }
 
 .navbar{
-background:#4E0F8A;
+     background:rgba(14,16,31,1);
 
 }
 
@@ -583,16 +589,10 @@ margin:0;}
 
 
 
-
-
-
-
-
-
-
-
-
-
+.partidaView{
+border:0;
+background:none;
+}
 
 
 
@@ -616,200 +616,200 @@ margin:0;}
 
         <div class="boxHeader">
             <p class="year"><i class="fa fa-star"></i> {{infoCampeonato.0.2}} <i class="fa fa-star"></i></p>
-            <p>{{infoCampeonato.0.5}} CALL OF DUTY || WARZONE</p>
+            <p style="margin-top:-40px;font-size:15px;">{{infoCampeonato.0.5}} CALL OF DUTY || WARZONE</p>
         </div>
     </div>
 </header>
 
 
-{% if infoCampeonato.0.7 != 1 %}
 <section id="groupStage">
     <div class="round-details topStage text-center">
         Fase de Grupos<br/>
         <span class="date">March 16</span></div>
     <div class="container topStagecontainer text-center" id="faseGrupos">
-<!--        <div class="round round-one current">-->
-<!--            <ul class="matchup">-->
-<!--                {% for grupo in bracket1 %}-->
-<!--                <div class="round-details topStage text-center">{{grupo.0.2}}</div>-->
-<!--                {% for c in grupo %}-->
-<!--                <li class="team team-top">{{c.5}}<span class="scoreA">{{c.7}}</span></li>-->
-<!--                {% endfor %}-->
-<!--                {% endfor %}-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--        <div class="round round-one current">-->
-<!--            <ul class="matchup">-->
-<!--                {% for grupo in bracket2 %}-->
-<!--                <div class="round-details topStage text-center">{{grupo.0.2}}</div>-->
-<!--                {% for g in grupo %}-->
-<!--                <li class="team team-top">{{g.5}}<span class="scoreA">{{g.7}}</span></li>-->
-<!--                {% endfor %}-->
-<!--                {% endfor %}-->
 
-<!--            </ul>-->
-<!--        </div>-->
+
     </div>
 </section>
-{% endif %}
-
-{% if infoCampeonato.0.7 == 1 %}
-
-<section id="bracket">
+<section style="display:none;" id="bracket">
     <div class="container-fluid containerB">
         <div class="split split-one">
             <!--            <div class="round-border"></div>&lt;!&ndash; END ROUND ONE &ndash;&gt;-->
             <div class="round round-two">
                 <div class="round-details">OITAVAS-FINAL<br/><span class="date">March 18</span></div>
-                <ul class="matchup">
-                    <div class="row">
-                        <div class="col-2">
-                            <a onclick="submitRank({'R2J1')">
-                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"
-                                     height="40">
-                            </a>
-                        </div>
-                        <div class="col-10">
-                            <li class="team team-top">
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_1"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_1score" class="score text-center">
-                                </span>
-                                    </div>
-                                </div>
+                <div class="matchBox text-center">
+                    <button style="opacity:0;"  class="btn partidaViewFinais"id="grupo 1/1Channel">
+                    </button>
+                        <img src="/static/assets/tv.svg " height="30" >
+                    <ul class="matchup" id="grupo 1/1"></ul>
+                    <ul class="matchup" id="grupo 2/2"></ul>
+                </div>
+                <div class="matchBox text-center">
+                    <button style="opacity:0;"   class="btn partidaViewFinais" id="grupo 2/1Channel">
+                        <img src="/static/assets/tv.svg " height="30">
+                    </button>
+                    <ul class="matchup" id="grupo 2/1"></ul>
+                    <ul class="matchup" id="grupo 1/2"></ul>
+                </div>
+                <div class="matchBox text-center">
+                    <button style="opacity:0;"   class="btn partidaViewFinais" id="grupo 3/1Channel">
+                        <img src="/static/assets/tv.svg " height="30">
+                    </button>
+                    <ul class="matchup" id="grupo 3/1"></ul>
+                    <ul class="matchup" id="grupo 4/2"></ul>
+                </div>
+                <div class="matchBox text-center">
+                    <button style="opacity:0;" class="btn partidaViewFinais" id="grupo 4/1Channel">
+                        <img src="/static/assets/tv.svg " height="30">
+                    </button>
+                    <ul class="matchup" id="grupo 4/1"></ul>
+                    <ul class="matchup" id="grupo 3/2"></ul>
+                </div>
 
 
-                            </li>
-                            <li class="team team-bottom">
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-2">-->
+                <!--                            <a onclick="submitRank({'R2J1')">-->
+                <!--                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"-->
+                <!--                                     height="40">-->
+                <!--                            </a>-->
+                <!--                        </div>-->
+                <!--                        <div class="col-10">-->
+                <!--                            <li class="team team-top" >-->
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-4 noPd">-->
+                <!--                                        <h6 id="grupo 1/1name">OPA</h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-8 noPd text-center">-->
+                <!--                                        <span id="grupo 1/1score1" class="scoreA text-center">0</span>-->
+                <!--                                         <span id="grupo 1/1score2" class="scoreA text-center">0</span>-->
+                <!--                                        <span id="grupo 1/1score_total" class="scoreA text-center">0</span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="team team-bottom" id="grupo 2/2">-->
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_2">TESTE</h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_2score" class="score">0</span>-->
+                <!--                                        </span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_2"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_2score" class="score"></span>
-                                        </span>
-                                    </div>
-                                </div>
+                <!--                </ul>-->
 
 
-                            </li>
-                        </div>
-                    </div>
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-2">-->
+                <!--                            <a onclick="submitRank({'R2J1')">-->
+                <!--                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"-->
+                <!--                                     height="40">-->
+                <!--                            </a>-->
+                <!--                        </div>-->
 
-                </ul>
+                <!--                        <div class="col-10">-->
 
+                <!--                            <li class="team team-top" id="grupo 2/1">-->
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_3"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_3score" class="score"></span>-->
+                <!--                                        </span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="team team-bottom">-->
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_4"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_4score" class="score"></span>-->
+                <!--                                        </span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
 
-                <ul class="matchup">
-                    <div class="row">
-                        <div class="col-2">
-                            <a onclick="submitRank({'R2J1')">
-                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"
-                                     height="40">
-                            </a>
-                        </div>
+                <!--                            </li>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </ul>-->
 
-                        <div class="col-10">
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-2">-->
+                <!--                            <a onclick="submitRank('R2J1')">-->
+                <!--                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"-->
+                <!--                                     height="40">-->
+                <!--                            </a>-->
+                <!--                        </div>-->
 
-                            <li class="team team-top">
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_3"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_3score" class="score"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="team team-bottom">
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_4"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_4score" class="score"></span>
-                                        </span>
-                                    </div>
-                                </div>
+                <!--                        <div class="col-10">-->
+                <!--                            <li class="team team-top" id="grupo 1/2">-->
 
-                            </li>
-                        </div>
-                    </div>
-                </ul>
-                <ul class="matchup">
-                    <div class="row">
-                        <div class="col-2">
-                            <a onclick="submitRank('R2J1')">
-                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"
-                                     height="40">
-                            </a>
-                        </div>
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_5"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_5score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="team team-bottom">-->
 
-                        <div class="col-10">
-                            <li class="team team-top">
+                <!--                            <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_6"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                       <span id="R2_grupo 1_6score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </ul>-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_5"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_5score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="team team-bottom">
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-2">-->
+                <!--                            <a onclick="submitRank({'R2J1')">-->
+                <!--                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"-->
+                <!--                                     height="40">-->
+                <!--                            </a>-->
+                <!--                        </div>-->
 
-                            <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_6"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                       <span id="R2_grupo 1_6score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                        </div>
-                    </div>
-                </ul>
-                <ul class="matchup">
-                    <div class="row">
-                        <div class="col-2">
-                            <a onclick="submitRank({'R2J1')">
-                                <img style="opacity:0.4; margin-top:5px; margin-left:-15px;" src="/static/assets/tv.svg"
-                                     height="40">
-                            </a>
-                        </div>
+                <!--                        <div class="col-10">-->
+                <!--                            <li class="team team-top">-->
 
-                        <div class="col-10">
-                            <li class="team team-top">
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_7"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_7score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="team team-bottom">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_7"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_7score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="team team-bottom">
-
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_8"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_8score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                        </div>
-                    </div>
-                </ul>
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_8"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_8score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </ul>-->
             </div>    <!-- END ROUND TWO -->
             <div class="round round-three">
                 <div class="round-details">QUARTAS-FINAL<br/><span class="date">March 22</span></div>
@@ -853,13 +853,7 @@ margin:0;}
 
                 </ul>
             </div>
-            <!--            <div class="semis-r">-->
-            <!--                <div class="round-details">east semifinals <br/><span class="date">March 26-28</span></div>-->
-            <!--                <ul class="matchup championship">-->
-            <!--                    <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>-->
-            <!--                    <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
+
         </div>
 
 
@@ -883,186 +877,169 @@ margin:0;}
                     <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
                 </ul>
             </div>    <!-- END ROUND THREE -->
-            <div class="round round-two"  >
+            <div class="round round-two">
                 <div class="round-details">OITAVAS-FINAL<br/><span class="date">March 18</span></div>
-                <ul class="matchup">
-                    <div class="row">
-                        <div class="col-10">
-                            <li class="team team-top">
+                <div class="matchBox">
+                <ul class="matchup" id="grupo 5/1"></ul>
+                <ul class="matchup" id="grupo 6/2"></ul>
+                </div>
+                <div class="matchBox">
+                <ul class="matchup" id="grupo 6/1"></ul>
+                <ul class="matchup" id="grupo 5/2"></ul>
+                </div>
+                <div class="matchBox">
+                <ul class="matchup" id="grupo 7/1"></ul>
+                <ul class="matchup" id="grupo 8/2"></ul>
+                </div>
+                <div class="matchBox">
+                <ul class="matchup" id="grupo 8/1"></ul>
+                <ul class="matchup" id="grupo 7/2"></ul>
+                </div>
+                <!--                <ul class="matchup">-->
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-10">-->
+                <!--                            <li class="team team-top">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_9"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_9score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="team team-bottom">
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_9"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_9score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="team team-bottom">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_10"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_10score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col-2">
-                            <a onclick="submitRank({'R2J1')">
-                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"
-                                     height="40">
-                            </a>
-                        </div>
-                    </div>
-                </ul>
-                <ul class="matchup">
-                    <div class="row">
-                        <div class="col-10">
-                            <li class="team team-top">
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_10"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_10score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                        </div>-->
+                <!--                        <div class="col-2">-->
+                <!--                            <a onclick="submitRank({'R2J1')">-->
+                <!--                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"-->
+                <!--                                     height="40">-->
+                <!--                            </a>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </ul>-->
+                <!--                <ul class="matchup">-->
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-10">-->
+                <!--                            <li class="team team-top">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_11"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_11score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="team team-bottom">
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_11"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_11score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="team team-bottom">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_12"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_12score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col-2">
-                            <a onclick="submitRank({'R2J1')">
-                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"
-                                     height="40">
-                            </a>
-                        </div>
-                    </div>
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_12"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_12score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                        </div>-->
+                <!--                        <div class="col-2">-->
+                <!--                            <a onclick="submitRank({'R2J1')">-->
+                <!--                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"-->
+                <!--                                     height="40">-->
+                <!--                            </a>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
 
-                </ul>
-                <ul class="matchup">
-                    <div class="row">
-                        <div class="col-10">
-                            <li class="team team-top">
+                <!--                </ul>-->
+                <!--                <ul class="matchup">-->
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-10">-->
+                <!--                            <li class="team team-top">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_13"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_13score"
-                                              class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="team team-bottom">
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_13"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_13score"-->
+                <!--                                              class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="team team-bottom">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_14"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_14score" class="score"
-                                        class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col-2">
-                            <a onclick="submitRank({'R2J1')">
-                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"
-                                     height="40">
-                            </a>
-                        </div>
-                    </div>
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_14"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_14score" class="score"-->
+                <!--                                        class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                        </div>-->
+                <!--                        <div class="col-2">-->
+                <!--                            <a onclick="submitRank({'R2J1')">-->
+                <!--                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"-->
+                <!--                                     height="40">-->
+                <!--                            </a>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
 
-                </ul>
-                <ul class="matchup">
-                    <div class="row">
-                        <div class="col-10">
-                            <li class="team team-top">
+                <!--                </ul>-->
+                <!--                <ul class="matchup">-->
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-10">-->
+                <!--                            <li class="team team-top">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_15"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_15score" class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="team team-bottom">
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_15"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_15score" class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="team team-bottom">-->
 
-                                <div class="row noPd">
-                                    <div class="col-10 noPd">
-                                        <h6 id="R2_grupo 1_16"></h6>
-                                    </div>
-                                    <div class="col-2 noPd text-center">
-                                        <span id="R2_grupo 1_16score"
-                                              class="score"></span>
-                                    </div>
-                                </div>
-                            </li>
-                        </div>
-                        <div class="col-2">
-                            <a onclick="submitRank('R2J1')">
-                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"
-                                     height="40">
-                            </a>
-                        </div>
-                    </div>
-                </ul>
+                <!--                                <div class="row noPd">-->
+                <!--                                    <div class="col-10 noPd">-->
+                <!--                                        <h6 id="R2_grupo 1_16"></h6>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="col-2 noPd text-center">-->
+                <!--                                        <span id="R2_grupo 1_16score"-->
+                <!--                                              class="score"></span>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                        </div>-->
+                <!--                        <div class="col-2">-->
+                <!--                            <a onclick="submitRank('R2J1')">-->
+                <!--                                <img style="opacity:0.4; margin-top:5px; margin-left:-23px;" src="/static/assets/tv.svg"-->
+                <!--                                     height="40">-->
+                <!--                            </a>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </ul>-->
             </div>    <!-- END ROUND TWO -->
-
-
-            <!--            <div class="round round-one current">-->
-            <!--                <div class="round-details">Fase de Grupos<br/><span class="date">March 16</span></div>-->
-            <!--                <ul class="matchup">-->
-            <!--                    <li class="team team-top">Duke<span class="score">76</span></li>-->
-            <!--                    <li class="team team-top">Virginia<span class="score">82</span></li>-->
-            <!--                    <li class="team team-top">Wake Forest<span class="score">64</span></li>-->
-            <!--                    <li class="team team-bottom">Clemson<span class="score">56</span></li>-->
-            <!--                </ul>-->
-            <!--                <ul class="matchup">-->
-            <!--                    <li class="team team-top">North Carolina<span class="score">68</span></li>-->
-            <!--                    <li class="team team-bottom">Florida State<span class="score">54</span></li>-->
-            <!--                    <li class="team team-top">NC State<span class="score">74</span></li>-->
-            <!--                    <li class="team team-bottom">Maryland<span class="score">92</span></li>-->
-            <!--                </ul>-->
-            <!--                <ul class="matchup">-->
-            <!--                    <li class="team team-top">Georgia Tech<span class="score">78</span></li>-->
-            <!--                    <li class="team team-bottom">Georgia<span class="score">80</span></li>-->
-            <!--                    <li class="team team-top">Auburn<span class="score">64</span></li>-->
-            <!--                    <li class="team team-bottom">Florida<span class="score">63</span></li>-->
-            <!--                </ul>-->
-            <!--                <ul class="matchup">-->
-            <!--                    <li class="team team-top">Kentucky<span class="score">70</span></li>-->
-            <!--                    <li class="team team-bottom">Alabama<span class="score">59</span></li>-->
-            <!--                    <li class="team team-top">Vanderbilt<span class="score">64</span></li>-->
-            <!--                    <li class="team team-bottom">Gonzaga<span class="score">68</span></li>-->
-            <!--                </ul>-->
-
-            <!--            </div>-->
-            <!-- END ROUND ONE -->
         </div>
     </div>
 </section>
-{% endif %}
-
 <section class="share">
     <div class="share-wrap">
         <a class="share-icon" href="https://twitter.com/_joebeason"><i class="fa fa-twitter"></i></a>
@@ -1087,178 +1064,559 @@ margin:0;}
  var socket = io.connect('http://' + document.domain + ':' + location.port) ;
 
 
+var partidaBracket = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  partida = [];
+  // Constructor
+  function Item(id,idsquad,name,
+  score_1,score_2,score_3, score_total,
+  kills_1,kills_2,kills_3,
+  rank_1,rank_2,rank_3,
+  score_oitava_1,score_oitava_2, score__total_oitava,
+  kills_oitava_1,kills_oitava_2,
+  rank_oitava_1,rank_oitava_2,
+  score_quarta_1,score_quarta_2, score__total_quarta,
+  kills_quarta_1,kills_quarta_2,
+  rank_quarta_1,rank_quarta_2,
+  score_semi_1,score_semi_2, score__total_semi,
+  kills_semi_1,kills_semi_2,
+  rank_semi_1,rank_semi_2,
+  score_final_1,score_final_2, score__total_final,
+  kills_final_1,kills_final_2,
+  rank_final_1,rank_final_2,
+  score_finalLoser_1,score_finalLoser_2, score__total_finalLoser,
+  kills_finalLoser_1,kills_finaLoser_2,
+  rank_finalLoser_1,rank_finalLoser_2,
+  stream,jogo_ativo,grupo,status,posicao) {
+    this.id = id;
+    this.idsquad = idsquad;
+    this.name = name;
+    this.kills_1 = kills_1;
+    this.kills_2 = kills_2;
+    this.kills_3 = kills_3;
+    this.rank_1 = rank_1;
+    this.rank_2 = rank_2;
+    this.rank_3 = rank_3;
+    this.score_1 =score_1;
+    this.score_2 =score_2;
+    this.score_3 = score_3;
+
+    this.score_oitava_1 = score_oitava_1;
+    this.score_oitava_2 = score_oitava_2;
+    this.score__total_oitava = score__total_oitava;
+    this.kills_oitava_1 = kills_oitava_1;
+    this.kills_oitava_2 = kills_oitava_2;
+    this.rank_oitava_1 = rank_oitava_1;
+    this.rank_oitava_2 = rank_oitava_2;
+
+    this.score_quarta_1 = score_quarta_1;
+    this.score_quarta_2 = score_quarta_2;
+    this.score__total_quarta = score__total_quarta;
+    this.kills_quarta_1 = kills_quarta_1;
+    this.kills_quarta_2 = kills_quarta_2;
+    this.rank_quarta_1 = rank_quarta_1;
+    this.rank_quarta_2 = rank_quarta_2;
+
+    this.score_semi_1= score_semi_1;
+    this.score_semi_2= score_semi_2;
+     this.score__total_semi= score__total_semi;
+    this.kills_semi_1= kills_semi_1;
+    this.kills_semi_2= kills_semi_2;
+    this.rank_semi_1= rank_semi_1;
+    this.rank_semi_2= rank_semi_2;
+
+    this.score_final_1= score_final_1;
+    this.score_final_2= score_final_2;
+    this.score__total_final= score__total_final;
+    this.kills_final_1= kills_final_1;
+    this.kills_final_2= kills_final_2;
+    this.rank_final_1= rank_final_1;
+    this.rank_final_2= rank_final_2;
+
+    this.score_finalLoser_1=score_finalLoser_1;
+    this.score_finalLoser_2=score_finalLoser_2;
+     this.score__total_finalLoser=score__total_finalLoser;
+    this.kills_finalLoser_1=kills_finalLoser_1;
+    this.kills_finaLoser_2=kills_finaLoser_2;
+    this.rank_finalLoser_1=rank_finalLoser_1;
+    this.rank_finalLoser_2=rank_finalLoser_2;
+    this.score_total = score_total;
+    this.jogo_ativo = jogo_ativo;
+    this.stream = stream;
+    this.grupo = grupo;
+    this.status = status;
+    this.posicao = posicao;
+  }
 
 
-const roundo = '{{round}}'
+  // Save cart
+  function saveCart() {
+    sessionStorage.setItem('partidaBracket', JSON.stringify(partida));
+  }
+
+    // Load cart
+  function loadCart() {
+    partida = JSON.parse(sessionStorage.getItem('partidaBracket'));
+  }
+  if (sessionStorage.getItem("partidaBracket") != null) {
+    loadCart();
+  }
+
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var obj = {};
+
+  // Add to cart
+  obj.addItemToCart = function(id,idsquad,name,
+  score_1,score_2,score_3, score_total,
+  kills_1,kills_2,kills_3,
+  rank_1,rank_2,rank_3,
+  score_oitava_1,score_oitava_2, score__total_oitava,
+  kills_oitava_1,kills_oitava_2,
+  rank_oitava_1,rank_oitava_2,
+  score_quarta_1,score_quarta_2, score__total_quarta,
+  kills_quarta_1,kills_quarta_2,
+  rank_quarta_1,rank_quarta_2,
+  score_semi_1,score_semi_2, score__total_semi,
+  kills_semi_1,kills_semi_2,
+  rank_semi_1,rank_semi_2,
+  score_final_1,score_final_2, score__total_final,
+  kills_final_1,kills_final_2,
+  rank_final_1,rank_final_2,
+  score_finalLoser_1,score_finalLoser_2, score__total_finalLoser,
+  kills_finalLoser_1,kills_finaLoser_2,
+  rank_finalLoser_1,rank_finalLoser_2,
+  stream,jogo_ativo,grupo,status,posicao) {
+      for(var item in partida) {
+        if(partida[item].id === id) {
+
+          return;
+        }
+      }
+
+      var item = new Item(id,idsquad,name,
+  score_1,score_2,score_3, score_total,
+  kills_1,kills_2,kills_3,
+  rank_1,rank_2,rank_3,
+  score_oitava_1,score_oitava_2, score__total_oitava,
+  kills_oitava_1,kills_oitava_2,
+  rank_oitava_1,rank_oitava_2,
+  score_quarta_1,score_quarta_2, score__total_quarta,
+  kills_quarta_1,kills_quarta_2,
+  rank_quarta_1,rank_quarta_2,
+  score_semi_1,score_semi_2, score__total_semi,
+  kills_semi_1,kills_semi_2,
+  rank_semi_1,rank_semi_2,
+  score_final_1,score_final_2, score__total_final,
+  kills_final_1,kills_final_2,
+  rank_final_1,rank_final_2,
+  score_finalLoser_1,score_finalLoser_2, score__total_finalLoser,
+  kills_finalLoser_1,kills_finaLoser_2,
+  rank_finalLoser_1,rank_finalLoser_2,
+  stream,jogo_ativo,grupo,status,posicao);
+      partida.push(item);
+      saveCart();
+    }
+
+    // Clear cart
+  obj.clearCart = function() {
+    partida = [];
+    saveCart();
+  }
+
+
+
+
+
+
+
+
+
+ // Update items from cart
+  obj.updateItemFromCart = function(id,item,value) {
+    for(var i in partida) {
+      if(partida[i].idsquad === parseInt(id)) {
+         for (j in partida[i]){
+             if (j == item){
+             partida[i][j] = value
+                }
+            };
+        break;
+      }
+    }
+   saveCart();
+  }
+
+
+
+
+
+
+     // List cart
+  obj.listCart = function() {
+    var cartCopy = [];
+
+    for(i in partida) {
+      item = partida[i];
+      itemCopy = {};
+      for(p in item) {
+        itemCopy[p] = item[p];
+      }
+      cartCopy.push(itemCopy)
+    }
+    return cartCopy;
+  }
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return obj;
+})();
+
+
+
+var grupos = []
+var stage = {{infoCampeonato.0.7 |tojson }};
 
 
 
 $(document).ready(function () {
-var myGeocode = [{{ partidas|tojson }}];
-myGeocode.forEach(function(e) {
-e.forEach(function(e) {
 
-var round1_j1 = e[11];
-var round1_j2 = e[12];
-var round1_j3 = e[13];
+//partidaBracket.clearCart();
+//playerSelect.clearEquipe();
+var check = partidaBracket.listCart();
+//console.log(check);
+    if(check.length == 0 ){
+   // console.log('nao possui times');
+            createTeam();
+    }
+    if(check.length != 0 ){
+    console.log('possui times');
+        for(var i in check) {
+                    if ( check[i].status === stage){
+                                document.getElementById('bracket').style.display = 'none';
+                                //console.log(check[i].status);
+                                if (grupos.indexOf(check[i].grupo) === -1) grupos.push(check[i].grupo);
+                                }
+                    if ( check[i].status != stage){
 
-var round2_j1 = e[14];
-var round2_j2 = e[15];
+                                //console.log(check[i].status);
+                                console.log('campeonato evoluiu')
+                                    partidaBracket.clearCart();
+                                    createTeam();
 
-var round3_j1 = e[16];
-var round3_j2 = e[17];
+                                }
+          }
+    }
+    displayCart();
+})
 
-var round4_j1 = e[18];
-var round4_j2 = e[19];
 
-var round5_j1 = e[20];
-var round5_j2 = e[21];
 
-var bracket = e[9];
 
-var jogo_ativo = e[26];
-var posicao = e[28];
-var name = e[4];
-var grupo = e[22];
 
-    if (bracket == 1){
-            if (!round2_j1 ){
-            document.getElementById(posicao).innerHTML = name;
-            document.getElementById(posicao+'score').innerHTML  = parseInt(round2_j1) + parseInt(round2_j2);
+
+
+function createTeam(){
+var myGeocode = [{{ games|tojson }}];
+var ativo = [];
+var listaSquad = [];
+
+myGeocode.forEach(function(x) {
+    x.forEach(function(e) {
+        var id = e[0];
+        var idsquad = e[3];
+        var name = e[4];
+        var score_1 = e[11];
+        var score_2 = e[12];
+        var score_3 = e[13];
+        var kills_1 = 0;
+        var kills_2 = 0;
+        var kills_3 = 0;
+        var rank_1 = 0;
+        var rank_2 = 0;
+        var rank_3 = 0;
+        var score_total = parseInt(e[11])+parseInt(e[12])+parseInt(e[13]);
+        var score_oitava_1 = e[14];
+var score_oitava_2 = e[15];
+var score__total_oitava = 0;
+var kills_oitava_1 = 0;
+var kills_oitava_2 = 0;
+var rank_oitava_1 = 0;
+var rank_oitava_2 = 0;
+var score_quarta_1 = e[16];
+var score_quarta_2 = e[17];
+var score__total_quarta = parseInt(e[16])+parseInt(e[17]);
+var kills_quarta_1 = 0;
+var kills_quarta_2 = 0;
+var rank_quarta_1 = 0;
+var rank_quarta_2 = 0;
+var score_semi_1 = e[18];
+var score_semi_2 = e[19];
+var score__total_semi = parseInt(e[18])+parseInt(e[19]);
+var kills_semi_1 = 0;
+var kills_semi_2 = 0;
+var rank_semi_1 = 0;
+var rank_semi_2 = 0;
+var score_final_1 = e[20];
+var score_final_2 = e[21];
+var score__total_final = parseInt(e[20])+parseInt(e[21]);
+var kills_final_1 = 0;
+var kills_final_2 = 0;
+var rank_final_1 = 0;
+var rank_final_2 = 0;
+var score_finalLoser_1 = 0;
+var score_finalLoser_2 = 0;
+var score__total_finalLoser = 0;
+var kills_finalLoser_1 = 0;
+var kills_finaLoser_2 = 0;
+var rank_finalLoser_1 = 0;
+var rank_finalLoser_2 = 0;
+        var jogo_ativo = e[26];
+        var stream = e[27];
+        var grupo = e[22];
+        var status = e[9];
+        var posicao = e[28];
+        ativo.push(jogo_ativo);
+        listaSquad.push(idsquad);
+        if (grupos.indexOf(grupo) === -1) grupos.push(grupo);
+        partidaBracket.addItemToCart(id,parseInt(idsquad),name,
+  score_1,score_2,score_3, score_total,
+  kills_1,kills_2,kills_3,
+  rank_1,rank_2,rank_3,
+  score_oitava_1,score_oitava_2, score__total_oitava,
+  kills_oitava_1,kills_oitava_2,
+  rank_oitava_1,rank_oitava_2,
+  score_quarta_1,score_quarta_2, score__total_quarta,
+  kills_quarta_1,kills_quarta_2,
+  rank_quarta_1,rank_quarta_2,
+  score_semi_1,score_semi_2, score__total_semi,
+  kills_semi_1,kills_semi_2,
+  rank_semi_1,rank_semi_2,
+  score_final_1,score_final_2, score__total_final,
+  kills_final_1,kills_final_2,
+  rank_final_1,rank_final_2,
+  score_finalLoser_1,score_finalLoser_2, score__total_finalLoser,
+  kills_finalLoser_1,kills_finaLoser_2,
+  rank_finalLoser_1,rank_finalLoser_2,
+  stream,jogo_ativo,grupo,status,posicao);
+                })
+
+            })
+            return false;
+}
+
+
+
+function sortList(ul) {
+  var ul = document.getElementById(ul);
+
+  Array.from(ul.getElementsByTagName("LI"))
+    .sort((a, b) => +b.dataset.percentage - +a.dataset.percentage)
+    .forEach(li => ul.appendChild(li));
+}
+function topTeam(ul) {
+  var ul = document.getElementById(ul);
+  var teams = ul.querySelectorAll('.team')[0]
+  teams.style.background = '#c7f0db';
+}
+
+
+function displayCart() {
+document.getElementById('faseGrupos').innerHTML = '';
+var cartArray = partidaBracket.listCart();
+createGruposStage(cartArray);
+    for( i in cartArray){
+    if(cartArray[i].status != stage){
+      //  console.log('evolucao');
+        document.getElementById( cartArray[i].grupo+'btn').style.display = 'none';
+        document.getElementById('bracket').style.display = 'block';
+        if (cartArray[i].status == 1){
+            insertTeamOitavas(cartArray[i]);
             }
-
-            if (!round3_j1 ){
-            document.getElementById(posicao).innerHTML = name;
-            document.getElementById(posicao+'score').innerHTML  = parseInt(round3_j1) + parseInt(round3_j2);
+         if (cartArray[i].status == 2){
+            insertTeamOitavas(cartArray);
             }
-            if (!round4_j1 ){
-            document.getElementById(posicao).innerHTML = name;
-            document.getElementById(posicao+'score').innerHTML  = parseInt(round4_j1) + parseInt(round4_j2);
-            }
-
-            if (!round5_j1 ){
-            document.getElementById(posicao).innerHTML = name;
-            document.getElementById(posicao+'score').innerHTML  = parseInt(round5_j1) + parseInt(round5_j2);
-            }
-
     }
 
-    if (bracket != 1){
 
-    var i;
-    count = parseInt(bracket) + 1;
-    for (i = 1; i < count; i++) {
-            var taggrupo = 'grupo '+i
-            ulCreate = document.getElementById(taggrupo);
-            if(!ulCreate){
-            var div = document.createElement("div");
-             div.setAttribute('class', 'round round-one current');
-             var a = document.createElement("a");
-             a.setAttribute('href', '/streaming/{{infoCampeonato.0.7}}/'+taggrupo+'/'+bracket+'/{{infoCampeonato.0.0}}');
-             a.setAttribute('id', taggrupo);
-             a.setAttribute('name', 'R1J1');
+}
+    getPartidasView();
+return false;
+ }
+
+function getPartidasView(){
+var view = document.querySelectorAll('.matchBox')
+
+view.forEach(function(e){
+var team1 = e.querySelectorAll('ul')[0];
+var id1 = team1.querySelectorAll('li')[0];
+
+
+var team2 = e.querySelectorAll('ul')[1];
+var id2 = team2.querySelectorAll('li')[0];
+
+
+
+if(id1 && id2){
+var btn = e.querySelectorAll('button')[0];
+if (btn){
+btn.setAttribute('data-ids', [id1.id,id2.id]);}
+}
+
+
+})
+
+}
+
+
+function insertTeamOitavas(cartArray){
+                        var li = document.createElement("li");
+                        li.setAttribute('id', cartArray.idsquad);
+                        li.setAttribute('class', 'team team-top text-center');
+                        li.setAttribute('data-percentage', cartArray.score_total);
+                        var textnode = document.createTextNode(cartArray.name);
+                        li.appendChild(textnode);
+                        var span  = document.createElement("span");
+                        span.setAttribute('class', 'scoreAx');
+                        var textnode1 = document.createTextNode(cartArray.score_oitava_1);
+                        span.appendChild(textnode1);
+                        var span2  = document.createElement("span");
+                        span2.setAttribute('class', 'scoreAx');
+                        var textnode2 = document.createTextNode(cartArray.score_oitava_2);
+                        span2.appendChild(textnode2);
+                        var span_total  = document.createElement("span");
+                        span_total.setAttribute('class', 'scoreA');
+                        var textnode_total = document.createTextNode(cartArray.score__total_oitava);
+                        span_total.appendChild(textnode_total);
+                        li.appendChild(span_total);
+                        li.appendChild(span2);
+                        li.appendChild(span);
+                       if(document.getElementById(cartArray.posicao+'Channel')){
+                       document.getElementById(cartArray.posicao+'Channel').style.opacity = '1';
+                       }
+                        document.getElementById(cartArray.posicao).appendChild(li)
+
+
+
+}
+
+
+ function createGruposStage(cartArray){
+ for ( i in grupos){
+        var div = document.createElement("div");
+        div.setAttribute('class', 'round round-one current');
+        var ul = document.createElement("ul");
+         ul.setAttribute('id', grupos[i]);
+         ul.setAttribute('class', 'matchup r1');
+         var div_texto = document.createElement("div");
+         div_texto.setAttribute('class', 'round-details topStage');
+         var text = document.createTextNode(grupos[i])
+         var a = document.createElement("button");
+         a.setAttribute('id', grupos[i]+'btn');
+             a.setAttribute('name', grupos[i]);
+             a.setAttribute('class','btn partidaView')
              var img = document.createElement("img");
              img.setAttribute('src', '/static/assets/tv.svg');
              a.appendChild(img);
+         div_texto.appendChild(a);
+         div_texto.appendChild(text);
+         ul.appendChild(div_texto)
+         div.appendChild(ul)
+          document.getElementById('faseGrupos').appendChild(div);
+      for (c in cartArray){
 
-             var ul = document.createElement("ul");
+                        if (cartArray[c].grupo === grupos[i] ){
+                       // console.log(grupos[i])
+                        //console.log(cartArray[c])
+                         var soma = parseInt(cartArray[i].score_1) + parseInt(cartArray[i].score_2) + parseInt(cartArray[i].score_3);
+                        var li = document.createElement("li");
+                        li.setAttribute('id', cartArray[c].idsquad);
+                        li.setAttribute('class', 'team team-top text-center');
+                        li.setAttribute('data-percentage', cartArray[c].score_total);
+                        var textnode = document.createTextNode(cartArray[c].name);
+                        li.appendChild(textnode);
+                        var span  = document.createElement("span");
+                        span.setAttribute('class', 'scoreAx');
+                        var textnode1 = document.createTextNode(cartArray[c].score_1);
+                        span.appendChild(textnode1);
+                        var span2  = document.createElement("span");
+                        span2.setAttribute('class', 'scoreAx');
+                        var textnode2 = document.createTextNode(cartArray[c].score_2);
+                        span2.appendChild(textnode2);
+                        var span3  = document.createElement("span");
+                        span3.setAttribute('class', 'scoreAx');
+                        var textnode3 = document.createTextNode(cartArray[c].score_3);
+                        span3.appendChild(textnode3);
+                        var span_total  = document.createElement("span");
+                        span_total.setAttribute('class', 'scoreA');
+                        var textnode_total = document.createTextNode(cartArray[c].score_total);
+                        span_total.appendChild(textnode_total);
+                        li.appendChild(span_total);
+                        li.appendChild(span3);
+                        li.appendChild(span2);
+                        li.appendChild(span);
+                        document.getElementById(grupos[i]).appendChild(li);
+                            }
 
-             ul.setAttribute('class', 'matchup');
-             ul.setAttribute('id', taggrupo);
-             var div2 = document.createElement("div");
-             div2.setAttribute('class','round-details topStage text-center')
-             var textnode = document.createTextNode(taggrupo);
-             div2.appendChild(a);
-             div2.appendChild(textnode);
-             ul.appendChild(div2);
-             div.appendChild(ul);
-            document.getElementById('faseGrupos').appendChild(div);
+                    }
+
+               sortList(grupos[i]);
+             //topTeam(grupos[i]);
+
+
+        }
+  $(".partidaView").on("click", function(){
+        // Print entered value in a div box
+         var grupo = $(this).attr('name');
+        mySelect = partidaBracket.listCart()
+        selectList = [];
+        for (i in mySelect){
+            if(mySelect[i].grupo === grupo){
+            selectList.push(mySelect[i])
             }
         }
+        location.href ='/streaming/'+grupo+'/{{infoCampeonato.0.0}}/{{infoCampeonato.0.8}}';
+    });
 
-        var choiseUL = document.getElementById(grupo);
-        var soma = parseInt(round1_j1) + parseInt(round1_j2) + parseInt(round1_j3);
-         var li = document.createElement("li");
-            li.setAttribute('class', 'team team-top');
-            li.setAttribute('data-percentage', soma);
-            var textnode = document.createTextNode(e[4]);
-            li.appendChild(textnode);
+    $(".partidaViewFinais").on("click", function(){
+        // Print entered value in a div box
+        var grupo = $(this).attr('data-ids');
+        console.log(grupo)
+        location.href ='/streaming/'+grupo+'/{{infoCampeonato.0.0}}/{{infoCampeonato.0.8}}';
+
+    });
 
 
-             var span = document.createElement("span");
-             span.setAttribute('class', 'scoreA');
-             var textnode2 = document.createTextNode(soma);
-             span.appendChild(textnode2);
-             li.appendChild(span);
+ }
 
-            var span1 = document.createElement("span");
-             span1.setAttribute('class', 'scoreAx');
-             var textnode11 = document.createTextNode(parseInt(round1_j1));
-             span1.appendChild(textnode11);
-             li.appendChild(span1);
 
-             var span2 = document.createElement("span");
-             span2.setAttribute('class', 'scoreAx');
-             var textnode12 = document.createTextNode(parseInt(round1_j2));
-             span2.appendChild(textnode12);
-             li.appendChild(span2);
 
-             var span3 = document.createElement("span");
-             span3.setAttribute('class', 'scoreAx');
-             var textnode13 = document.createTextNode(parseInt(round1_j3));
-             span3.appendChild(textnode13);
-             li.appendChild(span3);
-             choiseUL.appendChild(li)
+
+
+socket.on('partida', function(resp){
+    for(i in resp){
+
+        for(x in resp[i]){
+            partidaBracket.updateItemFromCart(resp[i].idsquad,x,resp[i][x])
+        }
     }
-    })
-})
 
+    displayCart();
 
-
-
-
-
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-socket.on('bracket rank response', function(data){
-console.log(data['nomeCampeonato']);
-url = '/streaming/'+data['nomeCampeonato'] +'/'+ data['grupo'] +'/'+ data['fasegrupos'] +'/'+data['idCampeonato']+'/'+data['idSquads'];
-
- setTimeout(function () {
-       window.location.href = url; //will redirect to your blog page (an ex: blog.html)
-    }, 2000); //will call the function after 2 secs.
-
-})
-
-
-socket.on('score_stream', function(data){
-console.log(data);
-})
-
-
-
-
-
-
-
+});
 
 
 

@@ -16,12 +16,15 @@
 </head>
 <style>
     body{
-    background:#4E0F8A;
+    background:rgba(14,16,31,1);
      display:flex;
      flex-direction:column;
      justify-content:center;
        font-family: "Abel", sans-serif;
-   min-height:100vh;}
+   min-height:100vh;
+   padding-top:90px;
+   padding-bottom:90px;
+   }
 
     .page_title{
     position:absolute;
@@ -39,24 +42,22 @@
 
 
 .perfilBox{
-background:rgba(0,0,0,.44);
+background:rgba(222,222,222,1);
 color:rgba(255,255,255,.8);
 padding:30px;
-width:500px;
-min-width:450px;
-margin:20px;
-     justify-content:center;
-          border-radius:7px;
-          box-shadow: 2px 2px 8px rgba(0,0,0,.6);
+margin:15px;
+justify-content:center;
+border-radius:10px;
+box-shadow: 2px 2px 8px rgba(0,0,0,.99);
 }
 
 
 .boxPlay{
-padding:10px;
-margin-bottom:8px;
+
+margin-bottom:4px;
 width:100%;
      text-transform: uppercase;
-     background:rgba(108,21,189,0.7);
+     background:rgba(14,16,31,.55);
           border-radius:7px;
            box-shadow: 2px 2px 8px rgba(0,0,0,.4);
 
@@ -72,8 +73,10 @@ opacity:0.5;
 }
 
 .playerName{
-color: rgba(255,255,255,0.4);
+color: rgba(255,255,255,0.7);
 margin-top:6px;
+font-size:14px;
+padding:5px;
 }
 
 ul{
@@ -87,7 +90,9 @@ ul{
 width:45px;
 background:none;
 border:0;
-color:rgba(255,255,255,.8);
+margin-top:5px;
+margin-left:-4px;
+color:rgba(222,222,222,.5);
 }
 
 button:active {
@@ -108,10 +113,10 @@ input[type="text"], input[type="password"], textarea, select,button {
 }
 
 .colorBox{
-background:rgba(0,0,0,.55);
+background:rgba(14,16,31,.55);
 padding-top:2px;
- border-radius:7px;
- box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+ border-radius:2px;
+ box-shadow: 2px 2px 8px rgba(0,0,0,.1);
 }
 
 .flex{display:flex;}
@@ -119,11 +124,12 @@ padding-top:2px;
 .imgXp{
 width:60px;
 overflow:hidden;
-height:30px;
+height:40px;
+
 }
 
 .imgXp img{
-margin-top:-30px;
+margin-top:-23px;
 margin-left:-33px;
 opacity:.5;
 }
@@ -131,7 +137,7 @@ opacity:.5;
 .kill{
 margin-left:-30px;
 font-size:12px;
-margin-top:5px;
+margin-top:10px;
 color:rgba(255,255,255,.5)}
 
 
@@ -139,7 +145,7 @@ color:rgba(255,255,255,.5)}
 font-size:12px;
 margin:0;
 padding:0;
-color: rgba(255,255,255,0.4);
+color: rgba(14,16,31,.61);
 margin-bottom:9px;
 
 }
@@ -163,14 +169,16 @@ background: rgba(108,21,189,0.7);
 
 .rankContainer{
 height:auto;
+
 }
 
 .partidaBox{
 height:70px;
 margin-top:10px;
 margin-bottom:10px;
-width:100%;
-background: rgba(108,21,189,0.4);
+
+width:65px;
+   background:rgba(14,16,31,0.6);
 display:flex;
      flex-direction:column;
      justify-content:center;
@@ -207,7 +215,7 @@ height:30px;
 }
 .atualizarBox{
 margin-left:10px;
-width:100%;
+width:120px;
 height:100%;
 display:flex;
      flex-direction:column;
@@ -217,29 +225,31 @@ display:flex;
 .atualizar{
 width:100%;
 height:100%;
-color: rgba(255,255,255,0.4);
-border:3px solid rgba(108,21,189,0.7);
+color: rgba(14,16,31,.66);
 transition: 1s;
 background:none;
 pointer-events: none;
 border-radius:8px;
+border:none;
 
 }
 
 .encerrar{
-width:100%;
-height:100%;
-color: rgba(255,255,255,0.4);
+color: rgba(255,255,255,1);
 transition: 1s;
-padding:10px;
+padding:6px;
+position:absolute;
+margin-left:95px;
+margin-top:-70px;
+font-size:9px;
+opacity:0.77;
+background:#ee4540;
+border-radius:20px;
 }
 
 
-.encerrar i{
-margin-left:20px;
-}
 .encerrar:hover{
-color:#C90CB4;
+color:#fff;
 
 }
 
@@ -257,22 +267,28 @@ border:0;
 
 .headerTitle{
 width:100%;
-padding:8px;
-border:2px solid rgba(108,21,189,0.7);
-border-radius:7px;
+padding:5px;
+border-bottom:3px solid rgba(14,16,31,.35);;
+margin-bottom:18px;
+}
+
+.headerTitle2{
+width:100%;
+padding:5px;
+border-bottom:3px solid rgba(14,16,31,.22);;
 margin-bottom:18px;
 }
 
 .scoreBox{
 width:100%;
 padding:2px;
-border:2px solid rgba(108,21,189,0.7);
+border:2px solid rgba(108,21,189,0.35);
 border-radius:7px;
 margin-bottom:6px;
 }
 
 .scoreBox h6{
-color: rgba(255,255,255,0.4);
+color: rgba(255,255,255,0.35);
 margin-top:15px;
 margin-left:3x;
 }
@@ -287,14 +303,42 @@ font-size:20px;
 }
 
 .headerTitle h6{
-color: rgba(255,255,255,0.4);
-margin-top:20px;
-margin-left:3x;
+color:rgba(14,16,31,.35);
+position:absolute;
+font-size:13px;
+background:rgba(222,222,222,1);
+padding:5px;
+margin-top:40px;
+right:70px;
 }
 
-.headerTitle h2{
-color:rgba(255,255,255,0.6);
+
+
+.headerTitle2 h5{
+color:rgba(14,16,31,.35);
+position:absolute;
+font-size:13px;
+background:rgba(222,222,222,1);
+padding:5px;
+right:60px;
+margin-top:-6px;
+}
+
+.headerTitle2 h2{
+color:rgba(14,16,31,.55);
 margin-top:8px;
+font-size:30px;
+
+}
+
+
+
+
+
+.headerTitle h2{
+color:rgba(14,16,31,.55);
+margin-top:8px;
+font-size:25px;
 }
 
 .disabled{
@@ -309,7 +353,7 @@ transform: scale(1.2);
 
 
 .Spinner{
-color:rgba(108,21,189,0.7);
+color:rgba(14,16,31,.7);
 width: 3rem; height: 3rem;
 display:none;
 }
@@ -321,13 +365,44 @@ margin-bottom:15px;
 
 .channelBox{
 position:fixed;
-top:30px;
-margin-left:55px;
+top:105px;
+margin-left:45px;
 z-index:999999999;
+}
+
+.endBox{
+position:fixed;
+bottom:120px;
+margin-left:45px;
+z-index:999999999;
+background:none;
+border:2px solid rgba(255,255,255,.45);
+padding:10px;
+border-radius:50%;
+
+background:rgba(14,16,31,1);
+}
+
+.viewGrup{
+position:fixed;
+bottom:10px;
+right:15px;
 
 }
 
+.linkView{
+position:absolute;
+right:0;
+margin-top:-35px;
 
+z-index:999999999;
+}
+
+.channelBox a{
+ display:flex;
+     flex-direction:column;
+     justify-content:center;
+}
 
 
 .transmissao{
@@ -368,19 +443,206 @@ margin-left:-10px;}
 
 .spintext{
 position:absolute;
-margin-top:14px;
-color:rgba(255,255,255,0.4);
+margin-top:44px;
+color:rgba(14,16,31,1);
 font-weight:500;
 display:none;
-text-shadow: 1px 1px 4px #6C15BD;
+
 }
 
 .on, .off{
 cursor:pointer;
+opacity:0.7;
 }
 
 .on{
+background:#ee4540;
+border:2px solid rgba(255,255,255,1);
+padding:10px;
+border-radius:50%;
+opacity:0.77;
+}
 
+
+.textON{
+position:absolute;
+margin-top:80px;
+margin-left:7px;
+background:#ee4540;
+color:rgba(255,255,255,1);
+padding:4px;
+}
+
+
+.off{
+background:none;
+border:2px solid rgba(255,255,255,1);
+padding:10px;
+border-radius:50%;
+opacity:0.45;
+}
+.off img{
+filter: invert(1);
+}
+
+.next{
+filter: invert(1);
+}
+
+.breakRound{
+filter: invert(1);
+}
+
+.textOFF{
+position:absolute;
+margin-top:80px;
+margin-left:7px;
+background:rgba(14,16,31,1);
+color:rgba(255,255,255,1);
+padding:4px;
+}
+.textENCERRAR{
+position:absolute;
+background:rgba(14,16,31,1);
+color:rgba(255,255,255,.45);
+margin-left:-15px;
+}
+
+.playerBoxInt{
+margin-bottom:2px;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+
+.game{
+margin-top:-8px;}
+
+
+
+
+.breakRound{
+height: 35px;
+opacity:0.8;
+cursor:pointer;
+opacity:0.45;
+}
+
+.navbar{
+     background:rgba(14,16,31,1);
+
+}
+
+.navbar a{
+color:rgba(255,255,255,.7);
+margin-left:15px;
+}
+
+.line{
+position:fixed;
+border:1px solid rgba(255,255,255,1);
+height:450px;
+opacity:0.45;
+left:75px;
+top:180px;
+}
+
+
+.topStagecontainer{
+
+
+
+}
+.round-one .matchup{
+width:400px;
+margin:20px auto;
+background:#e8e8e8;
+padding:14px 18px 14px 18px;
+
+
+}
+
+.current li {
+  opacity: 1;
+}
+.current li.team {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+}
+.round-one .team{
+border-radius:5px;
+height:40px;
+padding:8px;
+
+}
+.team {
+  padding: 0 5px;
+  margin: 3px 0;
+  height: 25px;
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  color:rgba(0,0,0,1);
+  width:100%;
+}
+
+.team h6{
+
+  color:rgba(0,0,0,1);
+  font-size:12px;
+}
+
+.scoreA {
+  font-size: 12px;
+  text-transform: uppercase;
+  float: right;
+color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  right: 17px;
+  background:rgba(14,16,31,1);;
+  width:30px;
+  height:30px;
+  margin-top:-3px;
+  padding:3px;
+}
+.scoreAx {
+  font-size: 11px;
+  text-transform: uppercase;
+  float: right;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  right: 17px;
+  background:rgba(0,0,0,.12);
+  width:30px;
+}
+
+.score {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  width:30px;
+  margin-top:-10px;
+  position: absolute;
+  padding:7px;
+  margin-left:-10px;
+
+}
+
+#collapseExample{
 
 }
 
@@ -388,52 +650,37 @@ cursor:pointer;
 
 </style>
 <body>
-<div class="channelBox text-left">
-
-    <!--    <input type="checkbox" id="toggle-two" name="{{campeonato}}" value="{% if channel1 == 'off'%}off{% else %}on{% endif %}" onchange="submitVideo( this.id , {{listaSquad}} , this.name, this.value )">-->
-    <a name="{{idcampeonato}}" id="{% if channel1 == 'off'%}off{% else %}on{% endif %}"
-       class="{% if channel1 == 'off'%}off{% else %}on{% endif %}"
-       onclick="submitVideo(this.id ,{{listaSquad}} , this.name )">
-
-        <svg height="60" fill="#000000" id="iconeLive" viewBox="0 0 64 64" width="60" xmlns="http://www.w3.org/2000/svg">
-            <path d="m57 16h-19a5.985 5.985 0 0 0 -2.3-4.712l4.05-4.629a1 1 0 0 0 -1.5-1.318l-4.35 4.972a5.92 5.92 0 0 0 -4.415.248l-9.839-8.324a1 1 0 1 0 -1.292 1.526l9.427 7.977a5.977 5.977 0 0 0 -1.781 4.26h-19a5.006 5.006 0 0 0 -5 5v23a1 1 0 0 0 2 0v-23a3 3 0 0 1 3-3h50a3 3 0 0 1 3 3v32a3 3 0 0 1 -3 3h-50a3 3 0 0 1 -3-3v-5a1 1 0 0 0 -2 0v5a5.006 5.006 0 0 0 5 5h47v2h-45a1 1 0 0 0 0 2h46a1 1 0 0 0 1-1v-3h1a5.006 5.006 0 0 0 5-5v-32a5.006 5.006 0 0 0 -5-5zm-29 0a4 4 0 0 1 8 0z"/>
-            <path d="m7 52a1 1 0 0 0 1 1h40a1 1 0 0 0 1-1v-5a1 1 0 0 0 -2 0v4h-38v-19a1 1 0 0 0 -2 0z"/>
-            <path d="m48 44a1 1 0 0 0 1-1v-21a1 1 0 0 0 -1-1h-40a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-5h38v20a1 1 0 0 0 1 1z"/>
-            <path d="m54 29a3 3 0 1 0 -3-3 3 3 0 0 0 3 3zm0-4a1 1 0 1 1 -1 1 1 1 0 0 1 1-1z"/>
-            <path d="m52 35h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
-            <path d="m52 39h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
-            <path d="m52 43h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
-            <path d="m51 51a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4a1 1 0 0 0 -1-1h-4a1 1 0 0 0 -1 1zm2-3h2v2h-2z"/>
-            <path d="m16 40v6a1 1 0 0 0 1 1h4a1 1 0 0 0 0-2h-3v-5a1 1 0 0 0 -2 0z"/>
-            <path d="m24 40v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -2 0z"/>
-            <path d="m30.051 46.316a1 1 0 0 0 1.9 0l2-6a1 1 0 1 0 -1.9-.632l-1.051 3.154-1.051-3.154a1 1 0 1 0 -1.9.632z"/>
-            <path d="m41 41a1 1 0 0 0 0-2h-4a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h4a1 1 0 0 0 0-2h-3v-1h2a1 1 0 0 0 0-2h-2v-1z"/>
-            <path d="m27.121 37.293a1 1 0 0 0 0-1.414 3.072 3.072 0 0 0 -4.244 0 1 1 0 0 0 1.415 1.414 1.023 1.023 0 0 1 1.414 0 1 1 0 0 0 1.414 0z"/>
-            <path d="m29.243 34.757a1 1 0 0 0 .707-1.707 7.009 7.009 0 0 0 -9.9 0 1 1 0 1 0 1.414 1.414 5.008 5.008 0 0 1 7.072 0 .993.993 0 0 0 .707.293z"/>
-            <path d="m18.636 31.636a9.01 9.01 0 0 1 12.728 0 1 1 0 0 0 1.414-1.414 11.012 11.012 0 0 0 -15.556 0 1 1 0 0 0 1.414 1.414z"/>
-        </svg>
-
-        <svg  style="{%if channel1 == 'off' %}display:none;{%endif%}" height="60" fill="#ffffff" id="iconeLiveTV" viewBox="0 0 64 64" width="60" xmlns="http://www.w3.org/2000/svg">
-            <path d="m57 16h-19a5.985 5.985 0 0 0 -2.3-4.712l4.05-4.629a1 1 0 0 0 -1.5-1.318l-4.35 4.972a5.92 5.92 0 0 0 -4.415.248l-9.839-8.324a1 1 0 1 0 -1.292 1.526l9.427 7.977a5.977 5.977 0 0 0 -1.781 4.26h-19a5.006 5.006 0 0 0 -5 5v23a1 1 0 0 0 2 0v-23a3 3 0 0 1 3-3h50a3 3 0 0 1 3 3v32a3 3 0 0 1 -3 3h-50a3 3 0 0 1 -3-3v-5a1 1 0 0 0 -2 0v5a5.006 5.006 0 0 0 5 5h47v2h-45a1 1 0 0 0 0 2h46a1 1 0 0 0 1-1v-3h1a5.006 5.006 0 0 0 5-5v-32a5.006 5.006 0 0 0 -5-5zm-29 0a4 4 0 0 1 8 0z"/>
-            <path d="m7 52a1 1 0 0 0 1 1h40a1 1 0 0 0 1-1v-5a1 1 0 0 0 -2 0v4h-38v-19a1 1 0 0 0 -2 0z"/>
-            <path d="m48 44a1 1 0 0 0 1-1v-21a1 1 0 0 0 -1-1h-40a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-5h38v20a1 1 0 0 0 1 1z"/>
-            <path d="m54 29a3 3 0 1 0 -3-3 3 3 0 0 0 3 3zm0-4a1 1 0 1 1 -1 1 1 1 0 0 1 1-1z"/>
-            <path d="m52 35h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
-            <path d="m52 39h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
-            <path d="m52 43h4a1 1 0 0 0 0-2h-4a1 1 0 0 0 0 2z"/>
-            <path d="m51 51a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4a1 1 0 0 0 -1-1h-4a1 1 0 0 0 -1 1zm2-3h2v2h-2z"/>
-            <path d="m16 40v6a1 1 0 0 0 1 1h4a1 1 0 0 0 0-2h-3v-5a1 1 0 0 0 -2 0z"/>
-            <path d="m24 40v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -2 0z"/>
-            <path d="m30.051 46.316a1 1 0 0 0 1.9 0l2-6a1 1 0 1 0 -1.9-.632l-1.051 3.154-1.051-3.154a1 1 0 1 0 -1.9.632z"/>
-            <path d="m41 41a1 1 0 0 0 0-2h-4a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h4a1 1 0 0 0 0-2h-3v-1h2a1 1 0 0 0 0-2h-2v-1z"/>
-            <path d="m27.121 37.293a1 1 0 0 0 0-1.414 3.072 3.072 0 0 0 -4.244 0 1 1 0 0 0 1.415 1.414 1.023 1.023 0 0 1 1.414 0 1 1 0 0 0 1.414 0z"/>
-            <path d="m29.243 34.757a1 1 0 0 0 .707-1.707 7.009 7.009 0 0 0 -9.9 0 1 1 0 1 0 1.414 1.414 5.008 5.008 0 0 1 7.072 0 .993.993 0 0 0 .707.293z"/>
-            <path d="m18.636 31.636a9.01 9.01 0 0 1 12.728 0 1 1 0 0 0 1.414-1.414 11.012 11.012 0 0 0 -15.556 0 1 1 0 0 0 1.414 1.414z"/>
-        </svg>
-
-        <h6 id="textLive">{{channel1}}</h6>
+<nav class="navbar fixed-top">
+    <a class="navbar-brand" href="/dashboard">
+        <!--    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">-->
+        ARCADE ARENA
     </a>
 
+<div class="viewGrup">
+    <p>
+        <a class="linkView" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+           aria-controls="collapseExample">
+            <img style="filter:invert(1); opacity:.5;" src="/static/assets/visao.svg" height="45">
+        </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="container topStagecontainer text-center" id="faseGrupos">
+
+            <div class="round round-one current">
+                <ul id="{{grupo}}" class="matchup">
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<div class="channelBox text-left" id="channelBox"></div>
+<div class="line"></div>
+<div class="endBox text-left" onclick="SubmitStatus()">
+    <img class="breakRound" src="/static/assets/bandeira-de-corrida.svg">
+    <p class="textENCERRAR">ENCERRAR</p>
 </div>
 
 
@@ -452,90 +699,90 @@ cursor:pointer;
 
         <div class="col-md-auto ">
             <div class="card perfilBox" id="{{equipe.0.idSquad}}hidecontainer">
-
                 <div class="container-fluid headerTitle">
-                    <div class="row">
-                        <div class="col-2 text-right">
-                            <h6>SQUAD</h6>
-                        </div>
-                        <div class="col text-left">
-                            <h2>{{equipe.0.squad}}</h2>
-                        </div>
+                    <h6>NOME DA EQUIPE || SQUAD</h6>
+                    <h2>{{equipe.0.squad}}</h2>
+                    <div class="container-fluid text-center" id="{{equipe.0.jogo}}NextSelect">
+                        <button id="{{equipe.0.jogo}}" class="btn encerrar"
+                                onclick="nextStage( this.id,{{equipe.0.idSquad}} , {{equipe.0.idrank}})">
+                            AVANÇAR PARTIDA <img class="next" src="/static/assets/avanco-rapido.svg"
+                                                 height="18">
+                        </button>
                     </div>
                 </div>
 
-                <ul>
-                    {% for player in equipe %}
-                    <li>
-                        <div class="container-fluid boxPlay vivo" id="{{player.idplayer}}status">
-                            <input type="hidden" id="{{player.idplayer}}statusInput" name="statusPlayer"
-                                   value="{{player.status}}">
-                            <div class="row justify-content-md-center">
-                                <div class="col-6">
-                                    <div class="flex">
-                                        <div class="changeBox">
-                                            <button style="" id="{{player.idplayer}}" type="button" class="changeStatus"
-                                                    onclick="changeStatus(this.id); return false"></button>
-                                        </div>
-                                        <div class="">
-                                            <h6 class="playerName">{{player.player}}</h6>
+                <div class="playerBoxInt">
+                    <ul>
+                        {% for player in equipe %}
+                        <li>
+                            <div class="boxPlay vivo" id="{{player.idplayer}}status">
+                                <input type="hidden" id="{{player.idplayer}}statusInput" name="statusPlayer"
+                                       value="{{player.status}}">
+                                <div class="row justify-content-md-center">
+                                    <div class="col-6">
+                                        <div class="flex">
+                                            <div class="changeBox">
+                                                <button style="" id="{{player.idplayer}}" type="button"
+                                                        class="changeStatus"
+                                                        onclick="changeStatus(this.id); return false"></button>
+                                            </div>
+                                            <div class="">
+                                                <h6 class="playerName">{{player.player}}</h6>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-2 colorBox " data-toggle="tooltip" data-placement="top"
-                                     title="Atualize as Kills">
-                                    <input type="text" class="input-kills text-center"
-                                           id="{{player.jogo}}/{{player.idrank}}" value="{{player.kills}}"
-                                           onchange="submitKills(this.value,{{player.idrank}},{{equipe.0.rank_partida}},{{equipe.0.idSquad}},{{equipe.0.idcampeonato}}, this.id)">
+                                    <div class="col-2 colorBox " data-toggle="tooltip" data-placement="top"
+                                         title="Atualize as Kills">
+                                        <input type="text" class="input-kills text-center"
+                                               id="{{player.jogo}}/{{player.idrank}}" name="{{player.jogo}}"
+                                               value="{{player.kills}}"
+                                               onchange="submitKills(this.value,{{player.idrank}},{{equipe.0.idSquad}},{{equipe.0.idcampeonato}}, this.id, this.name)">
 
-                                    <!--                                    <input type="hidden" class="selectInput" name="{{player.idplayer}}kills"-->
-                                    <!--                                           id="{{player.idplayer}}killsSelect" value="{{player.kills}}">-->
-                                </div>
-                                <div class="col-2 ">
-                                    <div class="imgXp flex">
-                                        <div>
-                                            <img src="/static/assets/kill.svg" height="90">
-                                        </div>
-                                        <div class="kill">
-                                            <p>kills</p>
+                                        <!--                                    <input type="hidden" class="selectInput" name="{{player.idplayer}}kills"-->
+                                        <!--                                           id="{{player.idplayer}}killsSelect" value="{{player.kills}}">-->
+                                    </div>
+                                    <div class="col-2 ">
+                                        <div class="imgXp flex">
+                                            <div>
+                                                <img src="/static/assets/kill.svg" height="90">
+                                            </div>
+                                            <div class="kill">
+                                                <p>kills</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <div class="container-fluid scoreBox">
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="container-fluid headerTitle2">
                     <div class="row">
-                        <div class="col-8 text-right">
-                            <h6>SCORE PARTIDA:</h6>
+                        <div class="col-6 text-right">
+                            <h2 id="score_partida{{equipe.0.idSquad}}" class="text-center">
+                                {{equipe.0.score_equipe}}</h2>
+                            <h5>SCORE PARTIDA</h5>
                         </div>
-                        <div class="col-4 text-right">
-                            <p id="score_partida{{equipe.0.idSquad}}" class="text-center">{{equipe.0.score_equipe}}</p>
+                        <div class="col-6 text-right">
+                            <h2 id="score_total{{equipe.0.idSquad}}" class="text-center">{{equipe.0.score_total}}</h2>
+                            <h5>SCORE TOTAL</h5>
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid scoreBox">
-                    <div class="row">
-                        <div class="col-8 text-right">
-                            <h6>SCORE TOTAL:</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <p id="score_total{{equipe.0.idSquad}}" class="text-center">{{equipe.0.score_total}}</p>
-                        </div>
-                    </div>
-                </div>
-                <hr>
+
+
                 <div class="container rankContainer text-center">
                     <div class="row">
                         <div class="col-8 fillCol">
-                            <p class="rankingText">POSIÇÃO DA EQUIPE NA PARTIDA</p>
+
                             <div class="row">
                                 {% if equipe.0.status != 1 %}
                                 <div class="col-4">
                                     <div class="partidaBox {% if equipe.0.jogo == 'R1J1' %}enable{%else%} disabled{%endif%}">
-                                        <span>JOGO 1</span>
+                                        <span>RANK</span>
+                                        <span class="game">JOGO 1</span>
                                         {% if equipe.0.jogo == 'R1J1' %}
                                         <div class="inputBox ">
                                             <input type="text"
@@ -550,7 +797,8 @@ cursor:pointer;
                                 </div>
                                 <div class="col-4 ">
                                     <div class="partidaBox {% if equipe.0.jogo == 'R1J2' %}enable{%else%} disabled{%endif%}">
-                                        <span>JOGO 2</span>
+                                        <span>RANK</span>
+                                        <span class="game">JOGO 2</span>
                                         {% if equipe.0.jogo == 'R1J2' %}
                                         <div class="inputBox ">
                                             <input type="text"
@@ -565,7 +813,8 @@ cursor:pointer;
                                 </div>
                                 <div class="col-4 ">
                                     <div class="partidaBox {% if equipe.0.jogo == 'R1J3' %}enable{%else%} disabled{%endif%}">
-                                        <span>JOGO 3</span>
+                                        <span>RANK</span>
+                                        <span class="game">JOGO 3</span>
                                         {% if equipe.0.jogo == 'R1J3' %}
                                         <div class="inputBox ">
                                             <input type="text"
@@ -580,29 +829,24 @@ cursor:pointer;
                                 </div>
                                 {% endif %}
                             </div>
-                            <div class="container-fluid text-center" id="{{equipe.0.jogo}}NextSelect">
-                                <button id="{{equipe.0.jogo}}" class="btn encerrar"
-                                        onclick="nextStage( this.id,{{equipe.0.idSquad}} , {{equipe.0.idrank}})">PROXIMA
-                                    PARTIDA <i
-                                            class="fas fa-arrow-right"></i></button>
-                            </div>
+                            <!--                            <p class="rankingText">POSIÇÃO DA EQUIPE NA PARTIDA</p>-->
+
                         </div>
                         <div class="col-4 fillCol">
                             <div class="container-fluid atualizarBox">
-
                                 <button id="{{equipe.0.idSquad}}hide"
                                         class=" atualizar">
-                                    <div>PAINEL DE CONTROLE</div>
+                                    <img class="img" src="/static/assets/videogame.svg" height="60">
                                 </button>
-
                                 <div class="d-flex justify-content-center">
                                     <div id="{{equipe.0.idSquad}}hideSpinner" class="spinner-grow Spinner"
                                          role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>
-                                    <p id="{{equipe.0.idSquad}}hideSpinnerText" class="spintext">SALVANDO...</p>
+                                    <!--                                    <p id="{{equipe.0.idSquad}}hideSpinnerText" class="spintext">SALVANDO...</p>-->
                                 </div>
                             </div>
+
 
                         </div>
                     </div>
@@ -614,6 +858,7 @@ cursor:pointer;
         </div>
         {% endfor %}
     </div>
+
 </div>
 
 
@@ -645,11 +890,17 @@ function APIChannel(data){
 socket.emit('refresh_channel', data);
 }
 
+
+
 function APIkills(data){
 SpinningStart(data.idsquad);
 socket.emit('refresh_kills', data);
-
 }
+
+
+
+
+
 
 function APIRank(data){
 SpinningStart(data.idsquad);
@@ -673,6 +924,19 @@ SpinningStart(data.idsquad);
     socket.on('score_stream', function(data){
    reloadScore(data)
         SpinningStop(data[0]);
+
+        var partida = data[4];
+        console.log(partida);
+        partida.forEach(function(e) {
+        document.getElementById(data[0]+ 'R1J1').innerHTML = e[11];
+        document.getElementById(data[0]+ 'R1J2').innerHTML = e[12];
+        document.getElementById(data[0]+ 'R1J3').innerHTML = e[13];
+        var round1_j1 = e[11];
+        var round1_j2 = e[12];
+        var round1_j3 = e[13];
+        document.getElementById(data[0]+'total_input').innerHTML = parseInt(round1_j1) + parseInt(round1_j2) + parseInt(round1_j3);;
+
+})
    })
 
 
@@ -695,14 +959,14 @@ SpinningStart(data.idsquad);
 function SpinningStart(idsquad){
 document.getElementById(idsquad+'hide').style.display = 'none';
 document.getElementById(idsquad+'hideSpinner').style.display = 'block';
-document.getElementById(idsquad+'hideSpinnerText').style.display = 'block';
+
 
 }
 
 function SpinningStop(idsquad){
 document.getElementById(idsquad+'hide').style.display = 'block';
 document.getElementById(idsquad+'hideSpinner').style.display = 'none';
-document.getElementById(idsquad+'hideSpinnerText').style.display = 'none';
+
 }
 
 
@@ -719,49 +983,79 @@ document.getElementById('score_total'+data[0]).innerHTML = data[2];
 
 
 
- socket.on('reload_statusChannel1', function(msg){
+$(document).ready(function () {
+data = [ {{listaSquad | tojson }},
+{{idcampeonato| tojson }},
+{{grupo | tojson }}
+
+]
+socket.emit('get Channel', data);
+})
 
 
+
+socket.on('reload_statusChannel1', function(msg){
 var checkMsg = msg['status_channel1']
-
+document.getElementById('channelBox').innerHTML = '';
+console.log(checkMsg);
 if (checkMsg == 'on'){
-document.getElementById('iconeLive').style.display = 'none';
-document.getElementById('iconeLiveTV').style.display = 'block';
+            var a = document.createElement("a");
+             a.setAttribute('name', '{{idcampeonato}}');
+             a.setAttribute('id', 'off');
+             a.setAttribute('class', 'on');
+             a.setAttribute('onclick', 'submitVideo(this.id ,{{listaSquad | tojson}} , this.name )')
+              var img = document.createElement("img");
+             img.setAttribute('src', '/static/assets/viver.svg');
+             img.setAttribute('height', '40px');
+              a.appendChild(img);
+             document.getElementById('channelBox').appendChild(a);
 
 }
 
 if (checkMsg == 'off'){
-document.getElementById('iconeLiveTV').style.display = 'none';
-document.getElementById('iconeLive').style.display = 'block';
+   var a = document.createElement("a");
+             a.setAttribute('name', '{{idcampeonato}}');
+             a.setAttribute('id', 'on');
+             a.setAttribute('class', 'off');
+             a.setAttribute('onclick', 'submitVideo(this.id ,{{listaSquad | tojson}} , this.name )')
+              var img = document.createElement("img");
+             img.setAttribute('src', '/static/assets/video-chamada.svg');
+             img.setAttribute('height', '40px');
+             var text = document.createElement("p");
+             text.setAttribute('class', 'textOFF');
+             var textnode = document.createTextNode('OFF');
+             text.appendChild(textnode);
 
+
+             a.appendChild(img);
+             a.appendChild(text);
+
+             document.getElementById('channelBox').appendChild(a);
 }
   console.log(msg)
-
-
-
-
    })
 
 
 function submitVideo(this_id,Lista_idSquads, campeonato){
-
     data = {
     'Lista_idSquads': Lista_idSquads,
     'campeonato': campeonato,
     'stream': this_id
     }
 
- if(this_id == 'on'){
-        document.getElementById(this_id).id = 'off'
-        }
-        if(this_id == 'off'){
-        document.getElementById(this_id).id = 'on'
-        }
+console.log(data);
     APIChannel(data);
 }
 
 
-function submitKills(this_value, idrank, colocacao, idsquad,idcampeonato,jogo_ativo){
+function submitKills(this_value, idrank, idsquad,idcampeonato,jogo_ativo,this_name){
+
+
+var colocacao = document.getElementById(idsquad+this_name+'rankPartida').value;
+
+
+
+
 
 data = {
 'idsquad': idsquad,
@@ -823,6 +1117,15 @@ APIGame(data)
 
 
 
+function SubmitStatus(){
+data = [ {{listaSquad | tojson }},
+{{idcampeonato| tojson }},
+{{grupo | tojson }}]
+
+
+socket.emit('change status bracket', data);
+
+}
 
 
 
@@ -840,6 +1143,125 @@ APIGame(data)
 
 
 
+
+
+
+
+
+
+$(document).ready(function () {
+var myGeocode = [{{ partidas|tojson }}];
+myGeocode.forEach(function(x) {
+x.forEach(function(e) {
+
+var round1_j1 = e[11];
+var round1_j2 = e[12];
+var round1_j3 = e[13];
+
+var round2_j1 = e[14];
+var round2_j2 = e[15];
+
+var round3_j1 = e[16];
+var round3_j2 = e[17];
+
+var round4_j1 = e[18];
+var round4_j2 = e[19];
+
+var round5_j1 = e[20];
+var round5_j2 = e[21];
+
+var bracket = e[9];
+
+var jogo_ativo = e[26];
+var posicao = e[28];
+var name = e[4];
+var grupo = e[22];
+
+    if (bracket == 1){
+            if (!round2_j1 ){
+            document.getElementById(posicao).innerHTML = name;
+            document.getElementById(posicao+'score').innerHTML  = parseInt(round2_j1) + parseInt(round2_j2);
+            }
+
+            if (!round3_j1 ){
+            document.getElementById(posicao).innerHTML = name;
+            document.getElementById(posicao+'score').innerHTML  = parseInt(round3_j1) + parseInt(round3_j2);
+            }
+            if (!round4_j1 ){
+            document.getElementById(posicao).innerHTML = name;
+            document.getElementById(posicao+'score').innerHTML  = parseInt(round4_j1) + parseInt(round4_j2);
+            }
+
+            if (!round5_j1 ){
+            document.getElementById(posicao).innerHTML = name;
+            document.getElementById(posicao+'score').innerHTML  = parseInt(round5_j1) + parseInt(round5_j2);
+            }
+
+    }
+
+
+
+
+
+
+
+
+if (bracket != 1){
+
+        var soma = parseInt(round1_j1) + parseInt(round1_j2) + parseInt(round1_j3);
+         var li = document.createElement("li");
+            li.setAttribute('class', 'team team-top');
+            li.setAttribute('data-percentage', soma);
+            li.setAttribute('id', e[3]);
+            var textnode = document.createTextNode(e[4]);
+            li.appendChild(textnode);
+
+
+             var span = document.createElement("span");
+             span.setAttribute('class', 'scoreA');
+             span.setAttribute('id', e[3]+'total_input');
+             var textnode2 = document.createTextNode(soma);
+             span.appendChild(textnode2);
+             li.appendChild(span);
+
+
+                var span3 = document.createElement("span");
+             span3.setAttribute('class', 'scoreAx');
+              span3.setAttribute('id', e[3]+'R1J3');
+             var textnode13 = document.createTextNode(parseInt(round1_j3));
+             span3.appendChild(textnode13);
+             li.appendChild(span3)
+
+
+                var span2 = document.createElement("span");
+             span2.setAttribute('class', 'scoreAx');
+              span2.setAttribute('id', e[3]+'R1J2');
+             var textnode12 = document.createTextNode(parseInt(round1_j2));
+             span2.appendChild(textnode12);
+             li.appendChild(span2);
+
+
+
+            var span1 = document.createElement("span");
+             span1.setAttribute('class', 'scoreAx');
+              span1.setAttribute('id', e[3]+'R1J1');
+             var textnode11 = document.createTextNode(parseInt(round1_j1));
+             span1.appendChild(textnode11);
+             li.appendChild(span1);
+             document.getElementById(grupo).appendChild(li)
+
+
+
+
+
+
+}
+
+
+    })
+
+})
+})
 
 
 

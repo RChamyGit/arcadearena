@@ -12,7 +12,7 @@
     <style>
 
     body{
-      background:#6C15BD;
+       background:rgba(14,16,31,1);
      display:flex;
       flex-direction:column;
       justify-content:center;
@@ -50,13 +50,13 @@ ul {
 li{
 background:rgba(255,255,255,0.05);
 color:rgba(255,255,255,0.7);
-width:100%;
+
 height:auto;
 padding:4px;
 opacity:0.15;
 min-width:130px;
 margin:5px;
- flex: 1 0 25%;
+ flex: 1 0 20%;
  border-radius:10px;
 
 }
@@ -64,7 +64,7 @@ margin:5px;
 
 
 .noOpacity:hover{
-background:#FAC64B;
+background:#ee4540;
 color:rgba(0,0,0,.78);
 
 }
@@ -84,10 +84,14 @@ opacity:0.7;}
 
 #equipesNumber{
 color:rgba(255,255,255,.6);
+width:auto;
 margin-top:5px;
 background:rgba(0,0,0,.4);
 border:0;
-font-size:14px;
+font-size:30px;
+padding-left:34px;
+
+
 }
 
 
@@ -96,13 +100,12 @@ font-size:14px;
 
 
 .box{
-width: 90%;
-max-width:1000px;
+width: 80%;
 height:auto;
 overflow:hidden;
 position:relative;
 display:block;
-background:rgba(0,0,0,.4);
+background:#282B3D;
 padding:15px;
 min-width:550px;
 }
@@ -110,20 +113,23 @@ min-width:550px;
 
 .top{
 width:100%;
-min-width:250px;
  display:flex;
     flex-direction:column;
     justify-content:center;
 padding:30px;
-border-right:2px solid rgba(255,255,255,.12);
 height:100%;
-height:450px;
 
 
 }
 
+.borderMaya{
+border-right:2px solid rgba(255,255,255,.12);
+
+}
 .titleTop{
 text-transform: uppercase;
+border-bottom:2px solid rgba(255,255,255,.12);
+padding-bottom:20px;
 }
 
 .titleTop i{
@@ -140,13 +146,14 @@ font-size:14px;
 
 .titleTop h1{
 color:rgba(255,255,255,.7);
+font-size:50px;
 }
 
 
 .titleTop h6{
-color:#AA0DD4;
+color:#ee4540;
 opacity:0.8;
-font-size:23px;
+font-size:18px;
 }
 
 
@@ -165,14 +172,18 @@ flex-wrap: wrap;
 .detailsBacket{
 background:rgba(0,0,0,.3);
 padding:40px;
-height:100%;
+height:500px;
+overflow:auto;
 }
 
 
 
 
 .squadItem{
-font-size:15px;
+font-size:20px;
+height:50px;
+display:flex; flex-direction:column; justify-content:center;
+
 }
 
 
@@ -194,8 +205,8 @@ select:focus {
 }
 
 .active{
-background:#FAC64B;
-color:rgba(0,0,0,0.8);
+background:#ee4540;
+color:rgba(255,255,255,0.8);
 opacity:.7;
 }
 
@@ -203,18 +214,18 @@ opacity:.7;
 
 
 .subButton{
-
-
-padding:10px;
-margin:10px auto;
-background:#AA0DD4;
-border:0;
-height:50px;
-opacity:0.5;
-font-size:12px;
-bottom:0;
-margin-left:30px;
-border-radius:20px;
+position:fixed;
+top:50%;;
+z-index:999999999;
+border:3px solid rgba(255,255,255,.45);
+padding:3px;
+display:flex; flex-direction:column; justify-content:center;
+background:rgba(0,0,0,.4);
+height:80px;
+width:80px;
+opacity:0.7;
+right:50px;
+border-radius:50%;
 }
 
 .subButton2{
@@ -223,25 +234,27 @@ width:100%;
  display:flex;
       flex-direction:column;
       justify-content:center;
-background:rgba(255,255,255,0.12);
+    background: rgba(0,0,0,.3);
 border:0;
-height:60px;
+height:80px;
 font-size:25px;
 COLOR:RGBA(255,255,255,.6);
 }
 
 .subButtonBox h6{
-padding:5px;
-margin-top:-2px;
+padding:2px;
 color:rgba(255,255,255,0.9);
 font-weight:500;
 font-size:20px;
+
 }
 
 .subButtonBox i{
-font-size:20px;
+font-size:35px;
 padding:4px;
 color:#FAC64B;
+position:absolute;
+margin-top:30px;
 
 }
 
@@ -273,7 +286,7 @@ background: #01BD43;
 
 
 .modal-content{
-background:#F0C202;
+background:#f9d276;
 
 }
 
@@ -303,18 +316,28 @@ margin-top:10px;
 
 <body>
 
+ <div class="subButton">
+                <div class="flex text-center subButtonBox">
+                    <h6 id="countSquads">00</h6>
+                    <h6>/</h6>
+                    <h6 id="totalSquads">00</h6>
+                    <i class="fas fa-skull"></i>
+
+
+                </div>
+            </div>
 <!--<div class="container-fluid page_title text-center">-->
 <!--    <h1>ARCADE ARENA</h1>-->
 <!--    <p>dashboard</p>-->
 <!--</div>-->
 <div class="container-fluid box text-center">
     <div class="row">
-        <div class="col-4">
+        <div class="col-3 borderMaya">
             <div class="container-fluid top">
                 {% for i in infoCampeonato%}
                 <div class="container-fluid  titleTop ">
                     <i style="color:#FAC64B;" class="fas fa-trophy"></i>
-                    <p>NOVO CAMPEONATO</p>
+<!--                    <p>NOVO CAMPEONATO</p>-->
                     <h1>{{i.1}}</h1>
                     <h6 class="alertCampeonatoType">MODALIDADE:{{i.5}}</h6>
                 </div>
@@ -322,75 +345,38 @@ margin-top:10px;
 
                 <div class="container-fluid selEquipe text-center">
                     <div class="input-group-prepend text-center">
-                        <label class="input-group-text" id="labelInput" for="equipesNumber">Nr. Equipes: </label>
+                        <label class="input-group-text" id="labelInput" for="equipesNumber">SELECIONE O NUMERO DE EQUIPES: </label>
                     </div>
-                    <select class="custom-select" style="" name="equipesNumber" id="equipesNumber"
+                    <select class="custom-select text-center" style="" name="equipesNumber" id="equipesNumber"
                             onchange="myTotal(this.id)">
-                        <option selected value="0">NUMERO DE EQUIPES...</option>
-                        <option value="16">16 EQUIPES PARA SELECIONAR</option>
-                        <option value="24">24 EQUIPES PARA SELECIONAR</option>
-                        <option value="32">32 EQUIPES PARA SELECIONAR</option>
-                        <option value="48">48 EQUIPES PARA SELECIONAR</option>
+                        <option class="text-center" selected value="0">0</option>
+                        {% if bracket == 16 %}
+                        <option value="48">48</option>
+                        {% endif %}
+                        {% if bracket == 8 %}
+                        <option class="text-center" value="24">24</option>
+                        <option class="text-center" value="32">32</option>
+                        <option class="text-center" value="48">48</option>
+                        {% endif %}
+                        {% if bracket == 1 %}
+                        <option class="text-center" value="16">16</option>
+                        {% endif %}
                     </select>
                 </div>
-
-
             </div>
-             <div class="subButton">
-                    <div class="flex text-center subButtonBox">
-                        <h6 id="countSquads">0</h6>
-                        <h6>/</h6>
-                        <h6 id="totalSquads">0</h6>
-                        <i class="fas fa-skull"></i>
-                    </div>
-                </div>
+
         </div>
-        <div class="col-8">
+        <div class="col-9">
             <div class="container-fluid detailsBacket">
-                <!--                <div class="container-fluid envioForm">-->
-                <!--                    <form method="post" action="{{ url_for('bracketSetup',idCampeonato=id) }}">-->
-                <!--                        <div class="container-fluid" id="inputSquads">-->
                 <ul id="squadUl">
-                    <!--                                <div class="weird">-->
-                    <!--                                    {% for squad in squadList %}-->
-                    <!--                                    <div class="container-fluid squareSquad">-->
-                    <!--                                        <li class="squadItem noActive" id="{{squad.0}}">-->
-                    <!--                                            <div class="container-fluid text-center">-->
-                    <!--                                                <input style="display:none" class="form-check-input" type="checkbox"-->
-                    <!--                                                       name="checkbox"-->
-                    <!--                                                       id="{{squad.0}}Checkbox"-->
-                    <!--                                                       value="{{squad.0}}">-->
-                    <!--                                                &lt;!&ndash;                                                <p>{{squad.1}}</p>&ndash;&gt;-->
-                    <!--                                            </div>-->
-                    <!--                                        </li>-->
-                    <!--                                    </div>-->
-                    <!--                                    {% endfor%}-->
-                    <!--                                </div>-->
-
                 </ul>
-                <!--                        </div>-->
-                <!--                <div class="inputArea" id="inputArea"></div>-->
-                <!--                    </form>-->
-
-                <!--                </div>-->
-
-
             </div>
+             <div class="subButton2" id="submitOld">AGUARDANDO...</div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="subButton2" id="submitOld">AGUARDANDO O NUMERO DE EQUIPES RESTANTES...</div>
-        </div>
-        <div class="col-2">
-
-        </div>
-    </div>
 </div>
-
-
-<button style="display:none" type="button" class="btn btn-primary" data-toggle="modal" id="mymodal"
+<button style="display:none;" type="button" class="btn btn-primary" data-toggle="modal" id="mymodal"
         data-target="#waitModal"  data-backdrop="static" data-keyboard="false">
     Launch demo modal
 </button>
@@ -399,10 +385,7 @@ margin-top:10px;
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" id="modalContent">
             <div class="modal-body centerT">
-
-
                 <img id="image" style="opacity:0.89;" src="../static/assets/bracket.svg" height="200">
-
                 <div class="container-fluid text-center loadBox ">
                     <h6 id="spinText">SALVANDO BRACKET...AGUARDE!</h6>
                     <div id="spin" class="spinner-grow text-danger" style="width: 3rem; height: 3rem;" role="status">
@@ -444,11 +427,8 @@ margin-top:10px;
 var submitOld = document.getElementById('submitOld')
 
 
-
-listaSquad = [{{idCampeonato}},{{fasedeGrupos}},{{regras}},'{{nomeCampeonato}}']
+listaSquad = [{{idCampeonato}},{{bracket}},{{regras}},'{{nomeCampeonato}}']
 var contador = 0;
-
-
 
     function mySelect(this_id) {
     doJob(this_id);
@@ -456,8 +436,8 @@ var contador = 0;
         if(contador < totalSelect){
             resetListNoActive();
          submitOld.classList.remove('active');
-         submitOld.innerHTML = 'AGUARDANDO O NUMERO DE EQUIPES RESTANTES...'
-         submitOld.style.background = 'rgba(255,255,255,0.12)';
+         submitOld.innerHTML = 'AGUARDANDO...'
+         submitOld.style.background = 'rgba(0,0,0,.3)';
          submitOld.style.color = 'RGBA(255,255,255,.6)';
         submitOld.style.cursor = 'default';
         submitOld.setAttribute("onclick", "");
@@ -468,7 +448,7 @@ var contador = 0;
 
 
         submitOld.innerHTML = 'ENVIAR E CRIAR O BRACKET';
-        submitOld.style.background = '#1AAD76';
+        submitOld.style.background = '#29c7ac';
         submitOld.style.color = 'rgba(0,0,0,0.8)';
         submitOld.style.cursor = 'pointer';
         submitOld.setAttribute("onclick", "submitSquad()");;
@@ -618,10 +598,11 @@ socket.emit('submit bracket', listaSquad);
 
 
 socket.on('salved', function(data){
-console.log('bracket ok');
+console.log(data);
+
 document.getElementById('image').src = '../static/assets/check.svg';
 document.getElementById('spin').style.display = 'none';
-document.getElementById('spinText').innerHTML = 'TUDO OK!!! APROVEITE !!';
+document.getElementById('spinText').innerHTML = 'TUDO OK! '+ data[0].toUpperCase()+' ADICIONADO !';
  setTimeout(function () {
        window.location.href = "/dashboard"; //will redirect to your blog page (an ex: blog.html)
     }, 2000); //will call the function after 2 secs.

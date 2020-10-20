@@ -1,0 +1,2220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
+
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <title>Hello, world!</title>
+</head>
+<style>
+    body{
+    background:rgba(14,16,31,1);
+     display:flex;
+     flex-direction:column;
+     justify-content:center;
+       font-family: "Abel", sans-serif;
+   min-height:100vh;
+   padding-top:90px;
+   padding-bottom:90px;
+   }
+
+    .page_title{
+    position:absolute;
+    width:100%;
+    color:rgba(255,255,255,.33);
+
+    }
+    .page_title p{
+     margin-top:-17px;
+     letter-spacing:5px;
+     color:rgba(255,49,109,0.25);
+     font-weight:700}
+
+
+
+
+.perfilBox{
+background:rgba(222,222,222,1);
+color:rgba(255,255,255,.8);
+padding:30px;
+margin:15px;
+justify-content:center;
+border-radius:10px;
+width:450px;
+box-shadow: 2px 2px 8px rgba(0,0,0,.99);
+}
+
+
+.boxPlay{
+
+margin-bottom:4px;
+width:100%;
+     text-transform: uppercase;
+     background:rgba(14,16,31,.55);
+          border-radius:7px;
+           box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+
+}
+
+.vivo{
+border-left:9px solid #3BBD0B;
+}
+
+.morto{
+border-left:9px solid #C20C1D;
+opacity:0.5;
+}
+
+.playerName{
+color: rgba(255,255,255,0.7);
+margin-top:6px;
+font-size:14px;
+padding:5px;
+}
+
+ul{
+  list-style-type: none;
+         margin:0;
+  padding:0;
+  }
+
+
+.input-kills{
+width:45px;
+background:none;
+border:0;
+margin-top:5px;
+margin-left:-4px;
+color:rgba(222,222,222,.5);
+}
+
+button:active {
+    outline: 0;
+    border: 0;
+}
+
+
+select:active {
+    outline: 0;
+    border: 0;
+}
+button:focus {outline:0;}
+input:focus {outline:0;}
+
+input[type="text"], input[type="password"], textarea, select,button {
+    outline: none;
+}
+
+.colorBox{
+background:rgba(14,16,31,.55);
+padding-top:2px;
+ border-radius:2px;
+ box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+}
+
+.flex{display:flex;}
+
+.imgXp{
+width:60px;
+overflow:hidden;
+height:40px;
+
+}
+
+.imgXp img{
+margin-top:-23px;
+margin-left:-33px;
+opacity:.5;
+}
+
+.kill{
+margin-left:-30px;
+font-size:12px;
+margin-top:10px;
+color:rgba(255,255,255,.5)}
+
+
+.rankingText{
+font-size:12px;
+margin:0;
+padding:0;
+color: rgba(14,16,31,.61);
+margin-bottom:9px;
+
+}
+
+.score{
+font-size:9px;
+color:rgba(255,255,255,.5)
+}
+
+.scoreNumero{
+font-size:12px;
+color:rgba(255,255,255,.7)
+}
+
+hr{
+height:2px;
+border-width:0;
+color:rgba(108,21,189,0.7);
+background: rgba(108,21,189,0.7);
+}
+
+.rankContainer{
+height:auto;
+
+}
+
+.partidaBox{
+height:70px;
+margin-top:10px;
+margin-bottom:10px;
+
+width:65px;
+   background:rgba(14,16,31,0.6);
+display:flex;
+     flex-direction:column;
+     justify-content:center;
+     border-radius:7px;
+     box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+}
+
+.partidaBox span{
+color: rgba(255,255,255,0.4);
+font-size:12px;
+}
+
+
+.fillCol{
+padding:0;
+margin:0;
+}
+
+.inputBox input{
+width:50px;
+background:none;
+border:0;
+}
+
+.inputBox{
+height:30px;
+
+}
+
+.input-inputBox{
+    font-size:24px;
+    color:rgba(255,255,255,.7);
+    margin-top:-5px;
+}
+.atualizarBox{
+margin-left:10px;
+width:120px;
+height:100%;
+display:flex;
+     flex-direction:column;
+     justify-content:center;
+}
+
+.atualizar{
+width:100%;
+height:100%;
+color: rgba(14,16,31,.66);
+transition: 1s;
+background:none;
+pointer-events: none;
+border-radius:8px;
+border:none;
+
+}
+
+.encerrar{
+color: rgba(255,255,255,1);
+transition: 1s;
+padding:6px;
+position:absolute;
+margin-left:95px;
+margin-top:-70px;
+font-size:9px;
+opacity:0.77;
+background:#ee4540;
+border-radius:20px;
+}
+
+
+.encerrar:hover{
+color:#fff;
+
+}
+
+
+
+.changeStatus{
+width:10px;
+height:55px;
+position:absolute;
+margin-top:-10px;
+margin-left:-20px;
+background:none;
+border:0;
+}
+
+.headerTitle{
+width:100%;
+padding:5px;
+border-bottom:3px solid rgba(14,16,31,.35);;
+margin-bottom:18px;
+}
+
+.headerTitle2{
+width:100%;
+padding:5px;
+border-bottom:3px solid rgba(14,16,31,.22);;
+margin-bottom:18px;
+}
+
+.scoreBox{
+width:100%;
+padding:2px;
+border:2px solid rgba(108,21,189,0.35);
+border-radius:7px;
+margin-bottom:6px;
+}
+
+.scoreBox h6{
+color: rgba(255,255,255,0.35);
+margin-top:15px;
+margin-left:3x;
+}
+
+.scoreBox p{
+background: rgba(0,0,0,.4);
+color:rgba(255,255,255,0.6);
+padding:4px;
+margin:0;
+margin:2px;
+font-size:20px;
+}
+
+.headerTitle h6{
+color:rgba(14,16,31,.35);
+position:absolute;
+font-size:13px;
+background:rgba(222,222,222,1);
+padding:5px;
+margin-top:40px;
+right:70px;
+}
+
+
+
+.headerTitle2 h5{
+color:rgba(14,16,31,.35);
+position:absolute;
+font-size:13px;
+background:rgba(222,222,222,1);
+padding:5px;
+right:60px;
+margin-top:-6px;
+}
+
+.headerTitle2 h2{
+color:rgba(14,16,31,.55);
+margin-top:8px;
+font-size:30px;
+
+}
+
+
+
+
+
+.headerTitle h2{
+color:rgba(14,16,31,.55);
+margin-top:8px;
+font-size:25px;
+}
+
+.disabled{
+opacity:0.3;
+pointer-events: none;
+}
+
+.enable{
+transform: scale(1.2);
+}
+
+
+.Spinner{
+color:rgba(14,16,31,.7);
+width: 3rem; height: 3rem;
+display:none;
+}
+
+ul{
+margin-bottom:15px;
+}
+
+
+.channelBox{
+position:fixed;
+top:105px;
+margin-left:45px;
+z-index:999999999;
+}
+
+.endBox{
+position:fixed;
+bottom:120px;
+margin-left:45px;
+z-index:999999999;
+background:none;
+border:2px solid rgba(255,255,255,.45);
+padding:10px;
+border-radius:50%;
+
+background:rgba(14,16,31,1);
+}
+
+.viewGrup{
+position:fixed;
+bottom:10px;
+right:15px;
+
+}
+
+.linkView{
+position:absolute;
+right:0;
+margin-top:-35px;
+
+z-index:999999999;
+}
+
+.channelBox a{
+ display:flex;
+     flex-direction:column;
+     justify-content:center;
+}
+
+
+.transmissao{
+padding:9px;
+opacity:.6;}
+
+.vd {
+margin-left:17px;
+}
+
+.check{
+background:red;}
+
+
+.toggle-group {
+background: #dc3545;
+opacity:0.7;
+
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#toggle-two{
+margin-left:-10px;}
+
+
+.spintext{
+position:absolute;
+margin-top:44px;
+color:rgba(14,16,31,1);
+font-weight:500;
+display:none;
+
+}
+
+.on, .off{
+cursor:pointer;
+opacity:0.7;
+}
+
+.on{
+background:#ee4540;
+border:2px solid rgba(255,255,255,1);
+padding:10px;
+border-radius:50%;
+opacity:0.77;
+}
+
+
+.textON{
+position:absolute;
+margin-top:80px;
+margin-left:7px;
+background:#ee4540;
+color:rgba(255,255,255,1);
+padding:4px;
+}
+
+
+.off{
+background:none;
+border:2px solid rgba(255,255,255,1);
+padding:10px;
+border-radius:50%;
+opacity:0.45;
+}
+.off img{
+filter: invert(1);
+}
+
+.next{
+filter: invert(1);
+}
+
+.breakRound{
+filter: invert(1);
+}
+
+.textOFF{
+position:absolute;
+margin-top:80px;
+margin-left:7px;
+background:rgba(14,16,31,1);
+color:rgba(255,255,255,1);
+padding:4px;
+}
+.textENCERRAR{
+position:absolute;
+background:rgba(14,16,31,1);
+color:rgba(255,255,255,.45);
+margin-left:-15px;
+}
+
+.playerBoxInt{
+margin-bottom:2px;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+
+.game{
+margin-top:-8px;}
+
+
+
+
+.breakRound{
+height: 35px;
+opacity:0.8;
+cursor:pointer;
+opacity:0.45;
+}
+
+.navbar{
+     background:rgba(14,16,31,1);
+
+}
+
+.navbar a{
+color:rgba(255,255,255,.7);
+margin-left:15px;
+}
+
+.line{
+position:fixed;
+border:1px solid rgba(255,255,255,1);
+height:450px;
+opacity:0.45;
+left:75px;
+top:180px;
+}
+
+
+.topStagecontainer{
+
+
+
+}
+.round-one .matchup{
+width:400px;
+margin:20px auto;
+background:#e8e8e8;
+padding:14px 18px 14px 18px;
+
+
+}
+
+.current li {
+  opacity: 1;
+}
+.current li.team {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+}
+.round-one .team{
+border-radius:5px;
+height:40px;
+padding:8px;
+
+}
+.team {
+  padding: 0 5px;
+  margin: 3px 0;
+  height: 25px;
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  color:rgba(0,0,0,1);
+  width:100%;
+}
+
+.team h6{
+
+  color:rgba(0,0,0,1);
+  font-size:12px;
+}
+
+.scoreA {
+  font-size: 12px;
+  text-transform: uppercase;
+  float: right;
+color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  right: 17px;
+  background:rgba(14,16,31,1);;
+  width:30px;
+  height:30px;
+  margin-top:-3px;
+  padding:3px;
+}
+.scoreAx {
+  font-size: 11px;
+  text-transform: uppercase;
+  float: right;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  right: 17px;
+  background:#64958f;
+  width:30px;
+}
+
+.score {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  width:30px;
+  margin-top:-10px;
+  position: absolute;
+  padding:7px;
+  margin-left:-10px;
+
+}
+
+#collapseExample{
+
+}
+
+.nextStage{
+border:0;
+padding:0;
+}
+
+</style>
+<body>
+<nav class="navbar fixed-top">
+    <a class="navbar-brand" href="/dashboard">
+        <!--    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">-->
+        ARCADE ARENA
+    </a>
+
+<div class="viewGrup">
+    <p>
+        <a class="linkView" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+           aria-controls="collapseExample">
+            <img style="filter:invert(1); opacity:.5;" src="/static/assets/visao.svg" height="45">
+        </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="container topStagecontainer text-center" id="faseGrupos">
+
+            <div class="round round-one current">
+                <ul id="{{grupo}}" class="matchup">
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<div class="channelBox text-left" id="channelBox"></div>
+<div class="line"></div>
+<div class="endBox text-left">
+    <button class="btn nextStage">
+        <img class="breakRound" src="/static/assets/bandeira-de-corrida.svg">
+        <p class="textENCERRAR">ENCERRAR</p>
+    </button>
+</div>
+
+
+<div class="container-fluid page_title text-center">
+    <h1>ARCADE ARENA</h1>
+    <p>dashboard</p>
+</div>
+
+
+<div class="container-fluid pd40">
+    <div class="row justify-content-md-center" id="mylist">
+
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+        integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+
+</body>
+<script>
+
+var socket = io.connect('http://' + document.domain + ':' + location.port) ;
+
+
+
+
+var playerSelect = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  equipe = [];
+
+  // Constructor
+  function Item(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,kills_oitava_1,kills_oitava_2,kills_quarta_1,kills_quarta_2,kills_semi_1,kills_semi_2,kills_final_1,kills_final_2,kills_finalLoser_1,kills_finalLoser_2,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo) {
+      this.id = id;
+    this.idplayer = idplayer;
+    this.idsquad = idsquad;
+    this.name = name;
+    this.kills_1 = kills_1;
+    this.kills_2 = kills_2;
+    this.kills_3 = kills_3;
+    this.kills_oitava_1 = kills_oitava_1;
+    this.kills_oitava_2 = kills_oitava_2;
+    this.kills_quarta_1 = kills_quarta_1;
+    this.kills_quarta_2 = kills_quarta_2;
+    this.kills_semi_1 = kills_semi_1;
+    this.kills_semi_2= kills_semi_1;
+    this.kills_final_1 = kills_final_1;
+    this.kills_final_2 = kills_final_2;
+    this.kills_finalLoser_1 = kills_finalLoser_1;
+    this.kills_finalLoser_2 = kills_finalLoser_2;
+
+
+    this.sKill = sKill;
+    this.sWins = sWins;
+    this.sTop5 = sTop5;
+    this.sDeaths = sDeaths;
+    this.sKD = sKD;
+    this.sLevel = sLevel;
+    this.jogo_ativo = jogo_ativo;
+  }
+
+
+  // Save Equipe
+  function saveEquipe() {
+    sessionStorage.setItem('playerSelect', JSON.stringify(equipe));
+  }
+
+
+
+
+
+
+    // Load Equipe
+  function loadEquipe() {
+    equipe = JSON.parse(sessionStorage.getItem('playerSelect'));
+  }
+  if (sessionStorage.getItem("playerSelect") != null) {
+    loadEquipe();
+  }
+
+
+
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var objEquipe = {};
+
+  // Add to cart
+  objEquipe.addItemToEquipe = function(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,kills_oitava_1,kills_oitava_2,kills_quarta_1,kills_quarta_2,kills_semi_1,kills_semi_2,kills_final_1,kills_final_2,kills_finalLoser_1,kills_finalLoser_2,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo) {
+      for(var item in equipe) {
+        if(equipe[item].id === id) {
+          return;
+        }
+      }
+      var item = new Item(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,kills_oitava_1,kills_oitava_2,kills_quarta_1,kills_quarta_2,kills_semi_1,kills_semi_2,kills_final_1,kills_final_2,kills_finalLoser_1,kills_finalLoser_2,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo);
+      equipe.push(item);
+      saveEquipe()
+    }
+
+    // Clear cart
+  objEquipe.clearEquipe = function() {
+    equipe = [];
+    saveEquipe()
+  }
+
+    // Update items from cart
+  objEquipe.updateItemFromCart = function(id,item,value) {
+    for(var i in equipe) {
+      if(equipe[i].id === id) {
+         sessionStorage.setItem(equipe[i].item, value);
+        break;
+      }
+    }
+    saveEquipe();
+  }
+
+
+   // Set count from KILL
+  objEquipe.setCountForItemKILL = function(id, kills, jogo_ativo) {
+
+    for(var i in equipe) {
+      if (equipe[i].id === id) {
+            if(jogo_ativo == 'R1J1'){
+            equipe[i].kills_1 = kills;
+            var item = 'kills_1'
+            }
+            if(jogo_ativo == 'R1J2'){
+            equipe[i].kills_2 = kills;
+            var item = 'kills_2'
+            }
+            if(jogo_ativo == 'R1J3'){
+            equipe[i].kills_3 = kills;
+            var item = 'kills_3'
+            }
+
+            if(jogo_ativo == 'R2J1'){
+            equipe[i].kills_oitava_1 = kills;
+            var item = 'kills_oitava_1'
+            }
+            if(jogo_ativo == 'R2J2'){
+            equipe[i].kills_oitava_2 = kills;
+            var item = 'kills_oitava_2'
+            }
+
+             if(jogo_ativo == 'R3J1'){
+            equipe[i].kills_quarta_1 = kills;
+            var item = 'kills_quarta_1'
+            }
+            if(jogo_ativo == 'R3J2'){
+            equipe[i].kills_quarta_2 = kills;
+            var item = 'kills_quarta_2'
+            }
+
+            if(jogo_ativo == 'R4J1'){
+            equipe[i].kills_semi_1 = kills;
+            var item = 'kills_semi_1'
+            }
+            if(jogo_ativo == 'R4J2'){
+            equipe[i].kills_semi_2 = kills;
+            var item = 'kills_semi_2'
+            }
+
+            if(jogo_ativo == 'FINAL_J1'){
+            equipe[i].kills_final_1 = kills;
+            var item = 'kills_final_1'
+            }
+            if(jogo_ativo == 'FINAL_J2'){
+            equipe[i].kills_final_2 = kills;
+            var item = 'kills_final_2'
+            }
+
+
+        playerSelect.updateItemFromCart(equipe[i].id,item,kills)
+        var killsSquad = playerSelect.totalKills(equipe[i].idsquad,jogo_ativo);
+
+        partidaBracket.updateItemFromCart(parseInt(equipe[i].idsquad),item,killsSquad);
+        partidaBracket.killsScoreCount(equipe[i].idsquad,killsSquad,jogo_ativo);
+        partidaBracket.totalCart(equipe[i].idsquad);
+
+
+      }
+    }
+    saveEquipe();
+  };
+
+    // SetNextStage
+  objEquipe.SetNextStagePlayer = function(idsquad,jogo_ativo) {
+    for(var i in equipe) {
+      if (parseInt(equipe[i].idsquad) === parseInt(idsquad)) {
+          if (jogo_ativo == 'R1J1'){
+            equipe[i].jogo_ativo = 'R1J2';
+            }
+            if (jogo_ativo == 'R1J2'){
+            equipe[i].jogo_ativo = 'R1J3';
+            }
+            if (jogo_ativo == 'R1J3'){
+            equipe[i].jogo_ativo = 'R1J1';
+            }
+
+            if (jogo_ativo == 'R2J1'){
+            equipe[i].jogo_ativo = 'R2J2';
+            }
+            if (jogo_ativo == 'R2J2'){
+            equipe[i].jogo_ativo = 'R2J1';
+            }
+
+
+
+
+      }
+    }
+   saveEquipe();
+  }
+
+  // Count cart
+  objEquipe.totalKills = function(idsquad,jogo_ativo) {
+    var totalKills = 0;
+    for(var i in equipe) {
+        if (parseInt(equipe[i].idsquad) === parseInt(idsquad)) {
+            if(jogo_ativo == 'R1J1'){
+                totalKills += equipe[i].kills_1;
+                }
+                if(jogo_ativo == 'R1J2'){
+                totalKills += equipe[i].kills_2;
+                }
+                if(jogo_ativo == 'R1J3'){
+                totalKills += equipe[i].kills_3;
+                }
+
+                if(jogo_ativo == 'R2J1'){
+                totalKills += equipe[i].kills_oitava_1;
+                }
+                if(jogo_ativo == 'R2J2'){
+                totalKills += equipe[i].kills_oitava_2;
+                }
+      }
+    }
+
+    return totalKills;
+  }
+
+
+
+  // List cart
+  objEquipe.listEquipe = function(idsquad) {
+  var cartCopy = [];
+  for(id in idsquad) {
+     for(i in equipe) {
+            if (parseInt(equipe[i].idsquad) === parseInt(idsquad[id])) {
+              item = equipe[i];
+              itemCopy = {};
+                  for(p in item) {
+                    itemCopy[p] = item[p];
+                  }
+              cartCopy.push(itemCopy)
+            }
+    }
+}
+
+    return cartCopy;
+  }
+
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return objEquipe;
+})();
+
+
+
+
+
+
+
+
+var partidaBracket = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  partida = [];
+  // Constructor
+  function Item(id,idsquad,name,
+  score_1,score_2,score_3, score_total,
+  kills_1,kills_2,kills_3,
+  rank_1,rank_2,rank_3,
+  score_oitava_1,score_oitava_2, score__total_oitava,
+  kills_oitava_1,kills_oitava_2,
+  rank_oitava_1,rank_oitava_2,
+  score_quarta_1,score_quarta_2, score__total_quarta,
+  kills_quarta_1,kills_quarta_2,
+  rank_quarta_1,rank_quarta_2,
+  score_semi_1,score_semi_2, score__total_semi,
+  kills_semi_1,kills_semi_2,
+  rank_semi_1,rank_semi_2,
+  score_final_1,score_final_2, score__total_final,
+  kills_final_1,kills_final_2,
+  rank_final_1,rank_final_2,
+  score_finalLoser_1,score_finalLoser_2, score__total_finalLoser,
+  kills_finalLoser_1,kills_finaLoser_2,
+  rank_finalLoser_1,rank_finalLoser_2,
+  stream,jogo_ativo,grupo,status,posicao) {
+    this.id = id;
+    this.idsquad = idsquad;
+    this.name = name;
+    this.kills_1 = kills_1;
+    this.kills_2 = kills_2;
+    this.kills_3 = kills_3;
+    this.rank_1 = rank_1;
+    this.rank_2 = rank_2;
+    this.rank_3 = rank_3;
+    this.score_1 =score_1;
+    this.score_2 =score_2;
+    this.score_3 = score_3;
+
+    this.score_oitava_1 = score_oitava_1;
+    this.score_oitava_2 = score_oitava_2;
+    this.score__total_oitava = score__total_oitava;
+    this.kills_oitava_1 = kills_oitava_1;
+    this.kills_oitava_2 = kills_oitava_2;
+    this.rank_oitava_1 = rank_oitava_1;
+    this.rank_oitava_2 = rank_oitava_2;
+
+    this.score_quarta_1 = score_quarta_1;
+    this.score_quarta_2 = score_quarta_2;
+    this.score__total_quarta = score__total_quarta;
+    this.kills_quarta_1 = kills_quarta_1;
+    this.kills_quarta_2 = kills_quarta_2;
+    this.rank_quarta_1 = rank_quarta_1;
+    this.rank_quarta_2 = rank_quarta_2;
+
+    this.score_semi_1= score_semi_1;
+    this.score_semi_2= score_semi_2;
+     this.score__total_semi= score__total_semi;
+    this.kills_semi_1= kills_semi_1;
+    this.kills_semi_2= kills_semi_2;
+    this.rank_semi_1= rank_semi_1;
+    this.rank_semi_2= rank_semi_2;
+
+    this.score_final_1= score_final_1;
+    this.score_final_2= score_final_2;
+    this.score__total_final= score__total_final;
+    this.kills_final_1= kills_final_1;
+    this.kills_final_2= kills_final_2;
+    this.rank_final_1= rank_final_1;
+    this.rank_final_2= rank_final_2;
+
+    this.score_finalLoser_1=score_finalLoser_1;
+    this.score_finalLoser_2=score_finalLoser_2;
+     this.score__total_finalLoser=score__total_finalLoser;
+    this.kills_finalLoser_1=kills_finalLoser_1;
+    this.kills_finaLoser_2=kills_finaLoser_2;
+    this.rank_finalLoser_1=rank_finalLoser_1;
+    this.rank_finalLoser_2=rank_finalLoser_2;
+    this.score_total = score_total;
+    this.jogo_ativo = jogo_ativo;
+    this.stream = stream;
+    this.grupo = grupo;
+    this.status = status;
+    this.posicao = posicao;
+  }
+
+
+  // Save cart
+  function saveCart() {
+    sessionStorage.setItem('partidaBracket', JSON.stringify(partida));
+  }
+
+    // Load cart
+  function loadCart() {
+    partida = JSON.parse(sessionStorage.getItem('partidaBracket'));
+  }
+  if (sessionStorage.getItem("partidaBracket") != null) {
+    loadCart();
+  }
+
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var obj = {};
+
+  // Add to cart
+  obj.addItemToCart = function(id,idsquad,name,
+  score_1,score_2,score_3, score_total,
+  kills_1,kills_2,kills_3,
+  rank_1,rank_2,rank_3,
+  score_oitava_1,score_oitava_2, score__total_oitava,
+  kills_oitava_1,kills_oitava_2,
+  rank_oitava_1,rank_oitava_2,
+  score_quarta_1,score_quarta_2, score__total_quarta,
+  kills_quarta_1,kills_quarta_2,
+  rank_quarta_1,rank_quarta_2,
+  score_semi_1,score_semi_2, score__total_semi,
+  kills_semi_1,kills_semi_2,
+  rank_semi_1,rank_semi_2,
+  score_final_1,score_final_2, score__total_final,
+  kills_final_1,kills_final_2,
+  rank_final_1,rank_final_2,
+  score_finalLoser_1,score_finalLoser_2, score__total_finalLoser,
+  kills_finalLoser_1,kills_finaLoser_2,
+  rank_finalLoser_1,rank_finalLoser_2,
+  stream,jogo_ativo,grupo,status,posicao) {
+      for(var item in partida) {
+        if(partida[item].id === id) {
+          return;
+        }
+      }
+
+      var item = new Item(id,idsquad,name,
+  score_1,score_2,score_3, score_total,
+  kills_1,kills_2,kills_3,
+  rank_1,rank_2,rank_3,
+  score_oitava_1,score_oitava_2, score__total_oitava,
+  kills_oitava_1,kills_oitava_2,
+  rank_oitava_1,rank_oitava_2,
+  score_quarta_1,score_quarta_2, score__total_quarta,
+  kills_quarta_1,kills_quarta_2,
+  rank_quarta_1,rank_quarta_2,
+  score_semi_1,score_semi_2, score__total_semi,
+  kills_semi_1,kills_semi_2,
+  rank_semi_1,rank_semi_2,
+  score_final_1,score_final_2, score__total_final,
+  kills_final_1,kills_final_2,
+  rank_final_1,rank_final_2,
+  score_finalLoser_1,score_finalLoser_2, score__total_finalLoser,
+  kills_finalLoser_1,kills_finaLoser_2,
+  rank_finalLoser_1,rank_finalLoser_2,
+  stream,jogo_ativo,grupo,status);
+      partida.push(item);
+      saveCart();
+    }
+
+
+    // Clear cart
+  obj.clearCart = function() {
+    partida = [];
+    saveCart();
+  }
+
+
+
+
+
+
+  // Set count from KILL
+  obj.setCountForItemKILLPartida = function(id, kills_1, jogo_ativo) {
+
+    for(var i in partida) {
+      if (partida[i].id === id) {
+        if (jogo_ativo == 'R1J1'){
+        partida[i].kills_1 = partida[i].kills_1 + kills_1;
+        break;
+        }
+        if (jogo_ativo == 'R1J2'){
+        partida[i].kills_2 = partida[i].kills_2 + kills_2;
+        break;
+        }
+        if (jogo_ativo == 'R1J3'){
+        partida[i].kills_3 = partida[i].kills_3 + kills_3;
+        break;
+        }
+
+        if (jogo_ativo == 'R2J1'){
+        partida[i].kills_oitava_1 = partida[i].kills_oitava_1 + kills_1;
+        break;
+        }
+        if (jogo_ativo == 'R2J2'){
+        partida[i].kills_oitava_2 = partida[i].kills_oitava_2 + kills_1;
+        break;
+        }
+
+
+
+
+      }
+    }
+  };
+
+
+  // Update items from cart
+  obj.updateItemFromCart = function(id,item,value) {
+    for(var i in partida) {
+      if(partida[i].idsquad === parseInt(id)) {
+         for (j in partida[i]){
+             if (j == item){
+             partida[i][j] = value
+                }
+            };
+        break;
+      }
+    }
+   saveCart();
+  }
+
+
+
+
+
+
+obj.SetCloseRound = function(idsquad){
+    for (id in idsquad){
+         for(var i in partida) {
+             if (parseInt(partida[i].idsquad) === parseInt(idsquad[id])) {
+                       partida[i].posicao = partida[i].grupo + '/' + (parseInt(id)+1);
+                       partida[i].jogo_ativo = 'R2J1';
+                      partida[i].status = 1;
+             }
+         }
+      saveCart();
+    }
+}
+
+
+
+
+  // SetNextStage
+  obj.SetNextStage = function(idsquad,jogo_ativo) {
+    for(var i in partida) {
+      if (parseInt(partida[i].idsquad) === parseInt(idsquad)) {
+          if (jogo_ativo == 'R1J1'){
+            partida[i].jogo_ativo = 'R1J2';
+            break;
+            }
+            if (jogo_ativo == 'R1J2'){
+            partida[i].jogo_ativo = 'R1J3';
+            break;
+            }
+            if (jogo_ativo == 'R1J3'){
+            partida[i].jogo_ativo = 'R1J1';
+            break;
+            }
+            if (jogo_ativo == 'R2J1'){
+            partida[i].jogo_ativo = 'R2J2';
+            break;
+            }
+            if (jogo_ativo == 'R2J2'){
+            partida[i].jogo_ativo = 'R2J1';
+            break;
+            }
+
+
+        break;
+      }
+    }
+   saveCart();
+  }
+
+
+
+
+
+  // Set count from rank
+  obj.setCountForItemRank = function(idsquad, rank,jogo_ativo) {
+    for(var i in partida) {
+      if (parseInt(partida[i].idsquad) === parseInt(idsquad)) {
+       partida[i][jogo_ativo] = rank;
+       var x = partidaBracket.setScoreRank(parseInt(rank));
+
+       if (jogo_ativo == 'rank_1'){
+        var killsSquad = playerSelect.totalKills(partida[i].idsquad,partida[i].jogo_ativo);
+        partida[i].score_1 = (killsSquad * parseInt({{regras.0.6}})) + x;
+        break;
+        }
+        if (jogo_ativo == 'rank_2'){
+        var killsSquad = playerSelect.totalKills(partida[i].idsquad,partida[i].jogo_ativo);
+        partida[i].score_2 = (killsSquad * parseInt({{regras.0.6}})) + x;
+        break;
+        }
+        if (jogo_ativo == 'rank_3'){
+        var killsSquad = playerSelect.totalKills(partida[i].idsquad,partida[i].jogo_ativo);
+        partida[i].score_3 = (killsSquad * parseInt({{regras.0.6}})) + x;
+        break;
+        }
+
+
+
+      }
+    }
+    saveCart();
+  };
+
+
+  // Set SCORE from rank
+  obj.setScoreRank = function(rank) {
+    var x = [] ;
+    if(rank == 0 ){
+    x.push(0) ;
+    }
+    if(rank == 1 ){
+    x.push({{regras.0.1}}) ;
+    }
+    if(rank == 2 ){
+    x.push({{regras.0.2}}) ;
+    }
+    if(rank == 3 ){
+    x.push({{regras.0.3}}) ;
+    }
+    if(3 < rank && rank < 11 ){
+    x.push({{regras.0.4}}) ;
+    }
+    if(10 < rank && rank < 16 ){
+    x.push({{regras.0.4}}) ;
+    }
+    if(rank > 15 ){
+    x.push(0) ;
+    }
+    return x[0];
+  };
+
+
+
+
+
+
+
+
+  obj.killsScoreCount = function(idsquad,killsSquad,jogo_ativo) {
+    var totalCount = killsSquad * parseInt({{regras.0.6}});
+    console.log(totalCount);
+    for(var i in partida) {
+    //console.log(partida[i].id);
+        if (parseInt(partida[i].idsquad) === parseInt(idsquad)) {
+            if (jogo_ativo == 'R1J1'){
+
+            partida[i].score_1 = totalCount + partidaBracket.setScoreRank(partida[i].rank_1);
+            break;
+            }
+            if (jogo_ativo == 'R1J2'){
+            partida[i].score_2 = totalCount + partidaBracket.setScoreRank(partida[i].rank_2);
+            break;
+            }
+            if (jogo_ativo == 'R1J3'){
+            partida[i].score_3 = totalCount + partidaBracket.setScoreRank(partida[i].rank_3);
+            break;
+            }
+
+            if (jogo_ativo == 'R2J1'){
+            console.log('achou');
+            partida[i].score_oitava_1 = totalCount + partidaBracket.setScoreRank(partida[i].rank_oitava_1);
+            break;
+            }
+            if (jogo_ativo == 'R2J2'){
+            partida[i].score_oitava_2 = totalCount + partidaBracket.setScoreRank(partida[i].rank_oitava_2);
+            break;
+            }
+
+
+      }
+    }
+   saveCart();
+
+  }
+
+
+
+
+
+
+  // Total cart
+  obj.totalCart = function(idsquad) {
+    var totalCart = 0;
+        for(var i in partida) {
+            if (parseInt(partida[i].idsquad) === parseInt(idsquad)) {
+                partida[i].score_total = parseInt(partida[i].score_1) + parseInt(partida[i].score_2) + parseInt(partida[i].score_3);
+                partida[i].score__total_oitava = parseInt(partida[i].score_oitava_1) + parseInt(partida[i].score_oitava_2);
+                partida[i].score__total_quarta = parseInt(partida[i].score_quarta_1) + parseInt(partida[i].score_quarta_1);
+                partida[i].score__total_semi = parseInt(partida[i].score_semi_) + parseInt(partida[i].score_semi_);
+                partida[i].score__total_final = parseInt(partida[i].score_final_1) + parseInt(partida[i].score_final_1);
+                partida[i].score__total_finalLoser = parseInt(partida[i].score_finalLoser_1) + parseInt(partida[i].score_finalLoser_1);
+           }
+        }
+        saveCart();
+    return totalCart;
+  }
+
+
+     // List cart
+  obj.listCartAll = function() {
+    var cartCopy = [];
+    for(i in partida) {
+      item = partida[i];
+      itemCopy = {};
+      for(p in item) {
+        itemCopy[p] = item[p];
+      }
+      cartCopy.push(itemCopy)
+    }
+    return cartCopy;
+  }
+
+
+
+
+
+  // List cart
+  obj.listCart = function(idsquad) {
+    var cartCopy = [];
+for(id in idsquad) {
+ for(i in partida) {
+        if (parseInt(partida[i].idsquad) === parseInt(idsquad[id])) {
+          item = partida[i];
+          itemCopy = {};
+              for(p in item) {
+                itemCopy[p] = item[p];
+              }
+          cartCopy.push(itemCopy)
+        }
+    }
+}
+
+
+
+    return cartCopy;
+  }
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return obj;
+})();
+
+
+
+function htmlToElements(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.childNodes;
+}
+
+$(document).ready(function () {
+//partidaBracket.clearCart();
+//playerSelect.clearEquipe();
+var checkGrupo = ({{ grupo|tojson }});
+
+var check = partidaBracket.listCartAll();
+
+
+    if(check.length == 0 ){
+    console.log('nao possui times');
+            var ativo = createTeam()
+            //console.log(ativo)
+            createPlayers(ativo[0])
+             displayCart(ativo[1]);
+
+    }
+    if(check.length != 0 ){
+    console.log('possui times');
+        for(var i in check) {
+           if(check[i].grupo === checkGrupo){
+            console.log('mesmo grupo');
+             displayCart(ativo[1]);
+        }
+          if(check[i].grupo != checkGrupo){
+                console.log('grupos diferente');
+               displayCart({{listaSquad|tojson}});
+                break;
+            }
+            }
+    }
+
+
+})
+
+
+
+
+
+function createTeam(){
+var myGeocode = [{{ round|tojson }}];
+var ativo = [];
+var listaSquad = [];
+
+myGeocode.forEach(function(x) {
+x.forEach(function(e) {
+var id = e[0];
+        var idsquad = e[3];
+        var name = e[4];
+        var score_1 = e[11];
+        var score_2 = e[12];
+        var score_3 = e[13];
+        var kills_1 = 0;
+        var kills_2 = 0;
+        var kills_3 = 0;
+        var rank_1 = 0;
+        var rank_2 = 0;
+        var rank_3 = 0;
+        var score_total = parseInt(e[11])+parseInt(e[12])+parseInt(e[13]);
+        var score_oitava_1 = e[14];
+var score_oitava_2 = e[15];
+var score__total_oitava = 0;
+var kills_oitava_1 = 0;
+var kills_oitava_2 = 0;
+var rank_oitava_1 = 0;
+var rank_oitava_2 = 0;
+var score_quarta_1 = e[16];
+var score_quarta_2 = e[17];
+var score__total_quarta = parseInt(e[16])+parseInt(e[17]);
+var kills_quarta_1 = 0;
+var kills_quarta_2 = 0;
+var rank_quarta_1 = 0;
+var rank_quarta_2 = 0;
+var score_semi_1 = e[18];
+var score_semi_2 = e[19];
+var score__total_semi = parseInt(e[18])+parseInt(e[19]);
+var kills_semi_1 = 0;
+var kills_semi_2 = 0;
+var rank_semi_1 = 0;
+var rank_semi_2 = 0;
+var score_final_1 = e[20];
+var score_final_2 = e[21];
+var score__total_final = parseInt(e[20])+parseInt(e[21]);
+var kills_final_1 = 0;
+var kills_final_2 = 0;
+var rank_final_1 = 0;
+var rank_final_2 = 0;
+var score_finalLoser_1 = 0;
+var score_finalLoser_2 = 0;
+var score__total_finalLoser = 0;
+var kills_finalLoser_1 = 0;
+var kills_finaLoser_2 = 0;
+var rank_finalLoser_1 = 0;
+var rank_finalLoser_2 = 0;
+                    var jogo_ativo = e[26];
+                    var stream = e[27];
+                    var grupo = e[22];
+                    ativo.push(jogo_ativo);
+                    listaSquad.push(idsquad);
+                    var status = e[9];
+                    var posicao = e[28]
+          partidaBracket.addItemToCart(id,parseInt(idsquad),name,
+  score_1,score_2,score_3, score_total,
+  kills_1,kills_2,kills_3,
+  rank_1,rank_2,rank_3,
+  score_oitava_1,score_oitava_2, score__total_oitava,
+  kills_oitava_1,kills_oitava_2,
+  rank_oitava_1,rank_oitava_2,
+  score_quarta_1,score_quarta_2, score__total_quarta,
+  kills_quarta_1,kills_quarta_2,
+  rank_quarta_1,rank_quarta_2,
+  score_semi_1,score_semi_2, score__total_semi,
+  kills_semi_1,kills_semi_2,
+  rank_semi_1,rank_semi_2,
+  score_final_1,score_final_2, score__total_final,
+  kills_final_1,kills_final_2,
+  rank_final_1,rank_final_2,
+  score_finalLoser_1,score_finalLoser_2, score__total_finalLoser,
+  kills_finalLoser_1,kills_finaLoser_2,
+  rank_finalLoser_1,rank_finalLoser_2,
+  stream,jogo_ativo,grupo,status,posicao);
+  })
+
+            })
+
+
+            return [ativo,listaSquad]
+
+}
+
+function createPlayers(ativo){
+var jogadores = {{ players|tojson }};
+    jogadores.forEach(function(player) {
+
+                  player.forEach(function(i) {
+
+                  var id = i[0];
+                  var idplayer = i[0];
+                  var idsquad = i[10];
+                  var name = i[2];
+                  var kills_1 = 0;
+                  var kills_2 = 0;
+                  var kills_3 = 0;
+
+                  var kills_oitava_1 = 0;
+                  var kills_oitava_2 = 0;
+                  var kills_quarta_1 = 0;
+                  var kills_quarta_2 = 0;
+
+                  var kills_semi_1 = 0;
+                  var kills_semi_2 =0;
+                  var kills_final_1 = 0;
+                  var kills_final_2 =0;
+                  var kills_finalLoser_1=0;
+                  var kills_finalLoser_2 =0;
+
+
+                  var sKill = i[3];
+                  var sWins = i[4];
+                  var sTop5 = i[5];
+                  var sDeaths = i[6];
+                  var sKD = i[7];
+                  var sLevel = i[11];
+
+                   playerSelect.addItemToEquipe(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,kills_oitava_1,kills_oitava_2,kills_quarta_1,kills_quarta_2,kills_semi_1,kills_semi_2,kills_final_1,kills_final_2,kills_finalLoser_1,kills_finalLoser_2,sKill,sWins,sTop5,sDeaths,sKD,sLevel,ativo[0]);
+                    });
+
+    });
+
+};
+
+function createVideoOFF(idsquad){
+     var a = document.createElement("a");
+     a.setAttribute('id', 'on');
+     a.setAttribute('class', 'off');
+     a.setAttribute('data', idsquad);
+   var img = document.createElement("img");
+   img.setAttribute('src', '/static/assets/video-chamada.svg');
+   img.setAttribute('height', '40px');
+   var text = document.createElement("p");
+   text.setAttribute('class', 'textOFF');
+   var textnode = document.createTextNode('OFF');
+   text.appendChild(textnode);
+   a.appendChild(img);
+   a.appendChild(text);
+   document.getElementById('channelBox').appendChild(a);
+
+}
+
+
+
+function displayCart(idsquad) {
+if(document.getElementById('{{grupo}}')){
+document.getElementById('{{grupo}}').innerHTML = '';
+}
+
+//playerSelect.clearEquipe();
+//partidaBracket.clearCart();
+
+var cartArray = partidaBracket.listCart(idsquad);
+console.log(cartArray)
+  var output = "";
+  var HTML = "";
+  for(var i in cartArray) {
+
+  document.getElementById('channelBox').innerHTML = '';
+    if(cartArray[i].jogo_ativo == 'R1J1'){
+     if (cartArray[i].stream == null){
+     createVideoOFF(idsquad);
+     }
+
+
+    output +=
+            '<div class="col-md-auto">' +
+                '<div class="card perfilBox">'+
+                    ' <div class="container-fluid headerTitle">'+
+                    '<h6>NOME DA EQUIPE || SQUAD</h6><h2>'+ cartArray[i].name + '</h2>'+
+                        '<div class="container-fluid text-center" >'+
+                            '<button  class="btn encerrar" name="'+cartArray[i].jogo_ativo+'" data="'+cartArray[i].idsquad+'">'+
+                                ' AVANÇAR PARTIDA <img class="next" src="/static/assets/avanco-rapido.svg" height="18">'+
+                             '</button>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="playerBoxInt">'+
+                        '<ul id='+cartArray[i].idsquad+ '>'+
+
+                        '</ul>'+
+                    '</div>'+
+                    ' <div class="container-fluid headerTitle2">'+
+                        '<div class="row">'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_partida'+cartArray[i].id+'" class="text-center">'+
+                                    cartArray[i].score_1+
+                                '</h2>'+
+                                '<h5>SCORE PARTIDA</h5>'+
+                            '</div>'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_total'+cartArray[i].id+'" class="text-center">'+
+                                cartArray[i].score_total+
+                                '</h2>'+
+                                '<h5>SCORE TOTAL</h5>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="container rankContainer text-center">'+
+                        '<div class="row">'+
+                            '<div class="col-8 fillCol">'+
+                                '<div class="row">'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox enable">'+
+                                            '<span>RANK</span><span class="game">JOGO 1</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_1" class="input-inputBox text-center"value="'+cartArray[i].rank_1+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox disabled">'+
+                                            '<span>RANK</span><span class="game">JOGO 2</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_2" class="input-inputBox text-center "value="'+cartArray[i].rank_2+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox disabled">'+
+                                            '<span>RANK</span><span class="game">JOGO 3</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text"  name="'+cartArray[i].idsquad+'" data="rank_3" class="input-inputBox text-center "value="'+cartArray[i].rank_3+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-4 fillCol">'+
+                                '<div class="container-fluid atualizarBox">'+
+                                    '<button id="'+cartArray[i].id+'hide"class=" atualizar">'+
+                                    '<img class="img" src="/static/assets/videogame.svg" height="60">'+
+                                    '</button>'+
+                                    '<div class="d-flex justify-content-center">'+
+                                        '<div id="'+cartArray[i].id+'hideSpinner" class="spinner-grow Spinner"role="status">'+
+                                            '<span class="sr-only">Loading...</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
+    }
+    if(cartArray[i].jogo_ativo == 'R1J2'){
+    output +=
+            '<div class="col-md-auto">' +
+                '<div class="card perfilBox">'+
+                    ' <div class="container-fluid headerTitle">'+
+                    '<h6>NOME DA EQUIPE || SQUAD</h6><h2>'+ cartArray[i].name + '</h2>'+
+                        '<div class="container-fluid text-center" >'+
+                            '<button  class="btn encerrar" name="'+cartArray[i].jogo_ativo+'" data="'+cartArray[i].idsquad+'">'+
+                                ' AVANÇAR PARTIDA <img class="next" src="/static/assets/avanco-rapido.svg" height="18">'+
+                             '</button>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="playerBoxInt">'+
+                        '<ul id='+cartArray[i].idsquad+ '>'+
+
+                        '</ul>'+
+                    '</div>'+
+                    ' <div class="container-fluid headerTitle2">'+
+                        '<div class="row">'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_partida'+cartArray[i].id+'" class="text-center">'+
+                                    cartArray[i].score_2+
+                                '</h2>'+
+                                '<h5>SCORE PARTIDA</h5>'+
+                            '</div>'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_total'+cartArray[i].id+'" class="text-center">'+
+                                cartArray[i].score_total+
+                                '</h2>'+
+                                '<h5>SCORE TOTAL</h5>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="container rankContainer text-center">'+
+                        '<div class="row">'+
+                            '<div class="col-8 fillCol">'+
+                                '<div class="row">'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox disabled">'+
+                                            '<span>RANK</span><span class="game">JOGO 1</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_1" class="input-inputBox text-center "value="'+cartArray[i].rank_1+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox enable">'+
+                                            '<span>RANK</span><span class="game">JOGO 2</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_2" class="input-inputBox text-center "value="'+cartArray[i].rank_2+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox disabled">'+
+                                            '<span>RANK</span><span class="game">JOGO 3</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_3" class="input-inputBox text-center "value="'+cartArray[i].rank_3+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-4 fillCol">'+
+                                '<div class="container-fluid atualizarBox">'+
+                                    '<button id="'+cartArray[i].id+'hide"class=" atualizar">'+
+                                    '<img class="img" src="/static/assets/videogame.svg" height="60">'+
+                                    '</button>'+
+                                    '<div class="d-flex justify-content-center">'+
+                                        '<div id="'+cartArray[i].id+'hideSpinner" class="spinner-grow Spinner"role="status">'+
+                                            '<span class="sr-only">Loading...</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
+
+
+    }
+    if(cartArray[i].jogo_ativo == 'R1J3'){
+    output +=
+            '<div class="col-md-auto">' +
+                '<div class="card perfilBox">'+
+                    ' <div class="container-fluid headerTitle">'+
+                    '<h6>NOME DA EQUIPE || SQUAD</h6><h2>'+ cartArray[i].name + '</h2>'+
+                        '<div class="container-fluid text-center" >'+
+                            '<button  class="btn encerrar" name="'+cartArray[i].jogo_ativo+'" data="'+cartArray[i].idsquad+'">'+
+                                ' AVANÇAR PARTIDA <img class="next" src="/static/assets/avanco-rapido.svg" height="18">'+
+                             '</button>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="playerBoxInt">'+
+                        '<ul id='+cartArray[i].idsquad+ '>'+
+
+                        '</ul>'+
+                    '</div>'+
+                    ' <div class="container-fluid headerTitle2">'+
+                        '<div class="row">'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_partida'+cartArray[i].id+'" class="text-center">'+
+                                    cartArray[i].score_3+
+                                '</h2>'+
+                                '<h5>SCORE PARTIDA</h5>'+
+                            '</div>'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_total'+cartArray[i].id+'" class="text-center">'+
+                                cartArray[i].score_total+
+                                '</h2>'+
+                                '<h5>SCORE TOTAL</h5>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="container rankContainer text-center">'+
+                        '<div class="row">'+
+                            '<div class="col-8 fillCol">'+
+                                '<div class="row">'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox disabled">'+
+                                            '<span>RANK</span><span class="game">JOGO 1</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_1"class="input-inputBox text-center "value="'+cartArray[i].rank_1+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox disabled">'+
+                                            '<span>RANK</span><span class="game">JOGO 2</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_2" class="input-inputBox text-center  "value="'+cartArray[i].rank_2+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox enable">'+
+                                            '<span>RANK</span><span class="game">JOGO 3</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_3" class="input-inputBox text-center  "value="'+cartArray[i].rank_3+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-4 fillCol">'+
+                                '<div class="container-fluid atualizarBox">'+
+                                    '<button id="'+cartArray[i].id+'hide"class=" atualizar">'+
+                                    '<img class="img" src="/static/assets/videogame.svg" height="60">'+
+                                    '</button>'+
+                                    '<div class="d-flex justify-content-center">'+
+                                        '<div id="'+cartArray[i].id+'hideSpinner" class="spinner-grow Spinner"role="status">'+
+                                            '<span class="sr-only">Loading...</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
+    }
+
+    if(cartArray[i].jogo_ativo == 'R2J1'){
+    console.log(cartArray[i]);
+    output +=
+            '<div class="col-md-auto">' +
+                '<div class="card perfilBox">'+
+                    ' <div class="container-fluid headerTitle">'+
+                    '<h6>NOME DA EQUIPE || SQUAD</h6><h2>'+ cartArray[i].name + '</h2>'+
+                        '<div class="container-fluid text-center" >'+
+                            '<button  class="btn encerrar" name="'+cartArray[i].jogo_ativo+'" data="'+cartArray[i].idsquad+'">'+
+                                ' AVANÇAR PARTIDA <img class="next" src="/static/assets/avanco-rapido.svg" height="18">'+
+                             '</button>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="playerBoxInt">'+
+                        '<ul id='+cartArray[i].idsquad+ '>'+
+                        '</ul>'+
+                    '</div>'+
+                    ' <div class="container-fluid headerTitle2">'+
+                        '<div class="row">'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_partida'+cartArray[i].id+'" class="text-center">'+
+                                    cartArray[i].score_oitava_1+
+                                '</h2>'+
+                                '<h5>SCORE PARTIDA</h5>'+
+                            '</div>'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_total'+cartArray[i].id+'" class="text-center">'+
+                                cartArray[i].score__total_oitava+
+                                '</h2>'+
+                                '<h5>SCORE TOTAL</h5>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="container rankContainer text-center">'+
+                        '<div class="row">'+
+                            '<div class="col-8 fillCol">'+
+                                '<div class="row">'+
+                                    '<div class="col-6">'+
+                                        '<div class="partidaBox enable">'+
+                                            '<span>RANK</span><span class="game">JOGO 1</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_oitava_1"class="input-inputBox text-center "value="'+cartArray[i].rank_oitava_1+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-6">'+
+                                        '<div class="partidaBox disabled">'+
+                                            '<span>RANK</span><span class="game">JOGO 2</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_oitava_2" class="input-inputBox text-center  "value="'+cartArray[i].rank_oitava_2+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-4 fillCol">'+
+                                '<div class="container-fluid atualizarBox">'+
+                                    '<button id="'+cartArray[i].id+'hide"class=" atualizar">'+
+                                    '<img class="img" src="/static/assets/videogame.svg" height="60">'+
+                                    '</button>'+
+                                    '<div class="d-flex justify-content-center">'+
+                                        '<div id="'+cartArray[i].id+'hideSpinner" class="spinner-grow Spinner"role="status">'+
+                                            '<span class="sr-only">Loading...</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
+
+    }
+    if(cartArray[i].jogo_ativo == 'R2J2'){
+
+    output +=
+            '<div class="col-md-auto">' +
+                '<div class="card perfilBox">'+
+                    ' <div class="container-fluid headerTitle">'+
+                    '<h6>NOME DA EQUIPE || SQUAD</h6><h2>'+ cartArray[i].name + '</h2>'+
+                        '<div class="container-fluid text-center" >'+
+                            '<button  class="btn encerrar" name="'+cartArray[i].jogo_ativo+'" data="'+cartArray[i].idsquad+'">'+
+                                ' AVANÇAR PARTIDA <img class="next" src="/static/assets/avanco-rapido.svg" height="18">'+
+                             '</button>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="playerBoxInt">'+
+                        '<ul id='+cartArray[i].idsquad+ '>'+
+                        '</ul>'+
+                    '</div>'+
+                    ' <div class="container-fluid headerTitle2">'+
+                        '<div class="row">'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_partida'+cartArray[i].id+'" class="text-center">'+
+                                    cartArray[i].score_oitava_2+
+                                '</h2>'+
+                                '<h5>SCORE PARTIDA</h5>'+
+                            '</div>'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_total'+cartArray[i].id+'" class="text-center">'+
+                                cartArray[i].score__total_oitava+
+                                '</h2>'+
+                                '<h5>SCORE TOTAL</h5>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="container rankContainer text-center">'+
+                        '<div class="row">'+
+                            '<div class="col-8 fillCol">'+
+                                '<div class="row">'+
+                                    '<div class="col-6">'+
+                                        '<div class="partidaBox enable">'+
+                                            '<span>RANK</span><span class="game">JOGO 1</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_oitava_1"class="input-inputBox text-center "value="'+cartArray[i].rank_oitava_1+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-6">'+
+                                        '<div class="partidaBox disabled">'+
+                                            '<span>RANK</span><span class="game">JOGO 2</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+cartArray[i].idsquad+'" data="rank_oitava_2" class="input-inputBox text-center  "value="'+cartArray[i].rank_oitava_2+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-4 fillCol">'+
+                                '<div class="container-fluid atualizarBox">'+
+                                    '<button id="'+cartArray[i].id+'hide"class=" atualizar">'+
+                                    '<img class="img" src="/static/assets/videogame.svg" height="60">'+
+                                    '</button>'+
+                                    '<div class="d-flex justify-content-center">'+
+                                        '<div id="'+cartArray[i].id+'hideSpinner" class="spinner-grow Spinner"role="status">'+
+                                            '<span class="sr-only">Loading...</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
+
+    }
+
+
+         var li = document.createElement("li");
+            li.setAttribute('class', 'team team-top');
+            li.setAttribute('data-percentage', cartArray[i].score_total);
+            li.setAttribute('data-id', cartArray[i].idsquad);
+            var textnode = document.createTextNode(cartArray[i].name);
+            li.appendChild(textnode);
+             var span = document.createElement("span");
+             span.setAttribute('class', 'scoreA');
+             var textnode2 = document.createTextNode(parseInt(cartArray[i].score_total));
+             span.appendChild(textnode2);
+             li.appendChild(span);
+             var span3 = document.createElement("span");
+             span3.setAttribute('class', 'scoreAx');
+             var textnode13 = document.createTextNode(parseInt(cartArray[i].score_3));
+             span3.appendChild(textnode13);
+             li.appendChild(span3)
+             var span2 = document.createElement("span");
+             span2.setAttribute('class', 'scoreAx');
+             var textnode12 = document.createTextNode(parseInt(cartArray[i].score_2));
+             span2.appendChild(textnode12);
+             li.appendChild(span2);
+            var span1 = document.createElement("span");
+             span1.setAttribute('class', 'scoreAx');
+             var textnode11 = document.createTextNode(parseInt(cartArray[i].score_1));
+             span1.appendChild(textnode11);
+             li.appendChild(span1);
+             document.getElementById('{{grupo}}').appendChild(li);
+
+  }
+  document.getElementById('mylist').innerHTML = output;
+
+  insertPlayer(idsquad);
+
+
+  $(".input-kills").on("input", function(){
+        // Print entered value in a div box
+         var id = parseInt($(this).attr('id'));
+         var kills = Number($(this).val());
+         var jogo_ativo = $(this).attr('name');
+
+        playerSelect.setCountForItemKILL(id,kills, jogo_ativo);
+        displayCart(idsquad);
+    });
+
+
+      $(".input-inputBox").on("input", function(){
+        // Print entered value in a div box
+         var jogo_ativo = $(this).attr('data');
+         var rank = Number($(this).val());
+         var idsquadW = $(this).attr('name');
+         console.log('kills');
+         console.log(jogo_ativo);
+         console.log(rank);
+         console.log(idsquadW);
+
+
+         //partidaBracket.setCountForItemRank(idsquadW, rank,jogo_ativo)
+        // partidaBracket.totalCart(idsquadW);
+           // displayCart(idsquad);
+    });
+
+    $(".encerrar").on("click", function(){
+        // Print entered value in a div box
+         var idsquadW = $(this).attr('data');
+         var jogo_ativo  = $(this).attr('name');
+        //partidaBracket.SetNextStage(idsquadW,jogo_ativo);
+        //playerSelect.SetNextStagePlayer(idsquadW,jogo_ativo);
+        displayCart(idsquad);
+    });
+
+    $(".off").on("click", function(){
+        // Print entered value in a div box
+         var status = $(this).attr('id');
+         var listaSquad  = $(this).attr('data');
+        displayCart(idsquad);
+    });
+
+sortList('{{grupo}}');
+socket.emit('receber partida', partidaBracket.listCart(idsquad));
+  }
+
+
+function insertPlayer(idsquad){
+
+ var PlayerArray = playerSelect.listEquipe(idsquad);
+  var output2 = "";
+  var HTML2 = "";
+  for(var i in PlayerArray) {
+  if (PlayerArray[i].jogo_ativo == 'R1J1'){
+    var rank  = PlayerArray[i].kills_1;
+  }
+   if (PlayerArray[i].jogo_ativo == 'R1J2'){
+    var rank  = PlayerArray[i].kills_2;
+  }
+   if (PlayerArray[i].jogo_ativo == 'R1J3'){
+    var rank  = PlayerArray[i].kills_3;
+  }
+   if (PlayerArray[i].jogo_ativo == 'R2J1'){
+    var rank  = PlayerArray[i].kills_oitava_1;
+  }
+   if (PlayerArray[i].jogo_ativo == 'R2J2'){
+    var rank  = PlayerArray[i].kills_oitava_2;
+  }
+
+  document.getElementById(PlayerArray[i].idsquad).innerHTML += '<li>'+
+                            '<div class="boxPlay vivo" id="'+PlayerArray[i].id + 'status">'+
+                                '<div class="row justify-content-md-center">'+
+                                    '<div class="col-6">'+
+                                        '<div class="flex">'+
+                                            '<div class="changeBox">'+
+                                                '<button style="" id="'+PlayerArray[i].id+'status" type="button" class="changeStatus" onclick="changeStatus(this.id); return false"></button>'+
+                                            '</div>'+
+                                            '<div>'+
+                                                '<h6 class="playerName">'+PlayerArray[i].name+'</h6>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-2 colorBox " data-toggle="tooltip" data-placement="top" title="Atualize as Kills">'+
+                                        '<input type="text" class="input-kills text-center" id="'+PlayerArray[i].id+'" value="'+rank+'" name="'+PlayerArray[i].jogo_ativo+'" >'+
+                                    '</div>'+
+                                    '<div class="col-2 ">'+
+                                        '<div class="imgXp flex">'+
+                                        '<div><img src="/static/assets/kill.svg" height="90"></div>'+
+                                        '<div class="kill"><p>kills</p></div>'+
+                                         '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                     '</li>';
+
+  }
+
+  }
+
+function sortList(ul) {
+  var ul = document.getElementById(ul);
+  Array.from(ul.getElementsByTagName("LI"))
+    .sort((a, b) => +b.dataset.percentage - +a.dataset.percentage)
+    .forEach(li => ul.appendChild(li));
+}
+
+
+
+function envia(){
+ partidaBracket.SetCloseRound(lista);
+ socket.emit('encerrar partida', partidaBracket.listCart(lista));
+
+ }
+
+  $(".nextStage").on("click", function(){
+      console.log('mudnando staus')
+         //playerSelect.SetCloseRound(idsquad);
+         var primeiro = document.querySelectorAll('.team')[0];
+         var segundo = document.querySelectorAll('.team')[1];
+         console.log(primeiro.dataset.id)
+         console.log(segundo.dataset.id)
+         lista = [primeiro.dataset.id,segundo.dataset.id]
+         envia(lista);
+          location.href ='/campeonatoSetup/{{nomeCampeonato}}/{{idcampeonato}}';
+
+    });
+
+
+</script>
+</html>

@@ -47,6 +47,19 @@ def SelectSql(table, coluna,value):
         return (str(e))
 
 
+def SelectSqlShort(table, coluna,value,ordenagem):
+    try:
+        c,conn = connection()
+        x = c.execute(f"""SELECT * FROM {table} WHERE {coluna}= '{value}' ORDER BY {ordenagem} DESC """)
+        if int(x) > 0:
+            myresult = c.fetchall()
+            return myresult
+        if int(x) == 0:
+            return False
+    except Exception as e:
+        print(f' ERROR:       {str(e)}')
+        return (str(e))
+
 def SelectSqlMulti(table, coluna1,value1,coluna2,value2):
     try:
         c,conn = connection()
@@ -59,6 +72,21 @@ def SelectSqlMulti(table, coluna1,value1,coluna2,value2):
     except Exception as e:
         print(f' ERROR:       {str(e)}')
         return (str(e))
+
+def SelectSqlMultiORDER(table, coluna1,value1,coluna2,value2,ordenagem):
+    try:
+        c,conn = connection()
+        x = c.execute(f"""SELECT * FROM {table} WHERE {coluna1}= '{value1}' AND {coluna2} = '{value2}' ORDER BY {ordenagem} DESC """)
+        if int(x) > 0:
+            myresult = c.fetchall()
+            return myresult
+        if int(x) == 0:
+            return False
+    except Exception as e:
+        print(f' ERROR:       {str(e)}')
+        return (str(e))
+
+
 def SelectSqlMulti3(table, coluna1,value1,coluna2,value2,coluna3,value3):
     try:
         c,conn = connection()
@@ -93,7 +121,7 @@ def UpdateQuerySql(mydict,table,item,modifica):
             sql = (f"""UPDATE `{table}` SET `{coluna}` = '{value}' WHERE (`{item}` = '{modifica}');""")
             c.execute(sql)
             conn.commit()
-            print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > DATA {mydict}{{status :: OK}} .... ')
+        print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > DATA {mydict}{{status :: OK}} .... ')
     except Exception as e:
         print(f' ERROR:       {str(e)}')
         return (str(e))
@@ -113,7 +141,20 @@ def UpdateQuerySqlMulti(mydict,table,coluna1,value1,coluna2,value2):
         print(f' ERROR:       {str(e)}')
         return (str(e))
 
-
+def UpdateQuerySqlMulti3(mydict,table,coluna1,value1,coluna2,value2,coluna3,value3):
+    print(' ATUALIZANDO DADOS .... ')
+    try:
+        c, conn = connection()
+        for k in mydict:
+            coluna = (k)
+            value = (mydict[k])
+            sql = (f"""UPDATE `{table}` SET `{coluna}` = '{value}' WHERE (`{coluna1}` = '{value1}' AND `{coluna2}` = '{value2}' AND `{coluna3}` = '{value3}');""")
+            c.execute(sql)
+            conn.commit()
+            print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > DATA {mydict}{{status :: OK}} .... ')
+    except Exception as e:
+        print(f' ERROR:       {str(e)}')
+        return (str(e))
 
 
 def check_user_Login(login):
