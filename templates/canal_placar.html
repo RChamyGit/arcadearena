@@ -10,20 +10,19 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
-
+ <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <title>Hello, world!</title>
 </head>
 <style>
     body{
+          font-family: 'Staatliches', cursive;
+   width:1920px;
+ height:1080px;
+background:none;
 
-     display:flex;
-     flex-direction:column;
 
-       font-family: "Abel", sans-serif;
-background:transparent;
-overscroll-behavior-y: none;
-overflow-x: hidden;
+
    }
 
 
@@ -49,8 +48,9 @@ ul {
 }
 
 
+
 .round-one .matchup{
-width:400px;
+margin:20px;
 background:#e8e8e8;
 padding:14px 18px 14px 18px;
 
@@ -71,76 +71,56 @@ height:40px;
 padding:8px;
 
 }
-.team {
-  padding: 0 5px;
-  margin: 3px 0;
-  height: 25px;
-  line-height: 25px;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-  color:rgba(255,255,255,1);
-  width:100%;
-}
 
-.team h6{
-
-  color:rgba(0,0,0,1);
-  font-size:12px;
-}
-
-.scoreA {
-  font-size: 12px;
-  text-transform: uppercase;
-  float: right;
-color: #fff;
-  font-weight: bold;
-  font-family: "Roboto Condensed", sans-serif;
-  right: 17px;
-  background:rgba(14,16,31,1);;
-  width:30px;
-  height:30px;
-  margin-top:-3px;
-  padding:3px;
-}
-.scoreAx {
-  font-size: 11px;
-  text-transform: uppercase;
-  float: right;
-  color: #fff;
-  font-weight: bold;
-  font-family: "Roboto Condensed", sans-serif;
-  right: 17px;
-  background:#64958f;
-  width:30px;
-}
-
-.score {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #000;
-  font-weight: bold;
-  font-family: "Roboto Condensed", sans-serif;
-  width:30px;
-  margin-top:-10px;
-  position: absolute;
-  padding:7px;
-  margin-left:-10px;
-
-}
-
-#collapseExample{
-
-}
 
 
 .pd40{
-width:300px;
-background:rgba(14,16,31,.32);
+width:580px;
+background:#000;
+padding:5px;
 position:absolute;
-transform:scale(1.5);
-margin-left:50px;
-margin-top:30px;
+}
+
+.flex{display:flex;}
+
+
+.flame{
+  width:55%;
+}
+
+.topLine2{
+font-size:20px;
+letter-spacing:2px;
+color:rgba(255,255,255,.8);
+}
+.flame2{
+padding-left:10px;
+
+}
+.flame3{
+width:220px;
+}
+
+.subflame2{
+  width:65px;
+
+}
+
+
+
+.over, .over .subflame2{
+padding:2px;
+color:#e0bb20;
+}
+.get{
+margin-left:20px;
+}
+
+.banner{
+color:#e0bb20;
+font-size:32px;
+width:100%;
+padding:10px;
 }
 
 
@@ -149,12 +129,22 @@ margin-top:30px;
 <body>
 
 
+<div class="container-fluid pd40 text-center">
 
-<div class="container-fluid pd40">
-    <ul class="row justify-content-md-center" id="mylist">
-
+    <ul class="none flex">
+        <li id="mylist_display" class="topLine2 flex over">
+            <div class="flame3 text-center">SQUADS</div>
+            <div class="subflame2 text-center">J1</div>
+            <div class="subflame2 text-center">J2</div>
+            <div class="subflame2 text-center">J3</div>
+            <div class="subflame2 text-center">TOTAL</div>
+        </li>
     </ul>
+    <ul class="row text-center" id="mylist">
+    </ul>
+    <div id="banner" class="banner text-center"></div>
 </div>
+
 
 
 <!-- Optional JavaScript -->
@@ -183,266 +173,32 @@ var socket = io.connect('http://' + document.domain + ':' + location.port) ;
 
 
 
-var playerSelect = (function() {
-  // =============================
-  // Private methods and propeties
-  // =============================
-  equipe = [];
-
-  // Constructor
-  function Item(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo) {
-      this.id = id;
-    this.idplayer = idplayer;
-    this.idsquad = idsquad;
-    this.name = name;
-    this.kills_1 = kills_1;
-    this.kills_2 = kills_2;
-    this.kills_3 = kills_3;
-    this.sKill = sKill;
-    this.sWins = sWins;
-    this.sTop5 = sTop5;
-    this.sDeaths = sDeaths;
-    this.sKD = sKD;
-    this.sLevel = sLevel;
-    this.jogo_ativo = jogo_ativo;
-  }
-
-
-  // Save Equipe
-  function saveEquipe() {
-    sessionStorage.setItem('playerSelect', JSON.stringify(equipe));
-  }
-
-
-
-
-
-
-    // Load Equipe
-  function loadEquipe() {
-    equipe = JSON.parse(sessionStorage.getItem('playerSelect'));
-  }
-  if (sessionStorage.getItem("playerSelect") != null) {
-    loadEquipe();
-  }
-
-
-
-
-  // =============================
-  // Public methods and propeties
-  // =============================
-  var objEquipe = {};
-
-  // Add to cart
-  objEquipe.addItemToEquipe = function(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo) {
-      for(var item in equipe) {
-        if(equipe[item].id === id) {
-          return;
-        }
-      }
-      var item = new Item(id,idplayer, idsquad, name,kills_1,kills_2,kills_3,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo);
-      equipe.push(item);
-      saveEquipe()
-    }
-
-    // Clear cart
-  objEquipe.clearEquipe = function() {
-    equipe = [];
-    saveEquipe()
-  }
-
-
-
-  // List cart
-  objEquipe.listEquipe = function(idsquad) {
-  var cartCopy = [];
-  for(id in idsquad) {
-     for(i in equipe) {
-            if (parseInt(equipe[i].idsquad) === parseInt(idsquad[id])) {
-              item = equipe[i];
-              itemCopy = {};
-                  for(p in item) {
-                    itemCopy[p] = item[p];
-                  }
-              cartCopy.push(itemCopy)
-            }
-    }
-}
-
-    return cartCopy;
-  }
-
-
-  // cart : Array
-  // Item : Object/Class
-  // addItemToCart : Function
-  // removeItemFromCart : Function
-  // removeItemFromCartAll : Function
-  // clearCart : Function
-  // countCart : Function
-  // totalCart : Function
-  // listCart : Function
-  // saveCart : Function
-  // loadCart : Function
-  return objEquipe;
-})();
-
-
-
-
-
-
-
-
-var partidaBracket = (function() {
-  // =============================
-  // Private methods and propeties
-  // =============================
-  partida = [];
-
-  // Constructor
-  function Item(id,idsquad, name,score_1,score_2,score_3, score_total,kills_1,kills_2,kills_3,rank_1,rank_2,rank_3,stream,jogo_ativo,grupo) {
-  this.id = id;
-    this.idsquad = idsquad;
-    this.name = name;
-    this.kills_1 = kills_1;
-    this.kills_2 = kills_2;
-    this.kills_3 = kills_3;
-
-    this.rank_1 = rank_1;
-    this.rank_2 = rank_2;
-    this.rank_3 = rank_3;
-
-    this.score_1 =score_1;
-    this.score_2 =score_2;
-    this.score_3 = score_3;
-
-    this.score_total = score_total;
-    this.jogo_ativo = jogo_ativo;
-    this.stream = stream;
-
-    this.grupo = grupo;
-
-  }
-
-
-  // Save cart
-  function saveCart() {
-    sessionStorage.setItem('partidaBracket', JSON.stringify(partida));
-  }
-
-    // Load cart
-  function loadCart() {
-    partida = JSON.parse(sessionStorage.getItem('partidaBracket'));
-  }
-  if (sessionStorage.getItem("partidaBracket") != null) {
-    loadCart();
-  }
-
-
-  // =============================
-  // Public methods and propeties
-  // =============================
-  var obj = {};
-
-  // Add to cart
-  obj.addItemToCart = function(id,idsquad, name,score_1,score_2,score_3, score_total,kills_1,kills_2,kills_3,rank_1,rank_2,rank_3,stream,jogo_ativo,grupo) {
-      for(var item in partida) {
-        if(partida[item].id === id) {
-
-          return;
-        }
-      }
-      var item = new Item(id,idsquad, name,score_1,score_2,score_3, score_total,kills_1,kills_2,kills_3,rank_1,rank_2,rank_3,stream,jogo_ativo,grupo);
-      partida.push(item);
-
-      saveCart();
-    }
-
-    // Clear cart
-  obj.clearCart = function() {
-    partida = [];
-    saveCart();
-  }
-
-
-
-  // List cart
-  obj.listCart = function(idsquad) {
-
-    var cartCopy = [];
-for(id in idsquad) {
- for(i in partida) {
-        if (parseInt(partida[i].idsquad) === parseInt(idsquad[id])) {
-          item = partida[i];
-          itemCopy = {};
-              for(p in item) {
-                itemCopy[p] = item[p];
-              }
-          cartCopy.push(itemCopy)
-        }
-    }
-}
-
-
-
-    return cartCopy;
-  }
-
-  // cart : Array
-  // Item : Object/Class
-  // addItemToCart : Function
-  // removeItemFromCart : Function
-  // removeItemFromCartAll : Function
-  // clearCart : Function
-  // countCart : Function
-  // totalCart : Function
-  // listCart : Function
-  // saveCart : Function
-  // loadCart : Function
-  return obj;
-})();
-
-
-
-
 
 $(document).ready(function () {
+
 socket.on('partida', function(cartArray){
+console.log(cartArray)
 var output = "";
   var HTML = "";
+
     for(var i in cartArray) {
-     var soma = parseInt(cartArray[i].score_1) + parseInt(cartArray[i].score_2) + parseInt(cartArray[i].score_3);
-    output += '<li class="team team-top text-center">'+ cartArray[i].name +
-    '<span class="scoreA">'+soma+'</span>'+
-    '<span class="scoreAx">'+cartArray[i].score_1+'</span>'+
-    '<span class="scoreAx">'+cartArray[i].score_2+'</span>'+
-    '<span class="scoreAx">'+cartArray[i].score_3+'</span>'+
+
+
+    output += '<li class="topLine2 flex get">'+
+     '<div class="flame3 text-center">'+ cartArray[i].name +'</div>'+
+    '<div class="subflame2 text-center">'+cartArray[i].score_1+'</div>'+
+    '<div class="subflame2 text-center">'+cartArray[i].score_2+'</div>'+
+    '<div class="subflame2 text-center">'+cartArray[i].score_3+'</div>'+
+    '<div class="subflame2 text-center">'+cartArray[i].score_total+'</div>'+
     '</li>';
-
+    document.getElementById('banner').innerHTML = cartArray[i].grupo;
     }
+
     document.getElementById('mylist').innerHTML = output;
-
-
-
    })
 
 
-
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -24,6 +24,7 @@
    min-height:100vh;
    padding-top:90px;
    padding-bottom:90px;
+
    }
 
     .page_title{
@@ -49,11 +50,11 @@ margin:15px;
 justify-content:center;
 border-radius:10px;
 box-shadow: 2px 2px 8px rgba(0,0,0,.99);
+width:380px;
 }
 
 
 .boxPlay{
-
 margin-bottom:4px;
 width:100%;
      text-transform: uppercase;
@@ -63,9 +64,7 @@ width:100%;
 
 }
 
-.vivo{
-border-left:9px solid #3BBD0B;
-}
+
 
 .morto{
 border-left:9px solid #C20C1D;
@@ -75,8 +74,8 @@ opacity:0.5;
 .playerName{
 color: rgba(255,255,255,0.7);
 margin-top:6px;
-font-size:14px;
-padding:5px;
+font-size:12px;
+padding:4px;
 }
 
 ul{
@@ -87,12 +86,13 @@ ul{
 
 
 .input-kills{
-width:45px;
+width:30px;
 background:none;
 border:0;
 margin-top:5px;
-margin-left:-4px;
+margin-left:-14px;
 color:rgba(222,222,222,.5);
+font-size:14px;
 }
 
 button:active {
@@ -124,7 +124,7 @@ padding-top:2px;
 .imgXp{
 width:60px;
 overflow:hidden;
-height:40px;
+height:25px;
 
 }
 
@@ -173,10 +173,9 @@ height:auto;
 }
 
 .partidaBox{
-height:70px;
+padding:3px;
 margin-top:10px;
 margin-bottom:10px;
-
 width:65px;
    background:rgba(14,16,31,0.6);
 display:flex;
@@ -188,7 +187,7 @@ display:flex;
 
 .partidaBox span{
 color: rgba(255,255,255,0.4);
-font-size:12px;
+font-size:11px;
 }
 
 
@@ -204,7 +203,7 @@ border:0;
 }
 
 .inputBox{
-height:30px;
+height:35px;
 
 }
 
@@ -239,7 +238,7 @@ color: rgba(255,255,255,1);
 transition: 1s;
 padding:6px;
 position:absolute;
-margin-left:95px;
+margin-left:70px;
 margin-top:-70px;
 font-size:9px;
 opacity:0.77;
@@ -255,16 +254,42 @@ color:#fff;
 
 
 
-.changeStatus{
-width:10px;
-height:55px;
-position:absolute;
-margin-top:-10px;
-margin-left:-20px;
-background:none;
-border:0;
+.changeBox{
 }
 
+.vivo{
+opacity:1;
+-webkit-transition:  1s;
+  -moz-transition:  1s;
+  -ms-transition:  1s;
+  -o-transition:  1s;
+  transition:  1s;
+  transition-timing-function: ease-in-out;
+width:auto;
+padding:2px;
+margin-top:2px;
+background:none;
+border:none;
+}
+.btn{
+border:none;
+}
+.changeStatus{
+width:auto;
+padding:2px;
+margin-left:-40px;
+background:none;
+border:none;
+margin-right:2px;
+margin-top:2px;
+opacity:0.5;
+-webkit-transition:  1s;
+  -moz-transition:  1s;
+  -ms-transition:  1s;
+  -o-transition:  1s;
+  transition:  1s;
+   transition-timing-function: ease-in-out;
+}
 .headerTitle{
 width:100%;
 padding:5px;
@@ -320,7 +345,7 @@ position:absolute;
 font-size:13px;
 background:rgba(222,222,222,1);
 padding:5px;
-right:60px;
+right:40px;
 margin-top:-6px;
 }
 
@@ -342,9 +367,8 @@ font-size:25px;
 }
 
 .disabled{
-opacity:0.5;
+opacity:0.3;
 pointer-events: none;
-
 }
 
 .enable{
@@ -364,22 +388,21 @@ margin-bottom:15px;
 
 
 .channelBox{
-position:fixed;
-top:105px;
-margin-left:45px;
-z-index:999999999;
+
+padding-right:10px;
+
 }
 
 .endBox{
-position:fixed;
-bottom:120px;
+position:absolute;
+right:100px;
 margin-left:45px;
 z-index:999999999;
 background:none;
 border:2px solid rgba(255,255,255,.45);
 padding:10px;
 border-radius:50%;
-
+transform:scale(0.75);
 background:rgba(14,16,31,1);
 }
 
@@ -524,7 +547,7 @@ ul {
 
 
 .game{
-margin-top:-8px;}
+margin-top:-7px;}
 
 
 
@@ -572,6 +595,7 @@ padding:14px 18px 14px 18px;
 
 .current li {
   opacity: 1;
+  font-size:12px;
 }
 .current li.team {
   background-color: #fff;
@@ -606,12 +630,11 @@ padding:8px;
   font-size: 12px;
   text-transform: uppercase;
   float: right;
-color: #fff;
+color: #000;
   font-weight: bold;
   font-family: "Roboto Condensed", sans-serif;
-  right: 17px;
-  background:rgba(14,16,31,1);;
-  width:30px;
+
+  width:90px;
   height:30px;
   margin-top:-3px;
   padding:3px;
@@ -620,12 +643,11 @@ color: #fff;
   font-size: 11px;
   text-transform: uppercase;
   float: right;
-  color: #fff;
+  color: #000;
   font-weight: bold;
   font-family: "Roboto Condensed", sans-serif;
   right: 17px;
-  background:rgba(0,0,0,.12);
-  width:30px;
+  width:45px;
 }
 
 .score {
@@ -647,6 +669,21 @@ color: #fff;
 }
 
 
+.topLine2{
+font-size:10px;
+color:#c72c41;
+width:100%:}
+.flame2{
+width:90px;
+}
+.flame3{
+width:180px;
+}
+
+.subflame2{
+  width:45px;
+}
+
 
 </style>
 <body>
@@ -655,6 +692,14 @@ color: #fff;
         <!--    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">-->
         ARCADE ARENA
     </a>
+     <div class="channelBox text-left" id="channelBox">
+        <img src="/static/assets/viver.svg" height="40">
+    </div>
+    <a class="endBox text-left"  data-id="{{idcampeonato}}" data-status="{{status}}">
+    <img class="breakRound" src="/static/assets/bandeira-de-corrida.svg">
+    <p class="textENCERRAR">ENCERRAR</p>
+</a>
+
 
 <div class="viewGrup">
     <p>
@@ -667,7 +712,13 @@ color: #fff;
         <div class="container topStagecontainer text-center" id="faseGrupos">
 
             <div class="round round-one current">
-                <ul id="{{grupo}}" class="matchup">
+                <ul id="view" class="matchup">
+                    <li class="topLine2 flex">
+                        <div class="flame3 text-center">SQUADS</div>
+                        <div class="subflame2">JOGO 1</div>
+                        <div class="subflame2">JOGO 2</div>
+                        <div class="flame2">TOTAL</div>
+                    </li>
 
                 </ul>
 
@@ -676,12 +727,8 @@ color: #fff;
     </div>
 </div>
 </nav>
-<div class="channelBox text-left" id="channelBox"></div>
-<div class="line"></div>
-<div class="endBox text-left" onclick="SubmitStatus()">
-    <img class="breakRound" src="/static/assets/bandeira-de-corrida.svg">
-    <p class="textENCERRAR">ENCERRAR</p>
-</div>
+
+
 
 
 <div class="container-fluid page_title text-center">
@@ -691,174 +738,9 @@ color: #fff;
 
 
 <div class="container-fluid pd40">
-    <!--    <input type="hidden" id="campeonato" name="statusPlayer" value="{{campeonato}}">-->
-    <!--    <input type="hidden" id="grupo" name="statusPlayer" value="{{grupo}}">-->
-    <input type="hidden" id="url" name="statusPlayer" value="{{url}}">
-    <div class="row justify-content-md-center">
-        {% for equipe in players %}
+    <div class="row justify-content-md-center" id="mylist">
 
-        <div class="col-md-auto ">
-            <div class="card perfilBox" id="{{equipe.0.idSquad}}hidecontainer">
-                <div class="container-fluid headerTitle">
-                    <h6>NOME DA EQUIPE || SQUAD</h6>
-                    <h2>{{equipe.0.squad}}</h2>
-                    <div class="container-fluid text-center" id="{{equipe.0.jogo}}NextSelect">
-                        <button id="{{equipe.0.jogo}}" class="btn encerrar"
-                                onclick="nextStage( this.id,{{equipe.0.idSquad}} , {{equipe.0.idrank}})">
-                            AVANÇAR PARTIDA <img class="next" src="/static/assets/avanco-rapido.svg"
-                                                 height="18">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="playerBoxInt">
-                    <ul>
-                        {% for player in equipe %}
-                        <li>
-                            <div class="boxPlay vivo" id="{{player.idplayer}}status">
-                                <input type="hidden" id="{{player.idplayer}}statusInput" name="statusPlayer"
-                                       value="{{player.status}}">
-                                <div class="row justify-content-md-center">
-                                    <div class="col-6">
-                                        <div class="flex">
-                                            <div class="changeBox">
-                                                <button style="" id="{{player.idplayer}}" type="button"
-                                                        class="changeStatus"
-                                                        onclick="changeStatus(this.id); return false"></button>
-                                            </div>
-                                            <div class="">
-                                                <h6 class="playerName">{{player.player}}</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2 colorBox " data-toggle="tooltip" data-placement="top"
-                                         title="Atualize as Kills">
-                                        <input type="text" class="input-kills text-center"
-                                               id="{{player.jogo}}/{{player.idrank}}" name="{{player.jogo}}"
-                                               value="{{player.kills}}"
-                                               onchange="submitKills(this.value,{{player.idrank}},{{equipe.0.idSquad}},{{equipe.0.idcampeonato}}, this.id, this.name)">
-
-                                        <!--                                    <input type="hidden" class="selectInput" name="{{player.idplayer}}kills"-->
-                                        <!--                                           id="{{player.idplayer}}killsSelect" value="{{player.kills}}">-->
-                                    </div>
-                                    <div class="col-2 ">
-                                        <div class="imgXp flex">
-                                            <div>
-                                                <img src="/static/assets/kill.svg" height="90">
-                                            </div>
-                                            <div class="kill">
-                                                <p>kills</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="container-fluid headerTitle2">
-                    <div class="row">
-                        <div class="col-6 text-right">
-                            <h2 id="score_partida{{equipe.0.idSquad}}" class="text-center">
-                                {{equipe.0.score_equipe}}</h2>
-                            <h5>SCORE PARTIDA</h5>
-                        </div>
-                        <div class="col-6 text-right">
-                            <h2 id="score_total{{equipe.0.idSquad}}" class="text-center">{{equipe.0.score_total}}</h2>
-                            <h5>SCORE TOTAL</h5>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="container rankContainer text-center">
-                    <div class="row">
-                        <div class="col-8 fillCol">
-
-                            <div class="row">
-                                {% if equipe.0.status != 1 %}
-                                <div class="col-4">
-                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J1' %}enable{%else%} disabled{%endif%}">
-                                        <span>RANK</span>
-                                        <span class="game">JOGO 1</span>
-                                        {% if equipe.0.jogo == 'R1J1' %}
-                                        <div class="inputBox ">
-                                            <input type="text"
-                                                   id="{% if equipe.0.jogo == 'R1J1' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
-                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J1' %}enable{%else%} disabled{%endif%}"
-                                                   name="{{equipe.0.jogo}}"
-                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
-                                                   value="{{equipe.0.rank_partida}}">
-                                        </div>
-                                        {%endif%}
-                                    </div>
-                                </div>
-                                <div class="col-4 ">
-                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J2' %}enable{%else%} disabled{%endif%}">
-                                        <span>RANK</span>
-                                        <span class="game">JOGO 2</span>
-                                        {% if equipe.0.jogo == 'R1J2' %}
-                                        <div class="inputBox ">
-                                            <input type="text"
-                                                   id="{% if equipe.0.jogo == 'R1J2' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
-                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J2' %}enable{%else%} disabled{%endif%}"
-                                                   name="{{equipe.0.jogo}}"
-                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
-                                                   value="{{equipe.0.rank_partida}}">
-                                        </div>
-                                        {%endif%}
-                                    </div>
-                                </div>
-                                <div class="col-4 ">
-                                    <div class="partidaBox {% if equipe.0.jogo == 'R1J3' %}enable{%else%} disabled{%endif%}">
-                                        <span>RANK</span>
-                                        <span class="game">JOGO 3</span>
-                                        {% if equipe.0.jogo == 'R1J3' %}
-                                        <div class="inputBox ">
-                                            <input type="text"
-                                                   id="{% if equipe.0.jogo == 'R1J3' %}{{equipe.0.idSquad}}{{equipe.0.jogo}}rankPartida{%endif%}"
-                                                   class="input-inputBox text-center {% if equipe.0.jogo == 'R1J3' %}enable{%else%} disabled{%endif%}"
-                                                   name="{{equipe.0.jogo}}"
-                                                   onchange="submitRank(this.value, {{equipe.0.idSquad}},{{equipe.0.idrank}},{{equipe.0.idcampeonato}},this.name)"
-                                                   value="{{equipe.0.rank_partida}}">
-                                        </div>
-                                        {%endif%}
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <!--                            <p class="rankingText">POSIÇÃO DA EQUIPE NA PARTIDA</p>-->
-
-                        </div>
-                        <div class="col-4 fillCol">
-                            <div class="container-fluid atualizarBox">
-                                <button id="{{equipe.0.idSquad}}hide"
-                                        class=" atualizar">
-                                    <img class="img" src="/static/assets/videogame.svg" height="60">
-                                </button>
-                                <div class="d-flex justify-content-center">
-                                    <div id="{{equipe.0.idSquad}}hideSpinner" class="spinner-grow Spinner"
-                                         role="status">
-                                        <span class="sr-only">Loading...</span>
-                                    </div>
-                                    <!--                                    <p id="{{equipe.0.idSquad}}hideSpinnerText" class="spintext">SALVANDO...</p>-->
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-        {% endfor %}
     </div>
-
 </div>
 
 
@@ -886,230 +768,298 @@ color: #fff;
 var socket = io.connect('http://' + document.domain + ':' + location.port) ;
 
 
-function APIChannel(data){
-socket.emit('refresh_channel', data);
-}
 
 
+var playerSelect = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  equipe = [];
 
-function APIkills(data){
-SpinningStart(data.idsquad);
-socket.emit('refresh_kills', data);
-}
+  // Constructor
+  function Item(id,idplayer, idsquad, name,kills_1,kills_2,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo,status) {
+      this.id = id;
+    this.idplayer = idplayer;
+    this.idsquad = idsquad;
 
-
-
-
-
-
-function APIRank(data){
-SpinningStart(data.idsquad);
-socket.emit('refresh_rank', data);
-}
-
-function APIGame(data){
-socket.emit('refresh_game', data);
-SpinningStart(data.idsquad);
-}
-
-
-
-
-
-
+    this.name = name;
+    this.kills_1 = kills_1;
+    this.kills_2 = kills_2;
+    this.sKill = sKill;
+    this.sWins = sWins;
+    this.sTop5 = sTop5;
+    this.sDeaths = sDeaths;
+    this.sKD = sKD;
+    this.sLevel = sLevel;
+    this.jogo_ativo = jogo_ativo;
+    this.status = status;
+  }
 
 
-
-
-    socket.on('score_stream', function(data){
-   reloadScore(data)
-        SpinningStop(data[0]);
-
-        var partida = data[4];
-        console.log(partida);
-        partida.forEach(function(e) {
-        document.getElementById(data[0]+ 'R1J1').innerHTML = e[11];
-        document.getElementById(data[0]+ 'R1J2').innerHTML = e[12];
-        document.getElementById(data[0]+ 'R1J3').innerHTML = e[13];
-        var round1_j1 = e[11];
-        var round1_j2 = e[12];
-        var round1_j3 = e[13];
-        document.getElementById(data[0]+'total_input').innerHTML = parseInt(round1_j1) + parseInt(round1_j2) + parseInt(round1_j3);;
-
-})
-   })
-
-
-
-  socket.on('change round', function(data){
-    setTimeout(function(){// wait for 5 secs(2)
-           location.reload(); // then reload the page.(3)
-      }, 1);
-   })
+  // Save Equipe
+  function saveEquipe() {
+    sessionStorage.setItem('playerSelect', JSON.stringify(equipe));
+  }
 
 
 
 
 
 
+    // Load Equipe
+  function loadEquipe() {
+    equipe = JSON.parse(sessionStorage.getItem('playerSelect'));
+  }
+  if (sessionStorage.getItem("playerSelect") != null) {
+    loadEquipe();
+  }
 
 
 
 
-function SpinningStart(idsquad){
-document.getElementById(idsquad+'hide').style.display = 'none';
-document.getElementById(idsquad+'hideSpinner').style.display = 'block';
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var objEquipe = {};
 
+  // Add to cart
+  objEquipe.addItemToEquipe = function(id,idplayer, idsquad, name,kills_1,kills_2,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo,status) {
+      for(var item in equipe) {
+        if(equipe[item].id === id && parseInt(equipe[item].status) === parseInt(status)) {
+        return;
+        }
 
-}
+      }
+      var item = new Item(id,idplayer, idsquad, name,kills_1,kills_2,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo,status);
+      equipe.push(item);
 
-function SpinningStop(idsquad){
-document.getElementById(idsquad+'hide').style.display = 'block';
-document.getElementById(idsquad+'hideSpinner').style.display = 'none';
-
-}
-
-
-
-
-
-
-
-
-function reloadScore(data){
-document.getElementById('score_partida'+data[0]).innerHTML = data[1];
-document.getElementById('score_total'+data[0]).innerHTML = data[2];
-}
-
-
-
-$(document).ready(function () {
-data = [ {{listaSquad | tojson }},
-{{idcampeonato| tojson }},
-{{grupo | tojson }}
-
-]
-socket.emit('get Channel', data);
-})
-
-
-
-socket.on('reload_statusChannel1', function(msg){
-var checkMsg = msg['status_channel1']
-document.getElementById('channelBox').innerHTML = '';
-console.log(checkMsg);
-if (checkMsg == 'on'){
-            var a = document.createElement("a");
-             a.setAttribute('name', '{{idcampeonato}}');
-             a.setAttribute('id', 'off');
-             a.setAttribute('class', 'on');
-             a.setAttribute('onclick', 'submitVideo(this.id ,{{listaSquad | tojson}} , this.name )')
-              var img = document.createElement("img");
-             img.setAttribute('src', '/static/assets/viver.svg');
-             img.setAttribute('height', '40px');
-              a.appendChild(img);
-             document.getElementById('channelBox').appendChild(a);
-
-}
-
-if (checkMsg == 'off'){
-   var a = document.createElement("a");
-             a.setAttribute('name', '{{idcampeonato}}');
-             a.setAttribute('id', 'on');
-             a.setAttribute('class', 'off');
-             a.setAttribute('onclick', 'submitVideo(this.id ,{{listaSquad | tojson}} , this.name )')
-              var img = document.createElement("img");
-             img.setAttribute('src', '/static/assets/video-chamada.svg');
-             img.setAttribute('height', '40px');
-             var text = document.createElement("p");
-             text.setAttribute('class', 'textOFF');
-             var textnode = document.createTextNode('OFF');
-             text.appendChild(textnode);
-
-
-             a.appendChild(img);
-             a.appendChild(text);
-
-             document.getElementById('channelBox').appendChild(a);
-}
-  console.log(msg)
-   })
-
-
-function submitVideo(this_id,Lista_idSquads, campeonato){
-    data = {
-    'Lista_idSquads': Lista_idSquads,
-    'campeonato': campeonato,
-    'stream': this_id
+      saveEquipe()
     }
 
-console.log(data);
-    APIChannel(data);
-}
+    // Clear cart
+  objEquipe.clearEquipe = function() {
+    equipe = [];
+    saveEquipe()
+  }
 
-
-function submitKills(this_value, idrank, idsquad,idcampeonato,jogo_ativo,this_name){
-
-
-var colocacao = document.getElementById(idsquad+this_name+'rankPartida').value;
-
-
-
-
-
-data = {
-'idsquad': idsquad,
-'kills': this_value,
-'idrank': idrank,
-'colocacao_partida': colocacao,
-'idcampeonato': idcampeonato,
-'jogo_ativo':jogo_ativo
-}
-APIkills(data);
-
-};
-
-
-function submitRank(this_value, idsquad, idrank, idcampeonato,jogo){
-console.log(jogo);
-data = {
-'idsquad': idsquad,
-'rank_partida': this_value,
-'idrank': idrank,
-'idcampeonato': idcampeonato,
-'jogo':jogo
-}
-APIRank(data)
-};
-
-
-function nextStage(this_id ,idsquad, idrank){
-data = {
-'idsquad': idsquad,
-'jogo': this_id,
-'idrank': idrank
-}
-APIGame(data)
-};
-
-
-
-
-    function changeStatus(this_id){
-         var element =  document.getElementById(this_id+"status");
-         var inputChange = document.getElementById(this_id+"statusInput").value;
-            if(inputChange == 'False'){
-    element.classList.remove("morto");
-    element.classList.add("vivo");
-    document.getElementById(this_id+"statusInput").value = 'True';
+    // Update items from cart
+  objEquipe.updateItemFromCart = function(id,item,value) {
+    for(var i in equipe) {
+      if(equipe[i].id === id && parseInt(equipe[i].status) === parseInt({{status}}) ) {
+         sessionStorage.setItem(equipe[i].item, value);
+        break;
+      }
     }
-     if(inputChange == 'True'){
-      element.classList.remove("vivo");
-     element.classList.add("morto");
-     document.getElementById(this_id+"statusInput").value = 'False';
-     }
+    saveEquipe();
+  }
+
+
+   // Set count from KILL
+  objEquipe.setCountForItemKILL = function(id, kills, jogo_ativo) {
+    for(let time of equipe) {
+      if (time.id === id &&  parseInt(time.status) === parseInt({{status}})) {
+
+            switch (jogo_ativo) {
+                  case 'R2J1':
+                   time.kills_1 = kills;
+                   item = 'kills_1'
+                 break;
+
+                 case 'R2J2':
+                  time.kills_2 = kills;
+                   item = 'kills_2'
+                break;
+
+
+
+                 case 'R3J1':
+                   time.kills_1 = kills;
+                   item = 'kills_1'
+                 break;
+
+
+                case 'R3J2':
+                   time.kills_2 = kills;
+                   item = 'kills_2'
+                 break;
+
+
+                 case 'R4J1':
+                  time.kills_1 = kills;
+                   item = 'kills_1'
+                break;
+
+                case 'R4J2':
+                   time.kills_2 = kills;
+                   item = 'kills_2'
+                 break;
+
+
+                 case 'R5J1':
+                  time.kills_1 = kills;
+                   item = 'kills_1'
+                break;
+
+                case 'R5J2':
+                   time.kills_2 = kills;
+                   item = 'kills_2'
+                 break;
+
+
+
+
+                }
+
+
+        playerSelect.updateItemFromCart(time.id,item,kills);
+        var killsSquad = playerSelect.totalKills(time.idsquad,jogo_ativo);
+
+        partidaBracket.updateItemFromCart(parseInt(time.idsquad),item,killsSquad);
+        partidaBracket.killsScoreCount(time.idsquad,killsSquad,jogo_ativo);
+        partidaBracket.totalCart(time.idsquad);
+        break;
+
+      }
+    }
+  };
+
+    // SetNextStage
+  objEquipe.SetNextStagePlayer = function(idsquad,jogo_ativo) {
+    for(let player of equipe) {
+      if (parseInt(player.idsquad) == parseInt(idsquad)  &&  parseInt(player.status) === parseInt({{status}}) ) {
+      console.log(player)
+          switch (jogo_ativo) {
+                  case 'R2J1':
+                    player.jogo_ativo = 'R2J2';
+                 break;
+                  case 'R2J2':
+                  player.jogo_ativo = 'R2J1';
+                break;
+                case 'R3J1':
+                    player.jogo_ativo = 'R3J2';
+                 break;
+                  case 'R3J2':
+                  player.jogo_ativo = 'R3J1';
+                break;
+
+                case 'R4J1':
+                    player.jogo_ativo = 'R4J2';
+                 break;
+                  case 'R4J2':
+                  player.jogo_ativo = 'R4J1';
+                break;
+                case 'R5J1':
+                    player.jogo_ativo = 'R5J2';
+                 break;
+                  case 'R5J2':
+                  player.jogo_ativo = 'R5J1';
+                break;
+                }
+      }
+    }
+   saveEquipe();
+  }
+
+  // Count cart
+  objEquipe.totalKills = function(idsquad,jogo_ativo) {
+    var totalKills = 0;
+    for(let time of equipe) {
+        if (parseInt(time.idsquad) === parseInt(idsquad) &&  parseInt(time.status) === parseInt({{status}}) ) {
+            switch (jogo_ativo) {
+                  case 'R2J1':
+                    totalKills += time.kills_1;
+                 break;
+
+                 case 'R3J1':
+                    totalKills += time.kills_1;
+                 break;
+
+                  case 'R2J2':
+                  totalKills += time.kills_2;
+                break;
+
+                case 'R3J2':
+                    totalKills += time.kills_1;
+                 break;
+
+                  case 'R4J1':
+                  totalKills += time.kills_1;
+                break;
+
+                case 'R4J2':
+                    totalKills += time.kills_2;
+                 break;
+
+                  case 'R5J1':
+                  totalKills += time.kills_1;
+                break;
+
+                case 'R5J2':
+                    totalKills += time.kills_2;
+                 break;
+
+                }
+      }
+    }
+
+    return totalKills;
+  }
+
+
+
+  // List cart
+  objEquipe.listEquipe = function(idsquad) {
+  var cartCopy = [];
+  for(id in idsquad) {
+     for(i in equipe) {
+            if (parseInt(equipe[i].idsquad) === parseInt(idsquad[id]) && parseInt(equipe[i].status) === parseInt({{status}}) ) {
+              item = equipe[i];
+              itemCopy = {};
+                  for(p in item) {
+                    itemCopy[p] = item[p];
+                  }
+              cartCopy.push(itemCopy)
+            }
+    }
 }
 
+    return cartCopy;
+  }
+
+
+
+  // List cart
+  objEquipe.listPlayer = function(id) {
+  var cartCopy = [];
+     for(i in equipe) {
+            if (parseInt(equipe[i].id) === parseInt(id)) {
+              item = equipe[i];
+              itemCopy = {};
+                  for(p in item) {
+                    itemCopy[p] = item[p];
+                  }
+              cartCopy.push(itemCopy)
+            }
+    }
+
+    return cartCopy;
+  }
+
+
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return objEquipe;
+})();
 
 
 
@@ -1117,159 +1067,846 @@ APIGame(data)
 
 
 
-function SubmitStatus(){
-data = [ {{listaSquad | tojson }},
-{{idcampeonato| tojson }},
-{{grupo | tojson }}]
+
+var partidaBracket = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  partida = [];
+
+  // Constructor
+  function Item(id,idsquad, name,score_1,score_2, score_total,kills_1,kills_2,rank_1,rank_2,stream,jogo_ativo,grupo,status,posicao_atual) {
+    this.id = id;
+    this.idsquad = idsquad;
+    this.name = name;
+    this.kills_1 = kills_1;
+    this.kills_2 = kills_2;
+    this.rank_1 = rank_1;
+    this.rank_2 = rank_2;
+    this.score_1 =score_1;
+    this.score_2 =score_2;
+    this.score_total = score_total;
+    this.jogo_ativo = jogo_ativo;
+    this.stream = stream;
+    this.grupo = grupo;
+    this.status = status;
+    this.posicao_atual = posicao_atual;
+
+  }
 
 
-socket.emit('change status bracket', data);
+  // Save cart
+  function saveCart() {
+    sessionStorage.setItem('partidaBracket', JSON.stringify(partida));
+  }
 
+    // Load cart
+  function loadCart() {
+    partida = JSON.parse(sessionStorage.getItem('partidaBracket'));
+  }
+  if (sessionStorage.getItem("partidaBracket") != null) {
+    loadCart();
+  }
+
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var obj = {};
+
+  // Add to cart
+  obj.addItemToCart = function(id,idsquad, name,score_1,score_2, score_total,kills_1,kills_2,rank_1,rank_2,stream,jogo_ativo,grupo,status,posicao_atual) {
+      for(var item in partida) {
+        if(partida[item].id === id && partida[item].status === status) {
+
+          return;
+        }
+      }
+      var item = new Item(id,idsquad, name,score_1,score_2, score_total,kills_1,kills_2,rank_1,rank_2,stream,jogo_ativo,grupo,status,posicao_atual);
+      partida.push(item);
+
+      saveCart();
+    }
+
+    // Clear cart
+  obj.clearCart = function() {
+    partida = [];
+    saveCart();
+  }
+
+
+
+
+
+
+  // Update items from cart
+  obj.updateItemFromCart = function(id,item,value) {
+    for(var i in partida) {
+      if(partida[i].idsquad === parseInt(id) && parseInt(equipe[i].status) === parseInt({{status}})) {
+         for (j in partida[i]){
+             if (j == item){
+             partida[i][j] = value
+                }
+            };
+        break;
+      }
+    }
+   saveCart();
+  }
+
+
+
+
+  // SetNextStage
+  obj.SetNextStage = function(idsquad,jogo_ativo) {
+    for(let time of partida) {
+      if (parseInt(time.idsquad) === parseInt(idsquad) && parseInt(time.status) === parseInt({{status}})) {
+
+               switch (jogo_ativo) {
+                  case 'R2J1':
+                    time.jogo_ativo = 'R2J2';
+                 break;
+                  case 'R2J2':
+                  time.jogo_ativo = 'R2J1';
+                break;
+                case 'R3J1':
+                    time.jogo_ativo = 'R3J2';
+                 break;
+                  case 'R3J2':
+                  time.jogo_ativo = 'R3J1';
+                break;
+                case 'R4J1':
+                    time.jogo_ativo = 'R4J2';
+                 break;
+                  case 'R4J2':
+                  time.jogo_ativo = 'R4J1';
+                break;
+                case 'R5J1':
+                    time.jogo_ativo = 'R5J2';
+                 break;
+                  case 'R5J2':
+                  time.jogo_ativo = 'R5J1';
+                break;
+                }
+      }
+    }
+   saveCart();
+  }
+
+  // Set count from rank
+  obj.setCountForItemRank = function(idsquad, rank,jogo_ativo) {
+    for(let time of partida) {
+      if (parseInt(time.idsquad) === parseInt(idsquad) &&  parseInt(time.status) === parseInt({{status}}) ) {
+       var x = partidaBracket.setScoreRank(parseInt(rank));
+
+         switch (jogo_ativo) {
+                  case 'rank_1':
+                   var killsSquad = playerSelect.totalKills(time.idsquad,time.jogo_ativo);
+                    time.score_1 = (killsSquad * parseInt({{regras.0.6}})) + x;
+                    time.rank_1 = rank;
+                 break;
+                  case 'rank_2':
+                   var killsSquad = playerSelect.totalKills(time.idsquad,time.jogo_ativo);
+                    time.score_2 = (killsSquad * parseInt({{regras.0.6}})) + x;
+                    time.rank_2 = rank;
+                break;
+                }
+
+
+
+      }
+    }
+    saveCart();
+  };
+
+
+  // Set SCORE from rank
+  obj.setScoreRank = function(rank) {
+    var x = [] ;
+    if(rank == 0 ){
+    x.push(0) ;
+    }
+    if(rank == 1 ){
+    x.push({{regras.0.1}}) ;
+    }
+    if(rank == 2 ){
+    x.push({{regras.0.2}}) ;
+    }
+    if(rank == 3 ){
+    x.push({{regras.0.3}}) ;
+    }
+    if(3 < rank && rank < 11 ){
+    x.push({{regras.0.4}}) ;
+    }
+    if(10 < rank && rank < 16 ){
+    x.push({{regras.0.4}}) ;
+    }
+    if(rank > 15 ){
+    x.push(0) ;
+    }
+    return x[0];
+  };
+
+
+
+
+
+
+
+
+  obj.killsScoreCount = function(idsquad,killsSquad,jogo_ativo) {
+    var totalCount = killsSquad * parseInt({{regras.0.6}});
+    for(let time of partida) {
+        if (parseInt(time.idsquad) === parseInt(idsquad) &&  parseInt(time.status) === parseInt({{status}}) ) {
+        switch (jogo_ativo) {
+                  case 'R2J1' :
+                    time.score_1 = totalCount + partidaBracket.setScoreRank(time.rank_1);
+                 break;
+                 case 'R3J1' :
+                    time.score_1 = totalCount + partidaBracket.setScoreRank(time.rank_1);
+                 break;
+                  case 'R2J2':
+                   time.score_2 = totalCount + partidaBracket.setScoreRank(time.rank_2);
+                break;
+                case 'R3J2':
+                   time.score_2 = totalCount + partidaBracket.setScoreRank(time.rank_2);
+                break;
+
+                  break;
+                  case 'R4J1':
+                   time.score_1 = totalCount + partidaBracket.setScoreRank(time.rank_1);
+                break;
+                case 'R4J2':
+                   time.score_2 = totalCount + partidaBracket.setScoreRank(time.rank_2);
+                break;
+
+                  break;
+                  case 'R5J1':
+                   time.score_1 = totalCount + partidaBracket.setScoreRank(time.rank_1);
+                break;
+                case 'R3J2':
+                   time.score_2 = totalCount + partidaBracket.setScoreRank(time.rank_2);
+                break;
+                }
+
+
+
+      }
+    }
+   saveCart();
+
+  }
+
+
+
+
+
+
+  // Total cart
+  obj.totalCart = function(idsquad) {
+    var totalCart = 0;
+        for(let time of partida) {
+            if (parseInt(time.idsquad) === parseInt(idsquad) &&  parseInt(time.status) === parseInt({{status}}) ) {
+                time.score_total = parseInt(time.score_1) + parseInt(time.score_2);
+           }
+        }
+        saveCart();
+    return totalCart;
+  }
+
+
+
+
+
+  // List cart
+  obj.listCart = function(idsquad) {
+
+    var cartCopy = [];
+for(id in idsquad) {
+ for(i in partida) {
+        if (parseInt(partida[i].idsquad) === parseInt(idsquad[id]) && parseInt(partida[i].status) === parseInt({{status}})) {
+          item = partida[i];
+          itemCopy = {};
+              for(p in item) {
+                itemCopy[p] = item[p];
+              }
+          cartCopy.push(itemCopy)
+        }
+    }
 }
+    return cartCopy;
+  }
 
 
 
 
+    // List cart
+  obj.listCartALL = function() {
+    var cartCopy = [];
+    for(i in partida) {
+          item = partida[i];
+          itemCopy = {};
+              for(p in item) {
+                itemCopy[p] = item[p];
+              }
+          cartCopy.push(itemCopy)
+        }
+    return cartCopy;
+  }
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return obj;
+})();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function htmlToElements(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.childNodes;
+}
 
 $(document).ready(function () {
-var myGeocode = [{{ partidas|tojson }}];
+
+//partidaBracket.clearCart();
+//playerSelect.clearEquipe();
+
+var checkStage= ({{ status}});
+var ativo = createTeam()
+createPlayers(ativo[0])
+displayCart(ativo[1]);
+var check = partidaBracket.listCartALL();
+
+//console.log(check)
+
+
+
+
+})
+
+
+
+
+
+function createTeam(){
+var myGeocode = [{{ round|tojson }}];
+
+var ativo = [];
+var listaSquad = [];
+
+
 myGeocode.forEach(function(x) {
-x.forEach(function(e) {
+                x.forEach(function(p) {
+                p.forEach(function(e) {
+                    var id = e[0];
+                    var idsquad = e[3];
+                    var name = e[4];
+                    var score_1 = 0;
+                    var score_2 = 0;
 
-var round1_j1 = e[11];
-var round1_j2 = e[12];
-var round1_j3 = e[13];
+                    var kills_1 = 0;
+                    var kills_2 = 0;
 
-var round2_j1 = e[14];
-var round2_j2 = e[15];
-
-var round3_j1 = e[16];
-var round3_j2 = e[17];
-
-var round4_j1 = e[18];
-var round4_j2 = e[19];
-
-var round5_j1 = e[20];
-var round5_j2 = e[21];
-
-var bracket = e[9];
-
-var jogo_ativo = e[26];
-var posicao = e[28];
-var name = e[4];
-var grupo = e[22];
-
-    if (bracket == 1){
-            if (!round2_j1 ){
-            document.getElementById(posicao).innerHTML = name;
-            document.getElementById(posicao+'score').innerHTML  = parseInt(round2_j1) + parseInt(round2_j2);
-            }
-
-            if (!round3_j1 ){
-            document.getElementById(posicao).innerHTML = name;
-            document.getElementById(posicao+'score').innerHTML  = parseInt(round3_j1) + parseInt(round3_j2);
-            }
-            if (!round4_j1 ){
-            document.getElementById(posicao).innerHTML = name;
-            document.getElementById(posicao+'score').innerHTML  = parseInt(round4_j1) + parseInt(round4_j2);
-            }
-
-            if (!round5_j1 ){
-            document.getElementById(posicao).innerHTML = name;
-            document.getElementById(posicao+'score').innerHTML  = parseInt(round5_j1) + parseInt(round5_j2);
-            }
-
-    }
+                    var rank_1 = 0;
+                    var rank_2 = 0;
+                    var score_total = 0;
+                    var jogo_ativo = e[26];
+                    var stream = e[27];
+                    var grupo = e[22];
+                    var status = e[9];
+                    ativo.push(status);
+                    listaSquad.push(idsquad);
 
 
 
+                    if (parseInt(status) === 1){
+                    var posicao_atual = e[28];
+                    }
+
+                    if (parseInt(status) === 2){
+                    var posicao_atual = e[29];
+                    }
+
+                    if (parseInt(status) === 3){
+                    var posicao_atual = e[30];
+                    }
+
+                    if (parseInt(status) === 4){
+                    var posicao_atual = e[31];
+                    }
+
+
+                    partidaBracket.addItemToCart(id,idsquad, name,score_1,score_2, score_total,kills_1,kills_2,rank_1,rank_2,stream,jogo_ativo,grupo,status,posicao_atual);
+                })
+})
+            })
+
+
+            return [ativo,listaSquad]
+
+}
+
+function createPlayers(ativo){
+var jogadores = {{ players|tojson }};
+
+    jogadores.forEach(function(player) {
+
+                  player.forEach(function(i) {
+
+                  var id = i[0];
+                  var idplayer = i[0];
+                  var idsquad = i[10];
+                  var name = i[2];
+                  var kills_1 = 0;
+                  var kills_2 = 0;
+                  var sKill = i[3];
+                  var sWins = i[4];
+                  var sTop5 = i[5];
+                  var sDeaths = i[6];
+                  var sKD = i[7];
+                  var sLevel = i[11];
+                  var status = parseInt({{status}});
+                  var jogo_ativo = '';
+
+
+                  switch (status) {
+                  case 4:
+                    jogo_ativo = 'R4J1';
+                 break;
+                  case 3:
+                    jogo_ativo = 'R4J1';
+                 break;
+                  case 2:
+                    jogo_ativo = 'R3J1';
+                 break;
+                 case 1:
+                    jogo_ativo = 'R2J1';
+                 break;
+
+                }
+
+                   playerSelect.addItemToEquipe(id,idplayer, idsquad, name,kills_1,kills_2,sKill,sWins,sTop5,sDeaths,sKD,sLevel,jogo_ativo,status);
+                    });
+
+    });
+
+};
 
 
 
 
 
-if (bracket != 1){
+function displayCart(idsquad) {
+//playerSelect.clearEquipe();
+//partidaBracket.clearCart();
 
-        var soma = parseInt(round1_j1) + parseInt(round1_j2) + parseInt(round1_j3);
+document.getElementById('view').innerHTML = '';
+  var cartArray = partidaBracket.listCart(idsquad);
+  var output = "";
+  var HTML = "";
+
+         for( let squad of cartArray){
+
+             if(parseInt(squad.status) === parseInt(1) ){
+             switch (squad.jogo_ativo) {
+                  case 'R2J1':
+                    score = squad.score_1;
+                    jogo_ativo = squad.jogo_ativo
+                    status_rank_1 = 'enable';
+                    status_rank_2 = 'disabled'
+                    break;
+                  case 'R2J2':
+                    score = squad.score_2;
+                    jogo_ativo = squad.jogo_ativo
+                    status_rank_2 = 'enable';
+                     status_rank_1 = 'disabled'
+                    break;
+                }
+
+             }
+             if(parseInt(squad.status) === parseInt(2) ){
+
+             switch (squad.jogo_ativo) {
+
+                  case  'R3J1':
+                    score = squad.score_1;
+                    jogo_ativo = squad.jogo_ativo
+                    status_rank_1 = 'enable';
+                    status_rank_2 = 'disabled'
+                    break;
+                  case 'R3J2':
+                    score = squad.score_2;
+                    jogo_ativo = squad.jogo_ativo
+                    status_rank_2 = 'enable';
+                     status_rank_1 = 'disabled'
+                    break;
+                }
+             }
+               if(parseInt(squad.status) === parseInt(3) ){
+
+             switch (squad.jogo_ativo) {
+                  case  'R4J1':
+                    score = squad.score_1;
+                    jogo_ativo = squad.jogo_ativo
+                    status_rank_1 = 'enable';
+                    status_rank_2 = 'disabled'
+                    break;
+                  case 'R4J2':
+                    score = squad.score_2;
+                    jogo_ativo = squad.jogo_ativo
+                    status_rank_2 = 'enable';
+                     status_rank_1 = 'disabled'
+                    break;
+                }
+             }
+
+             if(parseInt(squad.status) === parseInt(4) ){
+
+             switch (squad.jogo_ativo) {
+                  case  'R5J1':
+                    score = squad.score_1;
+                    jogo_ativo = squad.jogo_ativo
+                    status_rank_1 = 'enable';
+                    status_rank_2 = 'disabled'
+                    break;
+                  case 'R5J2':
+                    score = squad.score_2;
+                    jogo_ativo = squad.jogo_ativo
+                    status_rank_2 = 'enable';
+                     status_rank_1 = 'disabled'
+                    break;
+                }
+             }
+
+
+
+             var soma = parseInt(squad.score_1) + parseInt(squad.score_2) ;
          var li = document.createElement("li");
             li.setAttribute('class', 'team team-top');
-            li.setAttribute('data-percentage', soma);
-            li.setAttribute('id', e[3]);
-            var textnode = document.createTextNode(e[4]);
+             li.setAttribute('data-percentage', soma);
+             li.setAttribute('data-idsquad', squad.idsquad);
+             li.setAttribute('data-idpartidas_online', squad.id);
+              li.setAttribute('data-posicao', squad.posicao_atual);
+
+
+            var textnode = document.createTextNode(squad.name);
             li.appendChild(textnode);
-
-
              var span = document.createElement("span");
              span.setAttribute('class', 'scoreA');
-             span.setAttribute('id', e[3]+'total_input');
              var textnode2 = document.createTextNode(soma);
              span.appendChild(textnode2);
              li.appendChild(span);
 
-
-                var span3 = document.createElement("span");
-             span3.setAttribute('class', 'scoreAx');
-              span3.setAttribute('id', e[3]+'R1J3');
-             var textnode13 = document.createTextNode(parseInt(round1_j3));
-             span3.appendChild(textnode13);
-             li.appendChild(span3)
-
-
-                var span2 = document.createElement("span");
+             var span2 = document.createElement("span");
              span2.setAttribute('class', 'scoreAx');
-              span2.setAttribute('id', e[3]+'R1J2');
-             var textnode12 = document.createTextNode(parseInt(round1_j2));
+             var textnode12 = document.createTextNode(parseInt(squad.score_2));
              span2.appendChild(textnode12);
              li.appendChild(span2);
-
-
-
             var span1 = document.createElement("span");
              span1.setAttribute('class', 'scoreAx');
-              span1.setAttribute('id', e[3]+'R1J1');
-             var textnode11 = document.createTextNode(parseInt(round1_j1));
+             var textnode11 = document.createTextNode(parseInt(squad.score_1));
              span1.appendChild(textnode11);
              li.appendChild(span1);
-             document.getElementById(grupo).appendChild(li)
+             document.getElementById('view').appendChild(li);
+output +=
+            '<div class="col-md-auto">' +
+                '<div class="card perfilBox">'+
+                    ' <div class="container-fluid headerTitle">'+
+                    '<h6>NOME DA EQUIPE || SQUAD</h6><h2>'+ squad.name + '</h2>'+
+                        '<div class="container-fluid text-center" >'+
+                            '<button  class="btn encerrar" name="'+jogo_ativo+'" data="'+squad.idsquad+'">'+
+                                ' AVANÇAR PARTIDA <img class="next" src="/static/assets/avanco-rapido.svg" height="18">'+
+                             '</button>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="playerBoxInt">'+
+                        '<ul id='+squad.idsquad+ '>'+
+                        '</ul>'+
+                    '</div>'+
+                    ' <div class="container-fluid headerTitle2">'+
+                        '<div class="row">'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_partida'+squad.id+'" class="text-center">'+
+                                    score+
+                                '</h2>'+
+                                '<h5>SCORE PARTIDA</h5>'+
+                            '</div>'+
+                            '<div class="col-6 text-right">'+
+                                '<h2 id="score_total'+squad.id+'" class="text-center">'+
+                                squad.score_total+
+                                '</h2>'+
+                                '<h5>SCORE TOTAL</h5>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="container rankContainer text-center">'+
+                        '<div class="row">'+
+                            '<div class="col-8 fillCol">'+
+                                '<div class="row">'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox ' + status_rank_1 + ' ">'+
+                                            '<span>RANK</span><span class="game">JOGO 1</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+squad.idsquad+'" data="rank_1" class="input-inputBox text-center"value="'+squad.rank_1+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-4">'+
+                                        '<div class="partidaBox ' + status_rank_2 + ' ">'+
+                                            '<span>RANK</span><span class="game">JOGO 2</span>'+
+                                            '<div class="inputBox ">'+
+                                            '<input type="text" name="'+squad.idsquad+'" data="rank_2" class="input-inputBox text-center "value="'+squad.rank_2+'">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-4 fillCol">'+
+                                '<div class="container-fluid atualizarBox">'+
+                                    '<button id="'+squad.id+'hide"class=" atualizar">'+
+                                    '<img class="img" src="/static/assets/videogame.svg" height="60">'+
+                                    '</button>'+
+                                    '<div class="d-flex justify-content-center">'+
+                                        '<div id="'+squad.id+'hideSpinner" class="spinner-grow Spinner"role="status">'+
+                                            '<span class="sr-only">Loading...</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
+
+         }
+         document.getElementById('mylist').innerHTML = output;
+
+         var PlayerArray = playerSelect.listEquipe(idsquad);
 
 
+         for (let player of PlayerArray){
 
+                switch (player.jogo_ativo) {
+                  case 'R2J1':
+                   kill = player.kills_1
+                 break;
+                 case 'R3J1':
+                   kill = player.kills_1
+                 break;
+                  case 'R2J2':
+                  kill = player.kills_2
+                break;
+                case 'R3J2':
+                  kill = player.kills_2
+                break;
+
+
+                  case 'R4J1':
+                  kill = player.kills_1
+                break;
+                case 'R4J2':
+                  kill = player.kills_2
+                break;
+
+                case 'R5J1':
+                  kill = player.kills_1
+                break;
+                case 'R5J2':
+                  kill = player.kills_2
+                break;
+
+
+                }
+
+
+                  document.getElementById(player.idsquad).innerHTML += '<li>'+
+                            '<div class="boxPlay" id="'+player.id + 'status">'+
+                                '<div class="row justify-content-md-center">'+
+                                    '<div class="col-6">'+
+                                        '<div class="flex">'+
+                                            '<div class="changeBox">'+
+                                                '<button style="" id="'+player.id+'status" type="button" class="changeStatus" ><img src="/static/assets/jogador-de-baseball-color.svg" height="30"></button>'+
+                                            '</div>'+
+                                            '<div>'+
+                                                '<h6 class="playerName">'+player.name+'</h6>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="col-1 colorBox " data-toggle="tooltip" data-placement="top" title="Atualize as Kills">'+
+                                        '<input type="text" class="input-kills text-center" id="'+player.id+'" value="'+kill+'" name="'+player.jogo_ativo+'" >'+
+                                    '</div>'+
+                                    '<div class="col-2 ">'+
+                                        '<div class="imgXp flex">'+
+                                        '<div><img src="/static/assets/kill.svg" height="90"></div>'+
+                                        '<div class="kill"><p>kills</p></div>'+
+                                         '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                     '</li>';
+         }
+
+  sortList('view');
+
+          $(".input-kills").on("input", function(){
+        // Print entered value in a div box
+         var id = parseInt($(this).attr('id'));
+         var kills = Number($(this).val());
+         var jogo_ativo = $(this).attr('name');
+         data = ({
+         id:id,
+         kills:kills,
+         jogo_ativo:jogo_ativo,
+         display:idsquad
+         })
+         socket.emit('receber kills', data);
+    });
+
+    $(".input-inputBox").on("input", function(){
+        // Print entered value in a div box
+         var jogo_ativo = $(this).attr('data');
+         var rank = Number($(this).val());
+         var idsquadW = $(this).attr('name');
+
+         data = ({
+         idsquadW:idsquadW,
+         rank:rank,
+         jogo_ativo:jogo_ativo,
+         display: idsquad
+         })
+         socket.emit('receber rank', data);
+
+
+    });
+
+    $(".encerrar").on("click", function(){
+        // Print entered value in a div box
+         var idsquadW = $(this).attr('data');
+         var jogo_ativo  = $(this).attr('name');
+
+       data = ({
+         idsquadW:idsquadW,
+         jogo_ativo:jogo_ativo,
+         display:idsquad
+         })
+         socket.emit('receber stage', data);
+
+
+    });
+    $(".changeStatus").on("click", function(){
+        $(this).removeClass('changeStatus')
+        $(this).addClass("vivo");
+        var id = $(this).attr('id')
+        addRemoveClass($(this))
+        var PlayerArray = playerSelect.listPlayer(id);
+        console.log(PlayerArray)
+
+
+         socket.emit('receber player', PlayerArray);
+
+    });
 
 
 
 }
 
 
+
+
+
+
+
+
+
+function sortList(ul) {
+  var ul = document.getElementById(ul);
+  Array.from(ul.getElementsByTagName("LI"))
+    .sort((a, b) => +b.dataset.percentage - +a.dataset.percentage)
+    .forEach(li => ul.appendChild(li));
+
+
+}
+
+
+
+
+
+$(".endBox").on("click", function(){
+        // Print entered value in a div box
+
+         var idc  = $(this).attr('data-id');
+         var stage = $(this).attr('data-status');
+
+         var ul = document.getElementById('view');
+         var st = ul.querySelectorAll('li')[0];
+         var st2 = ul.querySelectorAll('li')[1];
+
+         var ganhador = st.dataset.idsquad
+         var idGanhador = st.dataset.idpartidas_online
+         var g1 = st.dataset.posicao
+         var segundo = st2.dataset.idsquad
+         var idSegundo = st2.dataset.idpartidas_online
+         var g2 = st2.dataset.posicao
+
+         var grupo = g1+g2;
+         data = {
+         idcampeonato: idc,
+         grupo: grupo,
+         ganhador: idGanhador,
+         segundo: idSegundo,
+         status: stage
+         }
+         //var idsquad = partidaBracket.listCart({{listaSquad|tojson}})
+         socket.emit('update',  partidaBracket.listCart({{listaSquad|tojson}}));
+         socket.emit('encerrar partida', data);
+
+    });
+        socket.on('kills update', function(data){
+
+    playerSelect.setCountForItemKILL(data['id'],data['kills'], data['jogo_ativo'] );
+     displayCart(data['display'] );
     })
 
-})
-})
+
+      socket.on('rank update', function(data){
+    partidaBracket.setCountForItemRank(data['idsquadW'], data['rank'],data['jogo_ativo'])
+    partidaBracket.totalCart(data['idsquadW']);
+     displayCart(data['display'] );
+    })
+
+     socket.on('stage update', function(data){
+  partidaBracket.SetNextStage(data['idsquadW'],data['jogo_ativo']);
+  playerSelect.SetNextStagePlayer(data['idsquadW'],data['jogo_ativo']);
+     displayCart(data['display'] );
+    })
+
+   socket.on('done', function(data){
+      setTimeout(function () {
+     window.location.href = "/campeonatoSetup/{{nomeCampeonato}}/{{idcampeonato}}"; //will redirect to bracketList
+}, 3000); //will call the function after 2 secs.
+    })
 
 
+    function addRemoveClass(btn) {
+    var delay = 15000; // milliseconds
+    setTimeout(function() {
+        btn.toggleClass('vivo');
 
+        btn.addClass('changeStatus')
+    }, delay);
 
-
-
-
-
+};
 
 </script>
 </html>

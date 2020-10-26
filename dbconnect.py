@@ -3,15 +3,22 @@ import warnings
 import random
 import math
 
+# def connection():
+#     conn = pymysql.connect(host="us-cdbr-east-02.cleardb.com",
+#                            user='bd6c26b0e448e5',
+#                            passwd0e',
+#                            db = 'heroku_fc3f18d75e6928c')
+#     c = conn.cursor()
+#
+#     return c,conn
 def connection():
-    conn = pymysql.connect(host="us-cdbr-east-02.cleardb.com",
-                           user='bd6c26b0e448e5',
-                           passwd='ff99600e',
-                           db = 'heroku_fc3f18d75e6928c')
+    conn = pymysql.connect(host="localhost",
+                           user='root',
+                           passwd='Arcade1983Tv',
+                           db = 'ArcadeArena')
     c = conn.cursor()
 
     return c,conn
-
 # arcadeadminarena
 
 def InsertSql(myDict,table):
@@ -50,7 +57,7 @@ def SelectSql(table, coluna,value):
 def SelectSqlShort(table, coluna,value,ordenagem):
     try:
         c,conn = connection()
-        x = c.execute(f"""SELECT * FROM {table} WHERE {coluna}= '{value}' ORDER BY {ordenagem} DESC """)
+        x = c.execute(f"""SELECT * FROM {table} WHERE {coluna}= '{value}' ORDER BY {ordenagem} ASC """)
         if int(x) > 0:
             myresult = c.fetchall()
             return myresult
@@ -121,7 +128,7 @@ def UpdateQuerySql(mydict,table,item,modifica):
             sql = (f"""UPDATE `{table}` SET `{coluna}` = '{value}' WHERE (`{item}` = '{modifica}');""")
             c.execute(sql)
             conn.commit()
-        print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > DATA {mydict}{{status :: OK}} .... ')
+            print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > DATA {mydict}{{status :: OK}} .... ')
     except Exception as e:
         print(f' ERROR:       {str(e)}')
         return (str(e))
@@ -155,6 +162,19 @@ def UpdateQuerySqlMulti3(mydict,table,coluna1,value1,coluna2,value2,coluna3,valu
     except Exception as e:
         print(f' ERROR:       {str(e)}')
         return (str(e))
+
+def UpdateQuerySqlMultiINSERTS(table,coluna1,value1,coluna2,value2,coluna3,value3, coluna,value):
+    print(' ATUALIZANDO DADOS .... ')
+    try:
+        c, conn = connection()
+        sql = (f"""UPDATE `{table}` SET `{coluna1}` = '{value1}', `{coluna2}` = '{value2}' , `{coluna3}` = '{value3}'  WHERE ( `{coluna}` = '{value}');""")
+        c.execute(sql)
+        conn.commit()
+        print(f'--->>> ATUALIZAÇÃO da TABELA :{table}  == > {{status :: OK}} .... ')
+    except Exception as e:
+        print(f' ERROR:       {str(e)}')
+        return (str(e))
+
 
 
 def check_user_Login(login):

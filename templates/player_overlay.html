@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Anton&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/4dbf725c93.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+            integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+
+    <style>
+ body {
+ width:1920px;
+ height:1080px;
+ background-color: transparent;
+  display:flex;
+     flex-direction:column;
+     justify-content:flex-end;
+       font-family: 'Staatliches', cursive;
+
+ }
+
+
+ul {
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+
+}
+
+
+.round-one .matchup{
+width:70%;
+background:rgba(0,0,0,.2);
+padding:14px 18px 14px 18px;
+
+ margin:0 auto;
+ height:250px;
+}
+
+.warzone{
+height:100%;
+width:100%;
+background:#222831;
+border-radius:10px;
+color:#fff;
+padding:20px;
+}
+
+.topStats{
+ display:flex;
+height:120px;
+justify-content:flex-end;
+}
+.stats{
+background:#393e46;
+height:100%;
+display:flex;
+padding:5px;
+     flex-direction:column;
+     justify-content:center;
+     }
+
+     .imgBox,.sublink{
+     height:100%;
+display:flex;
+     flex-direction:column;
+     justify-content:center;
+     }
+
+img{
+height:45px;
+filter: invert(1);
+opacity:0.5;
+}
+.flex{
+display:flex;
+}
+.imgBox, .sublink{
+width:50%;}
+
+.sublink h2{
+padding:0;
+margin:0;}
+.sublink h5{
+padding:0;
+margin:0;
+opacity:0.5;
+
+}
+
+.overview{
+position:absolute;
+font-size:30px;
+opacity:0.4;}
+    </style>
+    <title>ARCADE ARENA</title>
+</head>
+
+<body>
+
+
+<div class="container-fluid">
+    <div class="viewGrup">
+        <p>
+            <a style="display:none;" class="linkView" id="linkView" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+               aria-controls="collapseExample">
+                <img style="filter:invert(1); opacity:.5;" src="/static/assets/visao.svg" height="45">
+            </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="topStagecontainer text-center" id="faseGrupos">
+                <div class="round round-one current">
+                    <ul id="view" class="matchup">
+                        <div class="card warzone">
+                            <div class="overview">ARCADE CARD</div>
+                            <div style="padding-bottom:20px;" class="row justify-content-md-center">
+                                <div class="col-8 text-right">
+                                    <h2 style="color:#ffac41;" id="nomePlayer">NOME DO JOGADOR</h2>
+                                    <p>username</p>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card stats">
+                                        <div class="flex">
+                                            <div class="imgBox">
+                                                 <img src="/static/assets/faca.svg">
+                                            </div>
+                                            <div class="sublink">
+                                                <h2 style="color:#ffac41;" id="killPartida">0</h2>
+                                                 <h5 >KILLs NA PARTIDA</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row topStats">
+                                <div class="col-2">
+                                    <div class="card stats">
+                                        <div class="flex">
+                                            <div class="imgBox">
+                                                 <img src="/static/assets/level.svg">
+                                            </div>
+                                            <div class="sublink text-center">
+                                                <h2 id="level">0</h2>
+                                                 <h5>Level</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="card stats">
+                                        <div class="flex">
+                                            <div class="imgBox">
+                                                 <img src="/static/assets/percent.svg">
+                                            </div>
+                                            <div class="sublink">
+                                                <h2 id="kd" style="color:#ff1e56;" >0</h2>
+                                                 <h5 >K/D</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="card stats">
+                                        <div class="flex">
+                                            <div class="imgBox">
+                                                 <img src="/static/assets/skull.svg">
+                                            </div>
+                                            <div class="sublink">
+                                                <h2 id="sKills">0</h2>
+                                                 <h5>KILLS</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="card stats">
+                                        <div class="flex">
+                                            <div class="imgBox">
+                                                 <img src="/static/assets/death.svg">
+                                            </div>
+                                            <div class="sublink">
+                                                <h2 id="death">0</h2>
+                                                 <h5>DEATHS</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="card stats">
+                                        <div class="flex">
+                                            <div class="imgBox">
+                                                 <img src="/static/assets/win.svg">
+                                            </div>
+                                            <div class="sublink">
+                                                <h2 id="win">0</h2>
+                                                 <h5>WINs</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="card stats">
+                                        <div class="flex">
+                                            <div class="imgBox">
+                                                 <img src="/static/assets/top.svg">
+                                            </div>
+                                            <div class="sublink">
+                                                <h2 id="top">0</h2>
+                                                 <h5>TOP5</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+<script type="text/javascript" charset="utf-8">
+
+    var socket = io.connect('http://' + document.domain + ':' + location.port) ;
+
+
+
+
+    socket.on('card', function(data){
+    document.getElementById('linkView').click();
+            for (let item of data){
+            console.log(item)
+            if(item.kills_3){
+            var soma = parseInt(item.kills_1) + parseInt(item.kills_2) + parseInt(item.kills_3)
+            }
+            else{
+            var soma = parseInt(item.kills_1) + parseInt(item.kills_2);
+            }
+
+            console.log(document.getElementById('nomePlayer'))
+            document.getElementById('nomePlayer').innerHTML = item.name;
+            document.getElementById('killPartida').innerHTML = soma;
+            document.getElementById('level').innerHTML = item.sLevel;
+            document.getElementById('kd').innerHTML = item.sKD;
+            document.getElementById('sKills').innerHTML = item.sKill;
+            document.getElementById('death').innerHTML = item.sDeaths;
+            document.getElementById('win').innerHTML = item.sWins;
+            document.getElementById('top').innerHTML = item.sTop5;
+            }
+            var delay = 15000; // milliseconds
+    setTimeout(function() {
+
+        document.getElementById('linkView').click();
+
+    }, delay);
+
+   })
+
+
+
+
+
+
+</script>
+</html>
+
+
