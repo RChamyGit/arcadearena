@@ -19,7 +19,7 @@ def connection():
     c = conn.cursor()
 
     return c,conn
-# arcadeadminarena
+
 
 def InsertSql(myDict,table):
     try:

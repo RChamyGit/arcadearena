@@ -630,4 +630,4 @@ def make_partidas(myDict):
 
 if __name__ == '__main__':
     """ Run the app. """
-    socketio.run(app)
+    socketio.run(app, port=5002, debug=True)
