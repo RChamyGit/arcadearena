@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c48d6692-884e-43fd-bf16-b879df0e4476" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app.wsgi" beforeDir="false" afterPath="$PROJECT_DIR$/my_app.wsgi" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,9 +123,9 @@
       <screen x="0" y="23" width="1440" height="846" />
     </state>
     <state x="221" y="52" key="SettingsEditor/0.23.1440.846@0.23.1440.846" timestamp="1603711648082" />
-    <state x="397" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1603718039086">
+    <state x="397" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1603802162462">
       <screen x="0" y="23" width="1440" height="846" />
     </state>
-    <state x="397" y="234" key="com.intellij.ide.util.TipDialog/0.23.1440.846@0.23.1440.846" timestamp="1603718039086" />
+    <state x="397" y="234" key="com.intellij.ide.util.TipDialog/0.23.1440.846@0.23.1440.846" timestamp="1603802162462" />
   </component>
 </project>
