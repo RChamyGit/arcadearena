@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c48d6692-884e-43fd-bf16-b879df0e4476" name="Default Changelist" comment="" />
+    <list default="true" id="c48d6692-884e-43fd-bf16-b879df0e4476" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbconnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/dbconnect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gunicorn.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/gunicorn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_flask_app.wsgi" beforeDir="false" afterPath="$PROJECT_DIR$/modules/my_flask_app.wsgi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testeCallofduty.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/testeCallofduty.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitch_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/twitch_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vazio.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/vazio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/wsgi.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
