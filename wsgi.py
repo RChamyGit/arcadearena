@@ -1,6 +1,5 @@
-def application(environ, start_response):
-    start_response('200 OK', [('Content-Type', 'text/html')])
-    from run import app
+from gevent.pywsgi import WSGIServer
+from my_flask_app import app
 
-    if __name__ == "__main__":
-       return  app.run()
+http_server = WSGIServer(('', 5000), app)
+http_server.serve_forever()
