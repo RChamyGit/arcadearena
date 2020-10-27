@@ -1,3 +1,9 @@
-def application(environ, start_response):
-    start_response('200 OK', [('Content-Type', 'text/html')])
-    return ["<h1 style='color:blue'>Hello There You!</h1>".encode('utf-8')]
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "<h1 style='color:blue'>ARCADE ARENA</h1>"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
