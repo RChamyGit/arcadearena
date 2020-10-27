@@ -1,9 +1,4 @@
-from flask import Flask
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return "<h1 style='color:blue'>ARCADE ARENA</h1>"
+from run import app
 
 if __name__ == "__main__":
     app.run()
