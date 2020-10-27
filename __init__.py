@@ -1,19 +1,12 @@
-from flask import Flask, session, Markup, Response
-from flask import request, render_template, url_for, redirect, flash, send_file, make_response, jsonify
-from flask_mail import Mail, Message
+from flask import Flask, session
+from flask import request, render_template, url_for, redirect, flash
 from datetime import datetime
-from passlib.hash import sha256_crypt
-from dbconnect import connection, check_user_Login, check_user_ID,UpdateQuerySqlMulti3,SelectSqlMultiORDER,UpdateQuerySqlMultiINSERTS, SelectSql, UpdateQuerySql,SelectSqlShort, InsertSql, SelectSqlAll,SelectSqlMulti,SelectSqlMulti3,UpdateQuerySqlMulti
-from functools import wraps
-from werkzeug.utils import secure_filename
-import os
+from modules.dbconnect import UpdateQuerySqlMultiINSERTS, SelectSql, UpdateQuerySql,SelectSqlShort, InsertSql, SelectSqlAll,SelectSqlMulti
 from flask import send_from_directory
 
-
-import json
 import random
 from flask_socketio import *
-from testeCallofduty import getuser
+from modules.testeCallofduty import getuser
 dataDia = str(datetime.now().strftime("%d/%m/%Y"))
 hora = str(datetime.now().strftime("%H:%M:%S"))
 app = Flask(__name__)
