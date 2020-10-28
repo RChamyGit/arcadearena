@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48d6692-884e-43fd-bf16-b879df0e4476" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbconnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/dbconnect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gunicorn.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/gunicorn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_flask_app.wsgi" beforeDir="false" afterPath="$PROJECT_DIR$/modules/my_flask_app.wsgi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testeCallofduty.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/testeCallofduty.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitch_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/twitch_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vazio.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/vazio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/wsgi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +34,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/modules" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.run">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="arcadearena" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -58,8 +62,52 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="arcadearena" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="arcadearena" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run" />
+        <item itemvalue="Python.views" />
         <item itemvalue="Python.__init__" />
       </list>
     </recent_temporary>
@@ -109,30 +157,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="teste" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="559" y="199" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603746029390">
+    <state x="559" y="199" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603887983414">
       <screen x="0" y="23" width="1440" height="846" />
     </state>
-    <state x="559" y="199" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.846@0.23.1440.846" timestamp="1603746029390" />
+    <state x="559" y="199" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.846@0.23.1440.846" timestamp="1603887983414" />
     <state x="395" y="59" key="CommitChangelistDialog2" timestamp="1603802284286">
       <screen x="0" y="23" width="1440" height="846" />
     </state>
     <state x="395" y="59" key="CommitChangelistDialog2/0.23.1440.846@0.23.1440.846" timestamp="1603802284286" />
-    <state width="1419" height="191" key="GridCell.Tab.0.bottom" timestamp="1603735595603">
+    <state width="1276" height="191" key="GridCell.Tab.0.bottom" timestamp="1603891578369">
       <screen x="0" y="23" width="1440" height="846" />
     </state>
-    <state width="1419" height="191" key="GridCell.Tab.0.bottom/0.23.1440.846@0.23.1440.846" timestamp="1603735595603" />
-    <state width="1419" height="191" key="GridCell.Tab.0.center" timestamp="1603735595602">
+    <state width="1276" height="191" key="GridCell.Tab.0.bottom/0.23.1440.846@0.23.1440.846" timestamp="1603891578369" />
+    <state width="1276" height="191" key="GridCell.Tab.0.center" timestamp="1603891578369">
       <screen x="0" y="23" width="1440" height="846" />
     </state>
-    <state width="1419" height="191" key="GridCell.Tab.0.center/0.23.1440.846@0.23.1440.846" timestamp="1603735595602" />
-    <state width="1419" height="191" key="GridCell.Tab.0.left" timestamp="1603735595601">
+    <state width="1276" height="191" key="GridCell.Tab.0.center/0.23.1440.846@0.23.1440.846" timestamp="1603891578369" />
+    <state width="1276" height="191" key="GridCell.Tab.0.left" timestamp="1603891578369">
       <screen x="0" y="23" width="1440" height="846" />
     </state>
-    <state width="1419" height="191" key="GridCell.Tab.0.left/0.23.1440.846@0.23.1440.846" timestamp="1603735595601" />
-    <state width="1419" height="191" key="GridCell.Tab.0.right" timestamp="1603735595603">
+    <state width="1276" height="191" key="GridCell.Tab.0.left/0.23.1440.846@0.23.1440.846" timestamp="1603891578369" />
+    <state width="1276" height="191" key="GridCell.Tab.0.right" timestamp="1603891578369">
       <screen x="0" y="23" width="1440" height="846" />
     </state>
-    <state width="1419" height="191" key="GridCell.Tab.0.right/0.23.1440.846@0.23.1440.846" timestamp="1603735595603" />
+    <state width="1276" height="191" key="GridCell.Tab.0.right/0.23.1440.846@0.23.1440.846" timestamp="1603891578369" />
+    <state x="447" y="239" key="RollbackChangesDialog" timestamp="1603887493782">
+      <screen x="0" y="23" width="1440" height="846" />
+    </state>
+    <state x="447" y="239" key="RollbackChangesDialog/0.23.1440.846@0.23.1440.846" timestamp="1603887493782" />
     <state x="221" y="52" key="SettingsEditor" timestamp="1603711648082">
       <screen x="0" y="23" width="1440" height="846" />
     </state>
