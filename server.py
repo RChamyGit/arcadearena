@@ -60,7 +60,7 @@ def index():
         # c, conn = connection()
         return render_template('index.html')
     except Exception as e:
-        print(f' ERROR:       {str(e)}')
+        print()
         return (str(e))
 #################################### ROTAS DIRETAS ####################################
 ##### LOGOUT #####
