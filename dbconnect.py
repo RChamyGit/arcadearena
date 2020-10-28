@@ -11,11 +11,13 @@ import math
 #     c = conn.cursor()
 #
 #     return c,conn
+
+
 def connection():
-    conn = pymysql.connect(host="localhost",
+    conn = pymysql.connect(host="propane-flow-293919:us-central1:arcadearenasql",
                            user='root',
-                           passwd='Arcade1983Tv',
-                           db = 'ArcadeArena')
+                           passwd='Site1983!coNaN',
+                           db = 'arcadearena_db')
     c = conn.cursor()
 
     return c,conn
