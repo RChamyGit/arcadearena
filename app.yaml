@@ -1,0 +1,3 @@
+runtime: python38
+
+#TODO possiveis configs futuras, GCloud ja interpreta o Flask corretamente por padrao

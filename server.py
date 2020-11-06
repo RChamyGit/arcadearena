@@ -1,6 +1,6 @@
 from flask import Flask, session, Markup, Response
 from flask import request, render_template, url_for, redirect, flash, send_file, make_response, jsonify
-from flask_mail import Mail, Message
+#from flask_mail import Mail, Message
 from datetime import datetime
 from passlib.hash import sha256_crypt
 from dbconnect import connection, check_user_Login, check_user_ID,UpdateQuerySqlMulti3,SelectSqlMultiORDER,UpdateQuerySqlMultiINSERTS, SelectSql, UpdateQuerySql,SelectSqlShort, InsertSql, SelectSqlAll,SelectSqlMulti,SelectSqlMulti3,UpdateQuerySqlMulti

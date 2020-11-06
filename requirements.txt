@@ -9,3 +9,6 @@ greenlet==0.4.17
 pycparser==2.20
 six==1.15.0
 virtualenv==20.1.0
+flask_socketio== 4.6.0
+pymsql == 0.10.1
+callofduty.py == 1.2.1
