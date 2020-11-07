@@ -1,3 +1,9 @@
 runtime: python38
 
+env_variables:
+    CLOUD_SQL_USERNAME: YOUR-DB-USERNAME
+    CLOUD_SQL_PASSWORD: YOUR-DB-PASSWORD
+    CLOUD_SQL_DATABASE_NAME: YOUR-DB-NAME
+    CLOUD_SQL_CONNECTION_NAME: YOUR-CONN-NAME
+
 #TODO possiveis configs futuras, GCloud ja interpreta o Flask corretamente por padrao

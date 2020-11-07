@@ -2,6 +2,7 @@ import pymysql
 import warnings
 import random
 import math
+import os
 
 # def connection():
 #     conn = pymysql.connect(host="us-cdbr-east-02.cleardb.com",
@@ -11,6 +12,11 @@ import math
 #     c = conn.cursor()
 #
 #     return c,conn
+
+db_user = os.environ.get('CLOUD_SQL_USERNAME')
+db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
 
 
 def connection():
